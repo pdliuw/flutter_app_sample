@@ -15,22 +15,59 @@ class LoginPage extends AppCommonStatefulPage {
   @override
   Widget createWidget() {
     return Center(
-      child: Column(
-        children: <Widget>[
-          AppCommonTextField(
-            textField: TextField(
-              decoration: InputDecoration(
-                labelText: '手机号',
-                hintText: "请输入手机号",
-                errorText: "请输入11位手机号",
-                helperText: "helper",
+      child: SizedBox(
+        width: 250,
+        height: 450,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            AppCommonTextField(
+              textField: TextField(
+                decoration: InputDecoration(
+                  labelText: '手机号',
+                  hintText: "请输入手机号",
+                  errorText: "请输入11位手机号",
+                  helperText: "helper",
+                ),
+                textAlign: TextAlign.start,
+                enabled: true,
+                maxLength: 11,
               ),
-              textAlign: TextAlign.start,
-              enabled: true,
-              maxLength: 11,
             ),
-          ),
-        ],
+            AppCommonTextField(
+              textField: TextField(
+                decoration: InputDecoration(
+                  labelText: '密码',
+                  hintText: "请输入密码",
+                  errorText: "请输入正确的密码",
+                  helperText: "helper",
+                ),
+                textAlign: TextAlign.start,
+                enabled: true,
+                maxLength: 100,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                FlatButton(
+                  textColor: Colors.blue,
+                  onPressed: () {},
+                  child: Text("退出"),
+                ),
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {},
+                  child: Text("登陆"),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
