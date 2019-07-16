@@ -17,10 +17,18 @@ class LoginPage extends AppCommonStatefulPage {
     return Center(
       child: SizedBox(
         width: 250,
-        height: 450,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Padding(
+                padding: EdgeInsets.all(80),
+                child: Text(
+                  "Air",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.blue,
+                  ),
+                )),
             AppCommonTextField(
               textField: TextField(
                 decoration: InputDecoration(
