@@ -7,7 +7,7 @@ class LoginPage extends AppCommonStatefulPage {
   Config createConfig() {
     return Config(
       titleName: "登陆",
-      showBackArrow: true,
+      showBackArrow: false,
       showAppBar: true,
     );
   }
