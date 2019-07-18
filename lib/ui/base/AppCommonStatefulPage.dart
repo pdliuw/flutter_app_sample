@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/common/util/LogUtil.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
+///基类：每个页面的创建都需要继承此类
+///功能描述
+///1、创建页面的配置信息
+///2、创建页面的主部件
+///3、提示
+///4、
 abstract class AppCommonStatefulPage extends StatefulWidget {
   EnterParameter enterParameter;
   ///有参数构造器
@@ -17,6 +23,21 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
 
   ///创建页面的小部件
   Widget createWidget();
+
+  showToast(String message){
+    if(message == null){
+      return;
+    }
+    Fluttertoast.showToast(
+      msg: "${message}",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIos: 1,
+      backgroundColor: Colors.black45,
+      textColor: Colors.white,
+    );
+
+  }
 }
 
 class _AppCommonStatefulPage extends State<AppCommonStatefulPage> {
@@ -69,6 +90,7 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage> {
     );
   }
 }
+
 
 class Config {
   const Config({

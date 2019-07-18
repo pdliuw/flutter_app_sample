@@ -12,6 +12,11 @@ class LoginPage extends AppCommonStatefulPage {
     );
   }
 
+  ///获取验证码
+  _getVerificationCode(){
+    showToast("验证码已发送");
+  }
+
   @override
   Widget createWidget() {
     return Center(
@@ -42,18 +47,30 @@ class LoginPage extends AppCommonStatefulPage {
                 maxLength: 11,
               ),
             ),
-            AppCommonTextField(
-              textField: TextField(
-                decoration: InputDecoration(
-                  labelText: '密码',
-                  hintText: "请输入密码",
-                  errorText: "请输入正确的密码",
-                  helperText: "helper",
+            Stack(
+              alignment: AlignmentDirectional.centerEnd,
+              children: <Widget>[
+                AppCommonTextField(
+                  textField: TextField(
+                    decoration: InputDecoration(
+                      labelText: '密码',
+                      hintText: "请输入密码",
+                      errorText: "请输入正确的密码",
+                      helperText: "helper",
+                    ),
+                    textAlign: TextAlign.start,
+                    enabled: true,
+                    maxLength: 100,
+                  ),
                 ),
-                textAlign: TextAlign.start,
-                enabled: true,
-                maxLength: 100,
-              ),
+                FlatButton(
+                  onPressed: () {
+                    _getVerificationCode();
+                  },
+                  child: Text("验证码"),
+                  textColor: Colors.blue,
+                )
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
