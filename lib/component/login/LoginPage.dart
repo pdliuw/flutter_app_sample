@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/ui/common/AppCommonTextField.dart';
+import 'package:flutter_app_sample/net/HttpContext.dart';
 
 class LoginPage extends AppCommonStatefulPage {
   @override
@@ -13,8 +14,15 @@ class LoginPage extends AppCommonStatefulPage {
   }
 
   ///获取验证码
-  _getVerificationCode(){
+  _getVerificationCode() {
     showToast("验证码已发送");
+    HttpContext().getVerificationCode(call: (String responseStr) {
+      showToast("OK" + responseStr);
+    });
+  }
+
+  _getPhoneErrorInfo(){
+    return "请输入11位手机号";
   }
 
   @override
@@ -39,12 +47,15 @@ class LoginPage extends AppCommonStatefulPage {
                 decoration: InputDecoration(
                   labelText: '手机号',
                   hintText: "请输入手机号",
-                  errorText: "请输入11位手机号",
+                  errorText: _getPhoneErrorInfo(),
                   helperText: "helper",
                 ),
                 textAlign: TextAlign.start,
                 enabled: true,
                 maxLength: 11,
+                onChanged: (String content){
+
+                },
               ),
             ),
             Stack(
