@@ -20,7 +20,13 @@ Flutter Project Sample
 [English Document](/README.md)  [中文文档](/README_CH.md)
 
 
-###	1.Include Technology
+### Render
+
+
+![Login](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login.gif)
+
+
+###	1.  Include Technology
 
 Include develop technology in The project
 

@@ -19,19 +19,28 @@ Flutter项目示例
 
 [English Document](/README.md)  [中文文档](/README_CH.md)
 
+### 效果图
 
-### 项目理念
+
+![Login](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login.gif)
+
+
+### 1.  项目理念
 
 1.  项目中不直接使用三方文件
 2.  使用
 
-###	1.涉及技术
+###	2.  涉及技术
 
 项目中涉及的技术
 
 1.	网络框架:	[Dio](https://github.com/flutterchina/dio)
 2.
 
+### 3.
+
+
+###
 
 ----
 

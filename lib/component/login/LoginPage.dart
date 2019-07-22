@@ -4,7 +4,10 @@ import 'package:flutter_app_sample/net/HttpContext.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
 
 class LoginPage extends AppCommonStatefulPage {
+  static const num PHONE_MAX_LENGTH_DEFAULT = 11;
+  static const num VERIFICATION_MAX_LENGTH_DEFAULT = 6;
   String phoneStr = "";
+  String passwordStr = "";
   String verificationStr = "";
 
   @override
@@ -29,16 +32,30 @@ class LoginPage extends AppCommonStatefulPage {
   }
 
   String _getPhoneErrorInfo() {
-    if (StringUtil.isNull(phoneStr) || phoneStr.length == 11) {
+    if (StringUtil.isEmpty(phoneStr) || phoneStr.length == 11) {
       return StringUtil.getEmpty;
     } else {
       return "请输入11位手机号";
     }
   }
 
+  String _getPasswordErrorInfo() {
+    if (StringUtil.isEmpty(passwordStr) || passwordStr.length == 6) {
+      return StringUtil.getEmpty;
+    } else {
+      return "请输入6位验证码";
+    }
+  }
+
   _phoneInputChange(String content) {
     setState(stateCallback: () {
       phoneStr = content;
+    });
+  }
+
+  _passwordInputChange(String content) {
+    setState(stateCallback: () {
+      passwordStr = content;
     });
   }
 
@@ -68,7 +85,7 @@ class LoginPage extends AppCommonStatefulPage {
               ),
               textAlign: TextAlign.start,
               enabled: true,
-              maxLength: 11,
+              maxLength: PHONE_MAX_LENGTH_DEFAULT,
               onChanged: (String content) {
                 _phoneInputChange(content);
               },
@@ -80,12 +97,15 @@ class LoginPage extends AppCommonStatefulPage {
                   decoration: InputDecoration(
                     labelText: '密码',
                     hintText: "请输入密码",
-                    errorText: "请输入正确的密码",
+                    errorText: _getPasswordErrorInfo(),
                     helperText: "helper",
                   ),
                   textAlign: TextAlign.start,
                   enabled: true,
-                  onChanged: (String content) {},
+                  maxLength: VERIFICATION_MAX_LENGTH_DEFAULT,
+                  onChanged: (String content) {
+                    _passwordInputChange(content);
+                  },
                 ),
                 FlatButton(
                   onPressed: () {
