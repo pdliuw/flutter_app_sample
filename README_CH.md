@@ -20,6 +20,11 @@ Flutter项目示例
 [English Document](/README.md)  [中文文档](/README_CH.md)
 
 
+### 项目理念
+
+1.  项目中不直接使用三方文件
+2.  使用
+
 ###	1.涉及技术
 
 项目中涉及的技术

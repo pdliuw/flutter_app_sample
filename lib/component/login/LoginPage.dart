@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
-import 'package:flutter_app_sample/ui/common/AppCommonTextField.dart';
 import 'package:flutter_app_sample/net/HttpContext.dart';
+import 'package:flutter_app_sample/common/util/StringUtil.dart';
 
 class LoginPage extends AppCommonStatefulPage {
+  String phoneStr = "";
+  String verificationStr = "";
+
   @override
   Config createConfig() {
     return Config(
@@ -15,14 +18,28 @@ class LoginPage extends AppCommonStatefulPage {
 
   ///获取验证码
   _getVerificationCode() {
+    if (phoneStr.isEmpty) {
+      setState(stateCallback: () {});
+      return;
+    }
     showToast("验证码已发送");
     HttpContext().getVerificationCode(call: (String responseStr) {
       showToast("OK" + responseStr);
     });
   }
 
-  _getPhoneErrorInfo(){
-    return "请输入11位手机号";
+  String _getPhoneErrorInfo() {
+    if (StringUtil.isNull(phoneStr) || phoneStr.length == 11) {
+      return StringUtil.getEmpty;
+    } else {
+      return "请输入11位手机号";
+    }
+  }
+
+  _phoneInputChange(String content) {
+    setState(stateCallback: () {
+      phoneStr = content;
+    });
   }
 
   @override
@@ -42,37 +59,33 @@ class LoginPage extends AppCommonStatefulPage {
                     color: Colors.blue,
                   ),
                 )),
-            AppCommonTextField(
-              textField: TextField(
-                decoration: InputDecoration(
-                  labelText: '手机号',
-                  hintText: "请输入手机号",
-                  errorText: _getPhoneErrorInfo(),
-                  helperText: "helper",
-                ),
-                textAlign: TextAlign.start,
-                enabled: true,
-                maxLength: 11,
-                onChanged: (String content){
-
-                },
+            TextField(
+              decoration: InputDecoration(
+                labelText: '手机号',
+                hintText: "请输入手机号",
+                errorText: _getPhoneErrorInfo(),
+                helperText: "helper",
               ),
+              textAlign: TextAlign.start,
+              enabled: true,
+              maxLength: 11,
+              onChanged: (String content) {
+                _phoneInputChange(content);
+              },
             ),
             Stack(
               alignment: AlignmentDirectional.centerEnd,
               children: <Widget>[
-                AppCommonTextField(
-                  textField: TextField(
-                    decoration: InputDecoration(
-                      labelText: '密码',
-                      hintText: "请输入密码",
-                      errorText: "请输入正确的密码",
-                      helperText: "helper",
-                    ),
-                    textAlign: TextAlign.start,
-                    enabled: true,
-                    maxLength: 100,
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: '密码',
+                    hintText: "请输入密码",
+                    errorText: "请输入正确的密码",
+                    helperText: "helper",
                   ),
+                  textAlign: TextAlign.start,
+                  enabled: true,
+                  onChanged: (String content) {},
                 ),
                 FlatButton(
                   onPressed: () {

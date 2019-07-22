@@ -1,42 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/common/util/LogUtil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_app_sample/common/util/ToastUtil.dart';
+
 ///基类：每个页面的创建都需要继承此类
 ///功能描述
-///1、创建页面的配置信息
-///2、创建页面的主部件
-///3、提示
-///4、
+///1、创建页面的配置信息Config createConfig();
+///2、创建页面的主部件Widget createWidget();
+///3、提示 showToast(msg);
+///4、更新小部件setState(stateCallback: Function);
+///
+typedef StateCallback = Function();
+
 abstract class AppCommonStatefulPage extends StatefulWidget {
-  EnterParameter enterParameter;
+  
+  EnterParameter enterParameter = null;
+  _AppCommonStatefulPage _statefulPage = null;
+
   ///有参数构造器
   AppCommonStatefulPage({
     @required this.enterParameter,
   });
 
   @override
-  _AppCommonStatefulPage createState() {
-    return _AppCommonStatefulPage(createConfig(), createWidget(), this.enterParameter);
+  State<StatefulWidget> createState() {
+    _statefulPage = _AppCommonStatefulPage(
+        createConfig(), createWidget(), this.enterParameter);
+    return _statefulPage;
   }
+
   ///创建页面的配置信息
   Config createConfig();
 
   ///创建页面的小部件
   Widget createWidget();
 
-  showToast(String message){
-    if(message == null){
+  showToast(String message) {
+    ToastUtil.showToast(message: message);
+  }
+
+  setState({@required StateCallback stateCallback}) {
+    if (_statefulPage == null) {
       return;
     }
-    Fluttertoast.showToast(
-      msg: "${message}",
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIos: 1,
-      backgroundColor: Colors.black45,
-      textColor: Colors.white,
-    );
-
+    //更新状态
+    _statefulPage?.setState(() {
+      stateCallback();
+      _statefulPage.rootWidget = createWidget();
+      _statefulPage.config = createConfig();
+      _statefulPage.enterParameter = this.enterParameter;
+    });
   }
 }
 
@@ -45,13 +57,14 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage> {
   Widget rootWidget;
   EnterParameter enterParameter;
 
-  _AppCommonStatefulPage(Config config, Widget rootWidget, EnterParameter enterParameter) {
+  _AppCommonStatefulPage(
+      Config config, Widget rootWidget, EnterParameter enterParameter) {
     this.config = config;
     this.rootWidget = rootWidget;
     this.enterParameter = enterParameter;
   }
 
-  Widget _getLeading() {
+  Widget _getAppBarLeading() {
     if (config.showBackArrow) {
       return GestureDetector(
         onTap: () {
@@ -67,11 +80,23 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage> {
     }
   }
 
-  _exitThisPage(){
+  _getShowAppBar() {
+    if (config.showAppBar) {
+      return AppBar(
+        leading: _getAppBarLeading(),
+        title: Text("${config.titleName}"),
+        centerTitle: true,
+      );
+    } else {
+      return null;
+    }
+  }
+
+  _exitThisPage() {
     var context = enterParameter?.previousPageContext;
-    if(context != null){
+    if (context != null) {
       Navigator.pop(context);
-    }else{
+    } else {
       LogUtil.log("检测到异常；退出页面时，上下文对象为空！");
     }
   }
@@ -80,35 +105,45 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: _getLeading(),
-          title: Text("${config.titleName}"),
-          centerTitle: true,
-        ),
+        appBar: _getShowAppBar(),
         body: rootWidget,
       ),
     );
   }
 }
 
-
 class Config {
-  const Config({
-    @required this.titleName = 'title',
-    this.showAppBar = true,
-    this.showBackArrow = true,
-  });
+  Config({
+    @required String titleName = 'title',
+    bool showAppBar = true,
+    bool showBackArrow = true,
+  }) {
+    this._titleName = titleName;
+    this._showAppBar = showAppBar;
+    this._showBackArrow = showBackArrow;
+  }
 
-  final bool showAppBar;
-  final String titleName;
-  final bool showBackArrow;
+  bool _showAppBar;
+  String _titleName;
+  bool _showBackArrow;
+
+  set titleName(String titleName) {
+    this._titleName = titleName;
+  }
+
+  set showAppBar(bool showAppBar) => _showAppBar = showAppBar;
+  set showBackArrow(bool showBackArrow) => _showBackArrow = showBackArrow;
+
+  String get titleName => _titleName;
+  bool get showAppBar => _showAppBar;
+  bool get showBackArrow => _showBackArrow;
 }
 
 class EnterParameter {
   BuildContext previousPageContext;
   EnterParameter({
     @required BuildContext previousPageContext,
-  }){
+  }) {
     this.previousPageContext = previousPageContext;
   }
 }
