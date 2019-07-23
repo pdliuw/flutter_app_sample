@@ -8,8 +8,12 @@ categories: 跨平台
 tags:
 - Flutter
 - Dart
+- MVP
+- Dio
 
 ---
+
+----
 
 ![图腾](http://puvbjx92j.bkt.clouddn.com/totem_four_logo.jpg)
 
@@ -29,26 +33,24 @@ Flutter项目示例
 ### 1.  项目理念
 
 1.  项目中不直接使用三方文件
-2.  使用
 
 ###	2.  涉及技术
 
 项目中涉及的技术
 
-1.	网络框架:	[Dio](https://github.com/flutterchina/dio)
-2.
-
-### 3.
+1.  设计框架: MVP
+2.	网络框架:	[Dio](https://github.com/flutterchina/dio)
 
 
-###
+### 3.  TODO
 
-----
-
-
+1.  持续迭代项目
 
 
 ----
+
+
+
 
 
 

@@ -2,13 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/net/HttpContext.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
+import 'package:flutter_app_sample/component/login/LoginView.dart';
+import 'package:flutter_app_sample/component/login/LoginRepository.dart';
+import 'package:flutter_app_sample/component/login/LoginPresenter.dart';
 
-class LoginPage extends AppCommonStatefulPage {
+class LoginPage extends AppCommonStatefulPage implements LoginView {
   static const num PHONE_MAX_LENGTH_DEFAULT = 11;
   static const num VERIFICATION_MAX_LENGTH_DEFAULT = 6;
   String phoneStr = "";
   String passwordStr = "";
   String verificationStr = "";
+
+  LoginPresenter _presenter;
+
+  @override
+  void initState() {
+    super.initState();
+    //Presenter.
+    LoginPresenter(loginSource: LoginRepository(), loginView: this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    //Presenter.
+    _presenter = null;
+  }
 
   @override
   Config createConfig() {
@@ -17,18 +36,6 @@ class LoginPage extends AppCommonStatefulPage {
       showBackArrow: false,
       showAppBar: true,
     );
-  }
-
-  ///获取验证码
-  _getVerificationCode() {
-    if (phoneStr.isEmpty) {
-      setState(stateCallback: () {});
-      return;
-    }
-    showToast("验证码已发送");
-    HttpContext().getVerificationCode(call: (String responseStr) {
-      showToast("OK" + responseStr);
-    });
   }
 
   String _getPhoneErrorInfo() {
@@ -109,7 +116,7 @@ class LoginPage extends AppCommonStatefulPage {
                 ),
                 FlatButton(
                   onPressed: () {
-                    _getVerificationCode();
+                    getVerificationCode();
                   },
                   child: Text("验证码"),
                   textColor: Colors.blue,
@@ -130,7 +137,9 @@ class LoginPage extends AppCommonStatefulPage {
                   ),
                   color: Colors.blue,
                   textColor: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    login();
+                  },
                   child: Text("登陆"),
                 )
               ],
@@ -139,5 +148,78 @@ class LoginPage extends AppCommonStatefulPage {
         ),
       ),
     );
+  }
+
+  @override
+  getVerificationCode() {
+    if (phoneStr.isEmpty) {
+      setState(stateCallback: () {});
+      return null;
+    }
+    showToast("验证码已发送");
+    _presenter.getVerificationCode();
+    return null;
+  }
+
+  @override
+  getVerificationCodeFailure() {
+    showToast("获取验证码失败，请检查后重试!");
+    return null;
+  }
+
+  @override
+  getVerificationCodeStart() {
+    // TODO: implement getVerificationCodeStart
+    return null;
+  }
+
+  @override
+  getVerificationCodeStop() {
+    // TODO: implement getVerificationCodeStop
+    return null;
+  }
+
+  @override
+  getVerificationCodeSuccess() {
+    showToast("获取验证码成功，请注意查收!");
+    return null;
+  }
+
+  @override
+  login() {
+    // TODO: implement login
+    return null;
+  }
+
+  @override
+  loginFailure() {
+    // TODO: implement loginFailure
+    return null;
+  }
+
+  @override
+  loginStart() {
+    // TODO: implement loginStart
+    return null;
+  }
+
+  @override
+  loginStop() {
+    // TODO: implement loginStop
+    return null;
+  }
+
+  @override
+  loginSuccess() {
+    // TODO: implement loginSuccess
+    return null;
+  }
+
+  @override
+  setPresenter(presenter) {
+    if (presenter is LoginPresenter) {
+      _presenter = presenter;
+    }
+    return null;
   }
 }

@@ -110,6 +110,10 @@ class HttpContext {
       successData.data = response.toString();
       successData.code = response.statusCode;
       successData.message = response.statusMessage;
+
+      //Callback
+      //Response success!
+      responseCallback.successCallback(successData);
     } on DioError catch (e) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx and is also not 304.
@@ -125,14 +129,14 @@ class HttpContext {
 
       //填充失败的数据
       failureData.message = e.message;
-    }
 
-    //Callback
-    responseCallback.successCallback(successData);
-    responseCallback.failureCallback(failureData);
+      //Callback
+      //Response failure.
+      responseCallback.failureCallback(failureData);
+    }
   }
 
-  void getVerificationCode({void call(String responseStr)}) async {
+  void getVerificationCode({void call(String responseStr)}) {
     postHttp(
         postOption: PostOption(
           urlPath: "/api/app/v1/LoginCtrl/getVerificationCode",

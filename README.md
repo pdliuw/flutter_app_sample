@@ -8,8 +8,13 @@ categories: 跨平台
 tags:
 - Flutter
 - Dart
+- MVP
+- Dio
 
 ---
+
+
+----
 
 ![totem](http://puvbjx92j.bkt.clouddn.com/totem_four_logo.jpg)
 
@@ -26,13 +31,22 @@ Flutter Project Sample
 
 ![Login](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login.gif)
 
+### 1.  Project concept
 
-###	1.  Include Technology
+1.  Tripartite documents are not used directly in the project
+
+###	2.  Include Technology
 
 Include develop technology in The project
 
-1.	Net:	[Dio](https://github.com/flutterchina/dio)
-2.
+1.  Design: MVP
+2.	Net:	[Dio](https://github.com/flutterchina/dio)
+
+
+### 3.  TODO
+
+
+1.  Continuous iterative project
 
 
 ----
