@@ -38,7 +38,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   }
 
   String _getPhoneErrorInfo() {
-    if (StringUtil.isEmpty(phoneStr) || phoneStr.length == 11) {
+    if (StringUtil.isEmpty(phoneStr) || phoneStr.length == PHONE_MAX_LENGTH_DEFAULT) {
       return StringUtil.getEmpty;
     } else {
       return "请输入11位手机号";
@@ -46,7 +46,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   }
 
   String _getPasswordErrorInfo() {
-    if (StringUtil.isEmpty(passwordStr) || passwordStr.length == 6) {
+    if (StringUtil.isEmpty(passwordStr) || passwordStr.length == VERIFICATION_MAX_LENGTH_DEFAULT) {
       return StringUtil.getEmpty;
     } else {
       return "请输入6位验证码";
