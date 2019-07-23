@@ -5,7 +5,11 @@ import 'package:flutter_app_sample/common/config/ApiConfig.dart';
 
 ///https://github.com/flutterchina/dio
 ///
-///
+///getHttp(...)
+///postHttp(...)
+///ResponseCallback...
+///SuccessData...
+///FailureData...
 typedef SuccessCallback = Function(SuccessData success);
 typedef FailureCallback = Function(FailureData failure);
 
@@ -75,19 +79,38 @@ class HttpContext {
     return dio;
   }
 
-  getHttp({@required GetOption getOption}) async {
+  ///Get request!
+  getHttp({
+    @required GetOption getOption,
+    @required ResponseCallback responseCallback,
+  }) async {
     Dio dio = createDio();
 
-//    dio.get(path);
+    try {
+      Response response = await dio.get(
+        getOption.urlPath,
+        queryParameters: getOption.queryParameters,
+        //接收进度
+        onReceiveProgress: (int count, int total) {
+          print("ReceiveProgress --> total: $total , count: $count !");
+        },
+      );
+
+      //交互成功
+      //Success
+      successHttp(response: response, responseCallback: responseCallback);
+    } on DioError catch (e) {
+      //Callback
+      //Response failure.
+      failureHttp(e: e, responseCallback: responseCallback);
+    }
   }
 
-  postHttp(
-      {@required PostOption postOption,
-      @required ResponseCallback responseCallback}) async {
-    //响应数据
-    SuccessData successData = SuccessData();
-    FailureData failureData = FailureData();
-
+  ///Post request!
+  postHttp({
+    @required PostOption postOption,
+    @required ResponseCallback responseCallback,
+  }) async {
     Dio dio = createDio();
 
     try {
@@ -105,69 +128,119 @@ class HttpContext {
           print("ReceiveProgress --> total: $total , count: $count !");
         },
       );
-      //交互成功
-      //填充成功的数据
-      successData.data = response.toString();
-      successData.code = response.statusCode;
-      successData.message = response.statusMessage;
-
-      //Callback
-      //Response success!
-      responseCallback.successCallback(successData);
+      //Success
+      successHttp(response: response, responseCallback: responseCallback);
     } on DioError catch (e) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx and is also not 304.
-      if (e.response != null) {
-        print(e.response.data);
-        print(e.response.headers);
-        print(e.response.request);
-      } else {
-        // Something happened in setting up or sending the request that triggered an Error
-        print(e.request);
-        print(e.message);
-      }
-
-      //填充失败的数据
-      failureData.message = e.message;
-
-      //Callback
-      //Response failure.
-      responseCallback.failureCallback(failureData);
+      //Failure
+      failureHttp(e: e, responseCallback: responseCallback);
     }
   }
 
-  void getVerificationCode({void call(String responseStr)}) {
-    postHttp(
-        postOption: PostOption(
-          urlPath: "/api/app/v1/LoginCtrl/getVerificationCode",
-          data: {
-            "mobile": "18518176804",
-            "type": "APP_LOGIN",
-          },
-        ),
-        responseCallback: ResponseCallback(
-          successCallback: (SuccessData successData) {
-            call(successData.data);
-          },
-          failureCallback: (FailureData failureData) {
-            call(failureData.message);
-          },
-        ));
+  //HTTP Response success!
+  successHttp({
+    @required Response response,
+    @required ResponseCallback responseCallback,
+  }) {
+    //响应数据
+    SuccessData successData = SuccessData();
+    //交互成功
+    //填充成功的数据
+    successData.data = response.toString();
+    successData.code = response.statusCode;
+    successData.message = response.statusMessage;
+
+    //Callback
+    //Response success!
+    responseCallback.successCallback(successData);
+  }
+
+  ///HTTP Response failure!
+  failureHttp({
+    @required DioError e,
+    @required ResponseCallback responseCallback,
+  }) {
+    FailureData failureData = FailureData();
+
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx and is also not 304.
+    if (e.response != null) {
+      print(e.response.data);
+      print(e.response.headers);
+      print(e.response.request);
+    } else {
+      // Something happened in setting up or sending the request that triggered an Error
+      print(e.request);
+      print(e.message);
+    }
+
+    //填充失败的数据
+    failureData.message = e.message;
+
+    //Callback
+    //Response failure.
+    responseCallback.failureCallback(failureData);
   }
 }
 
-class GetOption {}
+class GetOption {
+  String _urlPath;
+  Map<String, dynamic> _queryParameters;
 
-class PostOption {
-  String urlPath;
-  dynamic data;
+  ///Setter\Getter
+  Map<String, dynamic> get queryParameters => _queryParameters;
+  String get urlPath => _urlPath;
 
-  PostOption({
-    @required this.urlPath,
-    @required this.data,
-  }) {}
+  GetOption({String urlPath}) {
+    this._urlPath = urlPath;
+  }
 }
 
+///POST request option!
+class PostOption {
+  String _urlPath;
+  dynamic _data;
+
+  //Setter\Getter
+  String get urlPath => _urlPath;
+  dynamic get data => _data;
+
+  PostOption({
+    @required String urlPath,
+    @required dynamic data,
+  }) {
+    this._urlPath = urlPath;
+    this._data = data;
+  }
+}
+
+///HTTP Dio response base template!
+class BaseResponse {
+  /// 响应数据，可能已经被转换了类型, 详情请参考Options中的[ResponseType].
+  var data;
+
+  /// 响应头
+  HttpHeaders headers;
+
+  /// 本次请求信息
+  Options request;
+
+  /// Http status code.
+  int statusCode;
+
+  /// 是否重定向
+  bool isRedirect;
+
+  /// 重定向信息
+  List<RedirectInfo> redirects;
+
+  /// 最终真正的请求地址(因为可能会重定向)
+  Uri realUri;
+
+  /// 响应对象的自定义字段（可以在拦截器中设置它），调用方可以在`then`中获取.
+  Map<String, dynamic> extra;
+}
+
+///HTTP Response callback!
 class ResponseCallback {
   SuccessCallback successCallback;
   FailureCallback failureCallback;
@@ -178,12 +251,14 @@ class ResponseCallback {
   });
 }
 
+///HTTP Response success's data!
 class SuccessData {
   String message;
   int code;
   String data;
 }
 
+///HTTP Response failure's data!
 class FailureData {
   String message;
   String code;
