@@ -1,16 +1,16 @@
 import 'package:flutter_app_sample/component/BasePresenter.dart';
 import 'package:flutter_app_sample/component/login/LoginSource.dart';
-import 'package:flutter_app_sample/component/login/LoginView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/net/HttpContext.dart';
+import 'package:flutter_app_sample/component/login/LoginContract.dart';
 
-class LoginPresenter extends BasePresenter {
-  LoginView _loginView;
+class LoginPresenter extends ILoginPresenter {
+  ILoginView _loginView;
   LoginSource _loginSource;
 
   LoginPresenter({
     @required LoginSource loginSource,
-    @required LoginView loginView,
+    @required ILoginView loginView,
   }) {
     this._loginSource = loginSource;
     this._loginView = loginView;
@@ -27,12 +27,10 @@ class LoginPresenter extends BasePresenter {
     return null;
   }
 
-  getVerificationCode() {
+  @override
+  getVerificationCode({@required dynamic data}) {
     _loginSource.getVerificationCode(
-      data: {
-        "mobile": "18518176804",
-        "type": "APP_LOGIN",
-      },
+      data: data,
       responseCallback: ResponseCallback(
         successCallback: (SuccessData successData) {
           _loginView.getVerificationCodeSuccess();
@@ -44,7 +42,8 @@ class LoginPresenter extends BasePresenter {
     );
   }
 
-  login() {
+  @override
+  login({@required dynamic data}) {
     _loginSource.login();
   }
 }

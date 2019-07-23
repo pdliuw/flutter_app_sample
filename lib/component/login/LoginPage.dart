@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
-import 'package:flutter_app_sample/net/HttpContext.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
-import 'package:flutter_app_sample/component/login/LoginView.dart';
+import 'package:flutter_app_sample/component/login/LoginContract.dart';
 import 'package:flutter_app_sample/component/login/LoginRepository.dart';
 import 'package:flutter_app_sample/component/login/LoginPresenter.dart';
 
-class LoginPage extends AppCommonStatefulPage implements LoginView {
+class LoginPage extends AppCommonStatefulPage implements ILoginView {
   static const num PHONE_MAX_LENGTH_DEFAULT = 11;
   static const num VERIFICATION_MAX_LENGTH_DEFAULT = 6;
   String phoneStr = "";
@@ -157,7 +156,10 @@ class LoginPage extends AppCommonStatefulPage implements LoginView {
       return null;
     }
     showToast("验证码已发送");
-    _presenter.getVerificationCode();
+    _presenter.getVerificationCode(data: {
+      "mobile": phoneStr,
+      "type": "APP_LOGIN",
+    });
     return null;
   }
 
