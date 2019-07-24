@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
 import 'package:flutter_app_sample/component/login/LoginContract.dart';
 import 'package:flutter_app_sample/component/login/LoginRepository.dart';
 import 'package:flutter_app_sample/component/login/LoginPresenter.dart';
-
+///登陆页面
+///
+///针对IOS和Android设备制定不同的设计
 class LoginPage extends AppCommonStatefulPage implements ILoginView {
   static const num PHONE_MAX_LENGTH_DEFAULT = 11;
   static const num VERIFICATION_MAX_LENGTH_DEFAULT = 6;
@@ -38,7 +41,8 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   }
 
   String _getPhoneErrorInfo() {
-    if (StringUtil.isEmpty(phoneStr) || phoneStr.length == PHONE_MAX_LENGTH_DEFAULT) {
+    if (StringUtil.isEmpty(phoneStr) ||
+        phoneStr.length == PHONE_MAX_LENGTH_DEFAULT) {
       return StringUtil.getEmpty;
     } else {
       return "请输入11位手机号";
@@ -46,7 +50,8 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   }
 
   String _getPasswordErrorInfo() {
-    if (StringUtil.isEmpty(passwordStr) || passwordStr.length == VERIFICATION_MAX_LENGTH_DEFAULT) {
+    if (StringUtil.isEmpty(passwordStr) ||
+        passwordStr.length == VERIFICATION_MAX_LENGTH_DEFAULT) {
       return StringUtil.getEmpty;
     } else {
       return "请输入6位验证码";
@@ -63,6 +68,18 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
     setState(stateCallback: () {
       passwordStr = content;
     });
+  }
+
+  Widget _getLogoutWidget() {
+    if (Platform.isIOS) {
+      return Text("");
+    } else {
+      return FlatButton(
+        textColor: Colors.blue,
+        onPressed: () {},
+        child: Text("退出"),
+      );
+    }
   }
 
   @override
@@ -125,11 +142,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                FlatButton(
-                  textColor: Colors.blue,
-                  onPressed: () {},
-                  child: Text("退出"),
-                ),
+                _getLogoutWidget(),
                 RaisedButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6),

@@ -29,6 +29,8 @@ Flutter项目示例
 
 ![Login](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login.gif)
 
+|![Android-Platform](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login_android_latform.gif)|![IOS-Platform](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login_ios_latform.gif)|
+|:-:|:-|
 
 ### 1.  项目理念
 

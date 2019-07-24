@@ -31,6 +31,9 @@ Flutter Project Sample
 
 ![Login](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login.gif)
 
+|![Android-Platform](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login_android_latform.gif)|![IOS-Platform](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login_ios_latform.gif)|
+|:-:|:-|
+
 ### 1.  Project concept
 
 1.  Tripartite documents are not used directly in the project
