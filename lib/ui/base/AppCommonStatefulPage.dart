@@ -10,10 +10,13 @@ import 'package:flutter_app_sample/common/util/ToastUtil.dart';
 ///4、更新小部件setState(stateCallback: Function);
 ///5、生命周期的管理
 ///6、关闭当前页面pop();
+///7、启动新页面pushNamed();
+///8、TODO：push时携带参数的封装
 typedef StateCallback = Function();
 typedef LifecycleCallback = Function();
 
 abstract class AppCommonStatefulPage extends StatefulWidget {
+//    implements RouteObserver {
   EnterParameter enterParameter = null;
   _AppCommonStatefulPage _statefulPage = null;
   LifecycleManager _lifecycleManager = null;
@@ -74,16 +77,28 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
   pop() {
     _statefulPage?.exitThisPage();
   }
-  ///TODO:修改中
-  push({@required Widget widget}) {
-    _statefulPage?.push(widget);
+
+  ///
+  pushNamed(
+      {@required String routeName, @required EnterParameter enterParameter}) {
+    _statefulPage?.pushNamed(routeName: routeName, arguments: enterParameter);
   }
+
+//  @override
+//  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
+//    showToast("Route push:${route.settings.arguments.toString()}");
+//    LogUtil.log("Route push:${route.settings.arguments.toString()}");
+//  }
 
   BuildContext getContext() {
     return _statefulPage?.getContext();
   }
 }
 
+///
+///
+///
+///
 class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     with WidgetsBindingObserver {
   Config config;
@@ -132,9 +147,12 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
         onTap: () {
           exitThisPage();
         },
-        child: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        child: Tooltip(
+          message: "Back",
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
       );
     } else {
@@ -146,7 +164,10 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     if (config.showAppBar) {
       return AppBar(
         leading: _getAppBarLeading(),
-        title: Text("${config.titleName}"),
+        title: Tooltip(
+          message: "${config.titleName}",
+          child: Text("${config.titleName}"),
+        ),
         centerTitle: true,
       );
     } else {
@@ -154,6 +175,7 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     }
   }
 
+  @deprecated
   push(Widget widget) {
     Navigator.push(getContext(), new MaterialPageRoute(builder: (context) {
       return new Builder(builder: (context) {
@@ -162,11 +184,28 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     }));
   }
 
+  pushNamed({@required String routeName, @required EnterParameter arguments}) {
+    Navigator.pushNamed(getContext(), routeName, arguments: arguments);
+  }
+
   exitThisPage() {
-    var context = enterParameter?.previousPageContext;
-    if (context != null) {
-      Navigator.pop(context);
+    ///TODO:Navigator pop's Context or PreContext!
+    ///-某时刻使用Navigator.pop(context)导致失败(前提是：涉及到的页面不在同一个.dart文件中)，解决办法：使用上个页面的Context，因此产生了PreContext!
+    ///-但是，现在的环境在这里使用context不会出现上次出现的问题！在此作记录，以备复盘，查找根本问题？
+    ///PreContext and Context!
+    ///Pick one of two!
+    if (getPreContext() != null) {
+      bool prePop = Navigator.pop(getPreContext());
+
+      if (!prePop) {
+        ///PreContext pop false!
+        ///Use context
+        Navigator.pop(getContext());
+      }
     } else {
+      ///PreContext is null!
+      ///Use context
+      Navigator.pop(getContext());
       LogUtil.log("检测到异常；退出页面时，上下文对象为空！");
     }
   }
@@ -223,6 +262,11 @@ class EnterParameter {
     @required BuildContext previousPageContext,
   }) {
     this.previousPageContext = previousPageContext;
+  }
+
+  @override
+  String toString() {
+    return "EnterParameter toString!";
   }
 }
 

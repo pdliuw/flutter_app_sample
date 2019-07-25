@@ -222,22 +222,21 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   loginStart() {
-    // TODO: implement loginStart
+
     return null;
   }
 
   @override
   loginStop() {
-    // TODO: implement loginStop
+    
     return null;
   }
 
   @override
   loginSuccess() {
     showToast("登陆成功");
-//    Navigator.push(getContext(), MaterialPageRoute(builder: (BuildContext context){
-//      return TestPage(enterParameter: EnterParameter(previousPageContext: getContext()));
-//    }));
+    //跳转到新页面
+    pushNamed(routeName: "MainPage", enterParameter: null);
     return null;
   }
 
