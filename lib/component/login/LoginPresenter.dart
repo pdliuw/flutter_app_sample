@@ -3,6 +3,7 @@ import 'package:flutter_app_sample/component/login/LoginSource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/net/HttpContext.dart';
 import 'package:flutter_app_sample/component/login/LoginContract.dart';
+import 'package:flutter_app_sample/common/util/LogUtil.dart';
 
 class LoginPresenter extends ILoginPresenter {
   ILoginView _loginView;
@@ -44,6 +45,19 @@ class LoginPresenter extends ILoginPresenter {
 
   @override
   login({@required dynamic data}) {
-    _loginSource.login();
+    _loginSource.login(
+      data: data,
+      responseCallback: ResponseCallback(
+        successCallback: (SuccessData successData) {
+          //成功后，保存Token以及用户信息
+          LogUtil.log("登陆数据：${successData}");
+
+          _loginView.loginSuccess();
+        },
+        failureCallback: (FailureData failureData) {
+          _loginView.loginFailure();
+        },
+      ),
+    );
   }
 }

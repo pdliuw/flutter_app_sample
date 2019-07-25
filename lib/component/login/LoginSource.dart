@@ -10,5 +10,8 @@ abstract class LoginSource implements BaseSource {
     @required ResponseCallback responseCallback,
   });
 
-  login();
+  login({
+    @required dynamic data,
+    @required ResponseCallback responseCallback,
+  });
 }

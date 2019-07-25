@@ -9,7 +9,7 @@ import 'package:flutter_app_sample/common/util/ToastUtil.dart';
 ///3、提示 showToast(msg);
 ///4、更新小部件setState(stateCallback: Function);
 ///5、生命周期的管理
-///
+///6、关闭当前页面pop();
 typedef StateCallback = Function();
 typedef LifecycleCallback = Function();
 
@@ -18,10 +18,11 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
   _AppCommonStatefulPage _statefulPage = null;
   LifecycleManager _lifecycleManager = null;
 
-  ///有参数构造器
   AppCommonStatefulPage({
-    @required this.enterParameter,
-  });
+    @required EnterParameter enterParameter,
+  }) {
+    this.enterParameter = enterParameter;
+  }
 
   @override
   State<StatefulWidget> createState() {
@@ -67,6 +68,19 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
       _statefulPage.config = createConfig();
       _statefulPage.enterParameter = this.enterParameter;
     });
+  }
+
+  ///Pop this page!
+  pop() {
+    _statefulPage?.exitThisPage();
+  }
+  ///TODO:修改中
+  push({@required Widget widget}) {
+    _statefulPage?.push(widget);
+  }
+
+  BuildContext getContext() {
+    return _statefulPage?.getContext();
   }
 }
 
@@ -116,7 +130,7 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     if (config.showBackArrow) {
       return GestureDetector(
         onTap: () {
-          _exitThisPage();
+          exitThisPage();
         },
         child: Icon(
           Icons.arrow_back,
@@ -140,13 +154,29 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     }
   }
 
-  _exitThisPage() {
+  push(Widget widget) {
+    Navigator.push(getContext(), new MaterialPageRoute(builder: (context) {
+      return new Builder(builder: (context) {
+        return widget;
+      });
+    }));
+  }
+
+  exitThisPage() {
     var context = enterParameter?.previousPageContext;
     if (context != null) {
       Navigator.pop(context);
     } else {
       LogUtil.log("检测到异常；退出页面时，上下文对象为空！");
     }
+  }
+
+  BuildContext getContext() {
+    return context;
+  }
+
+  BuildContext getPreContext() {
+    return enterParameter?.previousPageContext;
   }
 
   @override

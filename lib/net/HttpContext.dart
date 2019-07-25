@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'dart:io';
+import 'dart:core';
 import 'package:flutter_app_sample/common/config/ApiConfig.dart';
 
 ///https://github.com/flutterchina/dio
@@ -190,8 +191,12 @@ class GetOption {
   Map<String, dynamic> get queryParameters => _queryParameters;
   String get urlPath => _urlPath;
 
-  GetOption({String urlPath}) {
+  GetOption({
+    @required String urlPath,
+    @required Map<String, dynamic> queryParameters,
+  }) {
     this._urlPath = urlPath;
+    this._queryParameters = queryParameters;
   }
 }
 
@@ -256,6 +261,16 @@ class SuccessData {
   String message;
   int code;
   String data;
+
+  @override
+  String toString() {
+    return "message:$message,code:$code,data:$data";
+  }
+
+  T toObject<T>( t) {
+
+    return t;
+  }
 }
 
 ///HTTP Response failure's data!

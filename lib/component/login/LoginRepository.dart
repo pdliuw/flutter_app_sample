@@ -1,6 +1,7 @@
 import 'package:flutter_app_sample/component/login/LoginSource.dart';
 import 'package:flutter_app_sample/net/HttpContext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/common/config/ApiConfig.dart';
 
 class LoginRepository extends LoginSource {
   @override
@@ -10,7 +11,7 @@ class LoginRepository extends LoginSource {
   }) {
     HttpContext().postHttp(
       postOption: PostOption(
-        urlPath: "/api/app/v1/LoginCtrl/getVerificationCode",
+        urlPath: ApiConfig.GET_VERIFICATION_CODE_URL,
         data: data,
       ),
       responseCallback: ResponseCallback(
@@ -29,7 +30,24 @@ class LoginRepository extends LoginSource {
   }
 
   @override
-  login() {
+  login({
+    @required dynamic data,
+    @required ResponseCallback responseCallback,
+  }) {
+    HttpContext().postHttp(
+      postOption: PostOption(
+        urlPath: ApiConfig.LOGIN_URL,
+        data: data,
+      ),
+      responseCallback: ResponseCallback(
+        successCallback: (SuccessData successData) {
+          responseCallback.successCallback(successData);
+        },
+        failureCallback: (FailureData failureData) {
+          responseCallback.failureCallback(failureData);
+        },
+      ),
+    );
     return null;
   }
 }

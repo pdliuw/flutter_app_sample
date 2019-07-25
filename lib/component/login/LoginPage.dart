@@ -5,6 +5,9 @@ import 'package:flutter_app_sample/common/util/StringUtil.dart';
 import 'package:flutter_app_sample/component/login/LoginContract.dart';
 import 'package:flutter_app_sample/component/login/LoginRepository.dart';
 import 'package:flutter_app_sample/component/login/LoginPresenter.dart';
+import 'package:flutter_app_sample/component/test/TestPage.dart';
+import 'package:flutter_app_sample/ui/route/AppRoute.dart';
+
 ///登陆页面
 ///
 ///针对IOS和Android设备制定不同的设计
@@ -76,7 +79,9 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
     } else {
       return FlatButton(
         textColor: Colors.blue,
-        onPressed: () {},
+        onPressed: () {
+          pop();
+        },
         child: Text("退出"),
       );
     }
@@ -202,13 +207,16 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   login() {
-    // TODO: implement login
+    _presenter.login(data: {
+      "mobile": phoneStr,
+      "code": passwordStr,
+    });
     return null;
   }
 
   @override
   loginFailure() {
-    // TODO: implement loginFailure
+    showToast("登陆失败，请检查后重试！");
     return null;
   }
 
@@ -226,7 +234,10 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   loginSuccess() {
-    // TODO: implement loginSuccess
+    showToast("登陆成功");
+//    Navigator.push(getContext(), MaterialPageRoute(builder: (BuildContext context){
+//      return TestPage(enterParameter: EnterParameter(previousPageContext: getContext()));
+//    }));
     return null;
   }
 
