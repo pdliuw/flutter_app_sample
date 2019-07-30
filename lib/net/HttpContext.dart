@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'dart:io';
 import 'dart:core';
+import 'dart:convert';
 import 'package:flutter_app_sample/common/config/ApiConfig.dart';
+import 'package:flutter_app_sample/common/util/ToastUtil.dart';
+import 'package:flutter_app_sample/common/util/LogUtil.dart';
 
 ///https://github.com/flutterchina/dio
 ///
@@ -15,6 +18,14 @@ typedef SuccessCallback = Function(SuccessData success);
 typedef FailureCallback = Function(FailureData failure);
 
 class HttpContext {
+  ///Config-start!
+  static final String TAG_LOG = "HttpContext";
+
+  ///业务层响应成功码
+  static final int BUSINESS_OK_CODE = 200;
+
+  ///Config-end!
+
   ///表示期望以那种格式(方式)请求数据
   static ContentType formUrlencodedContentType =
       ContentType.parse("application/x-www-form-urlencoded");
@@ -137,18 +148,53 @@ class HttpContext {
     }
   }
 
-  //HTTP Response success!
+  ///HTTP Response success!
+  ///增加对业务响应的处理
   successHttp({
     @required Response response,
     @required ResponseCallback responseCallback,
   }) {
+//    BaseResponse baseResponse = json.decode(response.data);
+    Map<String, dynamic> mapResponse = json.decode(
+      response.data,
+    );
+
+    BaseBusinessResponse baseBusinessResponse = BaseBusinessResponse();
+    baseBusinessResponse.status = mapResponse['status'];
+    baseBusinessResponse.message = mapResponse['message'];
+
+    if (baseBusinessResponse.status != BUSINESS_OK_CODE) {
+      LogUtil.logWithTag(
+        tag: "HttpContext",
+        message: baseBusinessResponse.toString(),
+      );
+      LogUtil.logWithTag(
+        tag: "HttpContext",
+        message: baseBusinessResponse.status,
+      );
+
+      ///业务层响应失败
+      failureBusiness(
+          baseBusinessResponse: baseBusinessResponse,
+          responseCallback: responseCallback);
+      return;
+    }
+
     //响应数据
     SuccessData successData = SuccessData();
     //交互成功
     //填充成功的数据
-    successData.data = response.toString();
+    successData.data = response.data;
     successData.code = response.statusCode;
     successData.message = response.statusMessage;
+
+    //网络层
+    LogUtil.logWithTag(
+        tag: TAG_LOG,
+        message:
+            "Response Http Data -> message:${successData.message},code:${successData.code}");
+    LogUtil.logWithTag(
+        tag: TAG_LOG, message: "Response Business Data:${successData.data}");
 
     //Callback
     //Response success!
@@ -179,6 +225,23 @@ class HttpContext {
 
     //Callback
     //Response failure.
+    responseCallback.failureCallback(failureData);
+  }
+
+  ///业务层响应失败
+  void failureBusiness({
+    @required BaseBusinessResponse baseBusinessResponse,
+    @required ResponseCallback responseCallback,
+  }) {
+    FailureData failureData = FailureData();
+
+    //填充失败的数据
+    failureData.message = baseBusinessResponse.message;
+    failureData.code = baseBusinessResponse.status.toString();
+
+    //Callback
+    //Response failure.
+    ToastUtil.showToast(message: failureData.message);
     responseCallback.failureCallback(failureData);
   }
 }
@@ -245,6 +308,13 @@ class BaseResponse {
   Map<String, dynamic> extra;
 }
 
+///业务层基本响应数据
+class BaseBusinessResponse {
+//  dynamic data;
+  String message;
+  int status;
+}
+
 ///HTTP Response callback!
 class ResponseCallback {
   SuccessCallback successCallback;
@@ -264,12 +334,13 @@ class SuccessData {
 
   @override
   String toString() {
-    return "message:$message,code:$code,data:$data";
+    return "Success -> message:$message,code:$code,data:$data";
   }
 
-  T toObject<T>( t) {
-
-    return t;
+  T toObject<T>() {
+    ///有错误，等待修复、完善！
+    var resultObject = json.decode(data);
+    return resultObject;
   }
 }
 
@@ -277,4 +348,9 @@ class SuccessData {
 class FailureData {
   String message;
   String code;
+
+  @override
+  String toString() {
+    return "Failure -> message:$message,code:$code";
+  }
 }

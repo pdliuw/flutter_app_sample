@@ -216,7 +216,6 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   loginFailure() {
-    showToast("登陆失败，请检查后重试！");
     return null;
   }
 
@@ -234,7 +233,6 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   loginSuccess() {
-    showToast("登陆成功");
     //跳转到新页面
     pushNamed(routeName: "MainPage", enterParameter: null);
     return null;

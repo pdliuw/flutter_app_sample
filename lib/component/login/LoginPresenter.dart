@@ -50,7 +50,7 @@ class LoginPresenter extends ILoginPresenter {
       responseCallback: ResponseCallback(
         successCallback: (SuccessData successData) {
           //成功后，保存Token以及用户信息
-          LogUtil.log("登陆数据：${successData}");
+          LogUtil.log("登陆数据：${successData.data}");
 
           _loginView.loginSuccess();
         },
