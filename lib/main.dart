@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/component/login/LoginPage.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/component/main/MainPage.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
+import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -18,6 +19,7 @@ void main() => runApp(MaterialApp(
         "LoginPage": (BuildContext context) => LoginPage(),
         "MainPage": (BuildContext context) => MainPage(),
         "TestPage": (BuildContext context) => TestPage(),
+        "ShoppingList": (BuildContext context) => ShoppingList(),
       },
       navigatorObservers: [
         routeObserver,

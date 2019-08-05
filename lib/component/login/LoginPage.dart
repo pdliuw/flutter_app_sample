@@ -7,6 +7,8 @@ import 'package:flutter_app_sample/component/login/LoginRepository.dart';
 import 'package:flutter_app_sample/component/login/LoginPresenter.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/ui/route/AppRoute.dart';
+import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
+import 'package:flutter_app_sample/component/shop/Product.dart';
 
 ///登陆页面
 ///
@@ -80,7 +82,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
       return FlatButton(
         textColor: Colors.blue,
         onPressed: () {
-          pop();
+          ///退出程序！
         },
         child: Text("退出"),
       );
@@ -221,20 +223,49 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   loginStart() {
-
     return null;
   }
 
   @override
   loginStop() {
-    
     return null;
   }
 
   @override
   loginSuccess() {
     //跳转到新页面
-    pushNamed(routeName: "MainPage", enterParameter: null);
+    Navigator.push(getContext(),
+        MaterialPageRoute(builder: (BuildContext buildContext) {
+      return ShoppingList(
+        products: <Product>[
+          Product(
+            name: "One",
+            originPrice: "150.0",
+            nowPrice: "99.0",
+          ),
+          Product(
+            name: "Two",
+            originPrice: "1000.0",
+            nowPrice: "109.0",
+          ),
+          Product(
+            name: "Three",
+            originPrice: "190.0",
+            nowPrice: "89.0",
+          ),
+          Product(
+            name: "Four",
+            originPrice: "580.0",
+            nowPrice: "180.0",
+          ),
+          Product(
+            name: "Five",
+            originPrice: "358.0",
+            nowPrice: "88.0",
+          ),
+        ],
+      );
+    }));
     return null;
   }
 

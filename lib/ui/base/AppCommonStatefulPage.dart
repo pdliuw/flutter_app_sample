@@ -22,8 +22,9 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
   LifecycleManager _lifecycleManager = null;
 
   AppCommonStatefulPage({
+    Key key,
     @required EnterParameter enterParameter,
-  }) {
+  }) : super(key: key) {
     this.enterParameter = enterParameter;
   }
 
