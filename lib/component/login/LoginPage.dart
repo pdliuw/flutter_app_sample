@@ -94,76 +94,78 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
     return Center(
       child: SizedBox(
         width: 250,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-                padding: EdgeInsets.all(80),
-                child: Text(
-                  "Air",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.blue,
-                  ),
-                )),
-            TextField(
-              decoration: InputDecoration(
-                labelText: '手机号',
-                hintText: "请输入手机号",
-                errorText: _getPhoneErrorInfo(),
-                helperText: "helper",
-              ),
-              textAlign: TextAlign.start,
-              enabled: true,
-              maxLength: PHONE_MAX_LENGTH_DEFAULT,
-              onChanged: (String content) {
-                _phoneInputChange(content);
-              },
-            ),
-            Stack(
-              alignment: AlignmentDirectional.centerEnd,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: '密码',
-                    hintText: "请输入密码",
-                    errorText: _getPasswordErrorInfo(),
-                    helperText: "helper",
-                  ),
-                  textAlign: TextAlign.start,
-                  enabled: true,
-                  maxLength: VERIFICATION_MAX_LENGTH_DEFAULT,
-                  onChanged: (String content) {
-                    _passwordInputChange(content);
-                  },
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.all(80),
+                  child: Text(
+                    "Air",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    ),
+                  )),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: '手机号',
+                  hintText: "请输入手机号",
+                  errorText: _getPhoneErrorInfo(),
+                  helperText: "helper",
                 ),
-                FlatButton(
-                  onPressed: () {
-                    getVerificationCode();
-                  },
-                  child: Text("验证码"),
-                  textColor: Colors.blue,
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                _getLogoutWidget(),
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
+                textAlign: TextAlign.start,
+                enabled: true,
+                maxLength: PHONE_MAX_LENGTH_DEFAULT,
+                onChanged: (String content) {
+                  _phoneInputChange(content);
+                },
+              ),
+              Stack(
+                alignment: AlignmentDirectional.centerEnd,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: '密码',
+                      hintText: "请输入密码",
+                      errorText: _getPasswordErrorInfo(),
+                      helperText: "helper",
+                    ),
+                    textAlign: TextAlign.start,
+                    enabled: true,
+                    maxLength: VERIFICATION_MAX_LENGTH_DEFAULT,
+                    onChanged: (String content) {
+                      _passwordInputChange(content);
+                    },
                   ),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    login();
-                  },
-                  child: Text("登陆"),
-                )
-              ],
-            )
-          ],
+                  FlatButton(
+                    onPressed: () {
+                      getVerificationCode();
+                    },
+                    child: Text("验证码"),
+                    textColor: Colors.blue,
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  _getLogoutWidget(),
+                  RaisedButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      login();
+                    },
+                    child: Text("登陆"),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
