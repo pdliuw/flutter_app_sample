@@ -126,8 +126,8 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(
-                      labelText: '密码',
-                      hintText: "请输入密码",
+                      labelText: '验证码',
+                      hintText: "请输入验证码",
                       errorText: _getPasswordErrorInfo(),
                       helperText: "helper",
                     ),
