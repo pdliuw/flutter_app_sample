@@ -19,7 +19,7 @@ void main() => runApp(MaterialApp(
         "LoginPage": (BuildContext context) => LoginPage(),
         "MainPage": (BuildContext context) => MainPage(),
         "TestPage": (BuildContext context) => TestPage(),
-        "ShoppingList": (BuildContext context) => ShoppingList(),
+        "ShoppingList": (BuildContext context) => ShoppingListPage(),
       },
       navigatorObservers: [
         routeObserver,

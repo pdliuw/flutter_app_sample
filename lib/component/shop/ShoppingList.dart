@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/component/shop/Product.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingListItem.dart';
+import 'package:flutter_app_sample/common/config/StringConfig.dart';
 
 ///商品列表
-class ShoppingList extends AppCommonStatefulPage {
+class ShoppingListPage extends AppCommonStatefulPage {
   Set<Product> _shoppingCart = Set<Product>();
 
   final List<Product> products;
 
-  ShoppingList({Key key, this.products, EnterParameter enterParameter})
+  ShoppingListPage({Key key, this.products, EnterParameter enterParameter})
       : super(key: key, enterParameter: enterParameter);
 
   @override
   Config createConfig() {
     return Config(
-      titleName: "商品列表",
+      titleName: StringConfig.pageNameConfig.mShoppingListPageName,
       showAppBar: true,
       showBackArrow: true,
     );

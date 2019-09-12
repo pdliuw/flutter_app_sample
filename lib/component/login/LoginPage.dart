@@ -9,10 +9,14 @@ import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/ui/route/AppRoute.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/shop/Product.dart';
+import 'package:flutter_app_sample/common/config/StringConfig.dart';
 
 ///登陆页面
 ///
 ///针对IOS和Android设备制定不同的设计
+///1、逻辑：账号/手机号+验证码/密码的形势执行登陆操作！
+///2、提示：账号/手机号为"11位"，验证码/密码位"6"位！
+///5、平台：IOS平台没有"退出"按钮，Android平台有"退出"按钮！
 class LoginPage extends AppCommonStatefulPage implements ILoginView {
   static const num PHONE_MAX_LENGTH_DEFAULT = 11;
   static const num VERIFICATION_MAX_LENGTH_DEFAULT = 6;
@@ -39,7 +43,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   @override
   Config createConfig() {
     return Config(
-      titleName: "登陆",
+      titleName: StringConfig.pageNameConfig.mLoginPageName,
       showBackArrow: false,
       showAppBar: true,
     );
@@ -83,6 +87,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
         textColor: Colors.blue,
         onPressed: () {
           ///退出程序！
+          exit(exitCode);
         },
         child: Text("退出"),
       );
@@ -113,6 +118,9 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
                   hintText: "请输入手机号",
                   errorText: _getPhoneErrorInfo(),
                   helperText: "helper",
+                  border: UnderlineInputBorder(
+                    borderSide: BorderSide(),
+                  ),
                 ),
                 textAlign: TextAlign.start,
                 enabled: true,
@@ -130,6 +138,9 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
                       hintText: "请输入验证码",
                       errorText: _getPasswordErrorInfo(),
                       helperText: "helper",
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                     ),
                     textAlign: TextAlign.start,
                     enabled: true,
@@ -151,7 +162,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   _getLogoutWidget(),
-                  RaisedButton(
+                  RaisedButton.icon(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                     ),
@@ -160,7 +171,11 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
                     onPressed: () {
                       login();
                     },
-                    child: Text("登陆"),
+                    icon: Icon(
+                      Icons.brightness_high,
+                      color: Colors.white,
+                    ),
+                    label: Text("登陆"),
                   )
                 ],
               )
@@ -238,7 +253,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
     //跳转到新页面
     Navigator.push(getContext(),
         MaterialPageRoute(builder: (BuildContext buildContext) {
-      return ShoppingList(
+      return ShoppingListPage(
         products: <Product>[
           Product(
             name: "One",
