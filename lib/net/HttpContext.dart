@@ -337,9 +337,9 @@ class SuccessData {
     return "Success -> message:$message,code:$code,data:$data";
   }
 
-  T toObject<T>() {
+  Map<String, dynamic> toObject() {
     ///有错误，等待修复、完善！
-    var resultObject = json.decode(data);
+    Map<String, dynamic> resultObject = json.decode(data);
     return resultObject;
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/net/HttpContext.dart';
 import 'package:flutter_app_sample/component/login/LoginContract.dart';
 import 'package:flutter_app_sample/common/util/LogUtil.dart';
+import 'package:flutter_app_sample/data/response/User.dart';
 
 class LoginPresenter extends ILoginPresenter {
   ILoginView _loginView;
@@ -34,6 +35,25 @@ class LoginPresenter extends ILoginPresenter {
       data: data,
       responseCallback: ResponseCallback(
         successCallback: (SuccessData successData) {
+          /*
+          获取响应数据后，解析数据！
+          此解析数据形势不同与：Java等静态语言
+          类似于：JavaScript等动态语言
+           */
+          var result = successData.toObject();
+          StringBuffer stringBuffer = StringBuffer();
+          stringBuffer.writeln();
+          stringBuffer.writeln("-");
+          //遍历数据
+          result.forEach((String key, dynamic value) {
+
+            stringBuffer.writeln("key : $key , value: $value");
+
+          });
+          stringBuffer.writeln("-");
+          LogUtil.logWithTag(
+              tag: "LoginPresenter", message: stringBuffer.toString());
+
           _loginView.getVerificationCodeSuccess();
         },
         failureCallback: (FailureData failureData) {
