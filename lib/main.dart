@@ -4,6 +4,9 @@ import 'package:flutter_app_sample/component/login/LoginPage.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/component/main/MainPage.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
+import 'package:flutter_app_sample/sample/MainSortListPage.dart';
+import 'package:flutter_app_sample/sample/ViewPagerFragmentPage.dart';
+import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -20,6 +23,9 @@ void main() => runApp(MaterialApp(
         "MainPage": (BuildContext context) => MainPage(),
         "TestPage": (BuildContext context) => TestPage(),
         "ShoppingList": (BuildContext context) => ShoppingListPage(),
+        "MainSortListPage": (BuildContext context) => MainSortListPage(),
+        "ViewPagerFragmentPage": (BuildContext context) => ViewPagerFragmentPage(),
+        "CollapsingToolbarPage": (BuildContext context) => CollapsingToolbarPage(),
       },
       navigatorObservers: [
         routeObserver,

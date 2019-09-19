@@ -226,10 +226,11 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   login() {
-    _presenter.login(data: {
-      "mobile": phoneStr,
-      "code": passwordStr,
-    });
+//    _presenter.login(data: {
+//      "mobile": phoneStr,
+//      "code": passwordStr,
+//    });
+    pushNamed(routeName: "MainSortListPage", enterParameter: EnterParameter(previousPageContext: getContext()));
     return null;
   }
 

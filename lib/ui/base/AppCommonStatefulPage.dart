@@ -221,12 +221,20 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: _getShowAppBar(),
-        body: rootWidget,
-      ),
-    );
+    return _getBuild();
+  }
+
+  Widget _getBuild() {
+    if (config._customBuildWidget) {
+      return rootWidget;
+    } else {
+      return MaterialApp(
+        home: Scaffold(
+          appBar: _getShowAppBar(),
+          body: rootWidget,
+        ),
+      );
+    }
   }
 }
 
@@ -235,15 +243,18 @@ class Config {
     @required String titleName = 'title',
     bool showAppBar = true,
     bool showBackArrow = true,
+    bool customBuildWidget = false,
   }) {
     this._titleName = titleName;
     this._showAppBar = showAppBar;
     this._showBackArrow = showBackArrow;
+    this._customBuildWidget = customBuildWidget;
   }
 
   bool _showAppBar;
   String _titleName;
   bool _showBackArrow;
+  bool _customBuildWidget;
 
   set titleName(String titleName) {
     this._titleName = titleName;
