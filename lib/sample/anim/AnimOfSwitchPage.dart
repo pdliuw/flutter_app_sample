@@ -9,6 +9,12 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
   var _titleName = "页面跳转动画";
 
   List<String> _tabLabels = ["Tab 1", "Tab 2", "Tab 3", "Tab 4"];
+  List<IconData> _tabIcons = [
+    Icons.face,
+    Icons.label,
+    Icons.book,
+    Icons.timer,
+  ];
   List<bool> _toggleSelected = [true, false, false, false];
   List<String> _toggleLabels = ["缩放动画", "渐变动画", "侧滑动画", "旋转动画"];
 
@@ -36,24 +42,7 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
               showToast("${_tabLabels.elementAt(index)}");
             },
             isScrollable: true,
-            tabs: [
-              Tab(
-                text: "${_tabLabels.elementAt(0)}",
-                icon: Icon(Icons.face),
-              ),
-              Tab(
-                text: "${_tabLabels.elementAt(1)}",
-                icon: Icon(Icons.label),
-              ),
-              Tab(
-                text: "${_tabLabels.elementAt(2)}",
-                icon: Icon(Icons.map),
-              ),
-              Tab(
-                text: "${_tabLabels.elementAt(3)}",
-                icon: Icon(Icons.update),
-              ),
-            ],
+            tabs: _getTabs(),
           ),
         ),
         body: Column(
@@ -135,6 +124,21 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
         ),
       ),
     );
+  }
+
+  ///获取Tab
+  _getTabs() {
+    List<Widget> tabs = [];
+
+    for (int i = 0; i < _tabLabels.length; i++) {
+      tabs.add(
+        Tab(
+          text: "${_tabLabels.elementAt(i)}",
+          icon: Icon(_tabIcons.elementAt(i)),
+        ),
+      );
+    }
+    return tabs;
   }
 
   ///动画类型
