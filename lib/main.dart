@@ -7,6 +7,8 @@ import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/sample/MainSortListPage.dart';
 import 'package:flutter_app_sample/sample/ViewPagerFragmentPage.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
+import 'package:flutter_app_sample/sample/anim/MainAnimSortPage.dart';
+import 'package:flutter_app_sample/sample/anim/AnimOfSwitchPage.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -26,6 +28,8 @@ void main() => runApp(MaterialApp(
         "MainSortListPage": (BuildContext context) => MainSortListPage(),
         "ViewPagerFragmentPage": (BuildContext context) => ViewPagerFragmentPage(),
         "CollapsingToolbarPage": (BuildContext context) => CollapsingToolbarPage(),
+        "MainAnimSortPage": (BuildContext context) => MainAnimSortPage(),
+        "AnimOfSwitchPage": (BuildContext context) => AnimOfSwitchPage(),
       },
       navigatorObservers: [
         routeObserver,

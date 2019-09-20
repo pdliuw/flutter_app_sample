@@ -108,13 +108,16 @@ class CollapsingToolbarPage extends AppCommonStatefulPage {
               itemBuilder: (BuildContext context, int index) {
                 return Card(
                   child: ListTile(
-                      leading: CircleAvatar(
-                        child: Text("Air"),
-                      ),
-                      title: Text("title"),
-                      subtitle: Text("subTitle"),
-                      selected: true,
-                      trailing: Text("trailing")),
+                    onTap: () {},
+                    leading: CircleAvatar(
+                      child: Text("Air"),
+                    ),
+                    title: Text("title"),
+                    subtitle: Text("subTitle"),
+                    selected: true,
+                    trailing: Image.network(
+                        "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350"),
+                  ),
                 );
               }),
         ));

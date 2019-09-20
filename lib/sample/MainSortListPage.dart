@@ -42,7 +42,7 @@ class MainSortListPage extends AppCommonStatefulPage {
           textColor: Colors.white,
           onPressed: () {
             pushNamed(
-              routeName: "ViewPagerFragmentPage",
+              routeName: "MainAnimSortPage",
               enterParameter: EnterParameter(previousPageContext: getContext()),
             );
           },
