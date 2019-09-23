@@ -1,63 +1,86 @@
 ---
-title:	Flutter Project Sample
-date:	2019-05-06 18:27:05
+title:	Flutter app sample
 
 img: /images/flutter_logo.jpg
-summary: Flutter Project Sample
-categories: 跨平台
+summary: Flutter项目示例
+categories: app sample
+top: true
 tags:
 - Flutter
 - Dart
 - MVP
 - Dio
+- DesignPatterns
+
 
 ---
 
-
 ----
 
-![totem](http://puvbjx92j.bkt.clouddn.com/totem_four_logo.jpg)
+![totem](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/totem_four_logo.jpg?raw=true)
 
 
 
-Flutter Project Sample
+Flutter app sample
 
-[English Document](/README.md)  [中文文档](/README_CH.md)
+[中文文档](/README_CH.md)
+[English document](/README.md)
+[Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)
 
 
 ### Render
 
 
 
-![Login](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login.gif)
+|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_ios_platform.gif?raw=true)|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_android_platform.gif?raw=true)|
+|:-|:-|
 
-|![Android-Platform](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login_android_latform.gif)|![IOS-Platform](http://pv1gm37l9.bkt.clouddn.com/flutter_app_sample_login_ios_latform.gif)|
-|:-:|:-|
+|![List](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_main_list_page.gif?raw=true)|![List](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_main_list_page_android.gif?raw=true)|
+|:-|:-|
 
-### 1.  Project concept
+|![TabBar+TabBarView](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_viewpage_fragment.gif?raw=true)|![TabBar+TabBarView](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_viewpage_fragment_android.gif?raw=true)|
+|:-|:-|
 
-1.  Tripartite documents are not used directly in the project
+|![NestedScrollView + ...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_collapsing_viewpage_fragment.gif?raw=true)|![NestedScrollView + ...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_collapsing_viewpage_fragment_android.gif?raw=true)|
+|:-|:-|
 
-###	2.  Include Technology
+|![Animation-SwitchPage](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_switch_page_ios.gif?raw=true)|![Animation-SwitchPage](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_switch_page_android.gif?raw=true)|
+|:-|:-|
 
-Include develop technology in The project
+|![Animated-Container](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_container_ios.gif?raw=true)|![Animated-Container](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_container_android.gif?raw=true)|
+|:-|:-|
 
-1.  Design: MVP
-2.	Net:	[Dio](https://github.com/flutterchina/dio)
+|![Opacity-AnimatedOpacity](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_opacity_and_animated_opacity_ios.gif?raw=true)|![Opacity-AnimatedOpacity](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_opacity_and_animated_opacity_android.gif?raw=true)|
+|:-|:-|
+
+|![Animation-Hero](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_hero_ios.gif?raw=true)|![Animation-Hero](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_hero_android.gif?raw=true)|
+|:-|:-|
+
+|![Animation-Transform](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_transform_ios.gif?raw=true)|![Animation-Transform](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_transform_android.gif?raw=true)|
+|:-|:-|
 
 
-### 3.  TODO
+###	Technology used
 
+
+1.  MVP+DesignPattern
+2.  Widget
+3.	Net
+4.  Route
+5.  Animation
+6.  ......
+
+
+### TODO
 
 1.  Continuous iterative project
-
-
-----
-
-
-
+2.  Continuous improvement of documentation
+3.  ...
 
 ----
+
+
+
 
 
 
