@@ -120,6 +120,17 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
                 ),
               ),
             ),
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              onPressed: () {
+                pushNamed(
+                    routeName: "HeroAnimPage",
+                    enterParameter:
+                        EnterParameter(previousPageContext: getContext()));
+              },
+              child: Text("点击我进入过渡动画展示页面"),
+            )
           ],
         ),
       ),

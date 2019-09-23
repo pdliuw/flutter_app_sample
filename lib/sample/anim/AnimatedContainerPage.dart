@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
+///
+/// AnimatedContainerPage
+///
 class AnimatedContainerPage extends AppCommonStatefulPage {
   var _titleName = "AnimatedContainer";
   bool selected = false;
+
+  int durationUnitSecond = 2;
 
   @override
   Config createConfig() {
@@ -27,7 +32,7 @@ class AnimatedContainerPage extends AppCommonStatefulPage {
           color: selected ? Colors.red : Colors.blue,
           alignment:
               selected ? Alignment.center : AlignmentDirectional.topCenter,
-          duration: Duration(seconds: 1),
+          duration: Duration(seconds: durationUnitSecond),
           curve: Curves.fastOutSlowIn,
           child: Column(
             children: <Widget>[
@@ -39,7 +44,15 @@ class AnimatedContainerPage extends AppCommonStatefulPage {
               Text(
                 "click the rect to show anim!",
                 style: TextStyle(color: Colors.white),
-              )
+              ),
+              RaisedButton(
+                animationDuration: Duration(seconds: durationUnitSecond),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(selected ? 15 : 0),
+                ),
+                child: Text("AnimatedContainerPage"),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
