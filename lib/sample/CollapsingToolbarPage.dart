@@ -75,11 +75,16 @@ class CollapsingToolbarPage extends AppCommonStatefulPage {
                 floating: true,
                 expandedHeight: 200,
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Text(titleName),
-                  background: Image.network(
-                    "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    fit: BoxFit.cover,
+                  title: Hero(
+                    tag: "hero_text不使用",
+                    child: Text(titleName),
                   ),
+                  background: Hero(
+                      tag: "hero_image",
+                      child: Image.network(
+                        "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        fit: BoxFit.cover,
+                      )),
                   centerTitle: true,
                   titlePadding: EdgeInsets.all(10),
                   collapseMode: CollapseMode.parallax,

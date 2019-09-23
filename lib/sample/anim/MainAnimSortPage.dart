@@ -7,13 +7,22 @@ class MainAnimSortPage extends AppCommonStatefulPage {
   //label:routeName
   var _list = [
     "页面跳转动画",
-    "",
-    "",
-    "",
+    "AnimatedContainer",
+    "Opacity AnimatedOpacity",
+    "FadeInImage",
+    "Hero",
+    "Transform",
+    "AnimatedBuilder",
   ];
 
   var _listRouteNames = [
     "AnimOfSwitchPage",
+    "AnimatedContainerPage",
+    "OpacityAndAnimatedOpacityPage",
+    "FadeInImagePage",
+    "HeroAnimPage",
+    "TransformPage",
+    "AnimatedBuilderPage",
   ];
 
   @override

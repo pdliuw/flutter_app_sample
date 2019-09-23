@@ -9,6 +9,12 @@ import 'package:flutter_app_sample/sample/ViewPagerFragmentPage.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
 import 'package:flutter_app_sample/sample/anim/MainAnimSortPage.dart';
 import 'package:flutter_app_sample/sample/anim/AnimOfSwitchPage.dart';
+import 'package:flutter_app_sample/sample/anim/AnimatedContainerPage.dart';
+import 'package:flutter_app_sample/sample/anim/OpacityAndAnimatedOpacityPage.dart';
+import 'package:flutter_app_sample/sample/anim/FadeInImagePage.dart';
+import 'package:flutter_app_sample/sample/anim/HeroAnimPage.dart';
+import 'package:flutter_app_sample/sample/anim/TransformPage.dart';
+import 'package:flutter_app_sample/sample/anim/AnimatedBuilderPage.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -26,10 +32,20 @@ void main() => runApp(MaterialApp(
         "TestPage": (BuildContext context) => TestPage(),
         "ShoppingList": (BuildContext context) => ShoppingListPage(),
         "MainSortListPage": (BuildContext context) => MainSortListPage(),
-        "ViewPagerFragmentPage": (BuildContext context) => ViewPagerFragmentPage(),
-        "CollapsingToolbarPage": (BuildContext context) => CollapsingToolbarPage(),
+        "ViewPagerFragmentPage": (BuildContext context) =>
+            ViewPagerFragmentPage(),
+        "CollapsingToolbarPage": (BuildContext context) =>
+            CollapsingToolbarPage(),
         "MainAnimSortPage": (BuildContext context) => MainAnimSortPage(),
         "AnimOfSwitchPage": (BuildContext context) => AnimOfSwitchPage(),
+        "AnimatedContainerPage": (BuildContext context) =>
+            AnimatedContainerPage(),
+        "OpacityAndAnimatedOpacityPage": (BuildContext context) =>
+            OpacityAndAnimatedOpacityPage(),
+        "FadeInImagePage": (BuildContext context) => FadeInImagePage(),
+        "HeroAnimPage": (BuildContext context) => HeroAnimPage(),
+        "TransformPage": (BuildContext context) => TransformPage(),
+        "AnimatedBuilderPage": (BuildContext context) => AnimatedBuilderPage(),
       },
       navigatorObservers: [
         routeObserver,
