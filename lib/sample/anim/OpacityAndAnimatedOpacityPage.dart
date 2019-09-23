@@ -29,62 +29,65 @@ class OpacityAndAnimatedOpacityPage extends AppCommonStatefulPage {
 
   @override
   Widget createWidget() {
-    return Column(
-      children: <Widget>[
-        Text("Opacity: $_opacity"),
-        Opacity(
-          opacity: _opacity,
-          child: Column(
-            children: <Widget>[
-              FlutterLogo(
-                size: 300,
-              ),
-              Text("Opacity"),
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Text("Opacity: $_opacity"),
+          Opacity(
+            opacity: _opacity,
+            child: Column(
+              children: <Widget>[
+                FlutterLogo(
+                  size: 300,
+                ),
+                Text("Opacity"),
+              ],
+            ),
           ),
-        ),
-        RangeSlider(
-          values: RangeValues(_rangeStart, _rangeEnd),
-          min: _rangeMin,
-          max: _rangeMax,
-          divisions: 100, //把总数分为divisions份
-          labels: RangeLabels("${_rangeStart.toInt()}", "${_rangeEnd.toInt()}"),
-          onChanged: (RangeValues values) {
-            /*
+          RangeSlider(
+            values: RangeValues(_rangeStart, _rangeEnd),
+            min: _rangeMin,
+            max: _rangeMax,
+            divisions: 100, //把总数分为divisions份
+            labels:
+                RangeLabels("${_rangeStart.toInt()}", "${_rangeEnd.toInt()}"),
+            onChanged: (RangeValues values) {
+              /*
             update
              */
-            setState(stateCallback: () {
-              _rangeStart = values.start;
-              //_rangeEnd = values.end;
-              _opacity = _rangeStart / 100;
-            });
-          },
-        ),
+              setState(stateCallback: () {
+                _rangeStart = values.start;
+                //_rangeEnd = values.end;
+                _opacity = _rangeStart / 100;
+              });
+            },
+          ),
 
-        /*
+          /*
         Animated Opacity
         */
-        AnimatedOpacity(
-          opacity: opacityLevel,
-          duration: Duration(seconds: 2),
-          child: Column(
-            children: <Widget>[
-              FlutterLogo(
-                size: 200,
-              ),
-              Text("AnimatedOpacity"),
-            ],
+          AnimatedOpacity(
+            opacity: opacityLevel,
+            duration: Duration(seconds: 2),
+            child: Column(
+              children: <Widget>[
+                FlutterLogo(
+                  size: 200,
+                ),
+                Text("AnimatedOpacity"),
+              ],
+            ),
           ),
-        ),
-        RaisedButton(
-          textColor: Colors.white,
-          color: Colors.blue,
-          child: Text("Fade Logo"),
-          onPressed: () {
-            _changeOpacity();
-          },
-        ),
-      ],
+          RaisedButton(
+            textColor: Colors.white,
+            color: Colors.blue,
+            child: Text("Fade Logo"),
+            onPressed: () {
+              _changeOpacity();
+            },
+          ),
+        ],
+      ),
     );
   }
 }
