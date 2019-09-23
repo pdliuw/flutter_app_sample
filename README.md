@@ -23,8 +23,10 @@ tags:
 
 Flutter app sample
 
-[中文文档](/README_CH.md)
-[English document](/README.md)
+
+|[中文文档](/README_CH.md)|[English document](/README.md)|
+|:-|:-|
+
 [Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)
 
 
