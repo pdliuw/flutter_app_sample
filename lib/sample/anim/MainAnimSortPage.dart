@@ -13,6 +13,7 @@ class MainAnimSortPage extends AppCommonStatefulPage {
     "Hero",
     "Transform",
     "AnimatedBuilder",
+    "ColorTween",
   ];
 
   var _listRouteNames = [
@@ -23,6 +24,7 @@ class MainAnimSortPage extends AppCommonStatefulPage {
     "HeroAnimPage",
     "TransformPage",
     "AnimatedBuilderPage",
+    "ColorTweenPage",
   ];
 
   @override

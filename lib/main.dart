@@ -15,6 +15,7 @@ import 'package:flutter_app_sample/sample/anim/FadeInImagePage.dart';
 import 'package:flutter_app_sample/sample/anim/HeroAnimPage.dart';
 import 'package:flutter_app_sample/sample/anim/TransformPage.dart';
 import 'package:flutter_app_sample/sample/anim/AnimatedBuilderPage.dart';
+import 'package:flutter_app_sample/sample/anim/ColorTweenPage.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -46,6 +47,7 @@ void main() => runApp(MaterialApp(
         "HeroAnimPage": (BuildContext context) => HeroAnimPage(),
         "TransformPage": (BuildContext context) => TransformPage(),
         "AnimatedBuilderPage": (BuildContext context) => AnimatedBuilderPage(),
+        "ColorTweenPage": (BuildContext context) => ColorTweenPage(),
       },
       navigatorObservers: [
         routeObserver,
