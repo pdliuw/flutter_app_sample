@@ -73,6 +73,10 @@ Flutter app sample
 |:-|:-|
 
 
+|![AnimatedBuilder](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_builder_ios.gif?raw=true)|![AnimatedBuilder](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_builder_android.gif?raw=true)|
+|:-|:-|
+
+
 ###	Technology used
 
 

@@ -40,53 +40,54 @@ class _SpinnerState extends State<AnimatedBuilderPage>
       appBar: AppBar(
         title: Text("$_titleName"),
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Text(
-                "使用AnimatedBuilder为widget装饰动画效果，这是相对AnimatedContainer更强大的扩展哦"),
-          ),
-          Center(
-            child: AnimatedBuilder(
-              animation: _controller,
-              child:
-                  Container(width: 200.0, height: 200.0, color: Colors.green),
-              builder: (BuildContext context, Widget child) {
-                return Transform.rotate(
-                  angle: _controller.value * 2.0 * math.pi,
-                  child: Container(
-                    width: 200.0,
-                    height: 200.0,
-                    color: ColorTween(begin: Colors.red, end: Colors.blue)
-                        .transform(_controller.value),
-                  ),
-                );
-              },
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                  "使用AnimatedBuilder为widget装饰动画效果，这是相对AnimatedContainer更强大的扩展哦"),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _selected = !_selected;
-              });
-            },
-            child: AnimatedContainer(
-              width: 200,
-              height: 200,
-              duration: Duration(seconds: 3),
-              curve: Curves.fastOutSlowIn,
-              child: Container(
-                child: Text(
-                  "Style",
-                  style: TextStyle(
-                    color: _selected ? Colors.red : Colors.blue,
+            Center(
+              child: AnimatedBuilder(
+                animation: _controller,
+                child:
+                    Container(width: 200.0, height: 200.0, color: Colors.green),
+                builder: (BuildContext context, Widget child) {
+                  return Transform.rotate(
+                    angle: _controller.value * 2.0 * math.pi,
+                    child: Container(
+                      width: 200.0,
+                      height: 200.0,
+                      color: ColorTween(begin: Colors.red, end: Colors.blue)
+                          .transform(_controller.value),
+                    ),
+                  );
+                },
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _selected = !_selected;
+                });
+              },
+              child: AnimatedContainer(
+                width: 200,
+                height: 200,
+                duration: Duration(seconds: 3),
+                curve: Curves.fastOutSlowIn,
+                child: Container(
+                  child: Text(
+                    "Style",
+                    style: TextStyle(
+                      color: _selected ? Colors.red : Colors.blue,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          AnimatedBuilder(
+            AnimatedBuilder(
               animation: _controller,
               child: Text(
                 "AnimatedBuilder-Color",
@@ -115,8 +116,10 @@ class _SpinnerState extends State<AnimatedBuilderPage>
                     )
                   ],
                 );
-              })
-        ],
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

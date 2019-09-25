@@ -71,6 +71,11 @@ Flutter项目示例
 |![Stepper](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_stepper_ios.gif?raw=true)|![Stepper](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_stepper_android.gif?raw=true)|
 |:-|:-|
 
+
+|![AnimatedBuilder](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_builder_ios.gif?raw=true)|![AnimatedBuilder](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_builder_android.gif?raw=true)|
+|:-|:-|
+
+
 ### 1.  项目理念
 
 1.  构建高复用、低耦合，高应对变化的项目！
