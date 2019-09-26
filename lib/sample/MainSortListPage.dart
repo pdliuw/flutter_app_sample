@@ -193,7 +193,19 @@ class MainSortListPage extends AppCommonStatefulPage {
               );
             },
             child: Text("Bottom Sheet"),
-          )
+          ),
+          RaisedButton(
+            color: Colors.blue,
+            textColor: Colors.white,
+            onPressed: () {
+              pushNamed(
+                routeName: "CardMainPage",
+                enterParameter:
+                    EnterParameter(previousPageContext: getContext()),
+              );
+            },
+            child: Text("组件间通信"),
+          ),
         ],
       ),
     );

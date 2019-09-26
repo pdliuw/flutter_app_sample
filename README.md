@@ -77,6 +77,11 @@ Flutter app sample
 |:-|:-|
 
 
+|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_ios.gif?raw=true)|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_android.gif?raw=true)|
+|:-|:-|
+
+
+
 ###	Technology used
 
 

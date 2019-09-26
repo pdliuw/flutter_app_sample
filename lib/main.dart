@@ -16,6 +16,8 @@ import 'package:flutter_app_sample/sample/anim/HeroAnimPage.dart';
 import 'package:flutter_app_sample/sample/anim/TransformPage.dart';
 import 'package:flutter_app_sample/sample/anim/AnimatedBuilderPage.dart';
 import 'package:flutter_app_sample/sample/anim/ColorTweenPage.dart';
+import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
+import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -48,6 +50,8 @@ void main() => runApp(MaterialApp(
         "TransformPage": (BuildContext context) => TransformPage(),
         "AnimatedBuilderPage": (BuildContext context) => AnimatedBuilderPage(),
         "ColorTweenPage": (BuildContext context) => ColorTweenPage(),
+        "CardMainPage": (BuildContext context) => CardMainPage(),
+        "CardInfoPage": (BuildContext context) => CardInfoPage(),
       },
       navigatorObservers: [
         routeObserver,

@@ -76,6 +76,10 @@ Flutter项目示例
 |:-|:-|
 
 
+|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_ios.gif?raw=true)|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_android.gif?raw=true)|
+|:-|:-|
+
+
 ### 1.  项目理念
 
 1.  构建高复用、低耦合，高应对变化的项目！
