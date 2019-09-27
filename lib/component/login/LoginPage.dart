@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
+//import 'dart:io';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
 import 'package:flutter_app_sample/component/login/LoginContract.dart';
@@ -80,18 +80,18 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   }
 
   Widget _getLogoutWidget() {
-    if (Platform.isIOS) {
-      return Text("");
-    } else {
+//    if (Platform.isIOS) {
+//      return Text("");
+//    } else {
       return FlatButton(
         textColor: Colors.blue,
         onPressed: () {
           ///退出程序！
-          exit(exitCode);
+//          exit(exitCode);
         },
         child: Text("退出"),
       );
-    }
+//    }
   }
 
   @override
