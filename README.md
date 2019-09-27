@@ -90,7 +90,8 @@ Flutter app sample
 3.	Net
 4.  Route
 5.  Animation
-6.  ......
+6.  Provider
+7.  ......
 
 
 ### TODO
