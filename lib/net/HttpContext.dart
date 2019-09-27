@@ -48,7 +48,7 @@ class HttpContext {
       baseUrl: ApiConfig.BASE_URL,
       connectTimeout: ApiConfig.CONNECT_TIME_OUT,
       receiveTimeout: ApiConfig.RECEIVE_TIME_OUT,
-      contentType: formUrlencodedContentType,
+      contentType: formUrlencodedContentType.toString(),
       responseType: jsonResponseType,
     );
   }
