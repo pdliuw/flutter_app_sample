@@ -46,6 +46,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
       titleName: StringConfig.pageNameConfig.mLoginPageName,
       showBackArrow: false,
       showAppBar: true,
+      customBuildWidget: true,
     );
   }
 
@@ -96,90 +97,96 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   Widget createWidget() {
-    return Center(
-      child: SizedBox(
-        width: 250,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                  padding: EdgeInsets.all(80),
-                  child: Text(
-                    "Air",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.blue,
-                    ),
-                  )),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: '手机号',
-                  hintText: "请输入手机号",
-                  errorText: _getPhoneErrorInfo(),
-                  helperText: "helper",
-                  border: UnderlineInputBorder(
-                    borderSide: BorderSide(),
-                  ),
-                ),
-                textAlign: TextAlign.start,
-                enabled: true,
-                maxLength: PHONE_MAX_LENGTH_DEFAULT,
-                onChanged: (String content) {
-                  _phoneInputChange(content);
-                },
-              ),
-              Stack(
-                alignment: AlignmentDirectional.centerEnd,
-                children: <Widget>[
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: '验证码',
-                      hintText: "请输入验证码",
-                      errorText: _getPasswordErrorInfo(),
-                      helperText: "helper",
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("${StringConfig.pageNameConfig.mLoginPageName}"),
+      ),
+      resizeToAvoidBottomPadding: false,
+      body: Center(
+        child: SizedBox(
+          width: 250,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                    padding: EdgeInsets.all(80),
+                    child: Text(
+                      "Air",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue,
                       ),
+                    )),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: '手机号',
+                    hintText: "请输入手机号",
+                    errorText: _getPhoneErrorInfo(),
+                    helperText: "helper",
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(),
                     ),
-                    textAlign: TextAlign.start,
-                    enabled: true,
-                    maxLength: VERIFICATION_MAX_LENGTH_DEFAULT,
-                    onChanged: (String content) {
-                      _passwordInputChange(content);
-                    },
                   ),
-                  FlatButton(
-                    onPressed: () {
-                      getVerificationCode();
-                    },
-                    child: Text("验证码"),
-                    textColor: Colors.blue,
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  _getLogoutWidget(),
-                  RaisedButton.icon(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
+                  textAlign: TextAlign.start,
+                  enabled: true,
+                  maxLength: PHONE_MAX_LENGTH_DEFAULT,
+                  onChanged: (String content) {
+                    _phoneInputChange(content);
+                  },
+                ),
+                Stack(
+                  alignment: AlignmentDirectional.centerEnd,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: '验证码',
+                        hintText: "请输入验证码",
+                        errorText: _getPasswordErrorInfo(),
+                        helperText: "helper",
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(),
+                        ),
+                      ),
+                      textAlign: TextAlign.start,
+                      enabled: true,
+                      maxLength: VERIFICATION_MAX_LENGTH_DEFAULT,
+                      onChanged: (String content) {
+                        _passwordInputChange(content);
+                      },
                     ),
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    onPressed: () {
-                      login();
-                    },
-                    icon: Icon(
-                      Icons.brightness_high,
-                      color: Colors.white,
-                    ),
-                    label: Text("登陆"),
-                  )
-                ],
-              )
-            ],
+                    FlatButton(
+                      onPressed: () {
+                        getVerificationCode();
+                      },
+                      child: Text("验证码"),
+                      textColor: Colors.blue,
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _getLogoutWidget(),
+                    RaisedButton.icon(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        login();
+                      },
+                      icon: Icon(
+                        Icons.brightness_high,
+                        color: Colors.white,
+                      ),
+                      label: Text("登陆"),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -230,7 +237,9 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 //      "mobile": phoneStr,
 //      "code": passwordStr,
 //    });
-    pushNamed(routeName: "MainSortListPage", enterParameter: EnterParameter(previousPageContext: getContext()));
+    pushNamed(
+        routeName: "MainSortListPage",
+        enterParameter: EnterParameter(previousPageContext: getContext()));
     return null;
   }
 
