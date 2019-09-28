@@ -206,6 +206,18 @@ class MainSortListPage extends AppCommonStatefulPage {
             },
             child: Text("组件间通信"),
           ),
+          RaisedButton(
+            color: Colors.blue,
+            textColor: Colors.white,
+            onPressed: () {
+              pushNamed(
+                routeName: "DragListPage",
+                enterParameter:
+                    EnterParameter(previousPageContext: getContext()),
+              );
+            },
+            child: Text("Drag拖拽"),
+          ),
         ],
       ),
     );
