@@ -18,6 +18,7 @@ import 'package:flutter_app_sample/sample/anim/AnimatedBuilderPage.dart';
 import 'package:flutter_app_sample/sample/anim/ColorTweenPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
+import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -52,6 +53,7 @@ void main() => runApp(MaterialApp(
         "ColorTweenPage": (BuildContext context) => ColorTweenPage(),
         "CardMainPage": (BuildContext context) => CardMainPage(),
         "CardInfoPage": (BuildContext context) => CardInfoPage(),
+        "DragListPage": (BuildContext context) => DragListPage(),
       },
       navigatorObservers: [
         routeObserver,
