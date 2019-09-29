@@ -23,8 +23,8 @@ tags:
 
 Flutter项目示例
 
-|[中文文档](/README_CH.md)|[English document](/README.md)|
-|:-|:-|
+|[中文文档](/README_CH.md)|[English document](/README.md)|[主页](https://pdliuw.github.io/)|
+|:-|:-|:-|
 
 [点我，查看完整项目](https://github.com/pdliuw/flutter_app_sample)
 
