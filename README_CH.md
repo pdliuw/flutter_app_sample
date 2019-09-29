@@ -32,6 +32,21 @@ Flutter项目示例
 ### 效果图
 
 
+#### Web
+
+|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_login_web.gif?raw=true)|![Toolbar...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_page_web.gif?raw=true)|
+|:-|:-|
+
+|![Anim](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_web.gif?raw=true)|![Drawer](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drawer_web.gif?raw=true)|
+|:-|:-|
+
+|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|
+|:-|:-|
+
+
+-----
+
+#### Mobile
 
 |![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_ios_platform.gif?raw=true)|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_android_platform.gif?raw=true)|
 |:-|:-|
