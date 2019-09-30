@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/main/MainPage.dart';
 import 'dart:io';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';

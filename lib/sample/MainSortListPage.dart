@@ -18,6 +18,10 @@ class MainSortListPage extends AppCommonStatefulPage {
   ];
   var _showModalBottomSheet;
 
+  MainSortListPage({
+    Key key,
+    @required EnterParameter enterParameter,
+  }) : super(key: key, enterParameter: enterParameter);
   @override
   Config createConfig() {
     return Config(
