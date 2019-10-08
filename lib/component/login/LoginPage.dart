@@ -239,7 +239,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 //      "code": passwordStr,
 //    });
     pushNamed(
-        routeName: "MainSortListPage",
+        routeName: "MainPage",
         enterParameter: EnterParameter(previousPageContext: getContext()));
     return null;
   }
