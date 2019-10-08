@@ -40,7 +40,7 @@ Flutter项目示例
 |![Anim](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_web.gif?raw=true)|![Drawer](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drawer_web.gif?raw=true)|
 |:-|:-|
 
-|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|
+|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|![Bottom Navigation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottom_navigation_bar_web.gif?raw=true)|
 |:-|:-|
 
 
@@ -92,6 +92,13 @@ Flutter项目示例
 
 
 |![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_ios.gif?raw=true)|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_android.gif?raw=true)|
+|:-|:-|
+
+
+|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_ios.gif?raw=true)|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_android.gif?raw=true)|
+|:-|:-|
+
+|![Bottom Navigation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottom_navigation_bar_ios.gif?raw=true)|![Bottom Navigation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottom_navigation_bar_android.gif?raw=true)|
 |:-|:-|
 
 
