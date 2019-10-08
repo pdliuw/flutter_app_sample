@@ -23,8 +23,8 @@ tags:
 
 Flutter项目示例
 
-|[中文文档](/README_CH.md)|[English document](/README.md)|
-|:-|:-|
+|[中文文档](/README_CH.md)|[English document](/README.md)|[主页](https://pdliuw.github.io/)|
+|:-|:-|:-|
 
 [点我，查看完整项目](https://github.com/pdliuw/flutter_app_sample)
 
@@ -32,6 +32,21 @@ Flutter项目示例
 ### 效果图
 
 
+#### Web
+
+|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_login_web.gif?raw=true)|![Toolbar...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_page_web.gif?raw=true)|
+|:-|:-|
+
+|![Anim](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_web.gif?raw=true)|![Drawer](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drawer_web.gif?raw=true)|
+|:-|:-|
+
+|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_web.gif?raw=true)|
+|:-|:-|
+
+
+-----
+
+#### Mobile
 
 |![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_ios_platform.gif?raw=true)|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_android_platform.gif?raw=true)|
 |:-|:-|
@@ -103,7 +118,31 @@ Flutter项目示例
 2.  持续完善文档
 3.  ...
 
+
 ----
+
+如果你喜欢 flutter_app_sample 的设计，感觉 flutter_app_sample 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！ ^_^
+
+----
+
+
+### LICENSE
+
+
+       Copyright 2019 pdliuw
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
 
 
 

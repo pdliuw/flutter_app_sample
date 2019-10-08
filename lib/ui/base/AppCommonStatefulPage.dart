@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/common/util/LogUtil.dart';
 import 'package:flutter_app_sample/common/util/ToastUtil.dart';
+import 'package:flutter_app_sample/ui/common/AppCommonToolBar.dart';
 
 ///基类：每个页面的创建都需要继承此类
 ///功能描述
-///1、创建页面的配置信息Config createConfig();
-///2、创建页面的主部件Widget createWidget();
-///3、提示 showToast(msg);
-///4、更新小部件setState(stateCallback: Function);
+///1、创建页面的配置信息[Config] [AppCommonStatefulPage.createConfig];
+///2、创建页面的主部件[Widget] [AppCommonStatefulPage.createWidget];
+///3、提示 [AppCommonStatefulPage.showToast];
+///4、更新小部件[AppCommonStatefulPage.setState];
 ///5、生命周期的管理
-///6、关闭当前页面pop();
-///7、启动新页面pushNamed();
+///6、关闭当前页面[AppCommonStatefulPage.pop];
+///7、启动新页面[AppCommonStatefulPage.pushNamed];
 ///8、TODO：push时携带参数的封装
 typedef StateCallback = Function();
 typedef LifecycleCallback = Function();
@@ -30,6 +31,19 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
+    /*
+    上个页面传递的EnterParameter.Config对象 优先级 大于 本页面createConfig对象
+    校验，从上个页面传递过来的Config数据
+    如果不为空，则使用从上个页面传递过来的Config
+    如果为空，则使用本页面createConfig函数回调的对象
+     */
+    Config enterParameterConfig = null;
+    if (this.enterParameter != null) {
+      if (this.enterParameter.config != null) {
+        enterParameterConfig = this.enterParameter.config;
+      }
+    }
+
     //创建生命周期管理者
     _lifecycleManager = LifecycleManager(
       initState: initState,
@@ -37,7 +51,8 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
     );
     //主状态小部件
     _statefulPage = _AppCommonStatefulPage(
-      config: createConfig(),
+      config:
+          enterParameterConfig == null ? createConfig() : enterParameterConfig,
       rootWidget: createWidget(),
       enterParameter: this.enterParameter,
       lifecycleManager: _lifecycleManager,
@@ -71,6 +86,11 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
       _statefulPage.rootWidget = createWidget();
       _statefulPage.config = createConfig();
       _statefulPage.enterParameter = this.enterParameter;
+      if (_statefulPage.enterParameter != null) {
+        if (_statefulPage.enterParameter.config != null) {
+          _statefulPage.config = _statefulPage.enterParameter.config;
+        }
+      }
     });
   }
 
@@ -85,6 +105,11 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
     _statefulPage?.pushNamed(routeName: routeName, arguments: enterParameter);
   }
 
+  ///
+  pushWidget({@required Widget widget}) {
+    _statefulPage?.pushWidget(widget);
+  }
+
 //  @override
 //  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
 //    showToast("Route push:${route.settings.arguments.toString()}");
@@ -94,6 +119,10 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
   BuildContext getContext() {
     return _statefulPage?.getContext();
   }
+
+  Config getConfig() {
+    return _statefulPage == null ? createConfig() : _statefulPage.config;
+  }
 }
 
 ///
@@ -102,12 +131,28 @@ abstract class AppCommonStatefulPage extends StatefulWidget {
 ///
 class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     with WidgetsBindingObserver {
-  Config config;
-  Widget rootWidget;
-  EnterParameter enterParameter;
+  Config _config;
+  Widget _rootWidget;
+  EnterParameter _enterParameter;
 
   AppLifecycleState _lastLifecycleState;
   LifecycleManager _lifecycleManager;
+
+  EnterParameter get enterParameter => _enterParameter;
+  Config get config => _config;
+  Widget get rootWidget => _rootWidget;
+
+  set enterParameter(EnterParameter enterParameter) {
+    this._enterParameter = enterParameter;
+  }
+
+  set config(Config config) {
+    this._config = config;
+  }
+
+  set rootWidget(Widget rootWidget) {
+    this._rootWidget = rootWidget;
+  }
 
   @override
   void initState() {
@@ -136,9 +181,9 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     @required EnterParameter enterParameter,
     @required LifecycleManager lifecycleManager,
   }) {
-    this.config = config;
-    this.rootWidget = rootWidget;
-    this.enterParameter = enterParameter;
+    this._config = config;
+    this._rootWidget = rootWidget;
+    this._enterParameter = enterParameter;
     this._lifecycleManager = lifecycleManager;
   }
 
@@ -176,8 +221,7 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
     }
   }
 
-  @deprecated
-  push(Widget widget) {
+  pushWidget(Widget widget) {
     Navigator.push(getContext(), new MaterialPageRoute(builder: (context) {
       return new Builder(builder: (context) {
         return widget;
@@ -238,9 +282,12 @@ class _AppCommonStatefulPage extends State<AppCommonStatefulPage>
   }
 }
 
+///
+/// 页面配置类
+///
 class Config {
   Config({
-    @required String titleName = 'title',
+    String titleName = 'title',
     bool showAppBar = true,
     bool showBackArrow = true,
     bool customBuildWidget = false,
@@ -260,20 +307,37 @@ class Config {
     this._titleName = titleName;
   }
 
-  set showAppBar(bool showAppBar) => _showAppBar = showAppBar;
-  set showBackArrow(bool showBackArrow) => _showBackArrow = showBackArrow;
+  set showAppBar(showAppBar) => _showAppBar = showAppBar;
+  set showBackArrow(showBackArrow) => _showBackArrow = showBackArrow;
 
   String get titleName => _titleName;
   bool get showAppBar => _showAppBar;
   bool get showBackArrow => _showBackArrow;
 }
 
+///
+/// 页面跳转的参数类
+///
 class EnterParameter {
-  BuildContext previousPageContext;
+  BuildContext _previousPageContext;
+  Config _config;
   EnterParameter({
     @required BuildContext previousPageContext,
+    Config config,
   }) {
-    this.previousPageContext = previousPageContext;
+    this._previousPageContext = previousPageContext;
+    this._config = config;
+  }
+
+  BuildContext get previousPageContext => this._previousPageContext;
+  Config get config => this._config;
+
+  set previousPageContext(BuildContext buildContext) {
+    this._previousPageContext = buildContext;
+  }
+
+  set config(Config config) {
+    this._config = config;
   }
 
   @override
