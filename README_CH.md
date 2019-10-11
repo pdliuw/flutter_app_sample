@@ -29,6 +29,13 @@ Flutter项目示例
 [点我，查看完整项目](https://github.com/pdliuw/flutter_app_sample)
 
 
+----
+
+如果你喜欢 flutter_app_sample 的设计，感觉 flutter_app_sample 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！ ^_^
+
+----
+
+
 ### 效果图
 
 

@@ -29,6 +29,11 @@ Flutter app sample
 
 [Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)
 
+----
+
+If you like the design of flutter_app_sample, feel flutter_app_sample to help you, you can click "Star" in the upper right corner to support it! Thank you! ^ _ ^
+
+----
 
 ### Render
 
