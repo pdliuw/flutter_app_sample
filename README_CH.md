@@ -26,8 +26,8 @@ Flutter项目示例
 |[中文文档](/README_CH.md)|[English document](/README.md)|[主页](https://pdliuw.github.io/)|
 |:-|:-|:-|
 
-[点我，查看完整项目](https://github.com/pdliuw/flutter_app_sample)
-
+|[点我，查看完整项目](https://github.com/pdliuw/flutter_app_sample)|[下载安装包](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/apk/flutter_app_sample.apk?raw=true)|
+|:-|:-|
 
 ----
 
