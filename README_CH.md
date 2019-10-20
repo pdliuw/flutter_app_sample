@@ -36,8 +36,10 @@ Flutter项目示例
 ----
 
 
-### 效果图
+* 温馨提示：Flutter v1.9.1x stable分支不支持web开发，由于本项目支持Web、Android、IOS三端开发。所以本项目的环境为：Flutter v1.9.1x master分支，使用此项目前，请更新下Flutter分支与版本
 
+
+### 效果图
 
 #### Web
 
