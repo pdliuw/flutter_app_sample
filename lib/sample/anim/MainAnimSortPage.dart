@@ -130,6 +130,7 @@ class MainAnimSortPage extends AppCommonStatefulPage {
               );
             },
             child: Card(
+              shape: RoundedRectangleBorder(side: BorderSide(color: Colors.green, width: 1), borderRadius: BorderRadius.circular(5)),
               elevation: 5,
               margin: EdgeInsets.all(5),
               child: Padding(
