@@ -37,6 +37,7 @@ class MainPage extends AppCommonStatefulPage {
       "Collapsing+TabBar+TabBarView",
       "Animation",
       "Communication",
+      "DrawerVariously",
       "Drag list grid...",
     ];
     return _sortTitles;
@@ -50,6 +51,7 @@ class MainPage extends AppCommonStatefulPage {
       "CollapsingToolbarPage",
       "MainAnimSortPage",
       "CardMainPage",
+      "DrawerVariouslyPage",
       "DragListPage",
     ];
     return _sortRouteNames;
