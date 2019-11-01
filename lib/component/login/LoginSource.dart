@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 ///
 ///
 abstract class LoginSource implements BaseSource {
-  getVerificationCode({
-    @required dynamic data,
-    @required ResponseCallback responseCallback,
-  });
-
-  login({
-    @required dynamic data,
-    @required ResponseCallback responseCallback,
-  });
+//  getVerificationCode({
+//    @required dynamic data,
+//    @required ResponseCallback responseCallback,
+//  });
+//
+//  login({
+//    @required dynamic data,
+//    @required ResponseCallback responseCallback,
+//  });
 }
