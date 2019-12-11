@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/component/main/MainPage.dart';
-//import 'dart:io';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
-import 'package:flutter_app_sample/common/util/StringUtil.dart';
-import 'package:flutter_app_sample/component/login/LoginContract.dart';
-import 'package:flutter_app_sample/component/login/LoginRepository.dart';
-import 'package:flutter_app_sample/component/login/LoginPresenter.dart';
-import 'package:flutter_app_sample/component/test/TestPage.dart';
-import 'package:flutter_app_sample/ui/route/AppRoute.dart';
-import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
-import 'package:flutter_app_sample/component/shop/Product.dart';
 import 'package:flutter_app_sample/common/config/StringConfig.dart';
+import 'package:flutter_app_sample/common/util/StringUtil.dart';
+import 'package:flutter_app_sample/component/shop/Product.dart';
+import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
+import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
+
+import 'login_contract.dart';
 
 ///登陆页面
 ///
@@ -85,14 +80,14 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 //    if (Platform.isIOS) {
 //      return Text("");
 //    } else {
-      return FlatButton(
-        textColor: Colors.blue,
-        onPressed: () {
-          ///退出程序！
+    return FlatButton(
+      textColor: Colors.blue,
+      onPressed: () {
+        ///退出程序！
 //          exit(exitCode);
-        },
-        child: Text("退出"),
-      );
+      },
+      child: Text("退出"),
+    );
 //    }
   }
 

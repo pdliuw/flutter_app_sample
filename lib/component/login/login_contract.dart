@@ -1,17 +1,14 @@
+import 'package:flutter_app_sample/component/BaseView.dart';
 import 'package:flutter_app_sample/component/BasePresenter.dart';
-import 'package:flutter_app_sample/component/login/LoginSource.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/net/HttpContext.dart';
-import 'package:flutter_app_sample/component/login/LoginContract.dart';
-import 'package:flutter_app_sample/common/util/LogUtil.dart';
-import 'package:flutter_app_sample/data/response/User.dart';
 
-class LoginPresenter extends ILoginPresenter {
+/// LoginPresenter
+class LoginPresenter extends BasePresenter {
   ILoginView _loginView;
-  LoginSource _loginSource;
+  LoginRepository _loginSource;
 
   LoginPresenter({
-    @required LoginSource loginSource,
+    @required LoginRepository loginSource,
     @required ILoginView loginView,
   }) {
     this._loginSource = loginSource;
@@ -80,4 +77,87 @@ class LoginPresenter extends ILoginPresenter {
 //      ),
 //    );
   }
+}
+
+///
+/// ILoginView
+abstract class ILoginView extends BaseView<LoginPresenter> {
+  ///获取验证码
+  getVerificationCode();
+
+  ///开始获取验证码
+  getVerificationCodeStart();
+
+  ///完成获取验证码
+  getVerificationCodeStop();
+
+  ///获取验证码成功
+  getVerificationCodeSuccess();
+
+  ///获取验证码失败
+  getVerificationCodeFailure();
+
+  ///登陆
+  login();
+
+  ///登陆开始
+  loginStart();
+
+  ///登陆完成
+  loginStop();
+
+  ///登陆成功
+  loginSuccess();
+
+  ///登陆失败
+  loginFailure();
+}
+
+class LoginRepository {
+//  @override
+//  getVerificationCode({
+//    @required dynamic data,
+//    @required ResponseCallback responseCallback,
+//  }) {
+//    HttpContext().postHttp(
+//      postOption: PostOption(
+//        urlPath: ApiConfig.GET_VERIFICATION_CODE_URL,
+//        data: data,
+//      ),
+//      responseCallback: ResponseCallback(
+//        successCallback: (SuccessData successData) {
+//          //成功
+//          responseCallback.successCallback(successData);
+//        },
+//        failureCallback: (FailureData failureData) {
+//          //失败
+//          responseCallback.failureCallback(failureData);
+//        },
+//      ),
+//    );
+//
+//    return null;
+//  }
+//
+//  @override
+//  login({
+//    @required dynamic data,
+//    @required ResponseCallback responseCallback,
+//  }) {
+//    HttpContext().postHttp(
+//      postOption: PostOption(
+//        urlPath: ApiConfig.LOGIN_URL,
+//        data: data,
+//      ),
+//      responseCallback: ResponseCallback(
+//        successCallback: (SuccessData successData) {
+//          responseCallback.successCallback(successData);
+//        },
+//        failureCallback: (FailureData failureData) {
+//          responseCallback.failureCallback(failureData);
+//        },
+//      ),
+//    );
+//    return null;
+//  }
 }

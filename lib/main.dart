@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
-import 'package:flutter_app_sample/component/login/LoginPage.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/component/main/MainPage.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
@@ -20,6 +20,7 @@ import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/DrawerVariouslyPage.dart';
+import 'package:flutter_route/flutter_route.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -31,34 +32,38 @@ void main() => runApp(MaterialApp(
       ),
 
       ///全局静态路由的配置！
-      routes: <String, WidgetBuilder>{
-        "LoginPage": (BuildContext context) => LoginPage(),
-        "MainPage": (BuildContext context) => MainPage(),
-        "TestPage": (BuildContext context) => TestPage(),
-        "ShoppingList": (BuildContext context) => ShoppingListPage(),
-        "MainSortListPage": (BuildContext context) => MainSortListPage(),
-        "ViewPagerFragmentPage": (BuildContext context) =>
-            ViewPagerFragmentPage(),
-        "CollapsingToolbarPage": (BuildContext context) =>
-            CollapsingToolbarPage(),
-        "MainAnimSortPage": (BuildContext context) => MainAnimSortPage(),
-        "AnimOfSwitchPage": (BuildContext context) => AnimOfSwitchPage(),
-        "AnimatedContainerPage": (BuildContext context) =>
-            AnimatedContainerPage(),
-        "OpacityAndAnimatedOpacityPage": (BuildContext context) =>
-            OpacityAndAnimatedOpacityPage(),
-        "FadeInImagePage": (BuildContext context) => FadeInImagePage(),
-        "HeroAnimPage": (BuildContext context) => HeroAnimPage(),
-        "TransformPage": (BuildContext context) => TransformPage(),
-        "AnimatedBuilderPage": (BuildContext context) => AnimatedBuilderPage(),
-        "ColorTweenPage": (BuildContext context) => ColorTweenPage(),
-        "CardMainPage": (BuildContext context) => CardMainPage(),
-        "CardInfoPage": (BuildContext context) => CardInfoPage(),
-        "DragListPage": (BuildContext context) => DragListPage(),
-        "DrawerVariouslyPage": (BuildContext context) => DrawerVariouslyPage(),
-      },
+      routes: RouteManager.initializeRoutes(
+        routes: <String, WidgetBuilder>{
+          "LoginPage": (BuildContext context) => LoginPage(),
+          "MainPage": (BuildContext context) => MainPage(),
+          "TestPage": (BuildContext context) => TestPage(),
+          "ShoppingList": (BuildContext context) => ShoppingListPage(),
+          "MainSortListPage": (BuildContext context) => MainSortListPage(),
+          "ViewPagerFragmentPage": (BuildContext context) =>
+              ViewPagerFragmentPage(),
+          "CollapsingToolbarPage": (BuildContext context) =>
+              CollapsingToolbarPage(),
+          "MainAnimSortPage": (BuildContext context) => MainAnimSortPage(),
+          "AnimOfSwitchPage": (BuildContext context) => AnimOfSwitchPage(),
+          "AnimatedContainerPage": (BuildContext context) =>
+              AnimatedContainerPage(),
+          "OpacityAndAnimatedOpacityPage": (BuildContext context) =>
+              OpacityAndAnimatedOpacityPage(),
+          "FadeInImagePage": (BuildContext context) => FadeInImagePage(),
+          "HeroAnimPage": (BuildContext context) => HeroAnimPage(),
+          "TransformPage": (BuildContext context) => TransformPage(),
+          "AnimatedBuilderPage": (BuildContext context) =>
+              AnimatedBuilderPage(),
+          "ColorTweenPage": (BuildContext context) => ColorTweenPage(),
+          "CardMainPage": (BuildContext context) => CardMainPage(),
+          "CardInfoPage": (BuildContext context) => CardInfoPage(),
+          "DragListPage": (BuildContext context) => DragListPage(),
+          "DrawerVariouslyPage": (BuildContext context) =>
+              DrawerVariouslyPage(),
+        },
+      ),
       navigatorObservers: [
-        routeObserver,
+        RouteManager.getInstance(),
       ],
     ));
 
