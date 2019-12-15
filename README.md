@@ -21,7 +21,7 @@ tags:
 
 
 
-Flutter app sample
+Flutter app sample supports : " Android 、iOS 、Web 、MacOS"
 
 
 |[中文文档](/README_CH.md)|[English document](/README.md)|[HomePage](https://pdliuw.github.io/)|

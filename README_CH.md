@@ -21,7 +21,7 @@ tags:
 
 
 
-Flutter项目示例
+Flutter项目示例支持 : " Android 、iOS 、Web 、MacOS"
 
 |[中文文档](/README_CH.md)|[English document](/README.md)|[主页](https://pdliuw.github.io/)|
 |:-|:-|:-|
