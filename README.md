@@ -37,7 +37,6 @@ If you like the design of flutter_app_sample, feel flutter_app_sample to help yo
 ----
 
 
-* Tips: Flutter v1.9.1x stable branch does not support web development, because this project supports Web, Android, IOS three-end development. So the environment of this project is: Flutter v1.9.1x master branch, use this item, please update the Flutter branch and version
 
 
 ### Render
