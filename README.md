@@ -42,7 +42,7 @@ If you like the design of flutter_app_sample, feel flutter_app_sample to help yo
 ### Render
 
 
-#### MacOs
+#### MacOS
 
 |![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_mac_login.gif?raw=true)|![Toolbar...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_page_mac.gif?raw=true)|
 |:-|:-|
