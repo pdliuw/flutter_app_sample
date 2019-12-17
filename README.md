@@ -36,7 +36,10 @@ If you like the design of flutter_app_sample, feel flutter_app_sample to help yo
 
 ----
 
-
+Package/Plugin|Description|Link
+---|:--:|---:
+flutter_route|无需context对象的路由管理|[route](https://github.com/pdliuw/flutter_route)
+flutter_scanner|支持作为widget使用条码生成、识别|[scanner](https://github.com/pdliuw/flutter_scanner)
 
 
 ### Render
