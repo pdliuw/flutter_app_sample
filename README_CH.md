@@ -38,8 +38,8 @@ Flutter项目示例支持 : " Android 、iOS 、Web 、MacOS"
 
 Package/Plugin|Description|Link
 ---|:--:|---:
-Airoute|让你爱上路由管理的airoute|[Airoute](https://github.com/pdliuw/flutter_route)
-flutter_scanner|支持作为widget使用条码生成、识别|[Scanner](https://github.com/pdliuw/flutter_scanner)
+airoute|让你爱上路由管理的airoute|[airoute](https://github.com/pdliuw/flutter_route)
+flutter_scanner|支持作为widget使用条码生成、识别|[scanner](https://github.com/pdliuw/flutter_scanner)
 
 
 
