@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'CollapsingToolbarPage.dart';
+import 'package:airoute/airoute.dart';
 
 class MainSortListPage extends AppCommonStatefulPage {
   String titleName = "主页";
@@ -93,10 +94,8 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              pushNamed(
+              Airoute.pushNamed(
                 routeName: "ViewPagerFragmentPage",
-                enterParameter:
-                    EnterParameter(previousPageContext: getContext()),
               );
             },
             child: Text("Toolbar+ViewPager+Fragment"),
@@ -105,10 +104,8 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              pushNamed(
+              Airoute.pushNamed(
                 routeName: "CollapsingToolbarPage",
-                enterParameter:
-                    EnterParameter(previousPageContext: getContext()),
               );
             },
             child: Text("Collapsing+Toolbar+Fragment"),
@@ -117,10 +114,8 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              pushNamed(
+              Airoute.pushNamed(
                 routeName: "MainAnimSortPage",
-                enterParameter:
-                    EnterParameter(previousPageContext: getContext()),
               );
             },
             child: Text("Animation"),
@@ -202,10 +197,8 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              pushNamed(
+              Airoute.pushNamed(
                 routeName: "CardMainPage",
-                enterParameter:
-                    EnterParameter(previousPageContext: getContext()),
               );
             },
             child: Text("组件间通信"),
@@ -214,10 +207,8 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              pushNamed(
+              Airoute.pushNamed(
                 routeName: "DragListPage",
-                enterParameter:
-                    EnterParameter(previousPageContext: getContext()),
               );
             },
             child: Text("Drag拖拽"),

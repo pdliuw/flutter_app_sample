@@ -20,51 +20,40 @@ import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/DrawerVariouslyPage.dart';
-import 'package:flutter_route/flutter_route.dart';
+import 'package:airoute/airoute.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
-void main() => runApp(MaterialApp(
+void main() => runApp(Airoute.createMaterialApp(
       home: Scaffold(
         body: LoginPage(),
       ),
 
       ///全局静态路由的配置！
-      routes: RouteManager.initializeRoutes(
-        routes: <String, WidgetBuilder>{
-          "LoginPage": (BuildContext context) => LoginPage(),
-          "MainPage": (BuildContext context) => MainPage(),
-          "TestPage": (BuildContext context) => TestPage(),
-          "ShoppingList": (BuildContext context) => ShoppingListPage(),
-          "MainSortListPage": (BuildContext context) => MainSortListPage(),
-          "ViewPagerFragmentPage": (BuildContext context) =>
-              ViewPagerFragmentPage(),
-          "CollapsingToolbarPage": (BuildContext context) =>
-              CollapsingToolbarPage(),
-          "MainAnimSortPage": (BuildContext context) => MainAnimSortPage(),
-          "AnimOfSwitchPage": (BuildContext context) => AnimOfSwitchPage(),
-          "AnimatedContainerPage": (BuildContext context) =>
-              AnimatedContainerPage(),
-          "OpacityAndAnimatedOpacityPage": (BuildContext context) =>
-              OpacityAndAnimatedOpacityPage(),
-          "FadeInImagePage": (BuildContext context) => FadeInImagePage(),
-          "HeroAnimPage": (BuildContext context) => HeroAnimPage(),
-          "TransformPage": (BuildContext context) => TransformPage(),
-          "AnimatedBuilderPage": (BuildContext context) =>
-              AnimatedBuilderPage(),
-          "ColorTweenPage": (BuildContext context) => ColorTweenPage(),
-          "CardMainPage": (BuildContext context) => CardMainPage(),
-          "CardInfoPage": (BuildContext context) => CardInfoPage(),
-          "DragListPage": (BuildContext context) => DragListPage(),
-          "DrawerVariouslyPage": (BuildContext context) =>
-              DrawerVariouslyPage(),
-        },
-      ),
-      navigatorObservers: [
-        RouteManager.getInstance(),
-      ],
+      routes: <String, AirouteBuilder>{
+        "LoginPage": () => LoginPage(),
+        "MainPage": () => MainPage(),
+        "TestPage": () => TestPage(),
+        "ShoppingList": () => ShoppingListPage(),
+        "MainSortListPage": () => MainSortListPage(),
+        "ViewPagerFragmentPage": () => ViewPagerFragmentPage(),
+        "CollapsingToolbarPage": () => CollapsingToolbarPage(),
+        "MainAnimSortPage": () => MainAnimSortPage(),
+        "AnimOfSwitchPage": () => AnimOfSwitchPage(),
+        "AnimatedContainerPage": () => AnimatedContainerPage(),
+        "OpacityAndAnimatedOpacityPage": () => OpacityAndAnimatedOpacityPage(),
+        "FadeInImagePage": () => FadeInImagePage(),
+        "HeroAnimPage": () => HeroAnimPage(),
+        "TransformPage": () => TransformPage(),
+        "AnimatedBuilderPage": () => AnimatedBuilderPage(),
+        "ColorTweenPage": () => ColorTweenPage(),
+        "CardMainPage": () => CardMainPage(),
+        "CardInfoPage": () => CardInfoPage(),
+        "DragListPage": () => DragListPage(),
+        "DrawerVariouslyPage": () => DrawerVariouslyPage(),
+      },
     ));
 
 class MyApp extends AppCommonStatefulPage {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
+import 'package:airoute/airoute.dart';
 
 class MainAnimSortPage extends AppCommonStatefulPage {
   var _titleName = "动画";
@@ -123,14 +124,14 @@ class MainAnimSortPage extends AppCommonStatefulPage {
               /*
               跳转到动画详情页
               */
-              pushNamed(
+              Airoute.pushNamed(
                 routeName: _listRouteNames.elementAt(i),
-                enterParameter:
-                    EnterParameter(previousPageContext: getContext()),
               );
             },
             child: Card(
-              shape: RoundedRectangleBorder(side: BorderSide(color: Colors.green, width: 1), borderRadius: BorderRadius.circular(5)),
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.green, width: 1),
+                  borderRadius: BorderRadius.circular(5)),
               elevation: 5,
               margin: EdgeInsets.all(5),
               child: Padding(
@@ -186,9 +187,8 @@ class MainAnimSortPage extends AppCommonStatefulPage {
             /*
             跳转到动画详情页
              */
-            pushNamed(
+            Airoute.pushNamed(
               routeName: _listRouteNames.elementAt(index),
-              enterParameter: EnterParameter(previousPageContext: getContext()),
             );
           },
           color: Colors.blue,
