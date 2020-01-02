@@ -37,7 +37,7 @@ If you like the design of flutter_app_sample, feel flutter_app_sample to help yo
 ----
 
 Package/Plugin|Link
----|:--:|---:
+---|:--:
 [airoute](https://github.com/pdliuw/flutter_route)|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
 [scanner](https://github.com/pdliuw/flutter_scanner)|[scanner](https://github.com/pdliuw/flutter_scanner)
 
