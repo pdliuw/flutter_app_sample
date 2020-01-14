@@ -28,9 +28,7 @@ dependencies:
   provider: ^3.0.0
 
   # Route package.
-  airoute:
-    git:
-      url: https://github.com/pdliuw/airoute.git
+  airoute: ^0.1.7
 
 dev_dependencies:
   flutter_test:
