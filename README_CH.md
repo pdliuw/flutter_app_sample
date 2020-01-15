@@ -38,8 +38,9 @@ Flutter项目示例支持 : " Android 、iOS 、Web 、MacOS"
 
 Package/Plugin|Description|Link
 ---|:--:|---:
-airoute|爱路由|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
-flutter_scanner|flutter barcode|[![pub package](https://img.shields.io/pub/v/flutter_scanner.svg)](https://pub.dev/packages/flutter_scanner)
+[airoute](https://github.com/pdliuw/airoute)|爱路由|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+[flutter_scanner](https://github.com/pdliuw/flutter_scanner)|flutter barcode|[![pub package](https://img.shields.io/pub/v/flutter_scanner.svg)](https://pub.dev/packages/flutter_scanner)
+[ai_barcode](https://github.com/pdliuw/ai_barcode)|爱条码|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
 
 
 
