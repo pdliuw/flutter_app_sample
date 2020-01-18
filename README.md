@@ -27,7 +27,7 @@ Flutter app sample supports : " Android 、iOS 、Web 、MacOS"
 |[中文文档](/README_CH.md)|[English document](/README.md)|[HomePage](https://pdliuw.github.io/)|
 |:-|:-|:-|
 
-|[Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)|[Download install apk](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/apk/flutter_app_sample.apk?raw=true)|[Web site](https://flutter-app-sample.github.io)|
+|[Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)|[Download android install apk](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/apk/flutter_app_sample.apk?raw=true)|[flutter-app-sample Web site](https://flutter-app-sample.github.io)|
 |:-|:-|:-|
 
 ----
