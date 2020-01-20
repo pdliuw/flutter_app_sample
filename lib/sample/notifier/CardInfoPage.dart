@@ -62,7 +62,7 @@ class CardInfoPage extends AppCommonStatefulPage {
             trailing: Text("描述：点击➕号来增加年龄值"),
           ),
           ChangeNotifierProvider(
-            builder: (BuildContext context) => _cardModelBYNotifierProvider,
+            create: (BuildContext context) => _cardModelBYNotifierProvider,
             child: Consumer<CardModelBYNotifierProvider>(
               builder: (context, cart, child) {
                 return RaisedButton(

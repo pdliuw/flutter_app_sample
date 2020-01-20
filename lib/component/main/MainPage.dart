@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/sample/MainSortListPage.dart';
 import 'package:flutter_app_sample/component/game/MainGamePage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 ///主页面
 ///
@@ -63,7 +64,11 @@ class MainPage extends AppCommonStatefulPage {
     List<Widget> _bottomNavigationWidgets = [
       _getListView(),
       Center(
-        child: Text("Games"),
+        child: Column(
+          children: <Widget>[
+            Text("Games"),
+          ],
+        ),
       ),
       Center(
         child: Text("TODO"),
