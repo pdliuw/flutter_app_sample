@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
@@ -22,39 +23,56 @@ import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/DrawerVariouslyPage.dart';
 import 'package:airoute/airoute.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'ChineseCupertinoLocalizations.dart';
+
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
-void main() => runApp(Airoute.createMaterialApp(
-      home: Scaffold(
-        body: LoginPage(),
-      ),
+void main() => runApp(
+      Airoute.createMaterialApp(
+        home: Scaffold(
+          body: LoginPage(),
+        ),
+        localizationsDelegates: [
+          DefaultCupertinoLocalizations.delegate,
+          ChineseCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('en', 'US'),
+          const Locale('zh', 'CH'),
+        ],
 
-      ///全局静态路由的配置！
-      routes: <String, AirouteBuilder>{
-        "LoginPage": () => LoginPage(),
-        "MainPage": () => MainPage(),
-        "TestPage": () => TestPage(),
-        "ShoppingList": () => ShoppingListPage(),
-        "MainSortListPage": () => MainSortListPage(),
-        "ViewPagerFragmentPage": () => ViewPagerFragmentPage(),
-        "CollapsingToolbarPage": () => CollapsingToolbarPage(),
-        "MainAnimSortPage": () => MainAnimSortPage(),
-        "AnimOfSwitchPage": () => AnimOfSwitchPage(),
-        "AnimatedContainerPage": () => AnimatedContainerPage(),
-        "OpacityAndAnimatedOpacityPage": () => OpacityAndAnimatedOpacityPage(),
-        "FadeInImagePage": () => FadeInImagePage(),
-        "HeroAnimPage": () => HeroAnimPage(),
-        "TransformPage": () => TransformPage(),
-        "AnimatedBuilderPage": () => AnimatedBuilderPage(),
-        "ColorTweenPage": () => ColorTweenPage(),
-        "CardMainPage": () => CardMainPage(),
-        "CardInfoPage": () => CardInfoPage(),
-        "DragListPage": () => DragListPage(),
-        "DrawerVariouslyPage": () => DrawerVariouslyPage(),
-      },
-    ));
+        ///全局静态路由的配置！
+        routes: <String, AirouteBuilder>{
+          "LoginPage": () => LoginPage(),
+          "MainPage": () => MainPage(),
+          "TestPage": () => TestPage(),
+          "ShoppingList": () => ShoppingListPage(),
+          "MainSortListPage": () => MainSortListPage(),
+          "ViewPagerFragmentPage": () => ViewPagerFragmentPage(),
+          "CollapsingToolbarPage": () => CollapsingToolbarPage(),
+          "MainAnimSortPage": () => MainAnimSortPage(),
+          "AnimOfSwitchPage": () => AnimOfSwitchPage(),
+          "AnimatedContainerPage": () => AnimatedContainerPage(),
+          "OpacityAndAnimatedOpacityPage": () =>
+              OpacityAndAnimatedOpacityPage(),
+          "FadeInImagePage": () => FadeInImagePage(),
+          "HeroAnimPage": () => HeroAnimPage(),
+          "TransformPage": () => TransformPage(),
+          "AnimatedBuilderPage": () => AnimatedBuilderPage(),
+          "ColorTweenPage": () => ColorTweenPage(),
+          "CardMainPage": () => CardMainPage(),
+          "CardInfoPage": () => CardInfoPage(),
+          "DragListPage": () => DragListPage(),
+          "DrawerVariouslyPage": () => DrawerVariouslyPage(),
+        },
+      ),
+    );
 
 class MyApp extends AppCommonStatefulPage {
   @override

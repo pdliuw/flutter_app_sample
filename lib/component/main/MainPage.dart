@@ -3,13 +3,23 @@ import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/sample/MainSortListPage.dart';
 import 'package:flutter_app_sample/component/game/MainGamePage.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:airoute/airoute.dart';
 
 ///主页面
 ///
 /// 增加："演示主页"、"小游戏"、"TO DO的底部切换标签
 /// 增加：点击底部已选中的标签会触发刷新机制
 ///
-class MainPage extends AppCommonStatefulPage {
+class MainPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MainState();
+  }
+}
+
+///
+/// _MainState
+class _MainState extends State<MainPage> {
   ///
   /// 底部导航标签的图标集合
   List<Widget> _bottomNavigationIcons = [
@@ -87,9 +97,9 @@ class MainPage extends AppCommonStatefulPage {
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
           onTap: () {
-            pushNamed(
-                routeName: _getSortRouteNames().elementAt(index),
-                enterParameter: EnterParameter());
+            Airoute.pushNamed(
+              routeName: _getSortRouteNames().elementAt(index),
+            );
           },
           child: Card(
             color: Colors.lightGreen,
@@ -122,13 +132,13 @@ class MainPage extends AppCommonStatefulPage {
     /*
     Render
      */
-    setState(stateCallback: () {
+    setState(() {
       /*
       如果已经选中当前项，此时再选择此项则视为刷新当前页面
        */
       if (_bottomNavigationSelectedIndex == index) {
-        showToast(
-            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制");
+//        ToastUtil(
+//            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制");
       }
       _bottomNavigationSelectedIndex = index;
     });
@@ -152,16 +162,12 @@ class MainPage extends AppCommonStatefulPage {
   }
 
   @override
-  Config createConfig() {
-    return Config(
-      titleName:
-          "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}",
-    );
-  }
-
-  @override
-  Widget createWidget() {
+  Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
+      ),
       body: Center(
         child: getBottomNavigationWidgets()
             .elementAt(_bottomNavigationSelectedIndex),

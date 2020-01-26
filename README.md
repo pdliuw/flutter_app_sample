@@ -41,6 +41,7 @@ Package/Plugin|Description|Link
 [airoute](https://github.com/pdliuw/airoute)|flutter route/navigator|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
 [flutter_scanner](https://github.com/pdliuw/flutter_scanner)|flutter barcode|[![pub package](https://img.shields.io/pub/v/flutter_scanner.svg)](https://pub.dev/packages/flutter_scanner)
 [ai_barcode](https://github.com/pdliuw/ai_barcode)|ai barcode|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
+[flutter_localizations](https://flutter.dev/)|Internationalization/multi-language|[link](https://flutter.dev/)
 
 
 ### Render
