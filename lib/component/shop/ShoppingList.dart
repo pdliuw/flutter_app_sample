@@ -5,15 +5,20 @@ import 'package:flutter_app_sample/component/shop/ShoppingListItem.dart';
 import 'package:flutter_app_sample/common/config/StringConfig.dart';
 
 ///商品列表
-class ShoppingListPage extends AppCommonStatefulPage {
+class ShoppingListPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ShoppingState();
+  }
+}
+
+class _ShoppingState extends State<ShoppingListPage> {
   Set<Product> _shoppingCart = Set<Product>();
 
-  final List<Product> products;
+  final List<Product> products = [
+    Product(name: "product", originPrice: "100", nowPrice: "59"),
+  ];
 
-  ShoppingListPage({Key key, this.products, EnterParameter enterParameter})
-      : super(key: key, enterParameter: enterParameter);
-
-  @override
   Config createConfig() {
     return Config(
       titleName: StringConfig.pageNameConfig.mShoppingListPageName,
@@ -22,7 +27,6 @@ class ShoppingListPage extends AppCommonStatefulPage {
     );
   }
 
-  @override
   Widget createWidget() {
     return ListView.builder(
       itemBuilder: (BuildContext context, int position) {
@@ -38,7 +42,7 @@ class ShoppingListPage extends AppCommonStatefulPage {
   }
 
   void _handleCartChanged(Product product, bool inCart) {
-    setState(stateCallback: () {
+    setState(() {
       if (!inCart)
         _shoppingCart.remove(product);
       else
@@ -46,5 +50,10 @@ class ShoppingListPage extends AppCommonStatefulPage {
 
       print("点击了!${product} ${inCart},${products.length}");
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createWidget();
   }
 }

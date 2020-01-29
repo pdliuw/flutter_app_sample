@@ -12,14 +12,23 @@ import 'package:provider/provider.dart';
 /// Consumer
 /// ]
 ///
-class CardInfoPage extends AppCommonStatefulPage {
+class CardInfoPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _CardInfoState();
+  }
+}
+
+///
+/// _CardInfoState
+class _CardInfoState extends State<CardInfoPage> {
   CardModelBYNotifierProvider _cardModelBYNotifierProvider;
 
   callback() {
     /*
     Render
     */
-    setState(stateCallback: () {});
+    setState(() {});
   }
 
   @override
@@ -39,10 +48,9 @@ class CardInfoPage extends AppCommonStatefulPage {
 
   @override
   Config createConfig() {
-    return Config(titleName: "组件间通信");
+    return Config(titleName: "");
   }
 
-  @override
   Widget createWidget() {
     return Card(
       child: Column(
@@ -79,6 +87,16 @@ class CardInfoPage extends AppCommonStatefulPage {
           ),
         ],
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("组件间通信"),
+      ),
+      body: createWidget(),
     );
   }
 }

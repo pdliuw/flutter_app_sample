@@ -1,10 +1,10 @@
+import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/common/config/StringConfig.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
-import 'package:flutter_app_sample/component/shop/Product.dart';
-import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
+import '../../common/util/ToastUtil.dart';
 import 'login_contract.dart';
 
 ///登陆页面
@@ -13,7 +13,16 @@ import 'login_contract.dart';
 ///1、逻辑：账号/手机号+验证码/密码的形势执行登陆操作！
 ///2、提示：账号/手机号为"11位"，验证码/密码位"6"位！
 ///5、平台：IOS平台没有"退出"按钮，Android平台有"退出"按钮！
-class LoginPage extends AppCommonStatefulPage implements ILoginView {
+class LoginPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _LoginState();
+  }
+}
+
+///
+/// _LoginState
+class _LoginState extends State<LoginPage> implements ILoginView {
   static const num PHONE_MAX_LENGTH_DEFAULT = 11;
   static const num VERIFICATION_MAX_LENGTH_DEFAULT = 6;
   String phoneStr = "";
@@ -65,13 +74,13 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   }
 
   _phoneInputChange(String content) {
-    setState(stateCallback: () {
+    setState(() {
       phoneStr = content;
     });
   }
 
   _passwordInputChange(String content) {
-    setState(stateCallback: () {
+    setState(() {
       passwordStr = content;
     });
   }
@@ -91,8 +100,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 //    }
   }
 
-  @override
-  Widget createWidget() {
+  Widget _createWidget() {
     return Scaffold(
       appBar: AppBar(
         title: Text("${StringConfig.pageNameConfig.mLoginPageName}"),
@@ -192,10 +200,10 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   @override
   getVerificationCode() {
     if (phoneStr.isEmpty) {
-      setState(stateCallback: () {});
+      setState(() {});
       return null;
     }
-    showToast("验证码已发送");
+    ToastUtil.showToast(message: "验证码已发送");
     _presenter.getVerificationCode(data: {
       "mobile": phoneStr,
       "type": "APP_LOGIN",
@@ -205,7 +213,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   getVerificationCodeFailure() {
-    showToast("获取验证码失败，请检查后重试!");
+    ToastUtil.showToast(message: "获取验证码失败，请检查后重试!");
     return null;
   }
 
@@ -223,7 +231,7 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 
   @override
   getVerificationCodeSuccess() {
-    showToast("获取验证码成功，请注意查收!");
+    ToastUtil.showToast(message: "获取验证码成功，请注意查收!");
     return null;
   }
 
@@ -233,9 +241,9 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
 //      "mobile": phoneStr,
 //      "code": passwordStr,
 //    });
-    pushNamed(
-        routeName: "MainPage",
-        enterParameter: EnterParameter(previousPageContext: getContext()));
+    Airoute.pushNamed(
+      routeName: "/MainPage",
+    );
     return null;
   }
 
@@ -257,38 +265,6 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
   @override
   loginSuccess() {
     //跳转到新页面
-    Navigator.push(getContext(),
-        MaterialPageRoute(builder: (BuildContext buildContext) {
-      return ShoppingListPage(
-        products: <Product>[
-          Product(
-            name: "One",
-            originPrice: "150.0",
-            nowPrice: "99.0",
-          ),
-          Product(
-            name: "Two",
-            originPrice: "1000.0",
-            nowPrice: "109.0",
-          ),
-          Product(
-            name: "Three",
-            originPrice: "190.0",
-            nowPrice: "89.0",
-          ),
-          Product(
-            name: "Four",
-            originPrice: "580.0",
-            nowPrice: "180.0",
-          ),
-          Product(
-            name: "Five",
-            originPrice: "358.0",
-            nowPrice: "88.0",
-          ),
-        ],
-      );
-    }));
     return null;
   }
 
@@ -298,5 +274,10 @@ class LoginPage extends AppCommonStatefulPage implements ILoginView {
       _presenter = presenter;
     }
     return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _createWidget();
   }
 }

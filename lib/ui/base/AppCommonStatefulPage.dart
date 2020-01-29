@@ -15,7 +15,7 @@ import 'package:flutter_app_sample/ui/common/AppCommonToolBar.dart';
 ///8、TODO：push时携带参数的封装
 typedef StateCallback = Function();
 typedef LifecycleCallback = Function();
-
+@Deprecated("在实际开发过程发现此封装类不够有效，因此废弃掉")
 abstract class AppCommonStatefulPage extends StatefulWidget {
 //    implements RouteObserver {
   EnterParameter enterParameter = null;

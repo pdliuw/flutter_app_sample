@@ -1,11 +1,21 @@
+import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
-import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
+
+import '../../common/util/ToastUtil.dart';
 
 ///
 /// AnimOfSwitchPage
 /// 页面切换的集中动画效果展示
-class AnimOfSwitchPage extends AppCommonStatefulPage {
+class AnimOfSwitchPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _AnimOfSwitchState();
+  }
+}
+
+///
+/// _AnimOfSwitchState
+class _AnimOfSwitchState extends State<AnimOfSwitchPage> {
   var _titleName = "页面跳转动画";
 
   List<String> _tabLabels = ["Tab 1", "Tab 2", "Tab 3", "Tab 4"];
@@ -18,28 +28,19 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
   List<bool> _toggleSelected = [true, false, false, false];
   List<String> _toggleLabels = ["缩放动画", "渐变动画", "侧滑动画", "旋转动画"];
 
-  @override
-  Config createConfig() {
-    return Config(
-      titleName: "${_titleName}",
-      customBuildWidget: true,
-    );
-  }
-
-  @override
   Widget createWidget() {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("${_titleName}"),
+          title: Text("$_titleName"),
           actions: <Widget>[],
           bottom: TabBar(
             onTap: (int index) {
               /*
                 选中
                  */
-              showToast("${_tabLabels.elementAt(index)}");
+              ToastUtil.showToast(message: "${_tabLabels.elementAt(index)}");
             },
             isScrollable: true,
             tabs: _getTabs(),
@@ -67,8 +68,9 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
                 /*
                 实现：但选功能！
                  */
-                showToast("${_toggleLabels.elementAt(index)}");
-                setState(stateCallback: () {
+                ToastUtil.showToast(
+                    message: "${_toggleLabels.elementAt(index)}");
+                setState(() {
                   for (int i = 0; i < _toggleSelected.length; i++) {
                     if (i == index) {
                       _toggleSelected[index] = !_toggleSelected[index];
@@ -96,20 +98,17 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
                     /*
                     跳转到页面
                     */
-                    Navigator.push(
-                      getContext(),
-                      PageRouteBuilder(
-                        barrierDismissible: false,
-                        transitionDuration: Duration(milliseconds: 1000),
-                        pageBuilder: (BuildContext context,
-                            Animation<double> animation,
-                            Animation<double> secondaryAnimation) {
-                          return _getTransition(
-                            animation: animation,
-                            page: CollapsingToolbarPage(),
-                          );
-                        },
-                      ),
+                    Airoute.pushNamedWithAnimation(
+                      routeName: "/CollapsingToolbarPage",
+                      routePageAnimation: (BuildContext context,
+                          Animation<double> animation,
+                          Animation<double> secondaryAnimation,
+                          Widget page) {
+                        return _getTransition(
+                          animation: animation,
+                          page: page,
+                        );
+                      },
                     );
                   },
                   selected: true,
@@ -124,10 +123,10 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
               color: Colors.blue,
               textColor: Colors.white,
               onPressed: () {
-                pushNamed(
-                    routeName: "HeroAnimPage",
-                    enterParameter:
-                        EnterParameter(previousPageContext: getContext()));
+                Airoute.pushNamedWithAnimation(
+                  routeName: "/HeroAnimPage",
+                  routePageAnimation: AirouteTransition.Fade,
+                );
               },
               child: Text("点击我进入过渡动画展示页面"),
             )
@@ -207,5 +206,10 @@ class AnimOfSwitchPage extends AppCommonStatefulPage {
         return animations.elementAt(i);
       }
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createWidget();
   }
 }

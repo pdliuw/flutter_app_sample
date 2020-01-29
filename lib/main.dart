@@ -36,54 +36,64 @@ void main() => runApp(
         home: Scaffold(
           body: LoginPage(),
         ),
+        locale: const Locale('zh', 'CH'),
         localizationsDelegates: [
-          DefaultCupertinoLocalizations.delegate,
           ChineseCupertinoLocalizations.delegate,
+          DefaultCupertinoLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: [
-          const Locale('en', 'US'),
           const Locale('zh', 'CH'),
+          const Locale('en', 'US'),
         ],
 
         ///全局静态路由的配置！
         routes: <String, AirouteBuilder>{
-          "LoginPage": () => LoginPage(),
-          "MainPage": () => MainPage(),
-          "TestPage": () => TestPage(),
-          "ShoppingList": () => ShoppingListPage(),
-          "MainSortListPage": () => MainSortListPage(),
-          "ViewPagerFragmentPage": () => ViewPagerFragmentPage(),
-          "CollapsingToolbarPage": () => CollapsingToolbarPage(),
-          "MainAnimSortPage": () => MainAnimSortPage(),
-          "AnimOfSwitchPage": () => AnimOfSwitchPage(),
-          "AnimatedContainerPage": () => AnimatedContainerPage(),
-          "OpacityAndAnimatedOpacityPage": () =>
+          "/LoginPage": () => LoginPage(),
+          "/MainPage": () => MainPage(),
+          "/TestPage": () => TestPage(),
+          "/ShoppingList": () => ShoppingListPage(),
+          "/MainSortListPage": () => MainSortListPage(),
+          "/ViewPagerFragmentPage": () => ViewPagerFragmentPage(),
+          "/CollapsingToolbarPage": () => CollapsingToolbarPage(),
+          "/MainAnimSortPage": () => MainAnimSortPage(),
+          "/AnimOfSwitchPage": () => AnimOfSwitchPage(),
+          "/AnimatedContainerPage": () => AnimatedContainerPage(),
+          "/OpacityAndAnimatedOpacityPage": () =>
               OpacityAndAnimatedOpacityPage(),
-          "FadeInImagePage": () => FadeInImagePage(),
-          "HeroAnimPage": () => HeroAnimPage(),
-          "TransformPage": () => TransformPage(),
-          "AnimatedBuilderPage": () => AnimatedBuilderPage(),
-          "ColorTweenPage": () => ColorTweenPage(),
-          "CardMainPage": () => CardMainPage(),
-          "CardInfoPage": () => CardInfoPage(),
-          "DragListPage": () => DragListPage(),
-          "DrawerVariouslyPage": () => DrawerVariouslyPage(),
+          "/FadeInImagePage": () => FadeInImagePage(),
+          "/HeroAnimPage": () => HeroAnimPage(),
+          "/TransformPage": () => TransformPage(),
+          "/AnimatedBuilderPage": () => AnimatedBuilderPage(),
+          "/ColorTweenPage": () => ColorTweenPage(),
+          "/CardMainPage": () => CardMainPage(),
+          "/CardInfoPage": () => CardInfoPage(),
+          "/DragListPage": () => DragListPage(),
+          "/DrawerVariouslyPage": () => DrawerVariouslyPage(),
         },
       ),
     );
 
-class MyApp extends AppCommonStatefulPage {
+class MyApp extends StatefulWidget {
   @override
-  Config createConfig() {
-    return Config(titleName: "MyApp");
+  State<StatefulWidget> createState() {
+    return _AppState();
   }
+}
 
+///
+/// _AppState
+class _AppState extends State<MyApp> {
   @override
-  Widget createWidget() {
-    return Center(
-      child: Text("MyApp"),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("App"),
+      ),
+      body: Center(
+        child: Text("MyApp"),
+      ),
     );
   }
 }

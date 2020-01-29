@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
+///
+/// DragListPage
+class DragListPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _DragListState();
+  }
+}
 
-class DragListPage extends AppCommonStatefulPage {
+///
+/// _DragListState
+class _DragListState extends State<DragListPage> {
   List<Person> _personNames = [
     Person(name: "Air", age: 20),
     Person(name: "James", age: 28),
@@ -13,12 +22,6 @@ class DragListPage extends AppCommonStatefulPage {
     Person(name: "Jacy", age: 28),
   ];
 
-  @override
-  Config createConfig() {
-    return Config(titleName: "列表拖拽", customBuildWidget: true);
-  }
-
-  @override
   Widget createWidget() {
     return DefaultTabController(
       length: 2,
@@ -133,6 +136,11 @@ class DragListPage extends AppCommonStatefulPage {
         ),
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createWidget();
   }
 }
 

@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
-import 'package:flutter_app_sample/sample/MainSortListPage.dart';
-import 'package:flutter_app_sample/component/game/MainGamePage.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:airoute/airoute.dart';
+import 'package:flutter/material.dart';
 
 ///主页面
 ///
@@ -58,12 +54,12 @@ class _MainState extends State<MainPage> {
   /// 获取示例列表的跳转的路由名字集合
   List<String> _getSortRouteNames() {
     List<String> _sortRouteNames = [
-      "ViewPagerFragmentPage",
-      "CollapsingToolbarPage",
-      "MainAnimSortPage",
-      "CardMainPage",
-      "DrawerVariouslyPage",
-      "DragListPage",
+      "/ViewPagerFragmentPage",
+      "/CollapsingToolbarPage",
+      "/MainAnimSortPage",
+      "/CardMainPage",
+      "/DrawerVariouslyPage",
+      "/DragListPage",
     ];
     return _sortRouteNames;
   }
@@ -97,8 +93,9 @@ class _MainState extends State<MainPage> {
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
           onTap: () {
-            Airoute.pushNamed(
+            Airoute.pushNamedWithAnimation(
               routeName: _getSortRouteNames().elementAt(index),
+              routePageAnimation: AirouteTransition.Slide,
             );
           },
           child: Card(

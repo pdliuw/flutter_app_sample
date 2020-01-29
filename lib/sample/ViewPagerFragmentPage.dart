@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
-class ViewPagerFragmentPage extends AppCommonStatefulPage {
+///
+/// ViewPagerFragmentPage
+class ViewPagerFragmentPage extends StatefulWidget {
   @override
-  Config createConfig() {
-    return Config(
-        titleName: "ViewPager", showAppBar: false, customBuildWidget: true);
+  State<StatefulWidget> createState() {
+    return _ViewPagerState();
   }
+}
 
-  @override
+///
+/// _ViewPagerState
+class _ViewPagerState extends State<ViewPagerFragmentPage> {
   Widget createWidget() {
     return DefaultTabController(
       length: choices.length,
@@ -35,6 +38,11 @@ class ViewPagerFragmentPage extends AppCommonStatefulPage {
         ),
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createWidget();
   }
 }
 

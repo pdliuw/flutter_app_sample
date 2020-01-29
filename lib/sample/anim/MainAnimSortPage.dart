@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:airoute/airoute.dart';
 
-class MainAnimSortPage extends AppCommonStatefulPage {
+///
+/// MainAnimSortPage
+class MainAnimSortPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MainAnimState();
+  }
+}
+
+///
+/// _MainAnimState
+class _MainAnimState extends State<MainAnimSortPage> {
   var _titleName = "动画";
 
   //label:routeName
@@ -29,29 +39,25 @@ class MainAnimSortPage extends AppCommonStatefulPage {
   ];
 
   var _listRouteNames = [
-    "AnimOfSwitchPage",
-    "AnimatedContainerPage",
-    "OpacityAndAnimatedOpacityPage",
-    "FadeInImagePage",
-    "HeroAnimPage",
-    "TransformPage",
-    "AnimatedBuilderPage",
-    "ColorTweenPage",
+    "/AnimOfSwitchPage",
+    "/AnimatedContainerPage",
+    "/OpacityAndAnimatedOpacityPage",
+    "/FadeInImagePage",
+    "/HeroAnimPage",
+    "/TransformPage",
+    "/AnimatedBuilderPage",
+    "/ColorTweenPage",
   ];
 
   int _currentStep = 0;
 
-  @override
-  Config createConfig() {
-    return Config(
-      titleName: _titleName,
-    );
-  }
-
   Widget getStepper() {
     return Stepper(
-      controlsBuilder: (BuildContext context,
-          {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+      controlsBuilder: (
+        BuildContext context, {
+        VoidCallback onStepContinue,
+        VoidCallback onStepCancel,
+      }) {
         return Row(
           children: <Widget>[
             Expanded(
@@ -61,9 +67,12 @@ class MainAnimSortPage extends AppCommonStatefulPage {
                 child: RaisedButton.icon(
                   color: Colors.blue,
                   textColor: Colors.white,
-                  onPressed: onStepContinue,
+                  onPressed: (_currentStep == (_list.length - 1))
+                      ? null
+                      : onStepContinue,
                   icon: Icon(Icons.arrow_drop_down),
-                  label: Text("下一步"),
+                  label: Text(
+                      "${(_currentStep == (_list.length - 1)) ? '最后' : '下一步'}"),
                 ),
               ),
             ),
@@ -72,9 +81,9 @@ class MainAnimSortPage extends AppCommonStatefulPage {
               child: Padding(
                 padding: EdgeInsets.all(10),
                 child: RaisedButton.icon(
-                  onPressed: onStepCancel,
+                  onPressed: (_currentStep == 0) ? null : onStepCancel,
                   icon: Icon(Icons.arrow_drop_up),
-                  label: Text("上一步"),
+                  label: Text("${(_currentStep == 0) ? '最前' : '上一步'}"),
                 ),
               ),
             ),
@@ -86,7 +95,8 @@ class MainAnimSortPage extends AppCommonStatefulPage {
         /*
         Render
          */
-        setState(stateCallback: () {
+
+        setState(() {
           _currentStep--;
         });
       },
@@ -94,7 +104,7 @@ class MainAnimSortPage extends AppCommonStatefulPage {
         /*
         Render
          */
-        setState(stateCallback: () {
+        setState(() {
           _currentStep++;
         });
       },
@@ -102,7 +112,7 @@ class MainAnimSortPage extends AppCommonStatefulPage {
         /*
         Render
          */
-        setState(stateCallback: () {
+        setState(() {
           _currentStep = index;
         });
       },
@@ -124,8 +134,9 @@ class MainAnimSortPage extends AppCommonStatefulPage {
               /*
               跳转到动画详情页
               */
-              Airoute.pushNamed(
+              Airoute.pushNamedWithAnimation(
                 routeName: _listRouteNames.elementAt(i),
+                routePageAnimation: AirouteTransition.Slide,
               );
             },
             child: Card(
@@ -187,8 +198,9 @@ class MainAnimSortPage extends AppCommonStatefulPage {
             /*
             跳转到动画详情页
              */
-            Airoute.pushNamed(
+            Airoute.pushNamedWithAnimation(
               routeName: _listRouteNames.elementAt(index),
+              routePageAnimation: AirouteTransition.Slide,
             );
           },
           color: Colors.blue,
@@ -207,7 +219,12 @@ class MainAnimSortPage extends AppCommonStatefulPage {
   }
 
   @override
-  Widget createWidget() {
-    return getStepper();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("$_titleName"),
+      ),
+      body: getStepper(),
+    );
   }
 }

@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
 ///
 /// Opacity
 /// AnimatedOpacity
+class OpacityAndAnimatedOpacityPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _OpacityAndAnimatedOpacityState();
+  }
+}
+
 ///
-class OpacityAndAnimatedOpacityPage extends AppCommonStatefulPage {
+/// _OpacityAndAnimatedOpacityState
+class _OpacityAndAnimatedOpacityState
+    extends State<OpacityAndAnimatedOpacityPage> {
   var _rangeStart = 40.0;
   var _rangeEnd = 100.0;
 
@@ -17,17 +25,11 @@ class OpacityAndAnimatedOpacityPage extends AppCommonStatefulPage {
   double opacityLevel = 1.0;
 
   void _changeOpacity() {
-    setState(stateCallback: () {
+    setState(() {
       opacityLevel = opacityLevel == 0 ? 1.0 : 0.0;
     });
   }
 
-  @override
-  Config createConfig() {
-    return Config(titleName: "OpacityAndAnimatedOpacityPage");
-  }
-
-  @override
   Widget createWidget() {
     return SingleChildScrollView(
       child: Column(
@@ -53,9 +55,9 @@ class OpacityAndAnimatedOpacityPage extends AppCommonStatefulPage {
                 RangeLabels("${_rangeStart.toInt()}", "${_rangeEnd.toInt()}"),
             onChanged: (RangeValues values) {
               /*
-            update
-             */
-              setState(stateCallback: () {
+              update
+              */
+              setState(() {
                 _rangeStart = values.start;
                 //_rangeEnd = values.end;
                 _opacity = _rangeStart / 100;
@@ -64,8 +66,8 @@ class OpacityAndAnimatedOpacityPage extends AppCommonStatefulPage {
           ),
 
           /*
-        Animated Opacity
-        */
+          Animated Opacity
+          */
           AnimatedOpacity(
             opacity: opacityLevel,
             duration: Duration(seconds: 2),
@@ -88,6 +90,16 @@ class OpacityAndAnimatedOpacityPage extends AppCommonStatefulPage {
           ),
         ],
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("OpacityAndAnimatedOpacityPage"),
+      ),
+      body: createWidget(),
     );
   }
 }

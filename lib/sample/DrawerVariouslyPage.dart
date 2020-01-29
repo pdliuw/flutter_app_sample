@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'CollapsingToolbarPage.dart';
+import 'package:airoute/airoute.dart';
+
 ///
 /// 各种各样的侧滑
-class DrawerVariouslyPage extends AppCommonStatefulPage {
+class DrawerVariouslyPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _DrawerState();
+  }
+}
+
+///
+/// _DrawerState
+class _DrawerState extends State<DrawerVariouslyPage> {
   String titleName = "DrawerVariously";
 
   List<String> _bottomSheetTitles = [
@@ -18,34 +29,11 @@ class DrawerVariouslyPage extends AppCommonStatefulPage {
     "列表项",
   ];
 
-  DrawerVariouslyPage({
-    Key key,
-    @required EnterParameter enterParameter,
-  }) : super(key: key, enterParameter: enterParameter);
-  @override
-  Config createConfig() {
-    return Config(
-      titleName: titleName,
-      showBackArrow: true,
-      customBuildWidget: true,
-    );
-  }
-
-  @override
   Widget createWidget() {
     return Scaffold(
       appBar: AppBar(
         title: Text("演示主页"),
         centerTitle: true,
-        leading: GestureDetector(
-          onTap: () {
-            pop();
-          },
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-        ),
       ),
       endDrawer: Drawer(
         child: SingleChildScrollView(
@@ -94,7 +82,7 @@ class DrawerVariouslyPage extends AppCommonStatefulPage {
             textColor: Colors.white,
             onPressed: () {
               showModalBottomSheet(
-                context: getContext(),
+                context: context,
                 builder: (BuildContext context) {
                   return SingleChildScrollView(
                     child: Column(children: <Widget>[
@@ -165,5 +153,10 @@ class DrawerVariouslyPage extends AppCommonStatefulPage {
         ],
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createWidget();
   }
 }

@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
+
+import 'package:flutter/material.dart';
 
 ///
 /// AnimatedBuilderPage
@@ -8,10 +8,14 @@ import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 ///
 class AnimatedBuilderPage extends StatefulWidget {
   @override
-  _SpinnerState createState() => _SpinnerState();
+  State<StatefulWidget> createState() {
+    return _AnimatedBuilderState();
+  }
 }
 
-class _SpinnerState extends State<AnimatedBuilderPage>
+///
+/// _AnimatedBuilderState
+class _AnimatedBuilderState extends State<AnimatedBuilderPage>
     with SingleTickerProviderStateMixin {
   String _titleName = "AnimatedBuilderPage";
 

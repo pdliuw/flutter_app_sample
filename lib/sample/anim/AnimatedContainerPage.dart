@@ -3,25 +3,25 @@ import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
 ///
 /// AnimatedContainerPage
+class AnimatedContainerPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _AnimatedContainerState();
+  }
+}
+
 ///
-class AnimatedContainerPage extends AppCommonStatefulPage {
+/// _AnimatedContainerState
+class _AnimatedContainerState extends State<AnimatedContainerPage> {
   var _titleName = "AnimatedContainer";
   bool selected = false;
 
   int durationUnitSecond = 2;
 
-  @override
-  Config createConfig() {
-    return Config(
-      titleName: _titleName,
-    );
-  }
-
-  @override
   Widget createWidget() {
     return GestureDetector(
       onTap: () {
-        setState(stateCallback: () {
+        setState(() {
           selected = !selected;
         });
       },
@@ -85,6 +85,16 @@ class AnimatedContainerPage extends AppCommonStatefulPage {
           ),
         ],
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("$_titleName"),
+      ),
+      body: createWidget(),
     );
   }
 }

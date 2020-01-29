@@ -3,7 +3,18 @@ import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'CollapsingToolbarPage.dart';
 import 'package:airoute/airoute.dart';
 
-class MainSortListPage extends AppCommonStatefulPage {
+///
+/// MainSortListPage
+class MainSortListPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MainSortState();
+  }
+}
+
+///
+/// _MainSortState
+class _MainSortState extends State<MainSortListPage> {
   String titleName = "主页";
 
   List<String> _bottomSheetTitles = [
@@ -19,20 +30,6 @@ class MainSortListPage extends AppCommonStatefulPage {
   ];
   var _showModalBottomSheet;
 
-  MainSortListPage({
-    Key key,
-    @required EnterParameter enterParameter,
-  }) : super(key: key, enterParameter: enterParameter);
-  @override
-  Config createConfig() {
-    return Config(
-      titleName: titleName,
-      showBackArrow: true,
-      customBuildWidget: true,
-    );
-  }
-
-  @override
   Widget createWidget() {
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +37,7 @@ class MainSortListPage extends AppCommonStatefulPage {
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
-            pop();
+            Airoute.pop();
           },
           child: Icon(
             Icons.arrow_back,
@@ -94,8 +91,9 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              Airoute.pushNamed(
+              Airoute.pushNamedWithAnimation(
                 routeName: "ViewPagerFragmentPage",
+                routePageAnimation: AirouteTransition.Slide,
               );
             },
             child: Text("Toolbar+ViewPager+Fragment"),
@@ -104,8 +102,9 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              Airoute.pushNamed(
+              Airoute.pushNamedWithAnimation(
                 routeName: "CollapsingToolbarPage",
+                routePageAnimation: AirouteTransition.Slide,
               );
             },
             child: Text("Collapsing+Toolbar+Fragment"),
@@ -114,8 +113,9 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              Airoute.pushNamed(
-                routeName: "MainAnimSortPage",
+              Airoute.pushNamedWithAnimation(
+                routeName: "/MainAnimSortPage",
+                routePageAnimation: AirouteTransition.Slide,
               );
             },
             child: Text("Animation"),
@@ -125,7 +125,7 @@ class MainSortListPage extends AppCommonStatefulPage {
             textColor: Colors.white,
             onPressed: () {
               showModalBottomSheet(
-                context: getContext(),
+                context: context,
                 builder: (BuildContext context) {
                   return SingleChildScrollView(
                     child: Column(children: <Widget>[
@@ -197,8 +197,9 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              Airoute.pushNamed(
-                routeName: "CardMainPage",
+              Airoute.pushNamedWithAnimation(
+                routeName: "/CardMainPage",
+                routePageAnimation: AirouteTransition.Slide,
               );
             },
             child: Text("组件间通信"),
@@ -207,8 +208,9 @@ class MainSortListPage extends AppCommonStatefulPage {
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: () {
-              Airoute.pushNamed(
-                routeName: "DragListPage",
+              Airoute.pushNamedWithAnimation(
+                routeName: "/DragListPage",
+                routePageAnimation: AirouteTransition.Slide,
               );
             },
             child: Text("Drag拖拽"),
@@ -216,5 +218,10 @@ class MainSortListPage extends AppCommonStatefulPage {
         ],
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createWidget();
   }
 }

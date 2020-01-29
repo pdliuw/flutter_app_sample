@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardModel.dart';
+import 'package:airoute/airoute.dart';
 
 ///
 /// CardMainPage
+class CardMainPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _CarMainState();
+  }
+}
+
 ///
-class CardMainPage extends AppCommonStatefulPage {
+/// _CarMainState
+class _CarMainState extends State<CardMainPage> {
   callback() {
-    setState(stateCallback: () {});
+    setState(() {});
   }
 
   @override
@@ -26,12 +35,10 @@ class CardMainPage extends AppCommonStatefulPage {
     CardModel.getInstance().removeListener(callback);
   }
 
-  @override
   Config createConfig() {
     return Config(titleName: "消息通信");
   }
 
-  @override
   Widget createWidget() {
     return Container(
       margin: EdgeInsets.all(20),
@@ -52,15 +59,25 @@ class CardMainPage extends AppCommonStatefulPage {
             color:
                 ColorTween(begin: Colors.red, end: Colors.blue).transform(0.5),
             onPressed: () {
-              pushNamed(
-                  routeName: "CardInfoPage",
-                  enterParameter:
-                      EnterParameter(previousPageContext: getContext()));
+              Airoute.pushNamedWithAnimation(
+                routeName: "/CardInfoPage",
+                routePageAnimation: AirouteTransition.Slide,
+              );
             },
             child: Text("跳转页面"),
           ),
         ],
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("消息通信"),
+      ),
+      body: createWidget(),
     );
   }
 }
