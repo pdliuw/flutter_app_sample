@@ -54,6 +54,9 @@ dependencies:
   # snappable animation
   snappable: ^1.0.1
 
+  # tip
+  flushbar: ^1.9.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

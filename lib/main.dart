@@ -27,6 +27,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
 import 'sample/anim/snappable_page.dart';
+import 'sample/tip/flushbar_page.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -73,6 +74,7 @@ void main() => runApp(
           "/CardInfoPage": () => CardInfoPage(),
           "/DragListPage": () => DragListPage(),
           "/DrawerVariouslyPage": () => DrawerVariouslyPage(),
+          "/FlushBarPage": () => FlushBarPage(),
         },
       ),
     );
