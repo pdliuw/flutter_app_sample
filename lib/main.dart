@@ -26,6 +26,7 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
+import 'sample/anim/snappable_page.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -67,6 +68,7 @@ void main() => runApp(
           "/TransformPage": () => TransformPage(),
           "/AnimatedBuilderPage": () => AnimatedBuilderPage(),
           "/ColorTweenPage": () => ColorTweenPage(),
+          "/AnappablePage": () => AnappablePage(),
           "/CardMainPage": () => CardMainPage(),
           "/CardInfoPage": () => CardInfoPage(),
           "/DragListPage": () => DragListPage(),

@@ -25,6 +25,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
     "Transform",
     "AnimatedBuilder",
     "ColorTween",
+    "AnappableAnimation",
   ];
 
   var _listDescription = [
@@ -36,6 +37,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
     "Transform 为Widget添加 矩阵处理",
     "AnimatedBuilder 动画构建者",
     "ColorTween 从一个色值过渡到另一个色值的动画",
+    "AnappablePage 雾散",
   ];
 
   var _listRouteNames = [
@@ -47,6 +49,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
     "/TransformPage",
     "/AnimatedBuilderPage",
     "/ColorTweenPage",
+    "/AnappablePage",
   ];
 
   int _currentStep = 0;

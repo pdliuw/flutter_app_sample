@@ -51,6 +51,8 @@ dependencies:
 
   # video
 #  video_player: ^0.10.5+2
+  # snappable animation
+  snappable: ^1.0.1
 
 dev_dependencies:
   flutter_test:
