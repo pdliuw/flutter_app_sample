@@ -131,7 +131,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
       StepState _stepState = StepState.indexed;
       bool _stepIsActive = false;
 
-      if (size - 1 == _currentStep) {
+      if (i == size - 1 && i == _currentStep) {
         _stepIsActive = true;
         _stepState = StepState.complete;
       } else if (i == _currentStep) {
