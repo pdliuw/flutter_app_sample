@@ -56,6 +56,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
 
   Widget getStepper() {
     return Stepper(
+      type: StepperType.vertical,
       controlsBuilder: (
         BuildContext context, {
         VoidCallback onStepContinue,
@@ -126,10 +127,27 @@ class _MainAnimState extends State<MainAnimSortPage> {
   List<Step> getSteps() {
     List<Step> steps = List<Step>();
 
-    for (int i = 0; i < _list.length; i++) {
+    for (int i = 0, size = _list.length; i < size; i++) {
+      StepState _stepState = StepState.indexed;
+      bool _stepIsActive = false;
+
+      if (size - 1 == _currentStep) {
+        _stepIsActive = true;
+        _stepState = StepState.complete;
+      } else if (i == _currentStep) {
+        _stepIsActive = true;
+        _stepState = StepState.editing;
+      } else if (i > _currentStep && i < size) {
+        _stepIsActive = false;
+        _stepState = StepState.indexed;
+      } else if (i < _currentStep) {
+        _stepIsActive = true;
+        _stepState = StepState.indexed;
+      } else {}
+
       steps.add(
         Step(
-          state: StepState.indexed,
+          state: _stepState,
           title: Text("${_list.elementAt(i)}"),
           subtitle: Text("${_list.elementAt(i)}"),
           content: GestureDetector(
@@ -184,7 +202,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
               ),
             ),
           ),
-          isActive: true,
+          isActive: _stepIsActive,
         ),
       );
     }
