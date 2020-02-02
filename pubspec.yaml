@@ -62,6 +62,9 @@ dependencies:
 
   # chart
   fl_chart: ^0.8.0
+
+  # flip
+  flip_panel: ^1.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

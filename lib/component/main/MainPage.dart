@@ -1,5 +1,6 @@
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
+import 'package:flip_panel/flip_panel.dart';
 
 ///主页面
 ///
@@ -74,10 +75,15 @@ class _MainState extends State<MainPage> {
     List<Widget> _bottomNavigationWidgets = [
       _getListView(),
       Center(
-        child: Column(
-          children: <Widget>[
-            Text("Games"),
-          ],
+        child: SizedBox(
+          height: 64.0,
+          child: FlipClock.simple(
+            startTime: DateTime.now(),
+            digitColor: Colors.white,
+            backgroundColor: Colors.black,
+            digitSize: 48.0,
+            borderRadius: const BorderRadius.all(Radius.circular(3.0)),
+          ),
         ),
       ),
       Center(
