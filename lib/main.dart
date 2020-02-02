@@ -26,6 +26,7 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
+import 'sample/anim/draw_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/tip/flushbar_page.dart';
 
@@ -75,6 +76,7 @@ void main() => runApp(
           "/DragListPage": () => DragListPage(),
           "/DrawerVariouslyPage": () => DrawerVariouslyPage(),
           "/FlushBarPage": () => FlushBarPage(),
+          "/DrawAnimPage": () => DrawAnimPage(),
         },
       ),
     );
