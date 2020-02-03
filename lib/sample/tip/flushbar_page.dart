@@ -436,7 +436,7 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.done),
-            title: Text("Down"),
+            title: Text("Done"),
           ),
         ],
       ),
