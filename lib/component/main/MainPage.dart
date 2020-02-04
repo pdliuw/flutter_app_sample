@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_panel/flip_panel.dart';
@@ -174,6 +176,73 @@ class _MainState extends State<MainPage> {
       appBar: AppBar(
         title: Text(
             "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
+      ),
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Airoute.pushNamed(routeName: "/UserInfoPage");
+                },
+                child: Container(
+                  child: Center(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        Image.network(
+                          "https://pdliuw.github.io/medias/avatar.jpg",
+                          fit: BoxFit.cover,
+                        ),
+                        BackdropFilter(
+                          filter: ImageFilter.blur(
+                            sigmaX: 5,
+                            sigmaY: 5,
+                          ),
+                          child: Container(
+                            width: 1,
+                            height: 1,
+                            color: Colors.black.withOpacity(0),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          width: 100,
+                          height: 100,
+                          child: ClipOval(
+                            child: Image.network(
+                              "https://pdliuw.github.io/medias/avatar.jpg",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Padding(
+                                child: Text(
+                                  "Air",
+                                  style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                padding: EdgeInsets.all(10),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Center(
         child: getBottomNavigationWidgets()
