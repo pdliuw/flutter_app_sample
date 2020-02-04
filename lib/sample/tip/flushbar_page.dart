@@ -197,9 +197,6 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Tip msg"),
-      ),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(10),
