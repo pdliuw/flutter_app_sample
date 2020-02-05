@@ -39,13 +39,6 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                 ),
               ),
               actions: <Widget>[
-                SelectableText(
-                  '长按某视图，可查看功能提示',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                  showCursor: true,
-                  autofocus: true,
-                ),
                 Tooltip(
                   message: "切换：固定Toolbar",
                   child: Checkbox(
@@ -74,14 +67,15 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                     },
                     tristate: true,
                   ),
-                )
+                ),
+                Icon(Icons.more_vert),
               ],
               floating: true,
               expandedHeight: 200,
               flexibleSpace: FlexibleSpaceBar(
                 title: Hero(
                   tag: "hero_text不使用",
-                  child: Text(titleName),
+                  child: Text(''),
                 ),
                 background: Hero(
                   tag: "hero_image",
@@ -106,6 +100,8 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                   tabs: [
                     Tab(icon: Icon(Icons.info), text: "Tab 1"),
                     Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 2"),
+                    Tab(icon: Icon(Icons.more), text: "Tab 3"),
+                    Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 4"),
                   ],
                 ),
               ),
