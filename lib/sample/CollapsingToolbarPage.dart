@@ -20,7 +20,7 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
 
   Widget createWidget() {
     return DefaultTabController(
-      length: 2,
+      length: 4,
       child: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
