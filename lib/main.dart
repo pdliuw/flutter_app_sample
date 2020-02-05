@@ -29,6 +29,7 @@ import 'ChineseCupertinoLocalizations.dart';
 import 'sample/anim/draw_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
+import 'sample/picker/main_picker_page.dart';
 import 'sample/tip/flushbar_page.dart';
 import 'sample/user/user_info_page.dart';
 
@@ -81,6 +82,7 @@ void main() => runApp(
           "/DrawAnimPage": () => DrawAnimPage(),
           "/ChartPage": () => ChartPage(),
           "/UserInfoPage": () => UserInfoPage(),
+          "/MainPickerPage": () => MainPickerPage(),
         },
       ),
     );

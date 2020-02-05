@@ -51,6 +51,7 @@ class _MainState extends State<MainPage> {
       "Drag list grid...",
       "Tip message...",
       "Chart: bar line pie...",
+      "Picker",
     ];
     return _sortTitles;
   }
@@ -67,6 +68,7 @@ class _MainState extends State<MainPage> {
       "/DragListPage",
       "/FlushBarPage",
       "/ChartPage",
+      "/MainPickerPage",
     ];
     return _sortRouteNames;
   }
