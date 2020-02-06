@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
@@ -18,6 +19,7 @@ class UserInfoPage extends StatefulWidget {
 /// _UserInfoState
 class _UserInfoState extends State<UserInfoPage> {
   String _phoneNumber = '12345678910';
+  String _birthday = '';
   String _personalGithub = 'https://github.com/pdliuw/flutter_app_sample';
   String _personalSite = 'https://pdliuw.github.io/';
   String _personalMailto = "xkrossiapd163@163.com";
@@ -52,37 +54,56 @@ class _UserInfoState extends State<UserInfoPage> {
                     ],
                   ),
                   children: <Widget>[
-                    FlatButton.icon(
-                      textColor: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        _launchURL(url: '$_personalGithub');
-                      },
-                      icon: Icon(Icons.web),
-                      label: Text('Github'),
-                    ),
-                    FlatButton.icon(
-                      textColor: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        _launchMailto(mailto: '$_personalMailto');
-                      },
-                      icon: Icon(Icons.mail_outline),
-                      label: Text('Email'),
-                    ),
-                    FlatButton.icon(
-                      textColor: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        _launchPhone(phone: '$_phoneNumber');
-                      },
-                      icon: Icon(Icons.call),
-                      label: Text('$_phoneNumber'),
-                    ),
-                    FlatButton.icon(
-                      textColor: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        _launchSms(phone: '$_phoneNumber');
-                      },
-                      icon: Icon(Icons.sms),
-                      label: Text('$_phoneNumber'),
+                    Wrap(
+                      children: <Widget>[
+                        FlatButton.icon(
+                          textColor: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            _launchURL(url: '$_personalGithub');
+                          },
+                          icon: Icon(Icons.web),
+                          label: Text('Github'),
+                        ),
+                        FlatButton.icon(
+                          textColor: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            _showCupertinoDatePicker(
+                                context: context,
+                                changed: (DateTime dateTime) {
+                                  setState(() {
+                                    _birthday =
+                                        "${dateTime.year}-${dateTime.month}-${dateTime.day}";
+                                  });
+                                });
+                          },
+                          icon: Icon(Icons.update),
+                          label: Text('$_birthday'),
+                        ),
+                        FlatButton.icon(
+                          textColor: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            _launchMailto(mailto: '$_personalMailto');
+                          },
+                          icon: Icon(Icons.mail_outline),
+                          label: Text('Email'),
+                        ),
+                        FlatButton.icon(
+                          textColor: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            _launchPhone(phone: '$_phoneNumber');
+                          },
+                          icon: Icon(Icons.call),
+                          label: Text('$_phoneNumber'),
+                        ),
+                        FlatButton.icon(
+                          textColor: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            _launchSms(phone: '$_phoneNumber');
+                          },
+                          icon: Icon(Icons.sms),
+                          label: Text('$_phoneNumber'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -98,6 +119,67 @@ class _UserInfoState extends State<UserInfoPage> {
         ),
       ),
     );
+  }
+
+  _showBirthday({
+    Function(String birthday) onChange,
+  }) {
+    showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: 200,
+            child: Column(
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: YearPicker(
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime.now(),
+                    selectedDate: DateTime.now(),
+                    onChanged: (DateTime dateTime) {},
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
+  void _showCupertinoDatePicker({
+    @required BuildContext context,
+    @required Function(DateTime dateTime) changed,
+  }) {
+    DateTime nowTime = DateTime.now();
+    DateTime cacheDateTime = nowTime;
+    final picker = CupertinoDatePicker(
+      onDateTimeChanged: (DateTime dateTime) {
+        print("the date is ${dateTime.toString()}");
+        cacheDateTime = dateTime;
+        changed(dateTime);
+      },
+      initialDateTime: DateTime.now(),
+      use24hFormat: true,
+      mode: CupertinoDatePickerMode.date,
+    );
+
+    showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: 200,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  child: Flexible(
+                    flex: 1,
+                    child: picker,
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
   }
 
   _launchMailto({
