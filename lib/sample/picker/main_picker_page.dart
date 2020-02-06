@@ -17,6 +17,7 @@ class _MainPickerState extends State<MainPickerPage> {
   String _date = '';
   String _dateAndTime = '';
   String _time = '';
+  bool _cityLoop = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,9 +89,71 @@ class _MainPickerState extends State<MainPickerPage> {
                 Text("$_time"),
               ],
             ),
+            Row(
+              children: <Widget>[
+                Text(
+                  "循环",
+                  style: Theme.of(context).textTheme.button,
+                ),
+                CupertinoSwitch(
+                  value: _cityLoop,
+                  onChanged: (bool selected) {
+                    setState(() {
+                      _cityLoop = selected;
+                    });
+                  },
+                ),
+                FlatButton.icon(
+                  color: Theme.of(context).primaryColor,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _showCupertinoCity(
+                      context: context,
+                    );
+                  },
+                  label: Text("address"),
+                  icon: Icon(Icons.date_range),
+                ),
+                Text("$_time"),
+              ],
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  _showCupertinoCity({
+    @required BuildContext context,
+  }) {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 200,
+          child: Column(
+            children: <Widget>[
+              Flexible(
+                flex: 1,
+                child: CupertinoPicker(
+                  itemExtent: 40,
+                  onSelectedItemChanged: (int index) {},
+                  looping: _cityLoop,
+                  children: <Widget>[
+                    Text("北京"),
+                    Text("天津"),
+                    Text("上海"),
+                    Text("深圳"),
+                    Text("广州"),
+                    Text("香港"),
+                    Text("澳门"),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
