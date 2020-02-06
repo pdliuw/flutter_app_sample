@@ -42,9 +42,9 @@ class _HeroAnimState extends State<HeroAnimPage> {
               children: <Widget>[
                 Hero(
                   tag: "hero_image",
-                  child: Image.network(
-                    "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    fit: BoxFit.contain,
+                  child: Image.asset(
+                    "assets/pexels-photo-396547.jpg",
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Hero(

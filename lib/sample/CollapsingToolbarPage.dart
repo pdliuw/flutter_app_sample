@@ -79,8 +79,8 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                 ),
                 background: Hero(
                   tag: "hero_image",
-                  child: Image.network(
-                    "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                  child: Image.asset(
+                    "assets/pexels-photo-396547.jpg",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -121,8 +121,9 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                 title: Text("title"),
                 subtitle: Text("subTitle"),
                 selected: true,
-                trailing: Image.network(
-                  "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                trailing: Image.asset(
+                  "assets/pexels-photo-396547.jpg",
+                  fit: BoxFit.cover,
                 ),
               ),
             );

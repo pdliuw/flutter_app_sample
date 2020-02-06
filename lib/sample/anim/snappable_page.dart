@@ -30,32 +30,27 @@ class _AnappableState extends State<AnappablePage> {
               child: Container(
                 height: 300,
                 width: double.infinity,
-                color: Colors.deepPurple,
                 alignment: Alignment.center,
-                child: Text(
-                  'This will be sanpped',
-                  style: Theme.of(context)
-                      .textTheme
-                      .title
-                      .copyWith(color: Colors.white),
+                child: Image.asset(
+                  "assets/pexels-photo-396547.jpg",
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
           ),
-          RaisedButton(
-            child: Text(
-              "Snap / Reverse",
-            ),
-            onPressed: () {
-              SnappableState state = _snappableKey.currentState;
-              if (state.isGone) {
-                state.reset();
-              } else {
-                state.snap();
-              }
-            },
-          )
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          SnappableState state = _snappableKey.currentState;
+          if (state.isGone) {
+            state.reset();
+          } else {
+            state.snap();
+          }
+        },
+        child: Icon(Icons.play_arrow),
       ),
     );
   }
