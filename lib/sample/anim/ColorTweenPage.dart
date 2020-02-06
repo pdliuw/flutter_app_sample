@@ -31,18 +31,6 @@ class _ColorTweenState extends State<ColorTweenPage> {
     return Column(
       children: <Widget>[
         Container(
-          color: Colors.grey,
-          alignment: Alignment.topCenter,
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.all(10),
-          child: Text(
-            "拖动选择条，查看从一个颜色到另一个颜色间的过渡色",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ),
-        Container(
           color: ColorTween(begin: Colors.red, end: Colors.blue)
               .transform(_colorTweenTransform),
           width: 300,
