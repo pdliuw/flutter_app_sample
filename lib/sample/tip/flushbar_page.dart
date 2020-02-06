@@ -107,7 +107,7 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
     Icons.info_outline,
     Icons.error_outline,
     Icons.cancel,
-    Icons.done_outline,
+    Icons.check_circle,
   ];
   Color _tipStyleBackgroundColor = Colors.blue[100];
   Color _tipStyleBorderColor = Colors.blue[100];
@@ -547,7 +547,7 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
             title: Text("Error"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.done),
+            icon: Icon(Icons.check_circle),
             title: Text("Done"),
           ),
         ],
