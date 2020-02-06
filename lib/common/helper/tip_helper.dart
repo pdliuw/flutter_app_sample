@@ -60,7 +60,7 @@ class TipHelper {
       _tipStyleBorderColor = Colors.red[300];
     } else if (tipType == TipType.COMPLETE) {
       title = title ?? "完成";
-      _tipIcon = Icons.done_outline;
+      _tipIcon = Icons.check_circle;
       _tipStyleColor = Colors.green[100];
       _tipStyleIconColor = Colors.green[500];
       _tipStyleBorderColor = Colors.green[300];
