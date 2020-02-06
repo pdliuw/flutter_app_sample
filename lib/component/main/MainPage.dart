@@ -77,6 +77,10 @@ class _MainState extends State<MainPage> {
   }
 
   ///
+  /// 是否：开启右侧侧滑
+  bool _drawerOpenedRight = false;
+
+  ///
   /// 获取底部导航标签的对应的显示视图
   List<Widget> getBottomNavigationWidgets() {
     List<Widget> _bottomNavigationWidgets = [
@@ -175,6 +179,177 @@ class _MainState extends State<MainPage> {
     return items;
   }
 
+  Drawer _getDrawer() {
+    return Drawer(
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Airoute.pushNamed(routeName: "/UserInfoPage");
+              },
+              child: Container(
+                child: Center(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Image.asset(
+                        "assets/avatar.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                      BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 5,
+                          sigmaY: 5,
+                        ),
+                        child: Container(
+                          width: 1,
+                          height: 1,
+                          color: Colors.black.withOpacity(0),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        width: 100,
+                        height: 100,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "assets/avatar.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              child: Text(
+                                "Air",
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ),
+                              padding: EdgeInsets.all(10),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.person,
+                color: Colors.blue,
+              ),
+              title: Text("个人中心"),
+              onTap: () {
+                Airoute.pushNamed(routeName: "/UserInfoPage");
+              },
+              trailing: Icon(Icons.arrow_right),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(
+                Icons.more_horiz,
+                color: Colors.blue,
+              ),
+              title: Text("更多功能"),
+              subtitle: Text(
+                "紧急上线中...",
+              ),
+              onTap: () {
+                TipHelper.showTip(
+                    context: context,
+                    tipType: TipType.WARN,
+                    message: "紧急上线中...");
+              },
+              trailing: Icon(Icons.arrow_right),
+            ),
+            Divider(),
+            ExpansionTile(
+              title: Text("小标签"),
+              children: <Widget>[
+                Wrap(
+                  spacing: 10,
+                  children: <Widget>[
+                    Chip(
+                      avatar: ClipOval(
+                        child: Image.asset("assets/avatar.jpg"),
+                      ),
+                      label: Text("Air"),
+                    ),
+                    Chip(
+                      avatar: ClipOval(
+                        child: Image.asset("assets/avatar.jpg"),
+                      ),
+                      label: Text("男"),
+                    ),
+                    Chip(
+                      avatar: Icon(
+                        Icons.date_range,
+                        color: Colors.green[300],
+                      ),
+                      label: Text("2020"),
+                    ),
+                    Chip(
+                      avatar: Icon(
+                        Icons.face,
+                        color: Colors.blue[300],
+                      ),
+                      label: Container(
+                        width: 25,
+                        height: 25,
+                        child: ClipOval(
+                          child: Image.asset("assets/avatar.jpg"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            ExpansionTile(
+              title: Text("小工具"),
+              children: <Widget>[
+                Wrap(
+                  children: <Widget>[
+                    ListTile(
+                      onTap: () {
+                        setState(
+                          () {
+                            _drawerOpenedRight = !_drawerOpenedRight;
+                          },
+                        );
+                      },
+                      leading: Text("开启右侧侧滑"),
+                      trailing: Switch(
+                        value: _drawerOpenedRight,
+                        onChanged: (bool value) {
+                          setState(
+                            () {
+                              _drawerOpenedRight = value;
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,103 +357,8 @@ class _MainState extends State<MainPage> {
         title: Text(
             "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
       ),
-      drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Airoute.pushNamed(routeName: "/UserInfoPage");
-                },
-                child: Container(
-                  child: Center(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          "assets/avatar.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                        BackdropFilter(
-                          filter: ImageFilter.blur(
-                            sigmaX: 5,
-                            sigmaY: 5,
-                          ),
-                          child: Container(
-                            width: 1,
-                            height: 1,
-                            color: Colors.black.withOpacity(0),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.all(10),
-                          width: 100,
-                          height: 100,
-                          child: ClipOval(
-                            child: Image.asset(
-                              "assets/avatar.jpg",
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Padding(
-                                child: Text(
-                                  "Air",
-                                  style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                ),
-                                padding: EdgeInsets.all(10),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.person,
-                  color: Colors.blue,
-                ),
-                title: Text("个人中心"),
-                onTap: () {
-                  Airoute.pushNamed(routeName: "/UserInfoPage");
-                },
-                trailing: Icon(Icons.arrow_right),
-              ),
-              Divider(),
-              ListTile(
-                leading: Icon(
-                  Icons.more_horiz,
-                  color: Colors.blue,
-                ),
-                title: Text("更多功能"),
-                subtitle: Text(
-                  "紧急上线中...",
-                ),
-                onTap: () {
-                  TipHelper.showTip(
-                      context: context,
-                      tipType: TipType.WARN,
-                      message: "紧急上线中...");
-                },
-                trailing: Icon(Icons.arrow_right),
-              ),
-              Divider(),
-            ],
-          ),
-        ),
-      ),
+      drawer: _getDrawer(),
+      endDrawer: _drawerOpenedRight == true ? _getDrawer() : null,
       body: Center(
         child: getBottomNavigationWidgets()
             .elementAt(_bottomNavigationSelectedIndex),
