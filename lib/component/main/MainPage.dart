@@ -4,6 +4,9 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_panel/flip_panel.dart';
 
+import '../../common/helper/tip_helper.dart';
+import '../../common/helper/tip_type.dart';
+
 ///主页面
 ///
 /// 增加："演示主页"、"小游戏"、"TO DO的底部切换标签
@@ -242,6 +245,36 @@ class _MainState extends State<MainPage> {
                   ),
                 ),
               ),
+              ListTile(
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.blue,
+                ),
+                title: Text("个人中心"),
+                onTap: () {
+                  Airoute.pushNamed(routeName: "/UserInfoPage");
+                },
+                trailing: Icon(Icons.arrow_right),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(
+                  Icons.more_horiz,
+                  color: Colors.blue,
+                ),
+                title: Text("更多功能"),
+                subtitle: Text(
+                  "紧急上线中...",
+                ),
+                onTap: () {
+                  TipHelper.showTip(
+                      context: context,
+                      tipType: TipType.WARN,
+                      message: "紧急上线中...");
+                },
+                trailing: Icon(Icons.arrow_right),
+              ),
+              Divider(),
             ],
           ),
         ),
