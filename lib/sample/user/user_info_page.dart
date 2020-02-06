@@ -37,8 +37,8 @@ class _UserInfoState extends State<UserInfoPage> {
                       color: Colors.green,
                       location: BannerLocation.topEnd,
                       child: Container(
-                        child: Image.network(
-                          "https://pdliuw.github.io/medias/avatar.jpg",
+                        child: Image.asset(
+                          "assets/avatar.jpg",
                           fit: BoxFit.cover,
                         ),
                       ),

@@ -192,8 +192,8 @@ class _MainState extends State<MainPage> {
                     child: Stack(
                       alignment: Alignment.center,
                       children: <Widget>[
-                        Image.network(
-                          "https://pdliuw.github.io/medias/avatar.jpg",
+                        Image.asset(
+                          "assets/avatar.jpg",
                           fit: BoxFit.cover,
                         ),
                         BackdropFilter(
@@ -212,8 +212,8 @@ class _MainState extends State<MainPage> {
                           width: 100,
                           height: 100,
                           child: ClipOval(
-                            child: Image.network(
-                              "https://pdliuw.github.io/medias/avatar.jpg",
+                            child: Image.asset(
+                              "assets/avatar.jpg",
                               fit: BoxFit.cover,
                             ),
                           ),
