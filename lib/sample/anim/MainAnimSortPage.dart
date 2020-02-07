@@ -17,7 +17,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
 
   //label:routeName
   var _list = [
-    "页面跳转动画",
+    "Page transition",
     "AnimatedContainer",
     "Opacity AnimatedOpacity",
     "FadeInImage",
@@ -39,7 +39,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
     "AnimatedBuilder 动画构建者",
     "ColorTween 从一个色值过渡到另一个色值的动画",
     "AnappablePage 雾散",
-    "绘制图画动画",
+    "模拟绘画过程的动画",
   ];
 
   var _listRouteNames = [

@@ -46,11 +46,9 @@ class _MainState extends State<MainPage> {
   /// 获取示例列表的显示的描述
   List<String> _getSortTitles() {
     List<String> _sortTitles = [
-      "TabBar+TabBarView",
       "Collapsing+TabBar+TabBarView",
       "Animation",
       "Communication",
-      "DrawerVariously",
       "Drag list grid...",
       "Tip message...",
       "Chart: bar line pie...",
@@ -63,11 +61,9 @@ class _MainState extends State<MainPage> {
   /// 获取示例列表的跳转的路由名字集合
   List<String> _getSortRouteNames() {
     List<String> _sortRouteNames = [
-      "/ViewPagerFragmentPage",
       "/CollapsingToolbarPage",
       "/MainAnimSortPage",
       "/CardMainPage",
-      "/DrawerVariouslyPage",
       "/DragListPage",
       "/FlushBarPage",
       "/ChartPage",

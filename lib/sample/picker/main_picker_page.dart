@@ -18,6 +18,17 @@ class _MainPickerState extends State<MainPickerPage> {
   String _dateAndTime = '';
   String _time = '';
   bool _cityLoop = false;
+
+  List<String> _addressNames = [
+    "北京",
+    "天津",
+    "上海",
+    "深圳",
+    "广州",
+    "香港",
+    "澳门",
+  ];
+  String _addressSelected = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,10 +122,9 @@ class _MainPickerState extends State<MainPickerPage> {
                       context: context,
                     );
                   },
-                  label: Text("address"),
+                  label: Text("address  ${_addressSelected ?? ''}"),
                   icon: Icon(Icons.date_range),
                 ),
-                Text("$_time"),
               ],
             ),
           ],
@@ -137,17 +147,15 @@ class _MainPickerState extends State<MainPickerPage> {
                 flex: 1,
                 child: CupertinoPicker(
                   itemExtent: 40,
-                  onSelectedItemChanged: (int index) {},
+                  onSelectedItemChanged: (int index) {
+                    setState(() {
+                      _addressSelected = _addressNames[index];
+                    });
+                  },
                   looping: _cityLoop,
-                  children: <Widget>[
-                    Text("北京"),
-                    Text("天津"),
-                    Text("上海"),
-                    Text("深圳"),
-                    Text("广州"),
-                    Text("香港"),
-                    Text("澳门"),
-                  ],
+                  children: _addressNames.map((String addressName) {
+                    return Text('$addressName');
+                  }).toList(),
                 ),
               ),
             ],
