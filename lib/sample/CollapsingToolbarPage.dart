@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:airoute/airoute.dart';
+
 import '../common/util/ToastUtil.dart';
 
 ///
@@ -26,18 +26,7 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
           return [
             SliverAppBar(
               title: Text("$titleName"),
-              leading: GestureDetector(
-                onTap: () {
-                  /*
-                    关闭页面
-                     */
-                  Airoute.pop();
-                },
-                child: Tooltip(
-                  message: "返回",
-                  child: Icon(Icons.arrow_back, color: Colors.white),
-                ),
-              ),
+              leading: BackButton(),
               actions: <Widget>[
                 Tooltip(
                   message: "切换：固定Toolbar",
@@ -90,27 +79,25 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
               ),
               pinned:
                   _sliverAppBarPinned, //固定(如果为true,则缩小时会显示最小值；如果为false，则缩小时完全隐藏)
-            ),
-            SliverPersistentHeader(
-              delegate: _SliverAppBarDelegate(
-                TabBar(
-                  isScrollable: false,
-                  labelColor: Colors.black87,
-                  unselectedLabelColor: Colors.grey,
-                  tabs: [
-                    Tab(icon: Icon(Icons.info), text: "Tab 1"),
-                    Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 2"),
-                    Tab(icon: Icon(Icons.more), text: "Tab 3"),
-                    Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 4"),
-                  ],
-                ),
+              bottom: TabBar(
+                isScrollable: false,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.white70,
+                tabs: [
+                  Tab(icon: Icon(Icons.info), text: "Tab 1"),
+                  Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 2"),
+                  Tab(icon: Icon(Icons.more), text: "Tab 3"),
+                  Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 4"),
+                ],
               ),
-              pinned: true, //固定
+              onStretchTrigger: () async {
+                print("onStretchTrigger");
+              },
             ),
           ];
         },
         body: ListView.builder(
-          itemCount: 10,
+          itemCount: 20,
           itemBuilder: (BuildContext context, int index) {
             return Card(
               child: ListTile(

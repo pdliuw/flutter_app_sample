@@ -65,6 +65,9 @@ dependencies:
 
   # flip
   flip_panel: ^1.0.1
+
+  # webView
+  webview_flutter: ^0.3.19+6
 dev_dependencies:
   flutter_test:
     sdk: flutter

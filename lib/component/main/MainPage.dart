@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_panel/flip_panel.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
 
@@ -335,6 +335,17 @@ class _MainState extends State<MainPage> {
                           );
                         },
                       ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        TipHelper.showTip(
+                          context: context,
+                          tipType: TipType.INFO,
+                          message: "开发中",
+                        );
+                      },
+                      leading: Text("版权/证书"),
+                      trailing: Icon(Icons.arrow_right),
                     ),
                   ],
                 ),
