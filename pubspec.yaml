@@ -68,6 +68,9 @@ dependencies:
 
   # webView
   webview_flutter: ^0.3.19+6
+
+  # date range
+  date_range_picker: ^1.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

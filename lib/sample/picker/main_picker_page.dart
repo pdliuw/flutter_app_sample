@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:airoute/airoute.dart';
+import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
+
+import '../../common/helper/tip_helper.dart';
+import '../../common/helper/tip_type.dart';
 
 ///
 /// MainPickerPage
@@ -29,107 +33,191 @@ class _MainPickerState extends State<MainPickerPage> {
     "澳门",
   ];
   String _addressSelected = '';
+
+  String _dateRangeLabel = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Picker"),
       ),
-      body: Center(
-        child: Wrap(
-          spacing: 10,
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                FlatButton.icon(
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _showCupertinoDatePicker(
-                        context: context,
-                        changed: (DateTime time) {
+      body: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool value) {
+            return [
+              SliverAppBar(
+                leading: Text(''),
+                floating: true,
+                expandedHeight: 200,
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(''),
+                  background: Image.asset(
+                    "assets/pexels-photo-396547.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                  centerTitle: true,
+                  titlePadding: EdgeInsets.all(10),
+                  collapseMode: CollapseMode.parallax,
+                ),
+              ),
+            ];
+          },
+          body: Column(
+            children: <Widget>[
+              Wrap(
+                spacing: 10,
+                alignment: WrapAlignment.center,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      FlatButton.icon(
+                        color: Theme.of(context).primaryColor,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          _showCupertinoDatePicker(
+                              context: context,
+                              changed: (DateTime time) {
+                                setState(() {
+                                  _date =
+                                      "${time.year}-${time.month}-${time.day}";
+                                });
+                              });
+                        },
+                        label: Text("date"),
+                        icon: Icon(Icons.access_time),
+                      ),
+                      Text("$_date"),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      FlatButton.icon(
+                        color: Theme.of(context).primaryColor,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          _showCupertinoDateAndTimePicker(
+                              context: context,
+                              changed:
+                                  (year, month, day, hour, minute, second) {
+                                setState(() {
+                                  _dateAndTime =
+                                      "${year}-${month}-${day} ${hour}:${minute}:${second}";
+                                });
+                              });
+                        },
+                        label: Text("date and time"),
+                        icon: Icon(Icons.access_time),
+                      ),
+                      Text("$_dateAndTime"),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      FlatButton.icon(
+                        color: Theme.of(context).primaryColor,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          _showCupertinoDateTimePicker(
+                              context: context,
+                              changed: (int hour, int minute, int second) {
+                                setState(() {
+                                  _time = "$hour:$minute:$second";
+                                });
+                              });
+                        },
+                        label: Text("time"),
+                        icon: Icon(Icons.access_time),
+                      ),
+                      Text("$_time"),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "循环",
+                        style: Theme.of(context).textTheme.button,
+                      ),
+                      CupertinoSwitch(
+                        value: _cityLoop,
+                        onChanged: (bool selected) {
                           setState(() {
-                            _date = "${time.year}-${time.month}-${time.day}";
+                            _cityLoop = selected;
                           });
-                        });
-                  },
-                  label: Text("date"),
-                  icon: Icon(Icons.access_time),
-                ),
-                Text("$_date"),
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                FlatButton.icon(
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _showCupertinoDateAndTimePicker(
-                        context: context,
-                        changed: (year, month, day, hour, minute, second) {
-                          setState(() {
-                            _dateAndTime =
-                                "${year}-${month}-${day} ${hour}:${minute}:${second}";
-                          });
-                        });
-                  },
-                  label: Text("date and time"),
-                  icon: Icon(Icons.access_time),
-                ),
-                Text("$_dateAndTime"),
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                FlatButton.icon(
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _showCupertinoDateTimePicker(
-                        context: context,
-                        changed: (int hour, int minute, int second) {
-                          setState(() {
-                            _time = "$hour:$minute:$second";
-                          });
-                        });
-                  },
-                  label: Text("time"),
-                  icon: Icon(Icons.access_time),
-                ),
-                Text("$_time"),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Text(
-                  "循环",
-                  style: Theme.of(context).textTheme.button,
-                ),
-                CupertinoSwitch(
-                  value: _cityLoop,
-                  onChanged: (bool selected) {
-                    setState(() {
-                      _cityLoop = selected;
-                    });
-                  },
-                ),
-                FlatButton.icon(
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _showCupertinoCity(
-                      context: context,
-                    );
-                  },
-                  label: Text("address  ${_addressSelected ?? ''}"),
-                  icon: Icon(Icons.date_range),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+                        },
+                      ),
+                      FlatButton.icon(
+                        color: Theme.of(context).primaryColor,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          _showCupertinoCity(
+                            context: context,
+                          );
+                        },
+                        label: Text("address  ${_addressSelected ?? ''}"),
+                        icon: Icon(Icons.list),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFFFFFF),
+                      border: Border.all(
+                        color: Colors.blue,
+                        style: BorderStyle.solid,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.zero,
+                      shape: BoxShape.rectangle,
+                      boxShadow: const <BoxShadow>[
+                        BoxShadow(
+                          color: Colors.blue,
+                          blurRadius: 10.0,
+                          spreadRadius: 2.0,
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        FlatButton.icon(
+                          color: Theme.of(context).primaryColor,
+                          textColor: Colors.white,
+                          onPressed: () async {
+                            final List<DateTime> picked =
+                                await DateRagePicker.showDatePicker(
+                                    context: context,
+                                    initialFirstDate: DateTime.now(),
+                                    initialLastDate:
+                                        (DateTime.now()).add(Duration(days: 7)),
+                                    firstDate: DateTime(2015),
+                                    lastDate: DateTime(2030));
+                            if (picked != null && picked.length == 2) {
+                              TipHelper.showTip(
+                                context: context,
+                                tipType: TipType.INFO,
+                                message: "${picked.toString()}",
+                              );
+                              setState(() {
+                                _dateRangeLabel =
+                                    "${picked[0]} \n ⬇️ \n ${picked[1]}";
+                              });
+                            }
+                          },
+                          label: Text("date range"),
+                          icon: Icon(Icons.date_range),
+                        ),
+                        Text(
+                          "$_dateRangeLabel",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )),
     );
   }
 
