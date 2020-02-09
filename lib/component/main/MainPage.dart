@@ -335,6 +335,15 @@ class _MainState extends State<MainPage> {
                         },
                       ),
                     ),
+                  ],
+                ),
+              ],
+            ),
+            ExpansionTile(
+              title: Text("敏感项"),
+              children: <Widget>[
+                Wrap(
+                  children: <Widget>[
                     ListTile(
                       onTap: () {
                         TipHelper.showTip(
@@ -346,15 +355,6 @@ class _MainState extends State<MainPage> {
                       leading: Text("版权/证书"),
                       trailing: Icon(Icons.arrow_right),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            ExpansionTile(
-              title: Text("敏感项"),
-              children: <Widget>[
-                Wrap(
-                  children: <Widget>[
                     ListTile(
                       onTap: () {
                         showCupertinoDialog(
