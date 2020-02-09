@@ -50,6 +50,15 @@ Package/Plugin|Description|Link
 [ai_barcode](https://github.com/pdliuw/ai_barcode)|爱条码|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
 
 
+Package/Plugin|Description|Link
+---|:--:|---:
+[url_launcher](https://github.com/flutter/plugins/blob/master/packages/url_launcher)|url_launcher|[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dev/packages/url_launcher)
+[webview_flutter](https://github.com/flutter/plugins/blob/master/packages/webview_flutter)|webview_flutter|[![pub package](https://img.shields.io/pub/v/webview_flutter.svg)](https://pub.dev/packages/webview_flutter)
+[date_range_picker](https://github.com/anicdh/date_range_picker)|date_range_picker|[![pub package](https://img.shields.io/pub/v/date_range_picker.svg)](https://pub.dev/packages/date_range_picker)
+[flushbar](https://github.com/AndreHaueisen/flushbar)|flushbar|[![pub package](https://img.shields.io/pub/v/flushbar.svg)](https://pub.dev/packages/flushbar)
+[fl_chart](https://github.com/imaNNeoFighT/fl_chart)|fl_chart|[![pub package](https://img.shields.io/pub/v/fl_chart.svg)](https://pub.dev/packages/fl_chart)
+[drawing_animation](https://github.com/biocarl/drawing_animation)|drawing_animation|[![pub package](https://img.shields.io/pub/v/drawing_animation.svg)](https://pub.dev/packages/drawing_animation)
+
 
 
 ### 效果图
