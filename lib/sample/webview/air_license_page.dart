@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -18,7 +17,7 @@ const String kNavigationExamplePage = '''
 <head><title>Navigation Delegate Example</title></head>
 <body>
 <p>
-The navigation delegate is set to block navigation to the youtube website.
+The navigation delegate is set to block navigation to the flutter sample website.
 </p>
 <ul>
 <ul><a href="https://pdliuw.github.io/">https://pdliuw.github.io/</a></ul>
@@ -43,14 +42,7 @@ class _AirLicenseState extends State<AirLicensePage> {
         title: const Text('版权/证书'),
         // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
         actions: <Widget>[
-          NavigationControls(
-            webViewControllerFuture: _controller.future,
-            onBack: () {
-              Airoute.pushNamedAndRemoveUntil(
-                newRouteName: "/MainPage",
-              );
-            },
-          ),
+          NavigationControls(_controller.future),
           SampleMenu(_controller.future),
         ],
       ),
@@ -284,16 +276,10 @@ class SampleMenu extends StatelessWidget {
 }
 
 class NavigationControls extends StatelessWidget {
-  NavigationControls({
-    @required Future<WebViewController> webViewControllerFuture,
-    Function() onBack,
-  }) {
-    this._webViewControllerFuture = webViewControllerFuture;
-    this._onBack = onBack;
-  }
+  const NavigationControls(this._webViewControllerFuture)
+      : assert(_webViewControllerFuture != null);
 
-  Future<WebViewController> _webViewControllerFuture;
-  Function() _onBack;
+  final Future<WebViewController> _webViewControllerFuture;
 
   @override
   Widget build(BuildContext context) {
@@ -314,7 +300,9 @@ class NavigationControls extends StatelessWidget {
                       if (await controller.canGoBack()) {
                         await controller.goBack();
                       } else {
-                        _onBack();
+                        Scaffold.of(context).showSnackBar(
+                          const SnackBar(content: Text("No back history item")),
+                        );
                       }
                     },
             ),

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:airoute/airoute.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 ///
@@ -19,7 +18,7 @@ const String kNavigationExamplePage = '''
 <head><title>Navigation Delegate Example</title></head>
 <body>
 <p>
-The navigation delegate is set to block navigation to the youtube website.
+The navigation delegate is set to block navigation to the flutter sample website.
 </p>
 <ul>
 <ul><a href="https://pdliuw.github.io/">https://pdliuw.github.io/</a></ul>
@@ -314,8 +313,9 @@ class NavigationControls extends StatelessWidget {
                       if (await controller.canGoForward()) {
                         await controller.goForward();
                       } else {
-                        Airoute.pushNamedAndRemoveUntil(
-                          newRouteName: "/MainPage",
+                        Scaffold.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text("No forward history item")),
                         );
                         return;
                       }

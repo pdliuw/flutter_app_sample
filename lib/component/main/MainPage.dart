@@ -347,8 +347,9 @@ class _MainState extends State<MainPage> {
                   children: <Widget>[
                     ListTile(
                       onTap: () {
-                        Airoute.pushNamedAndRemoveUntil(
-                            newRouteName: "/AirLicensePage");
+                        Airoute.pushNamed(
+                          routeName: "/AirLicensePage",
+                        );
                       },
                       leading: Text("版权/证书"),
                       trailing: Icon(Icons.arrow_right),
