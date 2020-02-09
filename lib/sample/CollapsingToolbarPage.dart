@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../common/util/ToastUtil.dart';
+import '../common/helper/tip_helper.dart';
+import '../common/helper/tip_type.dart';
 
 ///
 /// CollapsingToolbarPage
@@ -41,9 +42,17 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                        */
                       if (checked != null) {
                         if (checked) {
-                          ToastUtil.showToast(message: "固定Toolbar，缩小时会显示最小值");
+                          TipHelper.showTip(
+                            context: context,
+                            tipType: TipType.INFO,
+                            message: "固定Toolbar，缩小时会显示最小值",
+                          );
                         } else {
-                          ToastUtil.showToast(message: "不固定Toolbar，缩小时完全隐藏");
+                          TipHelper.showTip(
+                            context: context,
+                            tipType: TipType.INFO,
+                            message: "不固定Toolbar，缩小时完全隐藏",
+                          );
                         }
                       }
 

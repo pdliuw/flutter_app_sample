@@ -79,7 +79,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
                       : onStepContinue,
                   icon: Icon(Icons.arrow_drop_down),
                   label: Text(
-                      "${(_currentStep == (_list.length - 1)) ? '最后' : '下一步'}"),
+                      "${(_currentStep == (_list.length - 1)) ? 'Last' : 'Next'}"),
                 ),
               ),
             ),
@@ -90,7 +90,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
                 child: RaisedButton.icon(
                   onPressed: (_currentStep == 0) ? null : onStepCancel,
                   icon: Icon(Icons.arrow_drop_up),
-                  label: Text("${(_currentStep == 0) ? '最前' : '上一步'}"),
+                  label: Text("${(_currentStep == 0) ? 'First' : 'Previous'}"),
                 ),
               ),
             ),

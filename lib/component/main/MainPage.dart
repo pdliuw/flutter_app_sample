@@ -46,7 +46,6 @@ class _MainState extends State<MainPage> {
   /// 获取示例列表的显示的描述
   List<String> _getSortTitles() {
     List<String> _sortTitles = [
-      "Collapsing+TabBar+TabBarView",
       "Animation",
       "Communication",
       "Drag list grid...",
@@ -61,7 +60,6 @@ class _MainState extends State<MainPage> {
   /// 获取示例列表的跳转的路由名字集合
   List<String> _getSortRouteNames() {
     List<String> _sortRouteNames = [
-      "/CollapsingToolbarPage",
       "/MainAnimSortPage",
       "/CardMainPage",
       "/DragListPage",
