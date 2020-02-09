@@ -52,6 +52,7 @@ class _MainState extends State<MainPage> {
       "Tip message...",
       "Chart: bar line pie...",
       "Picker",
+      "WebView",
     ];
     return _sortTitles;
   }
@@ -66,6 +67,7 @@ class _MainState extends State<MainPage> {
       "/FlushBarPage",
       "/ChartPage",
       "/MainPickerPage",
+      "/FlutterWebPage",
     ];
     return _sortRouteNames;
   }

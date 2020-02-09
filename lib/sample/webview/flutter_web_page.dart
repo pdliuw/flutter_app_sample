@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:airoute/airoute.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 ///
@@ -313,9 +314,8 @@ class NavigationControls extends StatelessWidget {
                       if (await controller.canGoForward()) {
                         await controller.goForward();
                       } else {
-                        Scaffold.of(context).showSnackBar(
-                          const SnackBar(
-                              content: Text("No forward history item")),
+                        Airoute.pushNamedAndRemoveUntil(
+                          newRouteName: "/MainPage",
                         );
                         return;
                       }
