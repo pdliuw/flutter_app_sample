@@ -151,8 +151,12 @@ class _MainState extends State<MainPage> {
       如果已经选中当前项，此时再选择此项则视为刷新当前页面
        */
       if (_bottomNavigationSelectedIndex == index) {
-//        ToastUtil(
-//            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制");
+        TipHelper.showTip(
+          context: context,
+          tipType: TipType.INFO,
+          message:
+              "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制",
+        );
       }
       _bottomNavigationSelectedIndex = index;
     });
