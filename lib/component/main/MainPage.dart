@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flip_panel/flip_panel.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../common/helper/tip_helper.dart';
@@ -344,6 +345,44 @@ class _MainState extends State<MainPage> {
                       },
                       leading: Text("版权/证书"),
                       trailing: Icon(Icons.arrow_right),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            ExpansionTile(
+              title: Text("敏感项"),
+              children: <Widget>[
+                Wrap(
+                  children: <Widget>[
+                    ListTile(
+                      onTap: () {
+                        showCupertinoDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return CupertinoAlertDialog(
+                                title: Text("退出登陆"),
+                                content: Text("确定退出登陆"),
+                                actions: <Widget>[
+                                  CupertinoDialogAction(
+                                    onPressed: () {
+                                      Airoute.pop();
+                                    },
+                                    child: Text("取消"),
+                                  ),
+                                  CupertinoDialogAction(
+                                    onPressed: () {
+                                      Airoute.pushNamedAndRemoveUntil(
+                                          newRouteName: "/LoginPage");
+                                    },
+                                    child: Text("确定"),
+                                  ),
+                                ],
+                              );
+                            });
+                      },
+                      leading: Text("退出登陆"),
+                      trailing: Icon(Icons.exit_to_app),
                     ),
                   ],
                 ),
