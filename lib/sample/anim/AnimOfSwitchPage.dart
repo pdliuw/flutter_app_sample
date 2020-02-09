@@ -1,6 +1,8 @@
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/helper/tip_helper.dart';
+import '../../common/helper/tip_type.dart';
 import '../../common/util/ToastUtil.dart';
 
 ///
@@ -18,118 +20,158 @@ class AnimOfSwitchPage extends StatefulWidget {
 class _AnimOfSwitchState extends State<AnimOfSwitchPage> {
   var _titleName = "页面跳转动画";
 
-  List<String> _tabLabels = ["Tab 1", "Tab 2", "Tab 3", "Tab 4"];
+  List<String> _tabLabels = ["基本动画", "过渡动画"];
   List<IconData> _tabIcons = [
-    Icons.face,
-    Icons.label,
-    Icons.book,
-    Icons.timer,
+    Icons.list,
+    Icons.transform,
   ];
   List<bool> _toggleSelected = [true, false, false, false];
   List<String> _toggleLabels = ["缩放动画", "渐变动画", "侧滑动画", "旋转动画"];
 
+  int _tabSelectedIndex = 0;
+
+  static const RangeValues _durationAnimationLimit = RangeValues(1, 10);
+  static const int _durationAnimationDivisions = 10 - 1;
+  RangeValues _durationAnimation = RangeValues(1, 10);
+
   Widget createWidget() {
     return DefaultTabController(
-      length: 4,
+      length: _tabIcons.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text("$_titleName"),
           actions: <Widget>[],
           bottom: TabBar(
             onTap: (int index) {
-              /*
-                选中
-                 */
-              ToastUtil.showToast(message: "${_tabLabels.elementAt(index)}");
+              setState(() {
+                _tabSelectedIndex = index;
+              });
             },
             isScrollable: true,
             tabs: _getTabs(),
           ),
         ),
-        body: Column(
-          /*
-          选择，动画类型
-           */
-          children: <Widget>[
-            Placeholder(
-              strokeWidth: 0,
-              fallbackHeight: 50,
-              color: Colors.blue,
-            ),
-            ToggleButtons(
-              textStyle: TextStyle(
-                fontSize: 20,
-              ),
-              borderWidth: 5,
-              borderColor: Colors.grey,
-              selectedBorderColor: Colors.blue,
-              borderRadius: BorderRadius.circular(5),
-              onPressed: (int index) {
-                /*
-                实现：但选功能！
-                 */
-                ToastUtil.showToast(
-                    message: "${_toggleLabels.elementAt(index)}");
-                setState(() {
-                  for (int i = 0; i < _toggleSelected.length; i++) {
-                    if (i == index) {
-                      _toggleSelected[index] = !_toggleSelected[index];
-                    } else {
-                      _toggleSelected[i] = false;
-                    }
-                  }
-                });
-              },
-              children: _toggleLabels.map((String label) {
-                return Text("$label");
-              }).toList(),
-              isSelected: _toggleSelected,
-            ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
             /*
-            列表
-             */
-            Card(
-              elevation: 5.0,
-              margin: EdgeInsets.all(10),
-              child: Tooltip(
-                message: "点击列表项目，开启跳转动画",
-                child: ListTile(
-                  onTap: () {
-                    /*
-                    跳转到页面
-                    */
-                    Airoute.pushNamedWithAnimation(
-                      routeName: "/CollapsingToolbarPage",
-                      routePageAnimation: (BuildContext context,
-                          Animation<double> animation,
-                          Animation<double> secondaryAnimation,
-                          Widget page) {
-                        return _getTransition(
-                          animation: animation,
-                          page: page,
+            跳转到页面
+            */
+            if (_tabSelectedIndex == 0) {
+              Airoute.pushNamedWithAnimation(
+                routeName: "/CollapsingToolbarPage",
+                duration:
+                    Duration(seconds: _durationAnimation.start.truncate()),
+                routePageAnimation: (BuildContext context,
+                    Animation<double> animation,
+                    Animation<double> secondaryAnimation,
+                    Widget page) {
+                  return _getTransition(
+                    animation: animation,
+                    page: page,
+                  );
+                },
+              );
+            } else {
+              Airoute.pushNamedWithAnimation(
+                routeName: "/CollapsingToolbarPage",
+                duration:
+                    Duration(seconds: _durationAnimation.start.truncate()),
+                routePageAnimation: AirouteTransition.Fade,
+              );
+            }
+          },
+          child: Icon(Icons.play_arrow),
+          tooltip: "点击我，查看页面切换动画效果！",
+        ),
+        body: Column(
+          children: <Widget>[
+            IndexedStack(
+              index: _tabSelectedIndex,
+              children: <Widget>[
+                Column(
+                  /*
+              选择，动画类型
+              */
+                  children: <Widget>[
+                    Placeholder(
+                      strokeWidth: 0,
+                      fallbackHeight: 50,
+                      color: Colors.blue,
+                    ),
+                    ToggleButtons(
+                      textStyle: TextStyle(
+                        fontSize: 20,
+                      ),
+                      borderWidth: 5,
+                      borderColor: Colors.grey,
+                      selectedBorderColor: Colors.blue,
+                      borderRadius: BorderRadius.circular(5),
+                      onPressed: (int index) {
+                        TipHelper.showTip(
+                          context: context,
+                          tipType: TipType.INFO,
+                          title: "动画",
+                          message: "${_toggleLabels.elementAt(index)}",
                         );
+                        setState(() {
+                          for (int i = 0; i < _toggleSelected.length; i++) {
+                            if (i == index) {
+                              _toggleSelected[index] = !_toggleSelected[index];
+                            } else {
+                              _toggleSelected[i] = false;
+                            }
+                          }
+                        });
                       },
-                    );
-                  },
-                  selected: true,
-                  leading: CircleAvatar(
-                    child: Text("Air"),
-                  ),
-                  title: Text("点击我，查看页面切换动画效果！"),
+                      children: _toggleLabels.map((String label) {
+                        return Text("$label");
+                      }).toList(),
+                      isSelected: _toggleSelected,
+                    ),
+                  ],
                 ),
-              ),
+                Card(
+                  margin: EdgeInsets.all(0),
+                  child: Column(
+                    children: <Widget>[
+                      _tabSelectedIndex == 0
+                          ? Text('')
+                          : Hero(
+                              tag: "hero_image",
+                              child: Image.asset(
+                                "assets/pexels-photo-396547.jpg",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            RaisedButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              onPressed: () {
-                Airoute.pushNamedWithAnimation(
-                  routeName: "/HeroAnimPage",
-                  routePageAnimation: AirouteTransition.Fade,
-                );
-              },
-              child: Text("点击我进入过渡动画展示页面"),
-            )
+            Row(
+              children: <Widget>[
+                Text("动画时间(秒):${_durationAnimation.start.ceil()}"),
+                Expanded(
+                  child: RangeSlider(
+                    onChanged: (RangeValues values) {
+                      setState(() {
+                        double end = _durationAnimation.end;
+                        _durationAnimation = RangeValues(values.start, end);
+                      });
+                    },
+                    values: RangeValues(
+                        _durationAnimation.start, _durationAnimation.end),
+                    min: _durationAnimationLimit.start,
+                    max: _durationAnimationLimit.end,
+                    labels: RangeLabels(
+                        "${_durationAnimation.start.truncate()}",
+                        "${_durationAnimation.end.truncate()}"),
+                    divisions: _durationAnimationDivisions,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
