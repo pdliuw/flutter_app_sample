@@ -105,13 +105,13 @@ class _LoginState extends State<LoginPage> implements ILoginView {
       appBar: AppBar(
         title: Text("${StringConfig.pageNameConfig.mLoginPageName}"),
       ),
-      resizeToAvoidBottomPadding: false,
-      body: Center(
-        child: SizedBox(
-          width: 250,
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            alignment: Alignment.center,
+            width: 250,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.all(80),

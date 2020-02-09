@@ -36,6 +36,13 @@ Flutter项目示例支持 : " Android 、iOS 、Web 、MacOS"
 ----
 
 
+Version|Description|README
+---|:--:|---:
+v1.0|Add:1、multiple widget,2、route,3、animation|[v1.0](https://github.com/pdliuw/flutter_app_sample/blob/master/README_CH_v1.0.md)
+v2.0|Add:1、tip message,2、user model,3、more widget sample|[v2.0](https://github.com/pdliuw/flutter_app_sample/blob/master/README_CH_v2.0.md)
+
+
+
 Package/Plugin|Description|Link
 ---|:--:|---:
 [airoute](https://github.com/pdliuw/airoute)|爱路由|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
@@ -77,57 +84,34 @@ Package/Plugin|Description|Link
 
 #### Mobile
 
-|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_ios_platform.gif?raw=true)|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_android_platform.gif?raw=true)|
+|iOS|Android|
+|:-|:-|
+|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_login-ios.gif?raw=true)|![Login](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_login-android.gif?raw=true)|
 |:-|:-|
 
-|![List](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_main_list_page.gif?raw=true)|![List](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_main_list_page_android.gif?raw=true)|
+|iOS|Android|
+|:-|:-|
+|![animation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-basic-anim-ios.gif?raw=true)|![animation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-basic-anim-android.gif?raw=true)|
 |:-|:-|
 
-|![TabBar+TabBarView](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_viewpage_fragment.gif?raw=true)|![TabBar+TabBarView](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_viewpage_fragment_android.gif?raw=true)|
+|iOS|Android|
+|:-|:-|
+|![anappable](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-anappable-anim-ios.gif?raw=true)|![anappable](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-anappable-anim-android.gif?raw=true)|
 |:-|:-|
 
-|![NestedScrollView + ...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_collapsing_viewpage_fragment.gif?raw=true)|![NestedScrollView + ...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_toolbar_collapsing_viewpage_fragment_android.gif?raw=true)|
+|iOS|Android|
+|:-|:-|
+|![drawing](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-drawing-ios.gif?raw=true)|![drawing](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-drawing-android.gif?raw=true)|
 |:-|:-|
 
-|![Animation-SwitchPage](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_switch_page_ios.gif?raw=true)|![Animation-SwitchPage](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_switch_page_android.gif?raw=true)|
+|iOS|Android|
+|:-|:-|
+|![tip](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-tip-anim-ios.gif?raw=true)|![tip](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_animation-tip-anim-android.gif?raw=true)|
 |:-|:-|
 
-|![Animated-Container](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_container_ios.gif?raw=true)|![Animated-Container](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_container_android.gif?raw=true)|
+|iOS|Android|
 |:-|:-|
-
-|![Opacity-AnimatedOpacity](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_opacity_and_animated_opacity_ios.gif?raw=true)|![Opacity-AnimatedOpacity](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_opacity_and_animated_opacity_android.gif?raw=true)|
-|:-|:-|
-
-|![Animation-Hero](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_hero_ios.gif?raw=true)|![Animation-Hero](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_hero_android.gif?raw=true)|
-|:-|:-|
-
-
-|![Animation-Transform](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_transform_ios.gif?raw=true)|![Animation-Transform](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_transform_android.gif?raw=true)|
-|:-|:-|
-
-|![Animation-ColorTween](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_color_tween_ios.gif?raw=true)|![Animation-ColorTween](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_color_tween_android.gif?raw=true)|
-|:-|:-|
-
-|![Drawer...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottomsheet_drawer_ios.gif?raw=true)|![Drawer...](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottomsheet_drawer_android.gif?raw=true)|
-|:-|:-|
-
-
-|![Stepper](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_stepper_ios.gif?raw=true)|![Stepper](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_stepper_android.gif?raw=true)|
-|:-|:-|
-
-
-|![AnimatedBuilder](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_builder_ios.gif?raw=true)|![AnimatedBuilder](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_anim_animated_builder_android.gif?raw=true)|
-|:-|:-|
-
-
-|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_ios.gif?raw=true)|![Communicate](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_communicate_change_notifier_android.gif?raw=true)|
-|:-|:-|
-
-
-|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_ios.gif?raw=true)|![Drag](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_drag_android.gif?raw=true)|
-|:-|:-|
-
-|![Bottom Navigation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottom_navigation_bar_ios.gif?raw=true)|![Bottom Navigation](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample/flutter_app_sample_bottom_navigation_bar_android.gif?raw=true)|
+|![picker](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_picker-ios.gif?raw=true)|![picker](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/flutter_app_sample_v2.0/flutter-app-sample_picker-android.gif?raw=true)|
 |:-|:-|
 
 
@@ -139,13 +123,18 @@ Package/Plugin|Description|Link
 
 项目中涉及的技术
 
-1.  MVP+设计模式
-2.  Widget
-3.	网络
-4.  路由
-5.  动画
-6.  Provider
-7.  ......
+Package/Plugin|Name|Description
+---|:--:|---:
+1.|MVP+设计模式|
+2.|Widget|涵盖各种组件示例
+3.|网络|
+4.|路由|airoute的强大支撑解决一切路由使用问题
+5.|动画|不仅涵盖页面、基本动画，还有雾散、绘画动画
+6.|选择器|涵盖日期、时间、地址、日历选择
+7.|WebView|涵盖日期、时间、地址、日历选择
+8.|消息提示|flutter组件跨端提示消息
+9.|国际化|国际化/多语言功能已内置
+...|...|...
 
 
 ### 3.  TODO
