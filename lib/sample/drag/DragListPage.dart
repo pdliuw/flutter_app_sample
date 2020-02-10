@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:airoute/airoute.dart';
 
 import '../../common/helper/tip_helper.dart';
 
@@ -302,66 +304,97 @@ class ListViewSlideWidget extends StatefulWidget {
 /// _ListViewSlideState
 class _ListViewSlideState extends State<ListViewSlideWidget> {
   List<Person> _personNames = [
-    Person(name: "Air", age: 20),
-    Person(name: "James", age: 28),
-    Person(name: "Lucy", age: 35),
-    Person(name: "Tom", age: 14),
-    Person(name: "Jack", age: 16),
-    Person(name: "Jacy", age: 28),
-    Person(name: "Jacy", age: 28),
+    Person(name: "Joe", age: 1),
+    Person(name: "James", age: 2),
+    Person(name: "Lucy", age: 3),
+    Person(name: "Tom", age: 4),
+    Person(name: "Jack", age: 5),
+    Person(name: "Jacy", age: 6),
+    Person(name: "Joe", age: 7),
+    Person(name: "Air", age: 8),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, index) {
-      return Slidable(
-        actionPane: SlidableDrawerActionPane(),
-        actionExtentRatio: 0.25,
-        child: Container(
-          color: Colors.white,
-          child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.indigoAccent,
-              child: Text('$index'),
-              foregroundColor: Colors.white,
+    return ListView.builder(
+        itemCount: _personNames.length,
+        itemBuilder: (context, index) {
+          Person person = _personNames[index];
+          return Slidable(
+            actionPane: SlidableDrawerActionPane(),
+            actionExtentRatio: 0.25,
+            child: Container(
+              color: Colors.white,
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.indigoAccent,
+                  child: Text('${person.name.substring(0, 1)}'),
+                  foregroundColor: Colors.white,
+                ),
+                title: Text('${person.name}'),
+                subtitle: Text('${person.age}'),
+              ),
             ),
-            title: Text('Tile n°$index'),
-            subtitle: Text('SlidableDrawerDelegate'),
-          ),
-        ),
-        actions: <Widget>[
-          IconSlideAction(
-            caption: 'Archive',
-            color: Colors.blue,
-            icon: Icons.archive,
-            onTap: () => TipHelper.showTip(
-                context: context, title: "Archive", message: "Archive"),
-          ),
-          IconSlideAction(
-            caption: 'Share',
-            color: Colors.indigo,
-            icon: Icons.share,
-            onTap: () => TipHelper.showTip(
-                context: context, title: "Share", message: "Share"),
-          ),
-        ],
-        secondaryActions: <Widget>[
-          IconSlideAction(
-            caption: 'More',
-            color: Colors.black45,
-            icon: Icons.more_horiz,
-            onTap: () => TipHelper.showTip(
-                context: context, title: "More", message: "More"),
-          ),
-          IconSlideAction(
-            caption: 'Delete',
-            color: Colors.red,
-            icon: Icons.delete,
-            onTap: () => TipHelper.showTip(
-                context: context, title: "Delete", message: "Delete"),
-          ),
-        ],
-      );
-    });
+            actions: <Widget>[
+              IconSlideAction(
+                caption: 'Archive',
+                color: Colors.blue,
+                icon: Icons.archive,
+                onTap: () => TipHelper.showTip(
+                    context: context, title: "Archive", message: "Archive"),
+              ),
+              IconSlideAction(
+                caption: 'Share',
+                color: Colors.indigo,
+                icon: Icons.share,
+                onTap: () => TipHelper.showTip(
+                    context: context, title: "Share", message: "Share"),
+              ),
+            ],
+            secondaryActions: <Widget>[
+              IconSlideAction(
+                caption: 'More',
+                color: Colors.black45,
+                icon: Icons.more_horiz,
+                onTap: () => TipHelper.showTip(
+                    context: context, title: "More", message: "More"),
+              ),
+              IconSlideAction(
+                caption: 'Delete',
+                color: Colors.red,
+                icon: Icons.delete,
+                onTap: () {
+                  showCupertinoDialog(
+                      context: context,
+                      builder: (context) {
+                        return CupertinoAlertDialog(
+                          title: Text("删除"),
+                          content: Text("删除后不可恢复！立即删除"),
+                          actions: <Widget>[
+                            CupertinoDialogAction(
+                              child: Text("取消"),
+                              onPressed: () {
+                                Airoute.pop();
+                              },
+                              isDefaultAction: true,
+                            ),
+                            CupertinoDialogAction(
+                              child: Text("确定"),
+                              onPressed: () {
+                                setState(() {
+                                  _personNames.removeAt(index);
+                                });
+                                Airoute.pop();
+                              },
+                              isDefaultAction: false,
+                            ),
+                          ],
+                        );
+                      });
+                },
+              ),
+            ],
+          );
+        });
   }
 }
