@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+
+import '../../common/helper/tip_helper.dart';
 
 ///
 /// DragListPage
@@ -12,126 +15,47 @@ class DragListPage extends StatefulWidget {
 ///
 /// _DragListState
 class _DragListState extends State<DragListPage> {
-  List<Person> _personNames = [
-    Person(name: "Air", age: 20),
-    Person(name: "James", age: 28),
-    Person(name: "Lucy", age: 35),
-    Person(name: "Tom", age: 14),
-    Person(name: "Jack", age: 16),
-    Person(name: "Jacy", age: 28),
-    Person(name: "Jacy", age: 28),
+  List _tabElements = [
+    {
+      "name": "列表拖拽",
+      "icon": Icon(Icons.list),
+    },
+    {
+      "name": "侧滑删除",
+      "icon": Icon(Icons.list),
+    },
+    {
+      "name": "列表侧滑",
+      "icon": Icon(Icons.list),
+    },
+    {
+      "name": "表格拖拽",
+      "icon": Icon(Icons.grid_on),
+    },
   ];
 
   Widget createWidget() {
     return DefaultTabController(
-      length: 2,
+      length: _tabElements.length,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('拖拽'),
           bottom: TabBar(
             isScrollable: true,
-            tabs: [
-              Tab(
-                text: "列表拖拽",
-                icon: Icon(Icons.list),
-              ),
-              Tab(
-                text: "表格拖拽",
-                icon: Icon(Icons.grid_on),
-              ),
-            ],
+            tabs: _tabElements.map((tab) {
+              return Tab(
+                child: Text("${tab['name']}"),
+                icon: tab['icon'],
+              );
+            }).toList(),
           ),
         ),
         body: TabBarView(
           children: [
-            ReorderableListView(
-              padding: EdgeInsets.all(10),
-              scrollDirection: Axis.vertical,
-              children: _personNames.map(
-                (Person person) {
-                  return Card(
-                    margin: EdgeInsets.all(10),
-                    elevation: 2,
-                    color: Colors.blue,
-                    key: Key("${person.name}"),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        child: Text("${person.name.substring(0, 1)}"),
-                      ),
-                      title: Text(
-                        "${person.name}",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      subtitle: Text(
-                        "${person.age}岁",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      trailing: Text("长按列表拖拽"),
-                    ),
-                  );
-                },
-              ).toList(),
-              onReorder: (int oldIndex, int newIndex) {},
-            ),
-            GridView.builder(
-              itemCount: _personNames.length,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-              itemBuilder: (BuildContext context, int index) {
-                return LongPressDraggable<Person>(
-                  data: _personNames[index],
-                  child: DragTarget(builder: (BuildContext context,
-                      List<int> candidateData, List<dynamic> rejectedData) {
-                    return Card(
-                      margin: EdgeInsets.all(10),
-                      elevation: 2,
-                      color: Colors.blue,
-                      key: Key("${_personNames.elementAt(index).name}"),
-                      child: GridTileBar(
-                        leading: CircleAvatar(
-                          child: Text(
-                              "${_personNames.elementAt(index).name.substring(0, 1)}"),
-                        ),
-                        title: Text(
-                          "${_personNames.elementAt(index).name}",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        subtitle: Text(
-                          "${_personNames.elementAt(index).age}岁",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    );
-                  }),
-                  feedback: Container(
-                    height: 200,
-                    width: 200,
-                    alignment: Alignment.center,
-                    child: Card(
-                      color: Colors.blue,
-                      semanticContainer: false,
-                      margin: EdgeInsets.all(10),
-                      elevation: 2,
-                      key: Key("${_personNames.elementAt(index).name}"),
-                      child: GridTileBar(
-                        leading: CircleAvatar(
-                          child: Text(
-                              "${_personNames.elementAt(index).name.substring(0, 1)}"),
-                        ),
-                        title: Text(
-                          "${_personNames.elementAt(index).name}",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        subtitle: Text(
-                          "${_personNames.elementAt(index).age}岁",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
+            ListViewDragWidget(),
+            ListViewDismissibleWidget(),
+            ListViewSlideWidget(),
+            GridViewDragWidget(),
           ],
         ),
       ),
@@ -161,5 +85,283 @@ class Person {
 
   set age(int age) {
     this._age = age;
+  }
+}
+
+///
+/// ListViewDragWidget
+class ListViewDragWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ListViewDragState();
+  }
+}
+
+///
+/// _ListViewDragState
+class _ListViewDragState extends State<ListViewDragWidget> {
+  List<Person> _personNames = [
+    Person(name: "Air", age: 20),
+    Person(name: "James", age: 28),
+    Person(name: "Lucy", age: 35),
+    Person(name: "Tom", age: 14),
+    Person(name: "Jack", age: 16),
+    Person(name: "Jacy", age: 28),
+    Person(name: "Jacy", age: 28),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return ReorderableListView(
+      onReorder: (int oldIndex, int newIndex) {},
+      padding: EdgeInsets.all(10),
+      scrollDirection: Axis.vertical,
+      children: _personNames.map((person) {
+        return Card(
+          margin: EdgeInsets.all(10),
+          elevation: 2,
+          color: Colors.blue,
+          key: Key("${person.name}"),
+          child: ListTile(
+            leading: CircleAvatar(
+              child: Text("${person.name.substring(0, 1)}"),
+            ),
+            title: Text(
+              "${person.name}",
+              style: TextStyle(color: Colors.white),
+            ),
+            subtitle: Text(
+              "${person.age}岁",
+              style: TextStyle(color: Colors.white),
+            ),
+            trailing: Text("长按拖拽排序"),
+          ),
+        );
+      }).toList(),
+    );
+  }
+}
+
+///
+/// ListViewDismissibleWidget
+class ListViewDismissibleWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ListViewDismissibleState();
+  }
+}
+
+///
+/// _ListViewDismissibleState
+class _ListViewDismissibleState extends State<ListViewDismissibleWidget> {
+  List<Person> _personNames = [
+    Person(name: "Air", age: 20),
+    Person(name: "James", age: 28),
+    Person(name: "Lucy", age: 35),
+    Person(name: "Tom", age: 14),
+    Person(name: "Jack", age: 16),
+    Person(name: "Jacy", age: 28),
+    Person(name: "Jacy", age: 28),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: _personNames.length,
+      padding: EdgeInsets.all(10),
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        Person person = _personNames[index];
+        return Dismissible(
+          key: Key("dismissibleKey"),
+          background: Container(
+            child: Text("侧滑删除"),
+          ),
+          secondaryBackground: Container(
+            child: Text("侧滑删除"),
+          ),
+          direction: DismissDirection.horizontal,
+          child: Card(
+            margin: EdgeInsets.all(10),
+            elevation: 2,
+            color: Colors.blue,
+            key: Key("${person.name}"),
+            child: ListTile(
+              leading: CircleAvatar(
+                child: Text("${person.name.substring(0, 1)}"),
+              ),
+              title: Text(
+                "${person.name}",
+                style: TextStyle(color: Colors.white),
+              ),
+              subtitle: Text(
+                "${person.age}岁",
+                style: TextStyle(color: Colors.white),
+              ),
+              trailing: Text("侧滑移除"),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+///
+/// GridViewDragPage
+class GridViewDragWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _GridViewDragState();
+  }
+}
+
+class _GridViewDragState extends State<GridViewDragWidget> {
+  List<Person> _personNames = [
+    Person(name: "Air", age: 20),
+    Person(name: "James", age: 28),
+    Person(name: "Lucy", age: 35),
+    Person(name: "Tom", age: 14),
+    Person(name: "Jack", age: 16),
+    Person(name: "Jacy", age: 28),
+    Person(name: "Jacy", age: 28),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      itemCount: _personNames.length,
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      itemBuilder: (BuildContext context, int index) {
+        return LongPressDraggable<Person>(
+          data: _personNames[index],
+          child: DragTarget(builder: (BuildContext context,
+              List<int> candidateData, List<dynamic> rejectedData) {
+            return Card(
+              margin: EdgeInsets.all(10),
+              elevation: 2,
+              color: Colors.blue,
+              key: Key("${_personNames.elementAt(index).name}"),
+              child: GridTileBar(
+                leading: CircleAvatar(
+                  child: Text(
+                      "${_personNames.elementAt(index).name.substring(0, 1)}"),
+                ),
+                title: Text(
+                  "${_personNames.elementAt(index).name}",
+                  style: TextStyle(color: Colors.white),
+                ),
+                subtitle: Text(
+                  "${_personNames.elementAt(index).age}岁",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            );
+          }),
+          feedback: Container(
+            height: 200,
+            width: 200,
+            alignment: Alignment.center,
+            child: Card(
+              color: Colors.blue,
+              semanticContainer: false,
+              margin: EdgeInsets.all(10),
+              elevation: 2,
+              key: Key("${_personNames.elementAt(index).name}"),
+              child: GridTileBar(
+                leading: CircleAvatar(
+                  child: Text(
+                      "${_personNames.elementAt(index).name.substring(0, 1)}"),
+                ),
+                title: Text(
+                  "${_personNames.elementAt(index).name}",
+                  style: TextStyle(color: Colors.white),
+                ),
+                subtitle: Text(
+                  "${_personNames.elementAt(index).age}岁",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+///
+/// ListViewSlideWidget
+class ListViewSlideWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ListViewSlideState();
+  }
+}
+
+///
+/// _ListViewSlideState
+class _ListViewSlideState extends State<ListViewSlideWidget> {
+  List<Person> _personNames = [
+    Person(name: "Air", age: 20),
+    Person(name: "James", age: 28),
+    Person(name: "Lucy", age: 35),
+    Person(name: "Tom", age: 14),
+    Person(name: "Jack", age: 16),
+    Person(name: "Jacy", age: 28),
+    Person(name: "Jacy", age: 28),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(itemBuilder: (context, index) {
+      return Slidable(
+        actionPane: SlidableDrawerActionPane(),
+        actionExtentRatio: 0.25,
+        child: Container(
+          color: Colors.white,
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.indigoAccent,
+              child: Text('$index'),
+              foregroundColor: Colors.white,
+            ),
+            title: Text('Tile n°$index'),
+            subtitle: Text('SlidableDrawerDelegate'),
+          ),
+        ),
+        actions: <Widget>[
+          IconSlideAction(
+            caption: 'Archive',
+            color: Colors.blue,
+            icon: Icons.archive,
+            onTap: () => TipHelper.showTip(
+                context: context, title: "Archive", message: "Archive"),
+          ),
+          IconSlideAction(
+            caption: 'Share',
+            color: Colors.indigo,
+            icon: Icons.share,
+            onTap: () => TipHelper.showTip(
+                context: context, title: "Share", message: "Share"),
+          ),
+        ],
+        secondaryActions: <Widget>[
+          IconSlideAction(
+            caption: 'More',
+            color: Colors.black45,
+            icon: Icons.more_horiz,
+            onTap: () => TipHelper.showTip(
+                context: context, title: "More", message: "More"),
+          ),
+          IconSlideAction(
+            caption: 'Delete',
+            color: Colors.red,
+            icon: Icons.delete,
+            onTap: () => TipHelper.showTip(
+                context: context, title: "Delete", message: "Delete"),
+          ),
+        ],
+      );
+    });
   }
 }
