@@ -323,16 +323,27 @@ class _ListViewSlideState extends State<ListViewSlideWidget> {
           return Slidable(
             actionPane: SlidableDrawerActionPane(),
             actionExtentRatio: 0.25,
-            child: Container(
-              color: Colors.white,
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.indigoAccent,
-                  child: Text('${person.name.substring(0, 1)}'),
-                  foregroundColor: Colors.white,
+            child: Card(
+              color: Theme.of(context).primaryColor,
+              child: Container(
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Theme.of(context).primaryColorDark,
+                    child: Text('${person.name.substring(0, 1)}'),
+                  ),
+                  title: Text(
+                    '${person.name}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  subtitle: Text(
+                    '${person.age}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                title: Text('${person.name}'),
-                subtitle: Text('${person.age}'),
               ),
             ),
             actions: <Widget>[
