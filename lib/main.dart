@@ -32,6 +32,7 @@ import 'sample/tip/flushbar_page.dart';
 import 'sample/user/user_info_page.dart';
 import 'sample/webview/air_license_page.dart';
 import 'sample/webview/flutter_web_page.dart';
+import 'sample/wheel/list_wheel_scroll_view_page.dart';
 
 // Register the RouteObserver as a navigation observer.
 @deprecated //2019
@@ -85,6 +86,7 @@ void main() => runApp(
           "/MainPickerPage": () => MainPickerPage(),
           "/FlutterWebPage": () => FlutterWebPage(),
           "/AirLicensePage": () => AirLicensePage(),
+          "/ListWheelScrollViewPage": () => ListWheelScrollViewPage(),
         },
       ),
     );
