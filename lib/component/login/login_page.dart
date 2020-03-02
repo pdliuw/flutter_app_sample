@@ -2,7 +2,6 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/common/config/StringConfig.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
 import '../../common/util/ToastUtil.dart';
 import 'login_contract.dart';
@@ -43,16 +42,6 @@ class _LoginState extends State<LoginPage> implements ILoginView {
     super.dispose();
     //Presenter.
     _presenter = null;
-  }
-
-  @override
-  Config createConfig() {
-    return Config(
-      titleName: StringConfig.pageNameConfig.mLoginPageName,
-      showBackArrow: false,
-      showAppBar: true,
-      customBuildWidget: true,
-    );
   }
 
   String _getPhoneErrorInfo() {

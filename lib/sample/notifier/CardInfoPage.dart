@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardModel.dart';
 import 'package:flutter_app_sample/sample/notifier/CardModelByNotifierProvider.dart';
 import 'package:provider/provider.dart';
@@ -44,11 +43,6 @@ class _CardInfoState extends State<CardInfoPage> {
   void dispose() {
     super.dispose();
     CardModel.getInstance().removeListener(callback);
-  }
-
-  @override
-  Config createConfig() {
-    return Config(titleName: "");
   }
 
   Widget createWidget() {

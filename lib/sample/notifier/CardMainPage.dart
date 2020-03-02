@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardModel.dart';
 import 'package:airoute/airoute.dart';
 
@@ -33,10 +32,6 @@ class _CarMainState extends State<CardMainPage> {
   void dispose() {
     super.dispose();
     CardModel.getInstance().removeListener(callback);
-  }
-
-  Config createConfig() {
-    return Config(titleName: "消息通信");
   }
 
   Widget createWidget() {

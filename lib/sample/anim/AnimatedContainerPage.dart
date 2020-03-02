@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
 ///
 /// AnimatedContainerPage

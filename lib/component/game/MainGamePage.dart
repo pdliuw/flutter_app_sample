@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 
-class MainGamePage extends AppCommonStatefulPage {
+class MainGamePage extends StatefulWidget {
   @override
-  Config createConfig() {
-    return Config(titleName: "小游戏",customBuildWidget: true);
+  State<StatefulWidget> createState() {
+    return _MainGameState();
   }
+}
 
+///
+/// _MainGameState
+class _MainGameState extends State<MainGamePage> {
   @override
-  Widget createWidget() {
-    return Column(
-      children: <Widget>[Text("Hello game!")],
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Text("小游戏"),
+      ),
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/component/shop/Product.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingListItem.dart';
-import 'package:flutter_app_sample/common/config/StringConfig.dart';
 
 ///商品列表
 class ShoppingListPage extends StatefulWidget {
@@ -18,14 +16,6 @@ class _ShoppingState extends State<ShoppingListPage> {
   final List<Product> products = [
     Product(name: "product", originPrice: "100", nowPrice: "59"),
   ];
-
-  Config createConfig() {
-    return Config(
-      titleName: StringConfig.pageNameConfig.mShoppingListPageName,
-      showAppBar: true,
-      showBackArrow: true,
-    );
-  }
 
   Widget createWidget() {
     return ListView.builder(

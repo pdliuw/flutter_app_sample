@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/base/AppCommonStatefulPage.dart';
 import 'package:flutter_app_sample/component/shop/Product.dart';
 
 ///ShoppingListItem
@@ -7,12 +6,11 @@ import 'package:flutter_app_sample/component/shop/Product.dart';
 typedef void CartChangedCallback(Product product, bool inCart);
 
 class ShoppingListItem extends StatefulWidget {
-  ShoppingListItem(
-      {Product product,
-      this.inCart,
-      this.onCartChanged,
-      EnterParameter enterParameter})
-      : product = product;
+  ShoppingListItem({
+    Product product,
+    this.inCart,
+    this.onCartChanged,
+  }) : product = product;
 
   final Product product;
   final bool inCart;
@@ -33,12 +31,11 @@ class _ShoppingListItem extends State<ShoppingListItem> {
   final bool inCart;
   final CartChangedCallback onCartChanged;
 
-  _ShoppingListItem(
-      {Product product,
-      this.inCart,
-      this.onCartChanged,
-      EnterParameter enterParameter})
-      : product = product;
+  _ShoppingListItem({
+    Product product,
+    this.inCart,
+    this.onCartChanged,
+  }) : product = product;
 
   @override
   Widget build(BuildContext context) {
