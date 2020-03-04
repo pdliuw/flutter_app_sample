@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:airoute/airoute.dart';
@@ -214,6 +216,24 @@ class _MainPickerState extends State<MainPickerPage> {
                       ],
                     ),
                   ),
+                  FlatButton.icon(
+                    onPressed: () {
+                      _showSheet();
+                    },
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    icon: Icon(Icons.format_list_bulleted),
+                    label: Text("sheet"),
+                  ),
+                  FlatButton.icon(
+                    onPressed: () {
+                      _showDraggableSheet();
+                    },
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    icon: Icon(Icons.format_list_numbered),
+                    label: Text("draggable sheet"),
+                  ),
                 ],
               ),
             ],
@@ -226,9 +246,14 @@ class _MainPickerState extends State<MainPickerPage> {
   }) {
     showCupertinoModalPopup(
       context: context,
+      filter: ImageFilter.blur(
+        sigmaX: 3,
+        sigmaY: 3,
+      ),
       builder: (context) {
         return Container(
           height: 200,
+          color: Colors.white,
           child: Column(
             children: <Widget>[
               Flexible(
@@ -248,6 +273,95 @@ class _MainPickerState extends State<MainPickerPage> {
               ),
             ],
           ),
+        );
+      },
+    );
+  }
+
+  void _showSheet() {
+    showModalBottomSheet(
+      context: context,
+      elevation: 11,
+      isScrollControlled: true,
+      isDismissible: true,
+      useRootNavigator: true,
+      clipBehavior: Clip.hardEdge,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: Colors.green),
+        borderRadius: BorderRadiusDirectional.only(
+          topStart: Radius.circular(20),
+          topEnd: Radius.circular(20),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          height: 300,
+          child: BottomSheet(
+              onClosing: () {},
+              enableDrag: true,
+              builder: (context) {
+                return SingleChildScrollView(
+                  child: _getSheetContentWidget(),
+                );
+              }),
+        );
+      },
+    );
+  }
+
+  void _showDraggableSheet() {
+    showModalBottomSheet(
+      context: context,
+      elevation: 11,
+      isScrollControlled: true,
+      isDismissible: true,
+      useRootNavigator: true,
+      clipBehavior: Clip.hardEdge,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: Colors.green),
+        borderRadius: BorderRadiusDirectional.only(
+          topStart: Radius.circular(20),
+          topEnd: Radius.circular(20),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          height: 500,
+          child: DraggableScrollableSheet(
+              initialChildSize: 1,
+              minChildSize: 0.2,
+              maxChildSize: 1,
+              expand: true,
+              builder: (context, controller) {
+                return Container(
+                  height: 500,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        height: 10,
+                        width: 100,
+                        margin: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color:
+                              ColorTween(begin: Colors.grey, end: Colors.white)
+                                  .transform(0.5),
+                          borderRadius: BorderRadiusDirectional.only(
+                            topStart: Radius.circular(20),
+                            topEnd: Radius.circular(20),
+                            bottomStart: Radius.circular(20),
+                            bottomEnd: Radius.circular(20),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: _getSheetContentWidget(),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
         );
       },
     );
@@ -275,6 +389,7 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
+            color: Colors.white,
             child: Column(
               children: <Widget>[
                 Container(
@@ -340,6 +455,7 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
+            color: Colors.white,
             child: Column(
               children: <Widget>[
                 Container(
@@ -473,5 +589,28 @@ class _MainPickerState extends State<MainPickerPage> {
             ),
           );
         });
+  }
+
+  List<String> _sheetContentNames = [
+    "Air",
+    "Battle",
+    "Jack",
+    "Tom",
+    "Lucy",
+    "Bier",
+    "Sandy",
+    "Tony",
+    "James",
+  ];
+  _getSheetContentWidget() {
+    return Column(
+        children: _sheetContentNames.map((String name) {
+      return ListTile(
+        leading: CircleAvatar(
+          child: Text("${name.substring(0, 1)}"),
+        ),
+        title: Text("$name"),
+      );
+    }).toList());
   }
 }
