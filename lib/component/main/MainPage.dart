@@ -4,6 +4,7 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flip_panel/flip_panel.dart';
+import 'package:flutter_app_sample/global_view_model.dart';
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
 
@@ -344,6 +345,26 @@ class _MainState extends State<MainPage> {
                     ),
                   ],
                 ),
+              ],
+            ),
+            ExpansionTile(
+              title: Text("样式"),
+              children: <Widget>[
+                Wrap(
+                  children: <Widget>[
+                    ListTile(
+                      leading: Text("Dark"),
+                      trailing: Switch(
+                        value: GlobalViewModel.getInstance().isDarkTheme,
+                        onChanged: (bool value) {
+                          setState(() {
+                            GlobalViewModel.getInstance().toggleThemeMode();
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
             ExpansionTile(

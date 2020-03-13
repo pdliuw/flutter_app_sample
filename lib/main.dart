@@ -5,6 +5,7 @@ import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/main/MainPage.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
+import 'package:flutter_app_sample/global_view_model.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
 import 'package:flutter_app_sample/sample/DrawerVariouslyPage.dart';
 import 'package:flutter_app_sample/sample/MainSortListPage.dart';
@@ -22,6 +23,7 @@ import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
 import 'sample/anim/draw_anim_page.dart';
@@ -40,59 +42,76 @@ final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() {
   runApp(
-    Airoute.createMaterialApp(
-      home: Scaffold(
-        body: LoginPage(),
-      ),
-      themeMode: ThemeMode.system,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      locale: const Locale('zh', 'CH'),
-      localizationsDelegates: [
-        ChineseCupertinoLocalizations.delegate,
-        DefaultCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('zh', 'CH'),
-        const Locale('en', 'US'),
-      ],
-
-      ///全局静态路由的配置！
-      routes: <String, AirouteBuilder>{
-        "/LoginPage": () => LoginPage(),
-        "/MainPage": () => MainPage(),
-        "/TestPage": () => TestPage(),
-        "/ShoppingList": () => ShoppingListPage(),
-        "/MainSortListPage": () => MainSortListPage(),
-        "/ViewPagerFragmentPage": () => ViewPagerFragmentPage(),
-        "/CollapsingToolbarPage": () => CollapsingToolbarPage(),
-        "/MainAnimSortPage": () => MainAnimSortPage(),
-        "/AnimOfSwitchPage": () => AnimOfSwitchPage(),
-        "/AnimatedContainerPage": () => AnimatedContainerPage(),
-        "/OpacityAndAnimatedOpacityPage": () => OpacityAndAnimatedOpacityPage(),
-        "/FadeInImagePage": () => FadeInImagePage(),
-        "/HeroAnimPage": () => HeroAnimPage(),
-        "/TransformPage": () => TransformPage(),
-        "/AnimatedBuilderPage": () => AnimatedBuilderPage(),
-        "/ColorTweenPage": () => ColorTweenPage(),
-        "/AnappablePage": () => AnappablePage(),
-        "/CardMainPage": () => CardMainPage(),
-        "/CardInfoPage": () => CardInfoPage(),
-        "/DragListPage": () => DragListPage(),
-        "/DrawerVariouslyPage": () => DrawerVariouslyPage(),
-        "/FlushBarPage": () => FlushBarPage(),
-        "/DrawAnimPage": () => DrawAnimPage(),
-        "/ChartPage": () => ChartPage(),
-        "/UserInfoPage": () => UserInfoPage(),
-        "/MainPickerPage": () => MainPickerPage(),
-        "/FlutterWebPage": () => FlutterWebPage(),
-        "/AirLicensePage": () => AirLicensePage(),
-        "/ListWheelScrollViewPage": () => ListWheelScrollViewPage(),
-      },
-    ),
+    Test(),
   );
+}
+
+class Test extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GlobalViewModel.getInstance())
+      ],
+      child: Consumer<GlobalViewModel>(
+        builder: (context, value, child) {
+          return Airoute.createMaterialApp(
+            home: Scaffold(
+              body: LoginPage(),
+            ),
+            themeMode: value.themeMode,
+            theme: ThemeData.light(),
+            darkTheme: ThemeData.dark(),
+            locale: const Locale('zh', 'CH'),
+            localizationsDelegates: [
+              ChineseCupertinoLocalizations.delegate,
+              DefaultCupertinoLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: [
+              const Locale('zh', 'CH'),
+              const Locale('en', 'US'),
+            ],
+
+            ///全局静态路由的配置！
+            routes: <String, WidgetBuilder>{
+              "/LoginPage": (_) => LoginPage(),
+              "/MainPage": (_) => MainPage(),
+              "/TestPage": (_) => TestPage(),
+              "/ShoppingList": (_) => ShoppingListPage(),
+              "/MainSortListPage": (_) => MainSortListPage(),
+              "/ViewPagerFragmentPage": (_) => ViewPagerFragmentPage(),
+              "/CollapsingToolbarPage": (_) => CollapsingToolbarPage(),
+              "/MainAnimSortPage": (_) => MainAnimSortPage(),
+              "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
+              "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
+              "/OpacityAndAnimatedOpacityPage": (_) =>
+                  OpacityAndAnimatedOpacityPage(),
+              "/FadeInImagePage": (_) => FadeInImagePage(),
+              "/HeroAnimPage": (_) => HeroAnimPage(),
+              "/TransformPage": (_) => TransformPage(),
+              "/AnimatedBuilderPage": (_) => AnimatedBuilderPage(),
+              "/ColorTweenPage": (_) => ColorTweenPage(),
+              "/AnappablePage": (_) => AnappablePage(),
+              "/CardMainPage": (_) => CardMainPage(),
+              "/CardInfoPage": (_) => CardInfoPage(),
+              "/DragListPage": (_) => DragListPage(),
+              "/DrawerVariouslyPage": (_) => DrawerVariouslyPage(),
+              "/FlushBarPage": (_) => FlushBarPage(),
+              "/DrawAnimPage": (_) => DrawAnimPage(),
+              "/ChartPage": (_) => ChartPage(),
+              "/UserInfoPage": (_) => UserInfoPage(),
+              "/MainPickerPage": (_) => MainPickerPage(),
+              "/FlutterWebPage": (_) => FlutterWebPage(),
+              "/AirLicensePage": (_) => AirLicensePage(),
+              "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
+            },
+          );
+        },
+      ),
+    );
+  }
 }
 
 class MyApp extends StatefulWidget {
