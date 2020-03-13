@@ -353,12 +353,57 @@ class _MainState extends State<MainPage> {
                 Wrap(
                   children: <Widget>[
                     ListTile(
+                      onTap: () {
+                        setState(() {
+                          GlobalViewModel.getInstance().toggleDarkThemeMode();
+                        });
+                      },
                       leading: Text("Dark"),
+                      title: Text("Dark"),
+                      subtitle: Text("暗色模式"),
                       trailing: Switch(
                         value: GlobalViewModel.getInstance().isDarkTheme,
                         onChanged: (bool value) {
                           setState(() {
-                            GlobalViewModel.getInstance().toggleThemeMode();
+                            GlobalViewModel.getInstance().toggleDarkThemeMode();
+                          });
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          GlobalViewModel.getInstance().toggleLightThemeMode();
+                        });
+                      },
+                      leading: Text("Light"),
+                      title: Text("Light"),
+                      subtitle: Text("浅色模式"),
+                      trailing: Switch(
+                        value: GlobalViewModel.getInstance().isLightTheme,
+                        onChanged: (bool value) {
+                          setState(() {
+                            GlobalViewModel.getInstance()
+                                .toggleLightThemeMode();
+                          });
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        setState(() {
+                          GlobalViewModel.getInstance().toggleSystemThemeMode();
+                        });
+                      },
+                      leading: Text("System"),
+                      title: Text("System"),
+                      subtitle: Text("跟随系统"),
+                      trailing: Switch(
+                        value: GlobalViewModel.getInstance().isSystemTheme,
+                        onChanged: (bool value) {
+                          setState(() {
+                            GlobalViewModel.getInstance()
+                                .toggleSystemThemeMode();
                           });
                         },
                       ),

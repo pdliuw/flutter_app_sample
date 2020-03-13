@@ -22,6 +22,8 @@ class GlobalViewModel extends ChangeNotifier {
   /// LightTheme
   ThemeMode toggleLightThemeMode() {
     _themeMode = ThemeMode.light;
+    //notify listeners adapter
+    notifyListeners();
     return _themeMode;
   }
 
@@ -29,6 +31,17 @@ class GlobalViewModel extends ChangeNotifier {
   /// DarkTheme
   ThemeMode toggleDarkThemeMode() {
     _themeMode = ThemeMode.dark;
+    //notify listeners adapter
+    notifyListeners();
+    return _themeMode;
+  }
+
+  ///
+  /// SystemTheme
+  ThemeMode toggleSystemThemeMode() {
+    _themeMode = ThemeMode.system;
+    //notify listeners adapter
+    notifyListeners();
     return _themeMode;
   }
 
@@ -45,4 +58,6 @@ class GlobalViewModel extends ChangeNotifier {
   ThemeMode get themeMode => _themeMode;
 
   bool get isDarkTheme => _themeMode == ThemeMode.dark;
+  bool get isLightTheme => _themeMode == ThemeMode.light;
+  bool get isSystemTheme => _themeMode == ThemeMode.system;
 }
