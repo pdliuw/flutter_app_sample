@@ -29,6 +29,7 @@ import 'ChineseCupertinoLocalizations.dart';
 import 'sample/anim/draw_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
+import 'sample/navigation/curved_navigation_bar_page.dart';
 import 'sample/picker/main_picker_page.dart';
 import 'sample/tip/flushbar_page.dart';
 import 'sample/user/user_info_page.dart';
@@ -106,6 +107,7 @@ class Test extends StatelessWidget {
               "/FlutterWebPage": (_) => FlutterWebPage(),
               "/AirLicensePage": (_) => AirLicensePage(),
               "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
+              "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
             },
           );
         },

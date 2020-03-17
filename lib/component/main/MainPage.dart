@@ -1,10 +1,11 @@
 import 'dart:ui';
 
 import 'package:airoute/airoute.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flip_panel/flip_panel.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
+
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
 
@@ -55,6 +56,7 @@ class _MainState extends State<MainPage> {
       "Picker",
       "WebView",
       "3D Widget",
+      "Curved Navigation Bar",
     ];
     return _sortTitles;
   }
@@ -71,6 +73,7 @@ class _MainState extends State<MainPage> {
       "/MainPickerPage",
       "/FlutterWebPage",
       "/ListWheelScrollViewPage",
+      "/CurvedNavigationBarPage",
     ];
     return _sortRouteNames;
   }
