@@ -57,6 +57,7 @@ class _MainState extends State<MainPage> {
       "WebView",
       "3D Widget",
       "Curved Navigation Bar",
+      "Clip widget",
     ];
     return _sortTitles;
   }
@@ -74,6 +75,7 @@ class _MainState extends State<MainPage> {
       "/FlutterWebPage",
       "/ListWheelScrollViewPage",
       "/CurvedNavigationBarPage",
+      "/ClipMainPage",
     ];
     return _sortRouteNames;
   }
