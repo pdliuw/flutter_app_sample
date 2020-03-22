@@ -32,7 +32,7 @@ dependencies:
   provider: ^4.0.4
 
   # Route package.
-  airoute: ^0.2.1
+  airoute: ^0.2.3
 
   # Barcode package.
 #  ai_barcode: ^0.2.7
