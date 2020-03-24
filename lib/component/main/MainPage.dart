@@ -59,6 +59,7 @@ class _MainState extends State<MainPage> {
       "Curved Navigation Bar",
       "Clip",
       "Ink",
+      "RichText",
     ];
     return _sortTitles;
   }
@@ -78,6 +79,7 @@ class _MainState extends State<MainPage> {
       "/CurvedNavigationBarPage",
       "/ClipMainPage",
       "/InkPage",
+      "/RichTextPage",
     ];
     return _sortRouteNames;
   }

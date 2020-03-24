@@ -33,6 +33,7 @@ import 'sample/chart/chart_page.dart';
 import 'sample/clip/clip_main_page.dart';
 import 'sample/navigation/curved_navigation_bar_page.dart';
 import 'sample/picker/main_picker_page.dart';
+import 'sample/text/RichTextPage.dart';
 import 'sample/tip/flushbar_page.dart';
 import 'sample/user/user_info_page.dart';
 import 'sample/webview/air_license_page.dart';
@@ -112,6 +113,7 @@ class Test extends StatelessWidget {
               "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
               "/ClipMainPage": (_) => ClipMainPage(),
               "/InkPage": (_) => InkPage(),
+              "/RichTextPage": (_) => RichTextPage(),
             },
           );
         },
