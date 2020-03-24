@@ -20,6 +20,7 @@ import 'package:flutter_app_sample/sample/anim/MainAnimSortPage.dart';
 import 'package:flutter_app_sample/sample/anim/OpacityAndAnimatedOpacityPage.dart';
 import 'package:flutter_app_sample/sample/anim/TransformPage.dart';
 import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
+import 'package:flutter_app_sample/sample/ink/ink_page.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -110,6 +111,7 @@ class Test extends StatelessWidget {
               "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
               "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
               "/ClipMainPage": (_) => ClipMainPage(),
+              "/InkPage": (_) => InkPage(),
             },
           );
         },

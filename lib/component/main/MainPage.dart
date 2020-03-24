@@ -57,7 +57,8 @@ class _MainState extends State<MainPage> {
       "WebView",
       "3D Widget",
       "Curved Navigation Bar",
-      "Clip widget",
+      "Clip",
+      "Ink",
     ];
     return _sortTitles;
   }
@@ -76,6 +77,7 @@ class _MainState extends State<MainPage> {
       "/ListWheelScrollViewPage",
       "/CurvedNavigationBarPage",
       "/ClipMainPage",
+      "/InkPage",
     ];
     return _sortRouteNames;
   }
