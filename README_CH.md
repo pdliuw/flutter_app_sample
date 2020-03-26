@@ -45,19 +45,17 @@ v2.0|Add:1、tip message,2、user model,3、more widget sample|[v2.0](https://gi
 
 Package/Plugin|Description|Link
 ---|:--:|---:
-[airoute](https://github.com/pdliuw/airoute)|爱路由|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
-[flutter_scanner](https://github.com/pdliuw/flutter_scanner)|flutter barcode|[![pub package](https://img.shields.io/pub/v/flutter_scanner.svg)](https://pub.dev/packages/flutter_scanner)
-[ai_barcode](https://github.com/pdliuw/ai_barcode)|爱条码|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
-
+[airoute](https://github.com/pdliuw/airoute)|爱路由：解决开发中由于context引起的经常性问题，突破了自带路由的使用范围的限制|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+[ai_barcode](https://github.com/pdliuw/ai_barcode)|爱条码：支持可自定义区域及样式的可扫描、创建的的条码插件|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
+[ai_awesome_message](https://github.com/pdliuw/ai_awesome_message)|消息提示：可替代Toast和SnackBar并可跨多端使用的消息库|[![pub package](https://img.shields.io/pub/v/ai_awesome_message.svg)](https://pub.dev/packages/ai_awesome_message)
 
 Package/Plugin|Description|Link
 ---|:--:|---:
-[url_launcher](https://github.com/flutter/plugins/blob/master/packages/url_launcher)|url_launcher|[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dev/packages/url_launcher)
-[webview_flutter](https://github.com/flutter/plugins/blob/master/packages/webview_flutter)|webview_flutter|[![pub package](https://img.shields.io/pub/v/webview_flutter.svg)](https://pub.dev/packages/webview_flutter)
-[date_range_picker](https://github.com/anicdh/date_range_picker)|date_range_picker|[![pub package](https://img.shields.io/pub/v/date_range_picker.svg)](https://pub.dev/packages/date_range_picker)
-[flushbar](https://github.com/AndreHaueisen/flushbar)|flushbar|[![pub package](https://img.shields.io/pub/v/flushbar.svg)](https://pub.dev/packages/flushbar)
-[fl_chart](https://github.com/imaNNeoFighT/fl_chart)|fl_chart|[![pub package](https://img.shields.io/pub/v/fl_chart.svg)](https://pub.dev/packages/fl_chart)
-[drawing_animation](https://github.com/biocarl/drawing_animation)|drawing_animation|[![pub package](https://img.shields.io/pub/v/drawing_animation.svg)](https://pub.dev/packages/drawing_animation)
+[url_launcher](https://github.com/flutter/plugins/blob/master/packages/url_launcher)|url_launcher：启动外链电话、短信、邮件、网址可跨多端使用的库|[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dev/packages/url_launcher)
+[webview_flutter](https://github.com/flutter/plugins/blob/master/packages/webview_flutter)|webview_flutter：WebView插件|[![pub package](https://img.shields.io/pub/v/webview_flutter.svg)](https://pub.dev/packages/webview_flutter)
+[date_range_picker](https://github.com/anicdh/date_range_picker)|date_range_picker：时间区间选择器可跨多端使用的库|[![pub package](https://img.shields.io/pub/v/date_range_picker.svg)](https://pub.dev/packages/date_range_picker)
+[fl_chart](https://github.com/imaNNeoFighT/fl_chart)|fl_chart：饼图、柱状图、折线图可跨多端使用的库|[![pub package](https://img.shields.io/pub/v/fl_chart.svg)](https://pub.dev/packages/fl_chart)
+[drawing_animation](https://github.com/biocarl/drawing_animation)|drawing_animation：使用动画来实现绘画的效果库|[![pub package](https://img.shields.io/pub/v/drawing_animation.svg)](https://pub.dev/packages/drawing_animation)
 
 
 

@@ -48,19 +48,17 @@ v2.0|Add:1、tip message,2、user model,3、more widget sample|[v2.0](https://gi
 
 Package/Plugin|Description|Link
 ---|:--:|---:
-[airoute](https://github.com/pdliuw/airoute)|flutter route/navigator|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
-[flutter_scanner](https://github.com/pdliuw/flutter_scanner)|flutter barcode|[![pub package](https://img.shields.io/pub/v/flutter_scanner.svg)](https://pub.dev/packages/flutter_scanner)
-[ai_barcode](https://github.com/pdliuw/ai_barcode)|ai barcode|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
-[flutter_localizations](https://flutter.dev/)|Internationalization/multi-language|[link](https://flutter.dev/)
+[airoute](https://github.com/pdliuw/airoute)|Airoute：Solve the frequent problems caused by context in development, and break through the limitation of the scope of use of built-in routing|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
+[ai_barcode](https://github.com/pdliuw/ai_barcode)|AiBarcode：Scan and create barcode plugins that support customizable areas and styles|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
+[ai_awesome_message](https://github.com/pdliuw/ai_awesome_message)|AiAwesomeMessage：Replaces Toast and SnackBar and can be used across multiple messaging libraries|[![pub package](https://img.shields.io/pub/v/ai_awesome_message.svg)](https://pub.dev/packages/ai_awesome_message)
 
 Package/Plugin|Description|Link
 ---|:--:|---:
-[url_launcher](https://github.com/flutter/plugins/blob/master/packages/url_launcher)|url_launcher|[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dev/packages/url_launcher)
-[webview_flutter](https://github.com/flutter/plugins/blob/master/packages/webview_flutter)|webview_flutter|[![pub package](https://img.shields.io/pub/v/webview_flutter.svg)](https://pub.dev/packages/webview_flutter)
-[date_range_picker](https://github.com/anicdh/date_range_picker)|date_range_picker|[![pub package](https://img.shields.io/pub/v/date_range_picker.svg)](https://pub.dev/packages/date_range_picker)
-[flushbar](https://github.com/AndreHaueisen/flushbar)|flushbar|[![pub package](https://img.shields.io/pub/v/flushbar.svg)](https://pub.dev/packages/flushbar)
-[fl_chart](https://github.com/imaNNeoFighT/fl_chart)|fl_chart|[![pub package](https://img.shields.io/pub/v/fl_chart.svg)](https://pub.dev/packages/fl_chart)
-[drawing_animation](https://github.com/biocarl/drawing_animation)|drawing_animation|[![pub package](https://img.shields.io/pub/v/drawing_animation.svg)](https://pub.dev/packages/drawing_animation)
+[url_launcher](https://github.com/flutter/plugins/blob/master/packages/url_launcher)|url_launcher：Launch a library that can be used across multiple terminals for phone, SMS, email, and URL|[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dev/packages/url_launcher)
+[webview_flutter](https://github.com/flutter/plugins/blob/master/packages/webview_flutter)|webview_flutter：WebView plugin|[![pub package](https://img.shields.io/pub/v/webview_flutter.svg)](https://pub.dev/packages/webview_flutter)
+[date_range_picker](https://github.com/anicdh/date_range_picker)|date_range_picker：Time interval selector can be used across multiple libraries|[![pub package](https://img.shields.io/pub/v/date_range_picker.svg)](https://pub.dev/packages/date_range_picker)
+[fl_chart](https://github.com/imaNNeoFighT/fl_chart)|fl_chart：Pie, bar, and line charts can be used across multiple libraries|[![pub package](https://img.shields.io/pub/v/fl_chart.svg)](https://pub.dev/packages/fl_chart)
+[drawing_animation](https://github.com/biocarl/drawing_animation)|drawing_animation：Effects library using animation to paint|[![pub package](https://img.shields.io/pub/v/drawing_animation.svg)](https://pub.dev/packages/drawing_animation)
 
 
 
