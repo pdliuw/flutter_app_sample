@@ -23,8 +23,8 @@ tags:
 
 Flutter项目示例支持 : " Android 、iOS 、Web 、MacOS"
 
-|[中文文档](/README_CH.md)|[English document](/README.md)|[主页](https://pdliuw.github.io/)|
-|:-|:-|:-|
+|[中文文档](/README_CH.md)|[English document](/README.md)|[主页](https://pdliuw.github.io/)|[问题解决方案 document](https://github.com/pdliuw/flutter_app_sample/blob/master/README_Solution_To_The_Problem.md)
+|:-|:-|:-|:-|
 
 |[点我，查看完整项目](https://github.com/pdliuw/flutter_app_sample)|[下载安装包](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/apk/flutter_app_sample.apk?raw=true)|[Web网站](https://flutter-app-sample.github.io)|
 |:-|:-|:-|
