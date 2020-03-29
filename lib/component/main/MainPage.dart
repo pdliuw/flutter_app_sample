@@ -121,6 +121,7 @@ class _MainState extends State<MainPage> {
     List<String> sortTitles = _getSortTitles();
 
     ListView listView = ListView.builder(
+      physics: BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
           onTap: () {
@@ -196,6 +197,7 @@ class _MainState extends State<MainPage> {
   Drawer _getDrawer() {
     return Drawer(
       child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             GestureDetector(
@@ -337,7 +339,7 @@ class _MainState extends State<MainPage> {
                     ListTile(
                       onTap: () {
                         setState(
-                          () {
+                              () {
                             _drawerOpenedRight = !_drawerOpenedRight;
                           },
                         );
@@ -347,7 +349,7 @@ class _MainState extends State<MainPage> {
                         value: _drawerOpenedRight,
                         onChanged: (bool value) {
                           setState(
-                            () {
+                                () {
                               _drawerOpenedRight = value;
                             },
                           );
