@@ -113,6 +113,11 @@ class _LoginState extends State<LoginPage> implements ILoginView {
                     )),
                 TextField(
                   decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Theme
+                        .of(context)
+                        .cardTheme
+                        .color,
                     labelText: '手机号',
                     hintText: "请输入手机号",
                     errorText: _getPhoneErrorInfo(),
@@ -133,6 +138,11 @@ class _LoginState extends State<LoginPage> implements ILoginView {
                   children: <Widget>[
                     TextField(
                       decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Theme
+                            .of(context)
+                            .cardTheme
+                            .color,
                         labelText: '验证码',
                         hintText: "请输入验证码",
                         errorText: _getPasswordErrorInfo(),
