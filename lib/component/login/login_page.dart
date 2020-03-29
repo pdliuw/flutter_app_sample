@@ -160,19 +160,21 @@ class _LoginState extends State<LoginPage> implements ILoginView {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    _getLogoutWidget(),
+                    Spacer(),
                     RaisedButton.icon(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      color: Colors.blue,
-                      textColor: Colors.white,
+                      animationDuration: Duration(seconds: 3),
                       onPressed: () {
                         login();
                       },
+                      color: Theme
+                          .of(context)
+                          .primaryColor,
+                      textColor: Colors.white,
                       icon: Icon(
                         Icons.brightness_high,
-                        color: Colors.white,
                       ),
                       label: Text("登陆"),
                     )
