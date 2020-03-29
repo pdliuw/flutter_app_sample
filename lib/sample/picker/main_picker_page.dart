@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:airoute/airoute.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
@@ -177,7 +177,7 @@ class _MainPickerState extends State<MainPickerPage> {
                           color: Colors.blue,
                           blurRadius: 10.0,
                           spreadRadius: 2.0,
-                        )
+                        ),
                       ],
                     ),
                     child: Column(
@@ -220,7 +220,9 @@ class _MainPickerState extends State<MainPickerPage> {
                     onPressed: () {
                       _showSheet();
                     },
-                    color: Colors.blue,
+                    color: Theme
+                        .of(context)
+                        .primaryColor,
                     textColor: Colors.white,
                     icon: Icon(Icons.format_list_bulleted),
                     label: Text("sheet"),
@@ -229,7 +231,9 @@ class _MainPickerState extends State<MainPickerPage> {
                     onPressed: () {
                       _showDraggableSheet();
                     },
-                    color: Colors.blue,
+                    color: Theme
+                        .of(context)
+                        .primaryColor,
                     textColor: Colors.white,
                     icon: Icon(Icons.format_list_numbered),
                     label: Text("draggable sheet"),
@@ -253,7 +257,10 @@ class _MainPickerState extends State<MainPickerPage> {
       builder: (context) {
         return Container(
           height: 200,
-          color: Colors.white,
+          color: Theme
+              .of(context)
+              .cardTheme
+              .color,
           child: Column(
             children: <Widget>[
               Flexible(
@@ -389,32 +396,20 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
-            color: Colors.white,
+            color: Theme
+                .of(context)
+                .cardTheme
+                .color,
             child: Column(
               children: <Widget>[
                 Container(
-                  color: Colors.white,
+                  color: Theme
+                      .of(context)
+                      .cardTheme
+                      .color,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-//                      MaterialButton(
-//                        onPressed: () {
-//                          Airoute.pop();
-//                        },
-//                        child: Text("取消"),
-//                      ),
-//                      MaterialButton(
-//                        onPressed: () {
-//                          Airoute.pop();
-//                        },
-//                        child: Text(
-//                          "确定",
-//                          style: TextStyle(
-//                            color: Theme.of(context).primaryColor,
-//                          ),
-//                        ),
-//                      ),
-                    ],
+                    children: <Widget>[],
                   ),
                 ),
                 Flexible(
@@ -455,11 +450,17 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
-            color: Colors.white,
+            color: Theme
+                .of(context)
+                .cardTheme
+                .color,
             child: Column(
               children: <Widget>[
                 Container(
-                  color: Colors.white,
+                  color: Theme
+                      .of(context)
+                      .cardTheme
+                      .color,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -467,6 +468,7 @@ class _MainPickerState extends State<MainPickerPage> {
                         onPressed: () {
                           Airoute.pop();
                         },
+                        textTheme: ButtonTextTheme.normal,
                         child: Text("取消"),
                       ),
                       MaterialButton(
@@ -487,12 +489,8 @@ class _MainPickerState extends State<MainPickerPage> {
                                 );
                               });
                         },
-                        child: Text(
-                          "确定",
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
+                        textTheme: ButtonTextTheme.accent,
+                        child: Text("确定"),
                       ),
                     ],
                   ),
@@ -550,11 +548,17 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
-            color: Colors.white,
+            color: Theme
+                .of(context)
+                .cardTheme
+                .color,
             child: Column(
               children: <Widget>[
                 Container(
-                  color: Colors.white,
+                  color: Theme
+                      .of(context)
+                      .cardTheme
+                      .color,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -562,6 +566,7 @@ class _MainPickerState extends State<MainPickerPage> {
                         onPressed: () {
                           Airoute.pop();
                         },
+                        textTheme: ButtonTextTheme.normal,
                         child: Text("取消"),
                       ),
                       MaterialButton(
@@ -571,12 +576,8 @@ class _MainPickerState extends State<MainPickerPage> {
                           //call
                           changed(cacheHours, cacheMinute, cacheSecond);
                         },
-                        child: Text(
-                          "确定",
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
+                        textTheme: ButtonTextTheme.accent,
+                        child: Text("确定"),
                       ),
                     ],
                   ),
