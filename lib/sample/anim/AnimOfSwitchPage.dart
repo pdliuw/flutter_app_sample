@@ -1,9 +1,9 @@
 import 'package:airoute/airoute.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
-import '../../common/util/ToastUtil.dart';
 
 ///
 /// AnimOfSwitchPage
@@ -90,9 +90,7 @@ class _AnimOfSwitchState extends State<AnimOfSwitchPage> {
               index: _tabSelectedIndex,
               children: <Widget>[
                 Column(
-                  /*
-              选择，动画类型
-              */
+                  //选择，动画类型
                   children: <Widget>[
                     Placeholder(
                       strokeWidth: 0,

@@ -34,6 +34,7 @@ import 'sample/clip/clip_main_page.dart';
 import 'sample/navigation/curved_navigation_bar_page.dart';
 import 'sample/picker/main_picker_page.dart';
 import 'sample/progress/main_progress_page.dart';
+import 'sample/segment/segment_page.dart';
 import 'sample/text/RichTextPage.dart';
 import 'sample/tip/flushbar_page.dart';
 import 'sample/user/user_info_page.dart';
@@ -116,6 +117,7 @@ class Test extends StatelessWidget {
               "/InkPage": (_) => InkPage(),
               "/RichTextPage": (_) => RichTextPage(),
               "/MainProgressPage": (_) => MainProgressPage(),
+              "/SegmentPage": (_) => SegmentPage(),
             },
           );
         },
