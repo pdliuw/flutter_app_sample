@@ -23,6 +23,7 @@ import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/ink/ink_page.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
+import 'package:flutter_app_sample/sample/popup/main_popup_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -120,6 +121,7 @@ class Test extends StatelessWidget {
               "/MainProgressPage": (_) => MainProgressPage(),
               "/SegmentPage": (_) => SegmentPage(),
               "/DropDownPage": (_) => DropDownPage(),
+              "/MainPopupPage": (_) => MainPopupPage(),
             },
           );
         },

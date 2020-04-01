@@ -63,6 +63,7 @@ class _MainState extends State<MainPage> {
       "Progress",
       "Segment",
       "DropDown",
+      "Popup",
     ];
     return _sortTitles;
   }
@@ -86,6 +87,7 @@ class _MainState extends State<MainPage> {
       "/MainProgressPage",
       "/SegmentPage",
       "/DropDownPage",
+      "/MainPopupPage",
     ];
     return _sortRouteNames;
   }
