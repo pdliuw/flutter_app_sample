@@ -21,7 +21,7 @@ class _MainProgressState extends State<MainProgressPage>
   double _slideValue = MAX;
 
   AnimationController _controller;
-  Animation _colorTween;
+  Animation<Color> _colorTween;
 
   @override
   void initState() {
@@ -55,6 +55,7 @@ class _MainProgressState extends State<MainProgressPage>
             label: "$_slideValue",
             divisions: _divisions,
             value: _slideValue,
+            activeColor: _colorTween.value,
             onChanged: (double value) {
               setState(() {
                 _slideValue = value.ceilToDouble();
@@ -63,7 +64,6 @@ class _MainProgressState extends State<MainProgressPage>
               });
             },
           ),
-          Spacer(),
           Stack(
             alignment: Alignment.center,
             children: <Widget>[
@@ -80,7 +80,21 @@ class _MainProgressState extends State<MainProgressPage>
               Text("$_slideValue/%"),
             ],
           ),
-          Spacer(),
+          Slider(
+            min: MIN,
+            max: MAX,
+            label: "$_slideValue",
+            divisions: _divisions,
+            value: _slideValue,
+            activeColor: _colorTween.value,
+            onChanged: (double value) {
+              setState(() {
+                _slideValue = value.ceilToDouble();
+                _progressValue = (value / 100);
+                _controller.value = _progressValue;
+              });
+            },
+          ),
           LinearProgressIndicator(
             value: _progressValue,
             valueColor: _colorTween,

@@ -62,6 +62,7 @@ class _MainState extends State<MainPage> {
       "RichText",
       "Progress",
       "Segment",
+      "DropDown",
     ];
     return _sortTitles;
   }
@@ -84,6 +85,7 @@ class _MainState extends State<MainPage> {
       "/RichTextPage",
       "/MainProgressPage",
       "/SegmentPage",
+      "/DropDownPage",
     ];
     return _sortRouteNames;
   }
