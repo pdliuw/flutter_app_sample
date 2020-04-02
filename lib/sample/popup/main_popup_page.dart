@@ -43,6 +43,7 @@ class _MainPopupState extends State<MainPopupPage> {
               label: Text("left top"),
             ),
             Spacer(),
+            Spacer(),
             RaisedButton.icon(
               key: btnKey2,
               onPressed: () {
@@ -51,6 +52,7 @@ class _MainPopupState extends State<MainPopupPage> {
               icon: Icon(Icons.folder_open),
               label: Text("left center"),
             ),
+            Spacer(),
             Spacer(),
             RaisedButton.icon(
               key: btnKey3,
@@ -75,6 +77,7 @@ class _MainPopupState extends State<MainPopupPage> {
               label: Text("right top"),
             ),
             Spacer(),
+            Spacer(),
             RaisedButton.icon(
               key: btnKey2Right,
               onPressed: () {
@@ -83,6 +86,7 @@ class _MainPopupState extends State<MainPopupPage> {
               icon: Icon(Icons.folder_open),
               label: Text("right center"),
             ),
+            Spacer(),
             Spacer(),
             RaisedButton.icon(
               key: btnKey3Right,

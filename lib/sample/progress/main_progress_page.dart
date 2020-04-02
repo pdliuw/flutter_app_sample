@@ -77,7 +77,7 @@ class _MainProgressState extends State<MainProgressPage>
                   valueColor: _colorTween,
                 ),
               ),
-              Text("$_slideValue/%"),
+              Text("$_slideValue%"),
             ],
           ),
           Slider(
