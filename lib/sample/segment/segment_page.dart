@@ -13,13 +13,13 @@ class SegmentPage extends StatefulWidget {
 ///
 /// _SegmentState
 class _SegmentState extends State<SegmentPage> {
-  final Map<int, Widget> _segmentChildren = const {
-    0: Text('Child 1'),
-    1: Text('Child 2'),
-    2: Text('Child 3'),
-    3: Text('Child 4'),
-    4: Text('Child 5'),
-    5: Text('Child 6'),
+  final Map<int, Widget> _segmentChildren = {
+    0: Container(padding: EdgeInsets.all(5), child: Text('Child 1')),
+    1: Container(padding: EdgeInsets.all(5), child: Text('Child 2')),
+    2: Container(padding: EdgeInsets.all(5), child: Text('Child 3')),
+    3: Container(padding: EdgeInsets.all(5), child: Text('Child 4')),
+    4: Container(padding: EdgeInsets.all(5), child: Text('Child 5')),
+    5: Container(padding: EdgeInsets.all(5), child: Text('Child 6')),
   };
   int _currentValue = 0;
 
