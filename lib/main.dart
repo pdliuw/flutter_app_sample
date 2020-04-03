@@ -30,6 +30,7 @@ import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
 import 'sample/anim/draw_anim_page.dart';
+import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
 import 'sample/clip/clip_main_page.dart';
@@ -124,6 +125,7 @@ class Test extends StatelessWidget {
               "/DropDownPage": (_) => DropDownPage(),
               "/MainPopupPage": (_) => MainPopupPage(),
               "/MainWavePage": (_) => MainWavePage(),
+              "/MainIconAnimPage": (_) => MainIconAnimPage(),
             },
           );
         },

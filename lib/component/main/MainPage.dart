@@ -65,6 +65,7 @@ class _MainState extends State<MainPage> {
       "DropDown",
       "Popup",
       "Wave",
+      "IconAnim",
     ];
     return _sortTitles;
   }
@@ -90,6 +91,7 @@ class _MainState extends State<MainPage> {
       "/DropDownPage",
       "/MainPopupPage",
       "/MainWavePage",
+      "/MainIconAnimPage",
     ];
     return _sortRouteNames;
   }
@@ -347,7 +349,7 @@ class _MainState extends State<MainPage> {
                     ListTile(
                       onTap: () {
                         setState(
-                              () {
+                          () {
                             _drawerOpenedRight = !_drawerOpenedRight;
                           },
                         );
@@ -357,7 +359,7 @@ class _MainState extends State<MainPage> {
                         value: _drawerOpenedRight,
                         onChanged: (bool value) {
                           setState(
-                                () {
+                            () {
                               _drawerOpenedRight = value;
                             },
                           );
