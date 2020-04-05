@@ -17,7 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - ai_barcode (from `.symlinks/plugins/ai_barcode/ios`)
-  - Flutter (from `.symlinks/flutter/ios-release`)
+  - Flutter (from `.symlinks/flutter/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - url_launcher_macos (from `.symlinks/plugins/url_launcher_macos/ios`)
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
   ai_barcode:
     :path: ".symlinks/plugins/ai_barcode/ios"
   Flutter:
-    :path: ".symlinks/flutter/ios-release"
+    :path: ".symlinks/flutter/ios"
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
   url_launcher:

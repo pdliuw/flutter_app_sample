@@ -51,6 +51,12 @@ import 'sample/wheel/list_wheel_scroll_view_page.dart';
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() {
+  //全局加灰色色调
+//  runApp(ColorFiltered(
+//    colorFilter: ColorFilter.mode(Colors.red, BlendMode.color),
+//    key: GlobalKey(),
+//    child: Test(),
+//  ));
   runApp(
     Test(),
   );
