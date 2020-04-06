@@ -98,7 +98,8 @@ class BarChartSample5State extends State<BarChartSample5> {
                 checkToShowHorizontalLine: (value) => value % 5 == 0,
                 getDrawingHorizontalLine: (value) {
                   if (value == 0) {
-                    return const FlLine(color: Color(0xff363753), strokeWidth: 3);
+                    return const FlLine(
+                        color: Color(0xff363753), strokeWidth: 3);
                   }
                   return const FlLine(
                     color: Color(0xff2a2747),
@@ -110,7 +111,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                 show: false,
               ),
               barGroups: [
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 0,
                   barRods: [
                     BarChartRodData(
@@ -128,7 +129,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                     ),
                   ],
                 ),
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 1,
                   barRods: [
                     BarChartRodData(
@@ -146,7 +147,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                     ),
                   ],
                 ),
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 2,
                   barRods: [
                     BarChartRodData(
@@ -164,7 +165,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                     ),
                   ],
                 ),
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 3,
                   barRods: [
                     BarChartRodData(
@@ -182,7 +183,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                     ),
                   ],
                 ),
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 4,
                   barRods: [
                     BarChartRodData(
@@ -200,7 +201,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                     ),
                   ],
                 ),
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 5,
                   barRods: [
                     BarChartRodData(
@@ -218,7 +219,7 @@ class BarChartSample5State extends State<BarChartSample5> {
                     ),
                   ],
                 ),
-                const BarChartGroupData(
+                BarChartGroupData(
                   x: 6,
                   barRods: [
                     BarChartRodData(

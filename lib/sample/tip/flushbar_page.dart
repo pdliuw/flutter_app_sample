@@ -1,8 +1,9 @@
+import 'package:ai_awesome_message/ai_awesome_message.dart';
+import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
-import 'package:flushbar/flushbar.dart';
 
 import '../../common/helper/tip_helper.dart';
-import '../../common/helper/tip_type.dart';
+import '../../common/helper/tip_type.dart' as tip_type;
 
 ///
 /// FlushBarPage
@@ -116,14 +117,14 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
   IconData _tipIconData = Icons.info_outline;
 
   List<bool> _tipStyleSelected = [true, false];
-  List<FlushbarStyle> _tipStyleValues = [
-    FlushbarStyle.GROUNDED,
-    FlushbarStyle.FLOATING
+  List<AwesomeMessageStyle> _tipStyleValues = [
+    AwesomeMessageStyle.GROUNDED,
+    AwesomeMessageStyle.FLOATING
   ];
-  FlushbarStyle _tipStyleValue = FlushbarStyle.GROUNDED;
+  AwesomeMessageStyle _tipStyleValue = AwesomeMessageStyle.GROUNDED;
 
-  Widget _getFlushBar() {
-    return Flushbar(
+  Widget _getAwesomeMessage() {
+    return AwesomeMessage(
       title: "${_tipTitle ?? 'title'}",
       titleText: Text(
         "${_tipTitle ?? '提示'}",
@@ -151,10 +152,10 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
               : _tipSecondDuration),
       borderRadius: _tipBorderRadius,
       margin: EdgeInsets.all(_tipMargin),
-      flushbarPosition: FlushbarPosition.TOP,
+      awesomeMessagePosition: AwesomeMessagePosition.TOP,
       shouldIconPulse: _tipIconPulse,
       showProgressIndicator: _tipShowProgress,
-      flushbarStyle: _tipStyleValue,
+      awesomeMessageStyle: _tipStyleValue,
       backgroundColor: _tipStyleBackgroundColor,
       borderColor: _tipStyleBorderColor,
       progressIndicatorBackgroundColor: _tipIndicatorColor,
@@ -257,7 +258,7 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
                         ),
                       ],
                     ),
-                    _getFlushBar(),
+                    _getAwesomeMessage(),
                   ],
                 ),
               ),
@@ -415,9 +416,12 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Widget flushBarWidget = _getFlushBar();
-          if (flushBarWidget is Flushbar) {
-            flushBarWidget..show(context);
+          Widget awesomeMessageWidget = _getAwesomeMessage();
+          if (awesomeMessageWidget is AwesomeMessage) {
+            Airoute.push(
+              route: AwesomeMessageRoute(
+                  theme: null, awesomeMessage: awesomeMessageWidget),
+            );
           }
         },
         child: Icon(Icons.slideshow),
@@ -504,7 +508,7 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
                 context: context,
                 title: "Info",
                 message: "message",
-                tipType: TipType.INFO,
+                tipType: tip_type.TipType.INFO,
               );
               break;
             case 1:
@@ -512,7 +516,7 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
                 context: context,
                 title: "Warn",
                 message: "message",
-                tipType: TipType.WARN,
+                tipType: tip_type.TipType.WARN,
               );
               break;
             case 2:
@@ -520,7 +524,7 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
                 context: context,
                 title: "Error",
                 message: "message",
-                tipType: TipType.ERROR,
+                tipType: tip_type.TipType.ERROR,
               );
               break;
             case 3:
@@ -528,7 +532,7 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
                 context: context,
                 title: "Done",
                 message: "message",
-                tipType: TipType.COMPLETE,
+                tipType: tip_type.TipType.COMPLETE,
               );
               break;
           }

@@ -36,9 +36,7 @@ dependencies:
 
   # Barcode package.
 #  ai_barcode: ^0.2.7
-  ai_barcode:
-    git:
-      url: https://github.com/pdliuw/ai_barcode.git
+  ai_barcode: ^1.0.3
 
   # Http package.
 #  ai_http: ^0.1.1
@@ -55,7 +53,7 @@ dependencies:
   snappable: ^1.0.1
 
   # tip
-  flushbar: ^1.9.1
+  ai_awesome_message: ^0.1.0-pre
 
   # drawing
   drawing_animation: ^0.1.3
