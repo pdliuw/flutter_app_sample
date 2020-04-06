@@ -53,7 +53,7 @@ dependencies:
   snappable: ^1.0.1
 
   # tip
-  ai_awesome_message: ^0.1.0-pre
+  ai_awesome_message: ^0.2.0
 
   # drawing
   drawing_animation: ^0.1.3
