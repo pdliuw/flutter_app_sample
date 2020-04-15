@@ -35,6 +35,8 @@ import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
 import 'sample/clip/clip_main_page.dart';
 import 'sample/navigation/curved_navigation_bar_page.dart';
+import 'sample/overlay/main_overlay_page.dart';
+import 'sample/overlay/simple_overlay_page.dart';
 import 'sample/picker/main_picker_page.dart';
 import 'sample/progress/main_progress_page.dart';
 import 'sample/segment/drop_down_page.dart';
@@ -132,6 +134,8 @@ class Test extends StatelessWidget {
               "/MainPopupPage": (_) => MainPopupPage(),
               "/MainWavePage": (_) => MainWavePage(),
               "/MainIconAnimPage": (_) => MainIconAnimPage(),
+              "/MainOverlayPage": (_) => MainOverlayPage(),
+              "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
             },
           );
         },
