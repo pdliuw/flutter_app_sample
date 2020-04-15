@@ -50,6 +50,7 @@ Package/Plugin|Description|Link
 ---|:--:|---:
 [airoute](https://github.com/pdliuw/airoute)|Airoute：Solve the frequent problems caused by context in development, and break through the limitation of the scope of use of built-in routing|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
 [ai_barcode](https://github.com/pdliuw/ai_barcode)|AiBarcode：Scan and create barcode plugins that support customizable areas and styles|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
+[ai_progress](https://github.com/pdliuw/ai_progress)|support: 'Circular、Linear、Arc、Step、Dashboard'multiple style progress |[![pub package](https://img.shields.io/pub/v/ai_progress.svg)](https://pub.dev/packages/ai_progress)
 [ai_awesome_message](https://github.com/pdliuw/ai_awesome_message)|AiAwesomeMessage：Replaces Toast and SnackBar and can be used across multiple messaging libraries|[![pub package](https://img.shields.io/pub/v/ai_awesome_message.svg)](https://pub.dev/packages/ai_awesome_message)
 
 Package/Plugin|Description|Link
