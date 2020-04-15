@@ -47,6 +47,7 @@ Package/Plugin|Description|Link
 ---|:--:|---:
 [airoute](https://github.com/pdliuw/airoute)|爱路由：解决开发中由于context引起的经常性问题，突破了自带路由的使用范围的限制|[![pub package](https://img.shields.io/pub/v/airoute.svg)](https://pub.dev/packages/airoute)
 [ai_barcode](https://github.com/pdliuw/ai_barcode)|爱条码：支持可自定义区域及样式的可扫描、创建的的条码插件|[![pub package](https://img.shields.io/pub/v/ai_barcode.svg)](https://pub.dev/packages/ai_barcode)
+[ai_progress](https://github.com/pdliuw/ai_progress)|支持: '圆环、线性、扇形、步进、仪表盘'多种样式的进度组件|[![pub package](https://img.shields.io/pub/v/ai_progress.svg)](https://pub.dev/packages/ai_progress)
 [ai_awesome_message](https://github.com/pdliuw/ai_awesome_message)|消息提示：可替代Toast和SnackBar并可跨多端使用的消息库|[![pub package](https://img.shields.io/pub/v/ai_awesome_message.svg)](https://pub.dev/packages/ai_awesome_message)
 
 Package/Plugin|Description|Link

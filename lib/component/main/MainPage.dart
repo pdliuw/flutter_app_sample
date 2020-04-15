@@ -66,6 +66,7 @@ class _MainState extends State<MainPage> {
       "Popup",
       "Wave",
       "IconAnim",
+      "Overlay",
     ];
     return _sortTitles;
   }
@@ -92,6 +93,7 @@ class _MainState extends State<MainPage> {
       "/MainPopupPage",
       "/MainWavePage",
       "/MainIconAnimPage",
+      "/MainOverlayPage",
     ];
     return _sortRouteNames;
   }
