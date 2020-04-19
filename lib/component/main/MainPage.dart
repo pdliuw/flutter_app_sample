@@ -4,7 +4,9 @@ import 'package:airoute/airoute.dart';
 import 'package:flip_panel/flip_panel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/main/main_view_model.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
@@ -67,6 +69,7 @@ class _MainState extends State<MainPage> {
       "Wave",
       "IconAnim",
       "Overlay",
+      "Loading",
     ];
     return _sortTitles;
   }
@@ -94,6 +97,7 @@ class _MainState extends State<MainPage> {
       "/MainWavePage",
       "/MainIconAnimPage",
       "/MainOverlayPage",
+      "/MainLoadingPage",
     ];
     return _sortRouteNames;
   }
@@ -125,6 +129,11 @@ class _MainState extends State<MainPage> {
     ];
 
     return _bottomNavigationWidgets;
+  }
+
+  _setState(bool value) {
+    _drawerOpenedRight = value;
+    MainViewModel.getInstance().notify();
   }
 
   ///
@@ -206,7 +215,7 @@ class _MainState extends State<MainPage> {
     return items;
   }
 
-  Drawer _getDrawer() {
+  Drawer _getDrawer({bool leftDraw = true}) {
     return Drawer(
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -282,24 +291,24 @@ class _MainState extends State<MainPage> {
               },
               trailing: Icon(Icons.arrow_right),
             ),
-            Divider(),
-            ListTile(
-              leading: Icon(
-                Icons.more_horiz,
-                color: Colors.blue,
-              ),
-              title: Text("更多功能"),
-              subtitle: Text(
-                "紧急上线中...",
-              ),
-              onTap: () {
-                TipHelper.showTip(
-                    context: context,
-                    tipType: TipType.WARN,
-                    message: "紧急上线中...");
-              },
-              trailing: Icon(Icons.arrow_right),
-            ),
+//            Divider(),
+//            ListTile(
+//              leading: Icon(
+//                Icons.more_horiz,
+//                color: Colors.blue,
+//              ),
+//              title: Text("更多功能"),
+//              subtitle: Text(
+//                "紧急上线中...",
+//              ),
+//              onTap: () {
+//                TipHelper.showTip(
+//                    context: context,
+//                    tipType: TipType.WARN,
+//                    message: "紧急上线中...");
+//              },
+//              trailing: Icon(Icons.arrow_right),
+//            ),
             Divider(),
             ExpansionTile(
               title: Text("小标签"),
@@ -348,25 +357,37 @@ class _MainState extends State<MainPage> {
               children: <Widget>[
                 Wrap(
                   children: <Widget>[
-                    ListTile(
-                      onTap: () {
-                        setState(
-                          () {
-                            _drawerOpenedRight = !_drawerOpenedRight;
-                          },
-                        );
-                      },
-                      leading: Text("开启右侧侧滑"),
-                      trailing: Switch(
-                        value: _drawerOpenedRight,
-                        onChanged: (bool value) {
-                          setState(
-                            () {
-                              _drawerOpenedRight = value;
-                            },
-                          );
-                        },
-                      ),
+                    IgnorePointer(
+                      ignoring: (!leftDraw && _drawerOpenedRight),
+                      child: (!leftDraw && _drawerOpenedRight)
+                          ? ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                  Colors.grey, BlendMode.srcIn),
+                              child: ListTile(
+                                onTap: () {
+                                  _setState(!_drawerOpenedRight);
+                                },
+                                leading: Text("开启右侧侧滑"),
+                                trailing: Switch(
+                                  value: _drawerOpenedRight,
+                                  onChanged: (bool value) {
+                                    _setState(value);
+                                  },
+                                ),
+                              ),
+                            )
+                          : ListTile(
+                              onTap: () {
+                                _setState(!_drawerOpenedRight);
+                              },
+                              leading: Text("开启右侧侧滑"),
+                              trailing: Switch(
+                                value: _drawerOpenedRight,
+                                onChanged: (bool value) {
+                                  _setState(value);
+                                },
+                              ),
+                            ),
                     ),
                   ],
                 ),
@@ -443,6 +464,23 @@ class _MainState extends State<MainPage> {
                 Wrap(
                   children: <Widget>[
                     ListTile(
+                        onTap: () {
+                          setState(() {
+                            TipHelper.showTip(
+                                context: null, message: "努力开发中...");
+                          });
+                        },
+                        title: Text("常亮"),
+                        trailing: IgnorePointer(
+                          ignoring: true,
+                          child: Switch(
+                            value: false,
+                            onChanged: (bool value) {
+                              setState(() {});
+                            },
+                          ),
+                        )),
+                    ListTile(
                       onTap: () {
                         Airoute.pushNamed(
                           routeName: "/AirLicensePage",
@@ -492,24 +530,34 @@ class _MainState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
-      ),
-      drawer: _getDrawer(),
-      endDrawer: _drawerOpenedRight == true ? _getDrawer() : null,
-      body: Center(
-        child: getBottomNavigationWidgets()
-            .elementAt(_bottomNavigationSelectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        elevation: 5.0,
-        currentIndex: _bottomNavigationSelectedIndex,
-        items: _getBottomNavigationBar(),
-        onTap: _bottomNavigationTap,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (context) => MainViewModel.getInstance()),
+      ],
+      child: Consumer<MainViewModel>(
+        builder: (context, model, child) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(
+                  "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
+            ),
+            drawer: _getDrawer(leftDraw: true),
+            endDrawer: _drawerOpenedRight ? _getDrawer(leftDraw: false) : null,
+            body: Center(
+              child: getBottomNavigationWidgets()
+                  .elementAt(_bottomNavigationSelectedIndex),
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              elevation: 5.0,
+              currentIndex: _bottomNavigationSelectedIndex,
+              items: _getBottomNavigationBar(),
+              onTap: _bottomNavigationTap,
+            ),
+          );
+        },
       ),
     );
   }

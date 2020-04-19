@@ -36,8 +36,8 @@ class TipHelper {
         theme: null,
         settings: RouteSettings(name: "/ai_awesome_message"),
         awesomeMessage: awesome_message.AwesomeHelper.createAwesome(
-          title: "$title",
-          message: "$message",
+          title: "${title ?? "提示"}",
+          message: "${message ?? "提示"}",
           tipType: awesomeTipType,
         ),
       ),

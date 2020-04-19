@@ -21,6 +21,7 @@ import 'package:flutter_app_sample/sample/anim/OpacityAndAnimatedOpacityPage.dar
 import 'package:flutter_app_sample/sample/anim/TransformPage.dart';
 import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/ink/ink_page.dart';
+import 'package:flutter_app_sample/sample/loading/main_loading_page.dart';
 import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_app_sample/sample/popup/main_popup_page.dart';
@@ -136,6 +137,7 @@ class Test extends StatelessWidget {
               "/MainIconAnimPage": (_) => MainIconAnimPage(),
               "/MainOverlayPage": (_) => MainOverlayPage(),
               "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
+              "/MainLoadingPage": (_) => MainLoadingPage(),
             },
           );
         },
