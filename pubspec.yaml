@@ -32,8 +32,9 @@ dependencies:
   provider: ^4.0.4
 
   # Route package.
-  airoute: ^0.2.3
-
+  airoute:
+    git:
+      url: https://github.com/pdliuw/airoute.git
   # Barcode package.
 #  ai_barcode: ^0.2.7
   ai_barcode: ^1.0.3
