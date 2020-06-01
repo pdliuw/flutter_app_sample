@@ -116,7 +116,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   }
 
   static const LocalizationsDelegate<CupertinoLocalizations> delegate =
-      _ChineseDelegate();
+  _ChineseDelegate();
 
   static Future<CupertinoLocalizations> load(Locale locale) async {
     var localizaltions = ChineseCupertinoLocalizations();
@@ -126,6 +126,14 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
 
   @override
   String get todayLabel => "今天";
+
+  @override
+  String get modalBarrierDismissLabel => "取消";
+
+  @override
+  String tabSemanticsLabel({int tabIndex, int tabCount}) {
+    return "$tabIndex/$tabCount";
+  }
 }
 
 class _ChineseDelegate extends LocalizationsDelegate<CupertinoLocalizations> {

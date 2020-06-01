@@ -77,6 +77,9 @@ dependencies:
   # navigation bar
   curved_navigation_bar: ^0.3.2
 
+  # bottom navigation bar
+  convex_bottom_bar: ^2.2.1
+
   # popup menu
   popup_menu: ^1.0.5
 
