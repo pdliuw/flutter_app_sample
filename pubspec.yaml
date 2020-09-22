@@ -32,12 +32,10 @@ dependencies:
   provider: ^4.0.4
 
   # Route package.
-  airoute:
-    git:
-      url: https://github.com/pdliuw/airoute.git
+  airoute: ^0.3.5
   # Barcode package.
 #  ai_barcode: ^0.2.7
-  ai_barcode: ^1.0.3
+  ai_barcode: ^1.1.4
 
   # Http package.
 #  ai_http: ^0.1.1
@@ -54,7 +52,7 @@ dependencies:
   snappable: ^1.0.1
 
   # tip
-  ai_awesome_message: ^0.1.0-pre
+  ai_awesome_message: ^0.3.0
 
   # drawing
   drawing_animation: ^0.1.3
