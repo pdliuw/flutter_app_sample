@@ -116,7 +116,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   }
 
   static const LocalizationsDelegate<CupertinoLocalizations> delegate =
-      _ChineseDelegate();
+  _ChineseDelegate();
 
   static Future<CupertinoLocalizations> load(Locale locale) async {
     var localizaltions = ChineseCupertinoLocalizations();
