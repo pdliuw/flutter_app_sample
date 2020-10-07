@@ -1,9 +1,9 @@
+import 'package:ai_awesome_message/ai_awesome_message.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/common/config/StringConfig.dart';
 import 'package:flutter_app_sample/common/util/StringUtil.dart';
 
-import '../../common/util/ToastUtil.dart';
 import 'login_contract.dart';
 
 ///登陆页面
@@ -114,10 +114,7 @@ class _LoginState extends State<LoginPage> implements ILoginView {
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Theme
-                        .of(context)
-                        .cardTheme
-                        .color,
+                    fillColor: Theme.of(context).cardTheme.color,
                     labelText: '手机号',
                     hintText: "请输入手机号",
                     errorText: _getPhoneErrorInfo(),
@@ -139,10 +136,7 @@ class _LoginState extends State<LoginPage> implements ILoginView {
                     TextField(
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Theme
-                            .of(context)
-                            .cardTheme
-                            .color,
+                        fillColor: Theme.of(context).cardTheme.color,
                         labelText: '验证码',
                         hintText: "请输入验证码",
                         errorText: _getPasswordErrorInfo(),
@@ -179,9 +173,7 @@ class _LoginState extends State<LoginPage> implements ILoginView {
                       onPressed: () {
                         login();
                       },
-                      color: Theme
-                          .of(context)
-                          .primaryColor,
+                      color: Theme.of(context).primaryColor,
                       textColor: Colors.white,
                       icon: Icon(
                         Icons.brightness_high,
@@ -204,7 +196,15 @@ class _LoginState extends State<LoginPage> implements ILoginView {
       setState(() {});
       return null;
     }
-    ToastUtil.showToast(message: "验证码已发送");
+    Airoute.push(
+      route: AwesomeMessageRoute(
+        theme: null,
+        awesomeMessage: AwesomeHelper.createAwesome(
+          message: "验证码已发送",
+          tipType: TipType.COMPLETE,
+        ),
+      ),
+    );
     _presenter.getVerificationCode(data: {
       "mobile": phoneStr,
       "type": "APP_LOGIN",
@@ -214,7 +214,15 @@ class _LoginState extends State<LoginPage> implements ILoginView {
 
   @override
   getVerificationCodeFailure() {
-    ToastUtil.showToast(message: "获取验证码失败，请检查后重试!");
+    Airoute.push(
+      route: AwesomeMessageRoute(
+        theme: null,
+        awesomeMessage: AwesomeHelper.createAwesome(
+          message: "获取验证码失败，请检查后重试!",
+          tipType: TipType.ERROR,
+        ),
+      ),
+    );
     return null;
   }
 
@@ -232,7 +240,15 @@ class _LoginState extends State<LoginPage> implements ILoginView {
 
   @override
   getVerificationCodeSuccess() {
-    ToastUtil.showToast(message: "获取验证码成功，请注意查收!");
+    Airoute.push(
+      route: AwesomeMessageRoute(
+        theme: null,
+        awesomeMessage: AwesomeHelper.createAwesome(
+          message: "获取验证码成功，请注意查收!",
+          tipType: TipType.COMPLETE,
+        ),
+      ),
+    );
     return null;
   }
 

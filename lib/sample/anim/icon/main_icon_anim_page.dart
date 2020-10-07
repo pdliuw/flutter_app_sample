@@ -15,7 +15,7 @@ class _MainIconAnimState extends State<MainIconAnimPage>
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this);
+    _animationController = AnimationController();
     _animationController.duration = Duration(seconds: 1);
   }
 

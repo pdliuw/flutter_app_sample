@@ -23,10 +23,6 @@ class LineChartSample1State extends State<LineChartSample1> {
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(18)),
           gradient: LinearGradient(
-            colors: const [
-              Color(0xff2c274c),
-              Color(0xff46426c),
-            ],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           ),
@@ -104,18 +100,20 @@ class LineChartSample1State extends State<LineChartSample1> {
         },
         handleBuiltInTouches: true,
       ),
-      gridData: const FlGridData(
+      gridData: FlGridData(
         show: false,
       ),
       titlesData: FlTitlesData(
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: TextStyle(
-            color: const Color(0xff72719b),
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          getTextStyles: (_) {
+            return TextStyle(
+              color: const Color(0xff72719b),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            );
+          },
           margin: 10,
           getTitles: (value) {
             switch (value.toInt()) {
@@ -131,11 +129,13 @@ class LineChartSample1State extends State<LineChartSample1> {
         ),
         leftTitles: SideTitles(
           showTitles: true,
-          textStyle: TextStyle(
-            color: const Color(0xff75729e),
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-          ),
+          getTextStyles: (_) {
+            return TextStyle(
+              color: const Color(0xff75729e),
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            );
+          },
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
@@ -180,7 +180,7 @@ class LineChartSample1State extends State<LineChartSample1> {
   }
 
   List<LineChartBarData> linesBarData1() {
-    LineChartBarData lineChartBarData1 = const LineChartBarData(
+    LineChartBarData lineChartBarData1 = LineChartBarData(
       spots: [
         FlSpot(1, 1),
         FlSpot(3, 1.5),
@@ -226,7 +226,7 @@ class LineChartSample1State extends State<LineChartSample1> {
       ]),
     );
     LineChartBarData lineChartBarData3 = LineChartBarData(
-      spots: const [
+      spots: [
         FlSpot(1, 2.8),
         FlSpot(3, 1.9),
         FlSpot(6, 3),
@@ -239,10 +239,10 @@ class LineChartSample1State extends State<LineChartSample1> {
       ],
       barWidth: 8,
       isStrokeCapRound: true,
-      dotData: const FlDotData(
+      dotData: FlDotData(
         show: false,
       ),
-      belowBarData: const BarAreaData(
+      belowBarData: BarAreaData(
         show: false,
       ),
     );
@@ -255,21 +255,23 @@ class LineChartSample1State extends State<LineChartSample1> {
 
   LineChartData sampleData2() {
     return LineChartData(
-      lineTouchData: const LineTouchData(
+      lineTouchData: LineTouchData(
         enabled: false,
       ),
-      gridData: const FlGridData(
+      gridData: FlGridData(
         show: false,
       ),
       titlesData: FlTitlesData(
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: TextStyle(
-            color: const Color(0xff72719b),
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          getTextStyles: (_) {
+            return TextStyle(
+              color: const Color(0xff72719b),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            );
+          },
           margin: 10,
           getTitles: (value) {
             switch (value.toInt()) {
@@ -285,11 +287,13 @@ class LineChartSample1State extends State<LineChartSample1> {
         ),
         leftTitles: SideTitles(
           showTitles: true,
-          textStyle: TextStyle(
-            color: const Color(0xff75729e),
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-          ),
+          getTextStyles: (_) {
+            return TextStyle(
+              color: const Color(0xff75729e),
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            );
+          },
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
@@ -336,7 +340,7 @@ class LineChartSample1State extends State<LineChartSample1> {
 
   List<LineChartBarData> linesBarData2() {
     return [
-      const LineChartBarData(
+      LineChartBarData(
         spots: [
           FlSpot(1, 1),
           FlSpot(3, 4),
@@ -360,7 +364,7 @@ class LineChartSample1State extends State<LineChartSample1> {
           show: false,
         ),
       ),
-      const LineChartBarData(
+      LineChartBarData(
         spots: [
           FlSpot(1, 1),
           FlSpot(3, 2.8),
@@ -382,7 +386,7 @@ class LineChartSample1State extends State<LineChartSample1> {
           Color(0x33aa4cfc),
         ]),
       ),
-      const LineChartBarData(
+      LineChartBarData(
         spots: [
           FlSpot(1, 3.8),
           FlSpot(3, 1.9),

@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 
 class LineChartSample6 extends StatelessWidget {
   final spots = [
-    const FlSpot(0, 1),
-    const FlSpot(2, 5),
-    const FlSpot(4, 3),
-    const FlSpot(6, 5),
+    FlSpot(0, 1),
+    FlSpot(2, 5),
+    FlSpot(4, 3),
+    FlSpot(6, 5),
   ];
 
   final spots2 = [
-    const FlSpot(0, 3),
-    const FlSpot(2, 1),
-    const FlSpot(4, 2),
-    const FlSpot(6, 1),
+    FlSpot(0, 3),
+    FlSpot(2, 1),
+    FlSpot(4, 2),
+    FlSpot(6, 1),
   ];
 
   double minSpotX, maxSpotX;
@@ -47,30 +47,30 @@ class LineChartSample6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:
-          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: [
-        BoxShadow(
-          color: Colors.black,
-          blurRadius: 10,
-          spreadRadius: 0,
-        )
-      ]),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              blurRadius: 10,
+              spreadRadius: 0,
+            )
+          ]),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(colors: [
-            Colors.yellowAccent,
-            Colors.yellowAccent.withOpacity(0.1),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          gradient: LinearGradient(
+              begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(right: 22.0, bottom: 20),
+          padding: EdgeInsets.only(right: 22.0, bottom: 20),
           child: SizedBox(
             width: 300,
             height: 200,
             child: LineChart(
               LineChartData(
-                lineTouchData: const LineTouchData(enabled: false),
+                lineTouchData: LineTouchData(enabled: false),
                 lineBarsData: [
                   LineChartBarData(
                     colors: [
@@ -81,13 +81,25 @@ class LineChartSample6 extends StatelessWidget {
                     isCurved: true,
                     isStrokeCapRound: true,
                     barWidth: 10,
-                    belowBarData: const BarAreaData(
+                    belowBarData: BarAreaData(
                       show: false,
                     ),
                     dotData: FlDotData(
                       show: true,
-                      dotColor: Colors.deepOrange.withOpacity(0.5),
-                      dotSize: 12,
+                      getDotPainter: (
+                        a,
+                        b,
+                        c,
+                        d,
+                      ) {
+                        return FlDotCirclePainter(
+                          color: Colors.deepOrange.withOpacity(0.5),
+                          radius: 12,
+                        );
+                      },
+                      checkToShowDot: (spot, _) {
+                        return spot.x != 0 && spot.x != 6;
+                      },
                     ),
                   ),
                   LineChartBarData(
@@ -99,14 +111,14 @@ class LineChartSample6 extends StatelessWidget {
                     isCurved: true,
                     isStrokeCapRound: true,
                     barWidth: 10,
-                    belowBarData: const BarAreaData(
+                    belowBarData: BarAreaData(
                       show: false,
                     ),
-                    dotData: FlDotData(
-                      show: true,
-                      dotColor: Colors.blue.withOpacity(0.5),
-                      dotSize: 12,
-                    ),
+//                    dotData: FlDotData(
+//                      show: true,
+//                      dotColor: Colors.blue.withOpacity(0.5),
+//                      dotSize: 12,
+//                    ),
                   ),
                 ],
                 minY: 0,
@@ -115,7 +127,8 @@ class LineChartSample6 extends StatelessWidget {
                   leftTitles: SideTitles(
                     showTitles: true,
                     getTitles: (double value) {
-                      final intValue = reverseY(value, minSpotY, maxSpotY).toInt();
+                      final intValue =
+                          reverseY(value, minSpotY, maxSpotY).toInt();
 
                       if (intValue == (maxSpotY + minSpotY)) {
                         return '';
@@ -123,15 +136,20 @@ class LineChartSample6 extends StatelessWidget {
 
                       return intValue.toString();
                     },
-                    textStyle: const TextStyle(
-                        color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 18),
+                    getTextStyles: (_) {
+                      return TextStyle(
+                          color: Colors.deepOrange,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18);
+                    },
                     margin: 16,
                   ),
                   rightTitles: SideTitles(
                     showTitles: true,
                     reservedSize: 0,
                     getTitles: (double value) {
-                      final intValue = reverseY(value, minSpotY, maxSpotY).toInt();
+                      final intValue =
+                          reverseY(value, minSpotY, maxSpotY).toInt();
 
                       if (intValue == (maxSpotY + minSpotY)) {
                         return '';
@@ -139,16 +157,23 @@ class LineChartSample6 extends StatelessWidget {
 
                       return intValue.toString();
                     },
-                    textStyle: const TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 18),
+                    getTextStyles: (_) {
+                      return TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18);
+                    },
                     margin: 16,
                   ),
-                  bottomTitles: const SideTitles(showTitles: false),
+                  bottomTitles: SideTitles(showTitles: false),
                   topTitles: SideTitles(
                     showTitles: true,
                     reservedSize: 28,
                     margin: 8,
-                    textStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                    getTextStyles: (_) {
+                      return TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black);
+                    },
                     getTitles: (double value) {
                       return value.toInt().toString();
                     },
@@ -158,7 +183,8 @@ class LineChartSample6 extends StatelessWidget {
                     show: true,
                     drawVerticalLine: true,
                     checkToShowHorizontalLine: (value) {
-                      final intValue = reverseY(value, minSpotY, maxSpotY).toInt();
+                      final intValue =
+                          reverseY(value, minSpotY, maxSpotY).toInt();
 
                       if (intValue.toInt() == (maxSpotY + minSpotY).toInt()) {
                         return false;

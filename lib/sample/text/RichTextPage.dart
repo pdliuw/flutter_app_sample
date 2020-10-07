@@ -34,10 +34,6 @@ class _RichTextState extends State<RichTextPage> {
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        Colors.blue,
-                        Colors.orange,
-                      ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),

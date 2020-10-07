@@ -100,10 +100,6 @@ class BlueGradient extends StatelessWidget {
         gradient: LinearGradient(
           begin: FractionalOffset.topCenter,
           end: FractionalOffset.bottomCenter,
-          colors: [
-            Colors.blue,
-            Colors.blue.withOpacity(0.25),
-          ],
         ),
       ),
     );

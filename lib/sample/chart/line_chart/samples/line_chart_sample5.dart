@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class LineChartSample5 extends StatelessWidget {
-  final List<int> showIndexes = const [1, 3, 5];
+  final List<int> showIndexes = [1, 3, 5];
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +35,11 @@ class LineChartSample5 extends StatelessWidget {
       child: LineChart(
         LineChartData(
           showingTooltipIndicators: showIndexes.map((index) {
-            return MapEntry(
+            return ShowingTooltipIndicators(
               index,
               [
-                LineBarSpot(
-                    tooltipsOnBar, lineBarsData.indexOf(tooltipsOnBar), tooltipsOnBar.spots[index]),
+                LineBarSpot(tooltipsOnBar, lineBarsData.indexOf(tooltipsOnBar),
+                    tooltipsOnBar.spots[index]),
               ],
             );
           }).toList(),
@@ -61,7 +61,7 @@ class LineChartSample5 extends StatelessWidget {
           lineBarsData: lineBarsData,
           minY: 0,
           titlesData: FlTitlesData(
-            leftTitles: const SideTitles(
+            leftTitles: SideTitles(
               showTitles: false,
             ),
             bottomTitles: SideTitles(
@@ -85,20 +85,24 @@ class LineChartSample5 extends StatelessWidget {
                   }
                   return '';
                 },
-                textStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey,
-                  fontFamily: 'Digital',
-                  fontSize: 18,
-                )),
+                getTextStyles: (_) {
+                  return TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blueGrey,
+                    fontFamily: 'Digital',
+                    fontSize: 18,
+                  );
+                }),
           ),
-          axisTitleData: const FlAxisTitleData(
+          axisTitleData: FlAxisTitleData(
             rightTitle: AxisTitle(showTitle: true, titleText: 'count'),
             leftTitle: AxisTitle(showTitle: true, titleText: 'count'),
-            topTitle:
-                AxisTitle(showTitle: true, titleText: 'Wall clock', textAlign: TextAlign.left),
+            topTitle: AxisTitle(
+                showTitle: true,
+                titleText: 'Wall clock',
+                textAlign: TextAlign.left),
           ),
-          gridData: const FlGridData(show: false),
+          gridData: FlGridData(show: false),
           borderData: FlBorderData(
             show: true,
           ),

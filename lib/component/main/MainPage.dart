@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:airoute/airoute.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:flip_panel/flip_panel.dart';
+//import 'package:flip_panel/flip_panel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/main/main_view_model.dart';
@@ -112,18 +112,18 @@ class _MainState extends State<MainPage> {
   List<Widget> getBottomNavigationWidgets() {
     List<Widget> _bottomNavigationWidgets = [
       _getListView(),
-      Center(
-        child: SizedBox(
-          height: 64.0,
-          child: FlipClock.simple(
-            startTime: DateTime.now(),
-            digitColor: Colors.white,
-            backgroundColor: Colors.black,
-            digitSize: 48.0,
-            borderRadius: const BorderRadius.all(Radius.circular(3.0)),
-          ),
-        ),
-      ),
+//      Center(
+//        child: SizedBox(
+//          height: 64.0,
+//          child: FlipClock.simple(
+//            startTime: DateTime.now(),
+//            digitColor: Colors.white,
+//            backgroundColor: Colors.black,
+//            digitSize: 48.0,
+//            borderRadius: const BorderRadius.all(Radius.circular(3.0)),
+//          ),
+//        ),
+//      ),
       Center(
         child: Text("TODO"),
       ),

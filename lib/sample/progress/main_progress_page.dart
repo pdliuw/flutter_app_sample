@@ -37,7 +37,7 @@ class _MainProgressState extends State<MainProgressPage>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController();
     _colorTween = _controller.drive(ColorTween(
       begin: Colors.grey,
       end: Colors.green,
@@ -155,7 +155,7 @@ class _MyHomePageState extends State<ExampleHomePage>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController();
     _colorTween = _controller.drive(ColorTween(
       begin: Colors.grey,
       end: Colors.green,

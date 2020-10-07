@@ -30,7 +30,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
-import 'sample/anim/draw_anim_page.dart';
 import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
@@ -118,7 +117,6 @@ class Test extends StatelessWidget {
               "/DragListPage": (_) => DragListPage(),
               "/DrawerVariouslyPage": (_) => DrawerVariouslyPage(),
               "/FlushBarPage": (_) => FlushBarPage(),
-              "/DrawAnimPage": (_) => DrawAnimPage(),
               "/ChartPage": (_) => ChartPage(),
               "/UserInfoPage": (_) => UserInfoPage(),
               "/MainPickerPage": (_) => MainPickerPage(),

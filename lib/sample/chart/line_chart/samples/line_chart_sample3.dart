@@ -20,22 +20,31 @@ class LineChartSample3 extends StatelessWidget {
       children: <Widget>[
         Row(
           mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[
+          children: <Widget>[
             Text(
               'Average Line',
-              style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                  color: Colors.green,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
             Text(
               ' and ',
-              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
             Text(
               'Indicators',
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 18,
         ),
         SizedBox(
@@ -44,15 +53,32 @@ class LineChartSample3 extends StatelessWidget {
           child: LineChart(
             LineChartData(
               lineTouchData: LineTouchData(
-                  getTouchedSpotIndicator: (LineChartBarData barData, List<int> spotIndexes) {
+                  getTouchedSpotIndicator:
+                      (LineChartBarData barData, List<int> spotIndexes) {
                     return spotIndexes.map((spotIndex) {
                       final FlSpot spot = barData.spots[spotIndex];
                       if (spot.x == 0 || spot.x == 6) {
                         return null;
                       }
                       return TouchedSpotIndicatorData(
-                        const FlLine(color: Colors.blue, strokeWidth: 4),
-                        const FlDotData(dotSize: 8, dotColor: Colors.deepOrange),
+                        FlLine(color: Colors.blue, strokeWidth: 4),
+                        FlDotData(
+                          show: true,
+                          getDotPainter: (
+                            a,
+                            b,
+                            c,
+                            d,
+                          ) {
+                            return FlDotCirclePainter(
+                              color: Colors.deepOrange,
+                              radius: 6,
+                            );
+                          },
+                          checkToShowDot: (spot, _) {
+                            return spot.x != 0 && spot.x != 6;
+                          },
+                        ),
                       );
                     }).toList();
                   },
@@ -67,7 +93,7 @@ class LineChartSample3 extends StatelessWidget {
 
                           return LineTooltipItem(
                             '${weekDays[flSpot.x.toInt()]} \n${flSpot.y} k calories',
-                            const TextStyle(color: Colors.white),
+                            TextStyle(color: Colors.white),
                           );
                         }).toList();
                       })),
@@ -80,7 +106,7 @@ class LineChartSample3 extends StatelessWidget {
               ]),
               lineBarsData: [
                 LineChartBarData(
-                  spots: const [
+                  spots: [
                     FlSpot(0, 1.3),
                     FlSpot(1, 1),
                     FlSpot(2, 1.8),
@@ -101,11 +127,11 @@ class LineChartSample3 extends StatelessWidget {
                       Colors.orange.withOpacity(0.0),
                     ],
                     gradientColorStops: [0.5, 1.0],
-                    gradientFrom: const Offset(0, 0),
-                    gradientTo: const Offset(0, 1),
+                    gradientFrom: Offset(0, 0),
+                    gradientTo: Offset(0, 1),
                     spotsLine: BarAreaSpotsLine(
                       show: true,
-                      flLineStyle: const FlLine(
+                      flLineStyle: FlLine(
                         color: Colors.blue,
                         strokeWidth: 2,
                       ),
@@ -120,9 +146,18 @@ class LineChartSample3 extends StatelessWidget {
                   ),
                   dotData: FlDotData(
                       show: true,
-                      dotColor: Colors.deepOrange,
-                      dotSize: 6,
-                      checkToShowDot: (spot) {
+                      getDotPainter: (
+                        a,
+                        b,
+                        c,
+                        d,
+                      ) {
+                        return FlDotCirclePainter(
+                          color: Colors.deepOrange,
+                          radius: 6,
+                        );
+                      },
+                      checkToShowDot: (spot, _) {
                         return spot.x != 0 && spot.x != 6;
                       }),
                 ),
@@ -134,12 +169,12 @@ class LineChartSample3 extends StatelessWidget {
                 drawVerticalLine: true,
                 getDrawingHorizontalLine: (value) {
                   if (value == 0) {
-                    return const FlLine(
+                    return FlLine(
                       color: Colors.deepOrange,
                       strokeWidth: 2,
                     );
                   } else {
-                    return const FlLine(
+                    return FlLine(
                       color: Colors.grey,
                       strokeWidth: 0.5,
                     );
@@ -147,12 +182,12 @@ class LineChartSample3 extends StatelessWidget {
                 },
                 getDrawingVerticalLine: (value) {
                   if (value == 0) {
-                    return const FlLine(
+                    return FlLine(
                       color: Colors.black,
                       strokeWidth: 2,
                     );
                   } else {
-                    return const FlLine(
+                    return FlLine(
                       color: Colors.grey,
                       strokeWidth: 0.5,
                     );
@@ -177,17 +212,21 @@ class LineChartSample3 extends StatelessWidget {
 
                     return '';
                   },
-                  textStyle: const TextStyle(color: Colors.black, fontSize: 10),
+                  getTextStyles: (_) {
+                    return TextStyle(color: Colors.black, fontSize: 10);
+                  },
                 ),
                 bottomTitles: SideTitles(
                   showTitles: true,
                   getTitles: (value) {
                     return weekDays[value.toInt()];
                   },
-                  textStyle: const TextStyle(
-                    color: Colors.deepOrange,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  getTextStyles: (_) {
+                    return TextStyle(
+                      color: Colors.deepOrange,
+                      fontWeight: FontWeight.bold,
+                    );
+                  },
                 ),
               ),
             ),

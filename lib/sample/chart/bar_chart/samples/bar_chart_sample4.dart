@@ -23,7 +23,7 @@ class BarChartSample4State extends State<BarChartSample4> {
         barRods: [
           BarChartRodData(
               y: 17,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 2, dark),
                 BarChartRodStackItem(2, 12, normal),
                 BarChartRodStackItem(12, 17, light),
@@ -31,7 +31,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 24,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 13, dark),
                 BarChartRodStackItem(13, 14, normal),
                 BarChartRodStackItem(14, 24, light),
@@ -39,7 +39,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 23.5,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 6.5, dark),
                 BarChartRodStackItem(6.5, 18, normal),
                 BarChartRodStackItem(18, 23.5, light),
@@ -47,7 +47,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 29,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 9, dark),
                 BarChartRodStackItem(9, 15, normal),
                 BarChartRodStackItem(15, 29, light),
@@ -55,7 +55,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 32,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 2.5, dark),
                 BarChartRodStackItem(2.5, 17.5, normal),
                 BarChartRodStackItem(17.5, 32, light),
@@ -69,7 +69,7 @@ class BarChartSample4State extends State<BarChartSample4> {
         barRods: [
           BarChartRodData(
               y: 31,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 11, dark),
                 BarChartRodStackItem(11, 18, normal),
                 BarChartRodStackItem(18, 31, light),
@@ -77,7 +77,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 35,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 14, dark),
                 BarChartRodStackItem(14, 27, normal),
                 BarChartRodStackItem(27, 35, light),
@@ -85,7 +85,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 31,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 8, dark),
                 BarChartRodStackItem(8, 24, normal),
                 BarChartRodStackItem(24, 31, light),
@@ -93,7 +93,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 15,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 6.5, dark),
                 BarChartRodStackItem(6.5, 12.5, normal),
                 BarChartRodStackItem(12.5, 15, light),
@@ -101,7 +101,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 17,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 9, dark),
                 BarChartRodStackItem(9, 15, normal),
                 BarChartRodStackItem(15, 17, light),
@@ -115,7 +115,7 @@ class BarChartSample4State extends State<BarChartSample4> {
         barRods: [
           BarChartRodData(
               y: 34,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 6, dark),
                 BarChartRodStackItem(6, 23, normal),
                 BarChartRodStackItem(23, 34, light),
@@ -123,7 +123,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 32,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 7, dark),
                 BarChartRodStackItem(7, 24, normal),
                 BarChartRodStackItem(24, 32, light),
@@ -131,7 +131,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 14.5,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 0.5, dark),
                 BarChartRodStackItem(0.5, 12, normal),
                 BarChartRodStackItem(12, 14.5, light),
@@ -139,7 +139,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 20,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 4, dark),
                 BarChartRodStackItem(4, 15, normal),
                 BarChartRodStackItem(15, 20, light),
@@ -147,7 +147,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 24,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 4, dark),
                 BarChartRodStackItem(4, 15, normal),
                 BarChartRodStackItem(15, 24, light),
@@ -161,7 +161,7 @@ class BarChartSample4State extends State<BarChartSample4> {
         barRods: [
           BarChartRodData(
               y: 14,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 0.5, dark),
                 BarChartRodStackItem(0.5, 12, normal),
                 BarChartRodStackItem(12, 14, light),
@@ -169,7 +169,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 27,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 7, dark),
                 BarChartRodStackItem(7, 25, normal),
                 BarChartRodStackItem(25, 27, light),
@@ -177,7 +177,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 29,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 6, dark),
                 BarChartRodStackItem(6, 23, normal),
                 BarChartRodStackItem(23, 29, light),
@@ -185,7 +185,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 16.5,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 9, dark),
                 BarChartRodStackItem(9, 15, normal),
                 BarChartRodStackItem(15, 16.5, light),
@@ -193,7 +193,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 15,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 7, dark),
                 BarChartRodStackItem(7, 12.5, normal),
                 BarChartRodStackItem(12.5, 15, light),
@@ -207,7 +207,7 @@ class BarChartSample4State extends State<BarChartSample4> {
         barRods: [
           BarChartRodData(
               y: 34,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 9, dark),
                 BarChartRodStackItem(9, 24, normal),
                 BarChartRodStackItem(24, 34, light),
@@ -215,7 +215,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 35,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 14.5, dark),
                 BarChartRodStackItem(14.5, 27, normal),
                 BarChartRodStackItem(27, 35, light),
@@ -223,7 +223,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 31,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 1, dark),
                 BarChartRodStackItem(1, 17, normal),
                 BarChartRodStackItem(17, 31, light),
@@ -231,7 +231,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 32,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 2, dark),
                 BarChartRodStackItem(2, 16.5, normal),
                 BarChartRodStackItem(16.5, 32, light),
@@ -239,7 +239,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
               y: 29,
-              rodStackItem: [
+              rodStackItems: [
                 BarChartRodStackItem(0, 9, dark),
                 BarChartRodStackItem(9, 15, normal),
                 BarChartRodStackItem(15, 29, light),
@@ -264,14 +264,16 @@ class BarChartSample4State extends State<BarChartSample4> {
             BarChartData(
               alignment: BarChartAlignment.center,
               maxY: 35,
-              barTouchData: const BarTouchData(
+              barTouchData: BarTouchData(
                 enabled: false,
               ),
               titlesData: FlTitlesData(
                 show: true,
                 bottomTitles: SideTitles(
                   showTitles: true,
-                  textStyle: TextStyle(color: const Color(0xff939393), fontSize: 10),
+                  getTextStyles: (_) {
+                    return TextStyle(color: Color(0xff939393), fontSize: 10);
+                  },
                   margin: 10,
                   getTitles: (double value) {
                     switch (value.toInt()) {
@@ -292,11 +294,13 @@ class BarChartSample4State extends State<BarChartSample4> {
                 ),
                 leftTitles: SideTitles(
                   showTitles: true,
-                  textStyle: TextStyle(
-                      color: const Color(
-                        0xff939393,
-                      ),
-                      fontSize: 10),
+                  getTextStyles: (_) {
+                    return TextStyle(
+                        color: Color(
+                          0xff939393,
+                        ),
+                        fontSize: 10);
+                  },
                   getTitles: (double value) {
                     return value.toInt().toString();
                   },
@@ -307,7 +311,7 @@ class BarChartSample4State extends State<BarChartSample4> {
               gridData: FlGridData(
                 show: true,
                 checkToShowHorizontalLine: (value) => value % 10 == 0,
-                getDrawingHorizontalLine: (value) => const FlLine(
+                getDrawingHorizontalLine: (value) => FlLine(
                   color: Color(0xffe7e8ec),
                   strokeWidth: 1,
                 ),

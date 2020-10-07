@@ -5,18 +5,18 @@ class LineChartSample4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const cutOffYValue = 5.0;
-    const dateTextStyle =
-        TextStyle(fontSize: 10, color: Colors.purple, fontWeight: FontWeight.bold);
+    const dateTextStyle = TextStyle(
+        fontSize: 10, color: Colors.purple, fontWeight: FontWeight.bold);
 
     return SizedBox(
       width: 300,
       height: 140,
       child: LineChart(
         LineChartData(
-          lineTouchData: const LineTouchData(enabled: false),
+          lineTouchData: LineTouchData(enabled: false),
           lineBarsData: [
             LineChartBarData(
-              spots: const [
+              spots: [
                 FlSpot(0, 4),
                 FlSpot(1, 3.5),
                 FlSpot(2, 4.5),
@@ -47,7 +47,7 @@ class LineChartSample4 extends StatelessWidget {
                 cutOffY: cutOffYValue,
                 applyCutOffY: true,
               ),
-              dotData: const FlDotData(
+              dotData: FlDotData(
                 show: false,
               ),
             ),
@@ -57,7 +57,9 @@ class LineChartSample4 extends StatelessWidget {
             bottomTitles: SideTitles(
                 showTitles: true,
                 reservedSize: 14,
-                textStyle: dateTextStyle,
+                getTextStyles: (_) {
+                  return dateTextStyle;
+                },
                 getTitles: (value) {
                   switch (value.toInt()) {
                     case 0:
@@ -95,8 +97,9 @@ class LineChartSample4 extends StatelessWidget {
               },
             ),
           ),
-          axisTitleData: const FlAxisTitleData(
-              leftTitle: AxisTitle(showTitle: true, titleText: 'Value', margin: 4),
+          axisTitleData: FlAxisTitleData(
+              leftTitle:
+                  AxisTitle(showTitle: true, titleText: 'Value', margin: 4),
               bottomTitle: AxisTitle(
                   showTitle: true,
                   margin: 0,

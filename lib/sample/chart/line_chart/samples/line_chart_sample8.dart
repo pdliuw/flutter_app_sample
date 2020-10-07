@@ -22,7 +22,8 @@ class _LineChartSample8State extends State<LineChartSample8> {
           aspectRatio: 1.70,
           child: Container(
             child: Padding(
-              padding: const EdgeInsets.only(right: 18.0, left: 12.0, top: 24, bottom: 12),
+              padding:
+                  EdgeInsets.only(right: 18.0, left: 12.0, top: 24, bottom: 12),
               child: LineChart(
                 mainData(),
               ),
@@ -74,37 +75,64 @@ class _LineChartSample8State extends State<LineChartSample8> {
       //   ],
       // ),
       gridData: FlGridData(
-          show: true, drawVerticalLine: false, drawHorizontalLine: false, verticalInterval: 1),
+          show: true,
+          drawVerticalLine: false,
+          drawHorizontalLine: false,
+          verticalInterval: 1),
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          textStyle: TextStyle(color: Colors.black87, fontSize: 10),
+          getTextStyles: (_) {
+            return TextStyle(
+              color: Colors.black87,
+              fontSize: 10,
+            );
+          },
           interval: 2,
           margin: 8,
         ),
         leftTitles: SideTitles(
           interval: 2,
           showTitles: true,
-          textStyle: TextStyle(
-            color: Colors.black87,
-            fontSize: 10,
-          ),
+          getTextStyles: (_) {
+            return TextStyle(
+              color: Colors.black87,
+              fontSize: 10,
+            );
+          },
           reservedSize: 28,
           margin: 12,
         ),
       ),
       lineTouchData: LineTouchData(
-        getTouchedSpotIndicator: (LineChartBarData barData, List<int> spotIndexes) {
+        getTouchedSpotIndicator:
+            (LineChartBarData barData, List<int> spotIndexes) {
           return spotIndexes.map((spotIndex) {
             final FlSpot spot = barData.spots[spotIndex];
             if (spot.x == 0 || spot.x == 6) {
               return null;
             }
             return TouchedSpotIndicatorData(
-              const FlLine(color: Colors.orange, strokeWidth: 3),
-              const FlDotData(dotSize: 8, dotColor: Colors.deepOrange),
+              FlLine(color: Colors.orange, strokeWidth: 3),
+              FlDotData(
+                show: true,
+                getDotPainter: (
+                  a,
+                  b,
+                  c,
+                  d,
+                ) {
+                  return FlDotCirclePainter(
+                    color: Colors.deepOrange,
+                    radius: 6,
+                  );
+                },
+                checkToShowDot: (spot, _) {
+                  return spot.x != 0 && spot.x != 6;
+                },
+              ),
             );
           }).toList();
         },
@@ -112,14 +140,15 @@ class _LineChartSample8State extends State<LineChartSample8> {
           tooltipBgColor: Colors.blueAccent,
         ),
       ),
-      borderData: FlBorderData(show: true, border: Border.all(color: Color(0xffecf1fe), width: 1)),
+      borderData: FlBorderData(
+          show: true, border: Border.all(color: Color(0xffecf1fe), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots: const [
+          spots: [
             FlSpot(0, 1),
             FlSpot(2, 1),
             FlSpot(4.9, 5),
@@ -133,12 +162,13 @@ class _LineChartSample8State extends State<LineChartSample8> {
           colors: [Color(0xff0F2BF6), Color(0xff0F2BF6)],
           barWidth: 2,
           isStrokeCapRound: true,
-          dotData: const FlDotData(
+          dotData: FlDotData(
             show: false,
           ),
           belowBarData: BarAreaData(
             show: false,
-            colors: gradientColors.map((color) => color.withOpacity(0.5)).toList(),
+            colors:
+                gradientColors.map((color) => color.withOpacity(0.5)).toList(),
           ),
         ),
       ],
