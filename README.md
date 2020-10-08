@@ -5,12 +5,7 @@ img: /images/flutter_logo.jpg
 summary: Flutter项目示例
 categories: app sample
 top: true
-tags:
-- Flutter
-- Dart
-- MVP
-- Dio
-- DesignPatterns
+
 
 
 ---
@@ -36,15 +31,6 @@ If you like the design of flutter_app_sample, feel flutter_app_sample to help yo
 
 ----
 
-----
-
-Version|Description|README
----|:--:|---:
-v1.0|Add:1、multiple widget,2、route,3、animation|[v1.0](https://github.com/pdliuw/flutter_app_sample/blob/master/README_v1.0.md)
-v2.0|Add:1、tip message,2、user model,3、more widget sample|[v2.0](https://github.com/pdliuw/flutter_app_sample/blob/master/README_v2.0.md)
-
-
-----
 
 Package/Plugin|Description|Link
 ---|:--:|---:
