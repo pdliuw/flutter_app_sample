@@ -116,7 +116,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   }
 
   static const LocalizationsDelegate<CupertinoLocalizations> delegate =
-  _ChineseDelegate();
+      _ChineseDelegate();
 
   static Future<CupertinoLocalizations> load(Locale locale) async {
     var localizaltions = ChineseCupertinoLocalizations();
@@ -134,6 +134,15 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   String tabSemanticsLabel({int tabIndex, int tabCount}) {
     return "$tabIndex/$tabCount";
   }
+
+  @override
+  List<String> get timerPickerHourLabels => ["时"];
+
+  @override
+  List<String> get timerPickerMinuteLabels => ["分"];
+
+  @override
+  List<String> get timerPickerSecondLabels => ["秒"];
 }
 
 class _ChineseDelegate extends LocalizationsDelegate<CupertinoLocalizations> {

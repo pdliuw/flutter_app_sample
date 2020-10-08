@@ -74,6 +74,7 @@ class Test extends StatelessWidget {
       child: Consumer<GlobalViewModel>(
         builder: (context, value, child) {
           return Airoute.createMaterialApp(
+            debugShowCheckedModeBanner: false,
             home: Scaffold(
               body: LoginPage(),
             ),
@@ -139,29 +140,6 @@ class Test extends StatelessWidget {
             },
           );
         },
-      ),
-    );
-  }
-}
-
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _AppState();
-  }
-}
-
-///
-/// _AppState
-class _AppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("App"),
-      ),
-      body: Center(
-        child: Text("MyApp"),
       ),
     );
   }

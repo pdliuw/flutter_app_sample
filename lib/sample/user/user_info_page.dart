@@ -1,7 +1,8 @@
 import 'dart:ui';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
@@ -25,6 +26,8 @@ class _UserInfoState extends State<UserInfoPage> {
   String _personalMailto = "xkrossiapd163@163.com";
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
@@ -41,7 +44,9 @@ class _UserInfoState extends State<UserInfoPage> {
                       child: Container(
                         child: Image.asset(
                           "assets/avatar.jpg",
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fill,
+                          width: width,
+                          height: height / 3 * 2,
                         ),
                       ),
                     ),
@@ -50,7 +55,7 @@ class _UserInfoState extends State<UserInfoPage> {
                 ExpansionTile(
                   title: Row(
                     children: <Widget>[
-                      Text("我的信息"),
+                      Text("联系方式"),
                     ],
                   ),
                   children: <Widget>[
