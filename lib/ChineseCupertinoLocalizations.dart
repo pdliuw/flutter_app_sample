@@ -143,6 +143,9 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
 
   @override
   List<String> get timerPickerSecondLabels => ["秒"];
+
+  @override
+  String get searchTextFieldPlaceholderLabel => "search label";
 }
 
 class _ChineseDelegate extends LocalizationsDelegate<CupertinoLocalizations> {
