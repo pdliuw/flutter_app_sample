@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:airoute/airoute.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../common/helper/tip_helper.dart';
 
@@ -108,37 +109,48 @@ class _ListViewDragState extends State<ListViewDragWidget> {
     Person(name: "Lucy", age: 35),
     Person(name: "Tom", age: 14),
     Person(name: "Jack", age: 16),
-    Person(name: "Jacy", age: 28),
-    Person(name: "Jacy", age: 28),
+    Person(name: "Jac", age: 28),
+    Person(name: "Alice", age: 28),
   ];
+
   @override
   Widget build(BuildContext context) {
-    return ReorderableListView(
-      onReorder: (int oldIndex, int newIndex) {},
-      padding: EdgeInsets.all(10),
-      scrollDirection: Axis.vertical,
-      children: _personNames.map((person) {
-        return Card(
-          margin: EdgeInsets.all(10),
-          elevation: 2,
-          color: Colors.blue,
-          key: Key("${person.name}"),
-          child: ListTile(
-            leading: CircleAvatar(
-              child: Text("${person.name.substring(0, 1)}"),
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final oddItemColor = colorScheme.primary.withOpacity(1.0);
+    final evenItemColor = colorScheme.primary.withOpacity(0.1);
+
+    return Padding(
+      padding: EdgeInsets.only(
+        left: 16,
+        right: 16,
+      ),
+      child: ReorderableListView(
+        onReorder: (int oldIndex, int newIndex) {},
+        buildDefaultDragHandles: true,
+        dragStartBehavior: DragStartBehavior.down,
+        scrollDirection: Axis.vertical,
+        children: [
+          for (int index = 0; index < _personNames.length; index++)
+            Card(
+              color: index.isOdd ? oddItemColor : evenItemColor,
+              key: Key("${_personNames[index].name}"),
+              child: ListTile(
+                contentPadding: EdgeInsets.all(10),
+                leading: CircleAvatar(
+                  child: Text("${_personNames[index].name.substring(0, 1)}"),
+                ),
+                title: Text(
+                  "${_personNames[index].name}",
+                  style: TextStyle(color: Colors.white),
+                ),
+                subtitle: Text(
+                  "${_personNames[index].age}岁",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
-            title: Text(
-              "${person.name}",
-              style: TextStyle(color: Colors.white),
-            ),
-            subtitle: Text(
-              "${person.age}岁",
-              style: TextStyle(color: Colors.white),
-            ),
-            trailing: Text("长按拖拽排序"),
-          ),
-        );
-      }).toList(),
+        ],
+      ),
     );
   }
 }
@@ -161,8 +173,8 @@ class _ListViewDismissibleState extends State<ListViewDismissibleWidget> {
     Person(name: "Lucy", age: 35),
     Person(name: "Tom", age: 14),
     Person(name: "Jack", age: 16),
-    Person(name: "Jacy", age: 28),
-    Person(name: "Jacy", age: 28),
+    Person(name: "Zoom", age: 28),
+    Person(name: "Jac", age: 28),
   ];
   @override
   Widget build(BuildContext context) {
@@ -223,8 +235,8 @@ class _GridViewDragState extends State<GridViewDragWidget> {
     Person(name: "Lucy", age: 35),
     Person(name: "Tom", age: 14),
     Person(name: "Jack", age: 16),
-    Person(name: "Jacy", age: 28),
-    Person(name: "Jacy", age: 28),
+    Person(name: "Zoom", age: 28),
+    Person(name: "Jac", age: 28),
   ];
 
   @override
@@ -309,7 +321,7 @@ class _ListViewSlideState extends State<ListViewSlideWidget> {
     Person(name: "Lucy", age: 3),
     Person(name: "Tom", age: 4),
     Person(name: "Jack", age: 5),
-    Person(name: "Jacy", age: 6),
+    Person(name: "Zoom", age: 6),
     Person(name: "Joe", age: 7),
     Person(name: "Air", age: 8),
   ];
