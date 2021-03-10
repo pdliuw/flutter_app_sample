@@ -26,17 +26,17 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^1.0.2
   # http package
   dio: ^3.0.8
   # state manager package
-  provider: ^4.0.4
+  provider: ^5.0.0
   # Route package.
-  airoute: ^0.3.5
+  airoute: ^1.0.0
   # Barcode package.
-  ai_barcode: ^1.1.4
+  ai_barcode: ^1.2.0
   # url launch
-  url_launcher: ^5.7.2
+  url_launcher: ^6.0.2
 
   # preferences
 #  shared_preferences: ^0.5.6
@@ -46,13 +46,13 @@ dependencies:
   # snappable animation
   snappable: ^1.0.1
   # tip
-  ai_awesome_message: ^0.3.0
+  ai_awesome_message: ^1.0.0
   # drawing
   drawing_animation: ^0.1.3
   # chart
   fl_chart: ^0.12.0
   # webView
-  webview_flutter: ^1.0.1
+  webview_flutter: ^2.0.2
   # slidable
   flutter_slidable: ^0.5.7
   # navigation bar
@@ -62,7 +62,7 @@ dependencies:
   # popup menu
   popup_menu: ^1.0.5
   # multiple style progress
-  ai_progress: ^0.2.1
+  ai_progress: ^1.0.0
   # loading
   loading: ^1.0.2
   # load status, loading:bool
