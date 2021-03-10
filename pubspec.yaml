@@ -46,7 +46,7 @@ dependencies:
   # snappable animation
   snappable: ^1.0.1
   # tip
-  ai_awesome_message: ^1.0.0
+  ai_awesome_message: ^2.0.0
   # drawing
   drawing_animation: ^0.1.3
   # chart
