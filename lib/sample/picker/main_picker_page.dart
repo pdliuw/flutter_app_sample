@@ -1,12 +1,8 @@
 import 'dart:ui';
 
 import 'package:airoute/airoute.dart';
-import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../common/helper/tip_helper.dart';
-import '../../common/helper/tip_type.dart';
 
 ///
 /// MainPickerPage
@@ -185,27 +181,7 @@ class _MainPickerState extends State<MainPickerPage> {
                         FlatButton.icon(
                           color: Theme.of(context).primaryColor,
                           textColor: Colors.white,
-                          onPressed: () async {
-                            final List<DateTime> picked =
-                                await DateRagePicker.showDatePicker(
-                                    context: context,
-                                    initialFirstDate: DateTime.now(),
-                                    initialLastDate:
-                                        (DateTime.now()).add(Duration(days: 7)),
-                                    firstDate: DateTime(2015),
-                                    lastDate: DateTime(2030));
-                            if (picked != null && picked.length == 2) {
-                              TipHelper.showTip(
-                                context: context,
-                                tipType: TipType.INFO,
-                                message: "${picked.toString()}",
-                              );
-                              setState(() {
-                                _dateRangeLabel =
-                                    "${picked[0]} \n ⬇️ \n ${picked[1]}";
-                              });
-                            }
-                          },
+                          onPressed: () async {},
                           label: Text("date range"),
                           icon: Icon(Icons.date_range),
                         ),
@@ -220,9 +196,7 @@ class _MainPickerState extends State<MainPickerPage> {
                     onPressed: () {
                       _showSheet();
                     },
-                    color: Theme
-                        .of(context)
-                        .primaryColor,
+                    color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
                     icon: Icon(Icons.format_list_bulleted),
                     label: Text("sheet"),
@@ -231,9 +205,7 @@ class _MainPickerState extends State<MainPickerPage> {
                     onPressed: () {
                       _showDraggableSheet();
                     },
-                    color: Theme
-                        .of(context)
-                        .primaryColor,
+                    color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
                     icon: Icon(Icons.format_list_numbered),
                     label: Text("draggable sheet"),
@@ -257,10 +229,7 @@ class _MainPickerState extends State<MainPickerPage> {
       builder: (context) {
         return Container(
           height: 200,
-          color: Theme
-              .of(context)
-              .cardTheme
-              .color,
+          color: Theme.of(context).cardTheme.color,
           child: Column(
             children: <Widget>[
               Flexible(
@@ -396,17 +365,11 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
-            color: Theme
-                .of(context)
-                .cardTheme
-                .color,
+            color: Theme.of(context).cardTheme.color,
             child: Column(
               children: <Widget>[
                 Container(
-                  color: Theme
-                      .of(context)
-                      .cardTheme
-                      .color,
+                  color: Theme.of(context).cardTheme.color,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[],
@@ -450,17 +413,11 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
-            color: Theme
-                .of(context)
-                .cardTheme
-                .color,
+            color: Theme.of(context).cardTheme.color,
             child: Column(
               children: <Widget>[
                 Container(
-                  color: Theme
-                      .of(context)
-                      .cardTheme
-                      .color,
+                  color: Theme.of(context).cardTheme.color,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -548,17 +505,11 @@ class _MainPickerState extends State<MainPickerPage> {
         builder: (context) {
           return Container(
             height: 200,
-            color: Theme
-                .of(context)
-                .cardTheme
-                .color,
+            color: Theme.of(context).cardTheme.color,
             child: Column(
               children: <Widget>[
                 Container(
-                  color: Theme
-                      .of(context)
-                      .cardTheme
-                      .color,
+                  color: Theme.of(context).cardTheme.color,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
