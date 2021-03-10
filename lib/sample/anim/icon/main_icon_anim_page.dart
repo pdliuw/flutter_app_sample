@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 /// MainIconAnimPage
@@ -15,7 +16,7 @@ class _MainIconAnimState extends State<MainIconAnimPage>
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController();
+    _animationController = AnimationController(vsync: this);
     _animationController.duration = Duration(seconds: 1);
   }
 
