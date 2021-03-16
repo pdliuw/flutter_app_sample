@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -143,6 +144,15 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
         ExpansionTile(
           title: Text("小工具"),
           children: <Widget>[
+            ListTile(
+              onTap: () {
+                Airoute.pushNamed(routeName: "/SelectColorFilterPage");
+              },
+              leading: Icon(Icons.color_lens),
+              title: AppTextSubtitle1Widget.defaultStyle("滤镜"),
+              subtitle: AppTextBodyText2Widget.defaultStyle("去选择滤镜"),
+              trailing: Icon(Icons.arrow_right),
+            )
 //            Wrap(
 //              children: <Widget>[
 //                IgnorePointer(

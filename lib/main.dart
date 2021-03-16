@@ -2,7 +2,7 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
-import 'package:flutter_app_sample/component/main/MainPage.dart';
+import 'package:flutter_app_sample/component/main/main_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
@@ -26,10 +26,12 @@ import 'package:flutter_app_sample/sample/notifier/CardInfoPage.dart';
 import 'package:flutter_app_sample/sample/notifier/CardMainPage.dart';
 import 'package:flutter_app_sample/sample/popup/main_popup_page.dart';
 import 'package:flutter_app_sample/sample/wave/main_wave_page.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
+import 'component/filter/select_color_filter_page.dart';
 import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
@@ -48,23 +50,17 @@ import 'sample/webview/air_license_page.dart';
 import 'sample/webview/flutter_web_page.dart';
 import 'sample/wheel/list_wheel_scroll_view_page.dart';
 
-// Register the RouteObserver as a navigation observer.
-@deprecated //2019
-final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
-
+///
+/// main
 void main() {
-  //全局加灰色色调
-//  runApp(ColorFiltered(
-//    colorFilter: ColorFilter.mode(Colors.red, BlendMode.color),
-//    key: GlobalKey(),
-//    child: Test(),
-//  ));
   runApp(
-    Test(),
+    MyApp(),
   );
 }
 
-class Test extends StatelessWidget {
+///
+/// MyApp
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -73,71 +69,128 @@ class Test extends StatelessWidget {
       ],
       child: Consumer<GlobalViewModel>(
         builder: (context, value, child) {
-          return Airoute.createMaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: Scaffold(
-              body: LoginPage(),
-            ),
-            themeMode: value.themeMode,
-            theme: ThemeData.light(),
-            darkTheme: ThemeData.dark(),
-            locale: const Locale('zh', 'CH'),
-            localizationsDelegates: [
-              ChineseCupertinoLocalizations.delegate,
-              DefaultCupertinoLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales: [
-              const Locale('zh', 'CH'),
-              const Locale('en', 'US'),
-            ],
+          return ColorFiltered(
+            colorFilter: ColorFilter.mode(Colors.transparent, BlendMode.color),
+            child: Airoute.createMaterialApp(
+                title: "flutter app sample",
+                debugShowCheckedModeBanner: false,
+                home: Scaffold(
+                  body: LoginPage(),
+                ),
+                themeMode: value.themeMode,
+                theme: ThemeData.light().copyWith(
+                  primaryColor: Colors
+                      .blue, //primary color,button enable color,check color
+                  primaryColorDark: Colors.blue,
+                  accentColor: Colors.blueAccent, //select color
+                  unselectedWidgetColor:
+                      Colors.grey, //unchecked color,unselected color
+                  splashColor: Colors.blueAccent[100], //splash color
+                  errorColor: Colors.red, //error color
+                  indicatorColor: Colors.orange,
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                        headline1: TextStyle(),
+                      ),
+                  //indicator color
+                  appBarTheme: AppBarTheme.of(context).copyWith(
+                    elevation: 0.0,
+                    centerTitle: true,
+                    titleTextStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                darkTheme: ThemeData.dark().copyWith(
+                  primaryColor: Colors.grey[
+                      900], //primary color,button enable color,check color
+                  primaryColorDark: Colors.black,
+                  accentColor: Colors.tealAccent[200], //select color
+                  unselectedWidgetColor:
+                      Colors.grey, //unchecked color,unselected color
+                  splashColor: Colors.black26, //splash color
+                  errorColor: Colors.red, //error color
+                  indicatorColor: Colors.orange,
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                        headline1: TextStyle(),
+                      ),
+                  //indicator color
+                  appBarTheme: AppBarTheme.of(context).copyWith(
+                    elevation: 0.0,
+                    centerTitle: true,
+                    titleTextStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                locale: const Locale('zh', 'CH'),
+                localizationsDelegates: [
+                  ChineseCupertinoLocalizations.delegate,
+                  DefaultCupertinoLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                supportedLocales: [
+                  const Locale('zh', 'CH'),
+                  const Locale('en', 'US'),
+                ],
 
-            ///全局静态路由的配置！
-            routes: <String, WidgetBuilder>{
-              "/LoginPage": (_) => LoginPage(),
-              "/MainPage": (_) => MainPage(),
-              "/TestPage": (_) => TestPage(),
-              "/ShoppingList": (_) => ShoppingListPage(),
-              "/MainSortListPage": (_) => MainSortListPage(),
-              "/ViewPagerFragmentPage": (_) => ViewPagerFragmentPage(),
-              "/CollapsingToolbarPage": (_) => CollapsingToolbarPage(),
-              "/MainAnimSortPage": (_) => MainAnimSortPage(),
-              "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
-              "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
-              "/OpacityAndAnimatedOpacityPage": (_) =>
-                  OpacityAndAnimatedOpacityPage(),
-              "/FadeInImagePage": (_) => FadeInImagePage(),
-              "/HeroAnimPage": (_) => HeroAnimPage(),
-              "/TransformPage": (_) => TransformPage(),
-              "/AnimatedBuilderPage": (_) => AnimatedBuilderPage(),
-              "/ColorTweenPage": (_) => ColorTweenPage(),
-              "/AnappablePage": (_) => AnappablePage(),
-              "/CardMainPage": (_) => CardMainPage(),
-              "/CardInfoPage": (_) => CardInfoPage(),
-              "/DragListPage": (_) => DragListPage(),
-              "/DrawerVariouslyPage": (_) => DrawerVariouslyPage(),
-              "/FlushBarPage": (_) => FlushBarPage(),
-              "/ChartPage": (_) => ChartPage(),
-              "/UserInfoPage": (_) => UserInfoPage(),
-              "/MainPickerPage": (_) => MainPickerPage(),
-              "/FlutterWebPage": (_) => FlutterWebPage(),
-              "/AirLicensePage": (_) => AirLicensePage(),
-              "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
-              "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
-              "/ClipMainPage": (_) => ClipMainPage(),
-              "/InkPage": (_) => InkPage(),
-              "/RichTextPage": (_) => RichTextPage(),
-              "/MainProgressPage": (_) => MainProgressPage(),
-              "/SegmentPage": (_) => SegmentPage(),
-              "/DropDownPage": (_) => DropDownPage(),
-              "/MainPopupPage": (_) => MainPopupPage(),
-              "/MainWavePage": (_) => MainWavePage(),
-              "/MainIconAnimPage": (_) => MainIconAnimPage(),
-              "/MainOverlayPage": (_) => MainOverlayPage(),
-              "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
-              "/MainLoadingPage": (_) => MainLoadingPage(),
-            },
+                ///全局静态路由的配置！
+                routes: <String, WidgetBuilder>{
+                  "/LoginPage": (_) => LoginPage(),
+                  "/MainPage": (_) => MainPage(),
+                  "/TestPage": (_) => TestPage(),
+                  "/ShoppingList": (_) => ShoppingListPage(),
+                  "/MainSortListPage": (_) => MainSortListPage(),
+                  "/ViewPagerFragmentPage": (_) => ViewPagerFragmentPage(),
+                  "/CollapsingToolbarPage": (_) => CollapsingToolbarPage(),
+                  "/MainAnimSortPage": (_) => MainAnimSortPage(),
+                  "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
+                  "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
+                  "/OpacityAndAnimatedOpacityPage": (_) =>
+                      OpacityAndAnimatedOpacityPage(),
+                  "/FadeInImagePage": (_) => FadeInImagePage(),
+                  "/HeroAnimPage": (_) => HeroAnimPage(),
+                  "/TransformPage": (_) => TransformPage(),
+                  "/AnimatedBuilderPage": (_) => AnimatedBuilderPage(),
+                  "/ColorTweenPage": (_) => ColorTweenPage(),
+                  "/AnappablePage": (_) => AnappablePage(),
+                  "/CardMainPage": (_) => CardMainPage(),
+                  "/CardInfoPage": (_) => CardInfoPage(),
+                  "/DragListPage": (_) => DragListPage(),
+                  "/DrawerVariouslyPage": (_) => DrawerVariouslyPage(),
+                  "/FlushBarPage": (_) => FlushBarPage(),
+                  "/ChartPage": (_) => ChartPage(),
+                  "/UserInfoPage": (_) => UserInfoPage(),
+                  "/MainPickerPage": (_) => MainPickerPage(),
+                  "/FlutterWebPage": (_) => FlutterWebPage(),
+                  "/AirLicensePage": (_) => AirLicensePage(),
+                  "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
+                  "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
+                  "/ClipMainPage": (_) => ClipMainPage(),
+                  "/InkPage": (_) => InkPage(),
+                  "/RichTextPage": (_) => RichTextPage(),
+                  "/MainProgressPage": (_) => MainProgressPage(),
+                  "/SegmentPage": (_) => SegmentPage(),
+                  "/DropDownPage": (_) => DropDownPage(),
+                  "/MainPopupPage": (_) => MainPopupPage(),
+                  "/MainWavePage": (_) => MainWavePage(),
+                  "/MainIconAnimPage": (_) => MainIconAnimPage(),
+                  "/MainOverlayPage": (_) => MainOverlayPage(),
+                  "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
+                  "/MainLoadingPage": (_) => MainLoadingPage(),
+                  "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
+                },
+                builder: EasyLoading.init(
+                  //loading
+                  builder: (context, widget) {
+                    return MediaQuery(
+                      //设置文字大小不随系统设置改变
+                      data:
+                          MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                      child: widget,
+                    );
+                  },
+                )),
           );
         },
       ),

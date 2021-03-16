@@ -1,5 +1,5 @@
-import 'dart:ui';
 
+import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 //import 'package:flip_panel/flip_panel.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,9 +35,9 @@ class _MainState extends State<MainPage> {
   ///
   /// 底部导航标签的标题文字集合
   List<String> _bottomNavigationTitles = [
-    "演示主页",
-    "小游戏",
-    "我的",
+    "组件",
+    "库",
+    "插件",
   ];
 
   ///
@@ -124,29 +124,25 @@ class _MainState extends State<MainPage> {
     ListView listView = ListView.builder(
       physics: BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
+        return AppCardOutlinedStyleWidget.defaultStyle(
           onTap: () {
             Airoute.pushNamedWithAnimation(
               routeName: _getSortRouteNames().elementAt(index),
               routePageAnimation: AirouteTransition.Slide,
             );
           },
-          child: Card(
-            color: Colors.lightGreen,
-            elevation: 3.0,
-            margin: EdgeInsets.all(5),
-            child: ListTile(
-              leading: CircleAvatar(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
                 child: Text(
                   "${sortTitles.elementAt(index).substring(0, 1)}",
-                  style: TextStyle(color: Colors.white),
                 ),
               ),
-              title: Text(
+              Text(
                 "${sortTitles.elementAt(index)}",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+              )
+            ],
           ),
         );
       },
@@ -212,16 +208,11 @@ class _MainState extends State<MainPage> {
             "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
       ),
       drawer: _getDrawer(leftDraw: true),
-//            endDrawer: _drawerOpenedRight ? _getDrawer(leftDraw: false) : null,
       body: Center(
         child: getBottomNavigationWidgets()
             .elementAt(_bottomNavigationSelectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-//              showSelectedLabels: true,
-//              showUnselectedLabels: true,
-        elevation: 5.0,
-//              style: TabStyle.reactCircle,
         currentIndex: _bottomNavigationSelectedIndex,
         items: _getBottomNavigationBar(),
         onTap: _bottomNavigationTap,

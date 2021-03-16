@@ -1,5 +1,5 @@
 name: flutter_app_sample
-description: A new Flutter application.
+description: flutter app sample about the whole model of project.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -11,7 +11,7 @@ description: A new Flutter application.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 3.0.0
+version: 3.0.0+3000
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -27,6 +27,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+  air_design:
+    path: ../../personal_package/air_design
   # http package
   dio: ^3.0.8
   # state manager package
@@ -34,12 +37,12 @@ dependencies:
   # Route package.
   airoute: ^1.0.0
   # Barcode package.
-  ai_barcode: ^1.2.0
+  ai_barcode: ^2.0.0
   # url launch
   url_launcher: ^6.0.2
 
   # preferences
-#  shared_preferences: ^0.5.6
+  shared_preferences: ^2.0.4
 
   # video
 #  video_player: ^0.10.5+2
@@ -65,6 +68,8 @@ dependencies:
   ai_progress: ^1.0.0
   # loading
   loading: ^1.0.2
+  # loading
+  flutter_easyloading: ^2.2.2
   # load status, loading:bool
   ai_load_status: ^1.0.1
 dev_dependencies:
