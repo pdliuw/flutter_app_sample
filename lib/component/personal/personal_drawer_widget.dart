@@ -1,10 +1,10 @@
-import 'dart:ui';
 
 import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/common/helper/tip_helper.dart';
+import 'package:flutter_app_sample/component/personal/personal_config.dart';
+import 'package:flutter_app_sample/component/personal/personal_face_widget.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
 
 ///
@@ -15,76 +15,18 @@ class PersonalDrawerWidget extends StatefulWidget {
 }
 
 class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
-  ///
-  /// 是否：开启右侧侧滑
-  bool _drawerOpenedRight = false;
-
-  _setState(bool value) {
-    _drawerOpenedRight = value;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        GestureDetector(
-          onTap: () {
-            Airoute.pushNamed(routeName: "/UserInfoPage");
-          },
-          child: Container(
-            child: Center(
-              child: Stack(
-                alignment: Alignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    "assets/avatar.jpg",
-                    fit: BoxFit.cover,
-                  ),
-                  BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 5,
-                      sigmaY: 5,
-                    ),
-                    child: Container(
-                      width: 1,
-                      height: 1,
-                      color: Colors.black.withOpacity(0),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    width: 100,
-                    height: 100,
-                    child: ClipOval(
-                      child: Image.asset(
-                        "assets/avatar.jpg",
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          child: Text(
-                            "Air",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                          padding: EdgeInsets.all(10),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+        SafeArea(
+          child: AppCardOutlinedStyleWidget.defaultStyle(
+            onTap: () {
+              Airoute.pushNamed(routeName: "/UserInfoPage");
+            },
+            child: PersonalFaceWidget.defaultStyle(),
           ),
+          top: true,
         ),
         ListTile(
           leading: Icon(
@@ -105,38 +47,16 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
               spacing: 10,
               runSpacing: 10,
               children: <Widget>[
-                Chip(
-                  avatar: ClipOval(
-                    child: Image.asset("assets/avatar.jpg"),
+                for (int labelIndex = 0,
+                        labelSize = PersonalConfig.personalLabelConfig.length;
+                    labelIndex < labelSize;
+                    labelIndex++)
+                  Chip(
+                    avatar: PersonalConfig.personalLabelConfig[labelIndex]
+                        ['avatar']['widget'],
+                    label: PersonalConfig.personalLabelConfig[labelIndex]
+                        ['label']['widget'],
                   ),
-                  label: Text("Air"),
-                ),
-                Chip(
-                  avatar: ClipOval(
-                    child: Image.asset("assets/avatar.jpg"),
-                  ),
-                  label: Text("男"),
-                ),
-                Chip(
-                  avatar: Icon(
-                    Icons.date_range,
-                    color: Colors.green[300],
-                  ),
-                  label: Text("2020"),
-                ),
-                Chip(
-                  avatar: Icon(
-                    Icons.face,
-                    color: Colors.blue[300],
-                  ),
-                  label: Container(
-                    width: 25,
-                    height: 25,
-                    child: ClipOval(
-                      child: Image.asset("assets/avatar.jpg"),
-                    ),
-                  ),
-                ),
               ],
             ),
           ],
@@ -144,51 +64,24 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
         ExpansionTile(
           title: Text("小工具"),
           children: <Widget>[
-            ListTile(
-              onTap: () {
-                Airoute.pushNamed(routeName: "/SelectColorFilterPage");
-              },
-              leading: Icon(Icons.color_lens),
-              title: AppTextSubtitle1Widget.defaultStyle("滤镜"),
-              subtitle: AppTextBodyText2Widget.defaultStyle("去选择滤镜"),
-              trailing: Icon(Icons.arrow_right),
-            )
-//            Wrap(
-//              children: <Widget>[
-//                IgnorePointer(
-//                  ignoring: (!leftDraw && _drawerOpenedRight),
-//                  child: (!leftDraw && _drawerOpenedRight)
-//                      ? ColorFiltered(
-//                          colorFilter:
-//                              ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-//                          child: ListTile(
-//                            onTap: () {
-//                              _setState(!_drawerOpenedRight);
-//                            },
-//                            leading: Text("开启右侧侧滑"),
-//                            trailing: Switch(
-//                              value: _drawerOpenedRight,
-//                              onChanged: (bool value) {
-//                                _setState(value);
-//                              },
-//                            ),
-//                          ),
-//                        )
-//                      : ListTile(
-//                          onTap: () {
-//                            _setState(!_drawerOpenedRight);
-//                          },
-//                          leading: Text("开启右侧侧滑"),
-//                          trailing: Switch(
-//                            value: _drawerOpenedRight,
-//                            onChanged: (bool value) {
-//                              _setState(value);
-//                            },
-//                          ),
-//                        ),
-//                ),
-//              ],
-//            ),
+            for (int toolIndex = 0,
+                    toolSize = PersonalConfig.personalToolConfig.length;
+                toolIndex < toolSize;
+                toolIndex++)
+              ListTile(
+                onTap: () {
+                  Airoute.pushNamed(
+                      routeName:
+                          "${PersonalConfig.personalToolConfig[toolIndex]['routeName']}");
+                },
+                leading: PersonalConfig.personalToolConfig[toolIndex]['avatar']
+                    ['widget'],
+                title: AppTextSubtitle1Widget.defaultStyle(
+                    "${PersonalConfig.personalToolConfig[toolIndex]['title']}"),
+                subtitle: AppTextBodyText2Widget.defaultStyle(
+                    "${PersonalConfig.personalToolConfig[toolIndex]['subtitle']}"),
+                trailing: Icon(Icons.arrow_right),
+              )
           ],
         ),
         ExpansionTile(
@@ -257,68 +150,15 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
             )
           ],
         ),
-        ExpansionTile(
-          title: Text("敏感项"),
-          children: <Widget>[
-            Wrap(
-              children: <Widget>[
-                ListTile(
-                    onTap: () {
-                      setState(() {
-                        TipHelper.showTip(context: null, message: "努力开发中...");
-                      });
-                    },
-                    title: Text("常亮"),
-                    trailing: IgnorePointer(
-                      ignoring: true,
-                      child: Switch(
-                        value: false,
-                        onChanged: (bool value) {
-                          setState(() {});
-                        },
-                      ),
-                    )),
-                ListTile(
-                  onTap: () {
-                    Airoute.pushNamed(
-                      routeName: "/AirLicensePage",
-                    );
-                  },
-                  leading: Text("版权/证书"),
-                  trailing: Icon(Icons.arrow_right),
-                ),
-                ListTile(
-                  onTap: () {
-                    showCupertinoDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return CupertinoAlertDialog(
-                            title: Text("退出登陆"),
-                            content: Text("确定退出登陆"),
-                            actions: <Widget>[
-                              CupertinoDialogAction(
-                                onPressed: () {
-                                  Airoute.pop();
-                                },
-                                child: Text("取消"),
-                              ),
-                              CupertinoDialogAction(
-                                onPressed: () {
-                                  Airoute.pushNamedAndRemoveUntil(
-                                      newRouteName: "/LoginPage");
-                                },
-                                child: Text("确定"),
-                              ),
-                            ],
-                          );
-                        });
-                  },
-                  leading: Text("退出登陆"),
-                  trailing: Icon(Icons.exit_to_app),
-                ),
-              ],
-            ),
-          ],
+        Divider(),
+        ListTile(
+          onTap: () {
+            Airoute.pushNamed(routeName: "/SettingPage");
+          },
+          leading: Icon(Icons.settings),
+          title: AppTextSubtitle1Widget.defaultStyle("设置"),
+          subtitle: AppTextBodyText2Widget.defaultStyle("去设置"),
+          trailing: Icon(Icons.arrow_right),
         ),
       ],
     );

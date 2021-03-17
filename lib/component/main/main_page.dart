@@ -1,18 +1,16 @@
 import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
-//import 'package:flip_panel/flip_panel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/main/main_config.dart';
+import 'package:flutter_app_sample/component/main/main_list_item_widget.dart';
 import 'package:flutter_app_sample/component/personal/personal_drawer_widget.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
 
-///主页面
 ///
-/// 增加："演示主页"、"小游戏"、"TO DO的底部切换标签
-/// 增加：点击底部已选中的标签会触发刷新机制
-///
+/// MainPage
 class MainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -44,111 +42,68 @@ class _MainState extends State<MainPage> {
   int _bottomNavigationSelectedIndex = 0;
 
   ///
-  /// 获取示例列表的显示的描述
-  List<String> _getSortTitles() {
-    List<String> _sortTitles = [
-      "Animation",
-      "Communication",
-      "Drag list grid...",
-      "Tip message...",
-      "Chart: bar line pie...",
-      "Picker",
-      "WebView",
-      "3D Widget",
-      "Curved Navigation Bar",
-      "Clip",
-      "Ink",
-      "RichText",
-      "Progress",
-      "Segment",
-      "DropDown",
-      "Popup",
-      "Wave",
-      "IconAnim",
-      "Overlay",
-      "Loading",
-    ];
-    return _sortTitles;
-  }
-
-  ///
-  /// 获取示例列表的跳转的路由名字集合
-  List<String> _getSortRouteNames() {
-    List<String> _sortRouteNames = [
-      "/MainAnimSortPage",
-      "/CardMainPage",
-      "/DragListPage",
-      "/FlushBarPage",
-      "/ChartPage",
-      "/MainPickerPage",
-      "/FlutterWebPage",
-      "/ListWheelScrollViewPage",
-      "/CurvedNavigationBarPage",
-      "/ClipMainPage",
-      "/InkPage",
-      "/RichTextPage",
-      "/MainProgressPage",
-      "/SegmentPage",
-      "/DropDownPage",
-      "/MainPopupPage",
-      "/MainWavePage",
-      "/MainIconAnimPage",
-      "/MainOverlayPage",
-      "/MainLoadingPage",
-    ];
-    return _sortRouteNames;
-  }
-
-  ///
   /// 获取底部导航标签的对应的显示视图
   List<Widget> getBottomNavigationWidgets() {
     List<Widget> _bottomNavigationWidgets = [
-      _getListView(),
-      Center(
-        child: Text("TODO"),
+      Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) {
+                return AppCardOutlinedStyleWidget.defaultStyle(
+                  onTap: () {
+                    Airoute.pushNamedWithAnimation(
+                      routeName: MainModelConfig.widgetConfigList
+                          .elementAt(index)['routeName'],
+                      routePageAnimation: AirouteTransition.Slide,
+                    );
+                  },
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      child: Text(
+                        "${MainModelConfig.widgetConfigList.elementAt(index)['title'].substring(0, 1)}",
+                      ),
+                    ),
+                    title: Text(
+                      "${MainModelConfig.widgetConfigList.elementAt(index)['title']}",
+                    ),
+                    subtitle: Text(
+                      "${MainModelConfig.widgetConfigList.elementAt(index)['subtitle']}",
+                    ),
+                  ),
+                );
+              },
+              itemCount: MainModelConfig.widgetConfigList.length,
+            ),
+          )
+        ],
       ),
-      Center(
-        child: Text("TODO"),
+      Column(
+        children: [
+          for (int packageIndex = 0,
+                  packageSize = MainModelConfig.packageConfigList.length;
+              packageIndex < packageSize;
+              packageIndex++)
+            MainListItemWidget.defaultStyle(
+              itemData: MainModelConfig.packageConfigList[packageIndex],
+            ),
+        ],
+      ),
+      Column(
+        children: [
+          for (int pluginIndex = 0,
+                  pluginSize = MainModelConfig.pluginConfigList.length;
+              pluginIndex < pluginSize;
+              pluginIndex++)
+            MainListItemWidget.defaultStyle(
+              itemData: MainModelConfig.pluginConfigList[pluginIndex],
+            ),
+        ],
       ),
     ];
 
     return _bottomNavigationWidgets;
-  }
-
-  ///
-  ///获取列表
-  ListView _getListView() {
-    List<String> sortTitles = _getSortTitles();
-
-    ListView listView = ListView.builder(
-      physics: BouncingScrollPhysics(),
-      itemBuilder: (BuildContext context, int index) {
-        return AppCardOutlinedStyleWidget.defaultStyle(
-          onTap: () {
-            Airoute.pushNamedWithAnimation(
-              routeName: _getSortRouteNames().elementAt(index),
-              routePageAnimation: AirouteTransition.Slide,
-            );
-          },
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                child: Text(
-                  "${sortTitles.elementAt(index).substring(0, 1)}",
-                ),
-              ),
-              Text(
-                "${sortTitles.elementAt(index)}",
-              )
-            ],
-          ),
-        );
-      },
-      itemCount: sortTitles.length,
-    );
-
-    return listView;
   }
 
   ///

@@ -1,3 +1,4 @@
+import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,8 @@ import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
 import 'component/filter/select_color_filter_page.dart';
+import 'component/personal/user_info_page.dart';
+import 'component/setting/setting_page.dart';
 import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
@@ -45,7 +48,6 @@ import 'sample/segment/drop_down_page.dart';
 import 'sample/segment/segment_page.dart';
 import 'sample/text/RichTextPage.dart';
 import 'sample/tip/flushbar_page.dart';
-import 'sample/user/user_info_page.dart';
 import 'sample/webview/air_license_page.dart';
 import 'sample/webview/flutter_web_page.dart';
 import 'sample/wheel/list_wheel_scroll_view_page.dart';
@@ -63,6 +65,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ErrorWidget.builder = (detail) {
+      return AppTextHeadline6Widget.defaultStyle(detail.toString());
+    };
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => GlobalViewModel.getInstance())
@@ -179,12 +184,12 @@ class MyApp extends StatelessWidget {
                   "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
                   "/MainLoadingPage": (_) => MainLoadingPage(),
                   "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
+                  "/SettingPage": (_) => SettingPage(),
                 },
                 builder: EasyLoading.init(
                   //loading
                   builder: (context, widget) {
                     return MediaQuery(
-                      //设置文字大小不随系统设置改变
                       data:
                           MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
                       child: widget,
