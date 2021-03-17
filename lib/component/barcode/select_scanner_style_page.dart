@@ -1,3 +1,4 @@
+import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/barcode/full_screen_scanner_page.dart';
@@ -22,32 +23,30 @@ class _SelectScannerStyleState extends State<SelectScannerStylePage> {
       appBar: AppBar(
         title: Text("Select Scanner Style"),
       ),
-      body: Row(
+      body: Column(
         children: <Widget>[
           Spacer(),
-          Column(
-            children: <Widget>[
-              Spacer(),
-              RaisedButton(
-                onPressed: () {
-                  Airoute.push(route: MaterialPageRoute(builder: (context) {
-                    return FullScreenScannerPage();
-                  }));
-                },
-                child: Text("FullScreen Style"),
-                textTheme: ButtonTextTheme.accent,
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Airoute.push(route: MaterialPageRoute(builder: (context) {
-                    return CustomSizeScannerPage();
-                  }));
-                },
-                child: Text("CustomSize Style"),
-                textTheme: ButtonTextTheme.accent,
-              ),
-              Spacer(),
-            ],
+          AppCardOutlinedStyleWidget.defaultStyle(
+            onTap: () {
+              Airoute.push(route: MaterialPageRoute(builder: (context) {
+                return FullScreenScannerPage();
+              }));
+            },
+            child: ListTile(
+              leading: Icon(Icons.fullscreen),
+              title: Text("FullScreen Style"),
+            ),
+          ),
+          AppCardOutlinedStyleWidget.defaultStyle(
+            onTap: () {
+              Airoute.push(route: MaterialPageRoute(builder: (context) {
+                return CustomSizeScannerPage();
+              }));
+            },
+            child: ListTile(
+              leading: Icon(Icons.color_lens_outlined),
+              title: Text("CustomSize Style"),
+            ),
           ),
           Spacer(),
         ],

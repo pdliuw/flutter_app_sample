@@ -1,5 +1,6 @@
 import 'package:ai_barcode/ai_barcode.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/component_config.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 String _label;
@@ -58,10 +59,17 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    TargetPlatform platform = Theme.of(context).platform;
+    if (ComponentConfig.BAR_CODE_REQUEST_PERMISSION) {
+      TargetPlatform platform = Theme.of(context).platform;
 
-    if (platform == TargetPlatform.android || platform == TargetPlatform.iOS) {
-      _requestMobilePermission();
+      if (platform == TargetPlatform.android ||
+          platform == TargetPlatform.iOS) {
+        _requestMobilePermission();
+      } else {
+        setState(() {
+          _isGranted = true;
+        });
+      }
     } else {
       setState(() {
         _isGranted = true;

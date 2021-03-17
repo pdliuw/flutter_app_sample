@@ -33,7 +33,9 @@ class _BarcodeMainPageState extends State<BarcodeMainPage> {
               },
               child: Center(
                 child: AppCardElevatedStyleWidget.defaultStyle(
-                  child: Text("Scan 1D barcode/QR code"),
+                  child: ListTile(
+                    title: Text("Scan 1D barcode/QR code"),
+                  ),
                 ),
               ),
             ),
@@ -48,7 +50,9 @@ class _BarcodeMainPageState extends State<BarcodeMainPage> {
               },
               child: Center(
                 child: AppCardElevatedStyleWidget.defaultStyle(
-                  child: Text("Create QR code"),
+                  child: ListTile(
+                    title: Text("Create QR code"),
+                  ),
                 ),
               ),
             ),
