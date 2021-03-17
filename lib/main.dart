@@ -32,6 +32,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
+import 'component/barcode/barcode_main_page.dart';
 import 'component/filter/select_color_filter_page.dart';
 import 'component/personal/user_info_page.dart';
 import 'component/setting/setting_page.dart';
@@ -185,6 +186,7 @@ class MyApp extends StatelessWidget {
                   "/MainLoadingPage": (_) => MainLoadingPage(),
                   "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
                   "/SettingPage": (_) => SettingPage(),
+                  "/BarcodeMainPage": (_) => BarcodeMainPage(),
                 },
                 builder: EasyLoading.init(
                   //loading

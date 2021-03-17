@@ -127,6 +127,7 @@ class MainModelConfig {
     {
       "title": "二维码插件",
       "subtitle": "二维码的扫描、生成(支持：Android、iOS、web)",
+      "routeName": "/BarcodeMainPage",
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/ai_barcode",
         "pub": "https://pub.dev/packages/ai_barcode",

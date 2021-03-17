@@ -1,4 +1,5 @@
 import 'package:air_design/air_design.dart';
+import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +19,12 @@ class _MainListItemWidgetState extends State<MainListItemWidget> {
   @override
   Widget build(BuildContext context) {
     return AppCardOutlinedStyleWidget.defaultStyle(
-      onTap: () {},
+      onTap: () {
+        Airoute.pushNamedWithAnimation(
+          routeName: "${widget.itemData['routeName']}",
+          routePageAnimation: AirouteTransition.Slide,
+        );
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

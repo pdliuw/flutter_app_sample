@@ -72,9 +72,10 @@ dependencies:
   flutter_easyloading: ^2.2.2
   # load status, loading:bool
   ai_load_status: ^1.0.1
-
   # load svg
   flutter_svg: ^0.19.3
+  # Flutter Permission.
+  permission_handler: ^5.1.0+2
 dev_dependencies:
   flutter_test:
     sdk: flutter
