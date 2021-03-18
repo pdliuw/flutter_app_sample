@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/main/main_page.dart';
+import 'package:flutter_app_sample/component/route/second_page.dart';
+import 'package:flutter_app_sample/component/route/third_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
@@ -35,6 +37,7 @@ import 'ChineseCupertinoLocalizations.dart';
 import 'component/barcode/barcode_main_page.dart';
 import 'component/filter/select_color_filter_page.dart';
 import 'component/personal/user_info_page.dart';
+import 'component/route/launch_page.dart';
 import 'component/setting/setting_page.dart';
 import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
@@ -187,6 +190,9 @@ class MyApp extends StatelessWidget {
                   "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
                   "/SettingPage": (_) => SettingPage(),
                   "/BarcodeMainPage": (_) => BarcodeMainPage(),
+                  "/route/LaunchPage": (_) => LaunchPage(),
+                  "/route/SecondPage": (_) => SecondPage(),
+                  "/route/ThirdPage": (_) => ThirdPage(),
                 },
                 builder: EasyLoading.init(
                   //loading

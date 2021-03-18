@@ -76,6 +76,8 @@ dependencies:
   flutter_svg: ^0.19.3
   # Flutter Permission.
   permission_handler: ^5.1.0+2
+  # vector icon. preview web:https://git-touch.github.io/flutter-vector-icons/
+  flutter_vector_icons: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

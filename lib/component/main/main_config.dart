@@ -6,103 +6,203 @@ class MainModelConfig {
   static List<dynamic> widgetConfigList = [
     {
       "title": "Animation",
-      "subtitle": "",
+      "subtitle": "animation",
       "routeName": "/MainAnimSortPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Communication",
-      "subtitle": "",
+      "subtitle": "communication",
       "routeName": "/CardMainPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Drag list grid...",
-      "subtitle": "",
+      "subtitle": "drag list and grid view item",
       "routeName": "/DragListPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Tip message...",
-      "subtitle": "",
+      "subtitle": "awesome message is same to toast,snack",
       "routeName": "/FlushBarPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Chart: bar line pie...",
-      "subtitle": "",
+      "subtitle": "it is include of bar line pie chart",
       "routeName": "/ChartPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Picker",
-      "subtitle": "",
+      "subtitle": "picker time,address,list view",
       "routeName": "/MainPickerPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "WebView",
-      "subtitle": "",
+      "subtitle": "web view is widget of load website",
       "routeName": "/FlutterWebPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "3D Widget",
-      "subtitle": "",
+      "subtitle": "it is same to 3d wheel",
       "routeName": "/ListWheelScrollViewPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Curved Navigation Bar",
-      "subtitle": "",
+      "subtitle": "navigation bar",
       "routeName": "/CurvedNavigationBarPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Clip",
-      "subtitle": "",
+      "subtitle": "clip image,container,text,etc widget",
       "routeName": "/ClipMainPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Ink",
-      "subtitle": "",
+      "subtitle": "it is gesture detector with splash color",
       "routeName": "/InkPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "RichText",
-      "subtitle": "",
+      "subtitle": "it is same to editor",
       "routeName": "/RichTextPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Progress",
-      "subtitle": "",
+      "subtitle": "multiple loading progress",
       "routeName": "/MainProgressPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Segment",
       "subtitle": "",
       "routeName": "/SegmentPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "DropDown",
-      "subtitle": "",
+      "subtitle": "drop down to select",
       "routeName": "/DropDownPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Popup",
-      "subtitle": "",
+      "subtitle": "it is sample to alert",
       "routeName": "/MainPopupPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Wave",
       "subtitle": "",
       "routeName": "/MainWavePage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "IconAnim",
-      "subtitle": "",
+      "subtitle": "icon with animation",
       "routeName": "/MainIconAnimPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Overlay",
       "subtitle": "",
       "routeName": "/MainOverlayPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
     {
       "title": "Loading",
       "subtitle": "",
       "routeName": "/MainLoadingPage",
+      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     },
   ];
 
@@ -112,6 +212,7 @@ class MainModelConfig {
     {
       "title": "airoute",
       "subtitle": "route manage dart package",
+      "routeName": "/route/LaunchPage",
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/airoute",
         "pub": "https://pub.dev/packages/airoute",

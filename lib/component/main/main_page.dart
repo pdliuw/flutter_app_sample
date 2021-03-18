@@ -1,5 +1,3 @@
-import 'package:air_design/air_design.dart';
-import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/main/main_config.dart';
@@ -51,28 +49,8 @@ class _MainState extends State<MainPage> {
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
-                return AppCardOutlinedStyleWidget.defaultStyle(
-                  onTap: () {
-                    Airoute.pushNamedWithAnimation(
-                      routeName: MainModelConfig.widgetConfigList
-                          .elementAt(index)['routeName'],
-                      routePageAnimation: AirouteTransition.Slide,
-                    );
-                  },
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text(
-                        "${MainModelConfig.widgetConfigList.elementAt(index)['title'].substring(0, 1)}",
-                      ),
-                    ),
-                    title: Text(
-                      "${MainModelConfig.widgetConfigList.elementAt(index)['title']}",
-                    ),
-                    subtitle: Text(
-                      "${MainModelConfig.widgetConfigList.elementAt(index)['subtitle']}",
-                    ),
-                  ),
-                );
+                return MainListItemWidget.defaultStyle(
+                    itemData: MainModelConfig.widgetConfigList[index]);
               },
               itemCount: MainModelConfig.widgetConfigList.length,
             ),
@@ -81,24 +59,30 @@ class _MainState extends State<MainPage> {
       ),
       Column(
         children: [
-          for (int packageIndex = 0,
-                  packageSize = MainModelConfig.packageConfigList.length;
-              packageIndex < packageSize;
-              packageIndex++)
-            MainListItemWidget.defaultStyle(
-              itemData: MainModelConfig.packageConfigList[packageIndex],
-            ),
+          Expanded(
+            child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: MainModelConfig.packageConfigList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return MainListItemWidget.defaultStyle(
+                    itemData: MainModelConfig.packageConfigList[index],
+                  );
+                }),
+          ),
         ],
       ),
       Column(
         children: [
-          for (int pluginIndex = 0,
-                  pluginSize = MainModelConfig.pluginConfigList.length;
-              pluginIndex < pluginSize;
-              pluginIndex++)
-            MainListItemWidget.defaultStyle(
-              itemData: MainModelConfig.pluginConfigList[pluginIndex],
-            ),
+          Expanded(
+            child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: MainModelConfig.pluginConfigList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return MainListItemWidget.defaultStyle(
+                    itemData: MainModelConfig.pluginConfigList[index],
+                  );
+                }),
+          ),
         ],
       ),
     ];

@@ -1,7 +1,8 @@
 import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 ///
 /// MainListItemWidget
@@ -25,32 +26,60 @@ class _MainListItemWidgetState extends State<MainListItemWidget> {
           routePageAnimation: AirouteTransition.Slide,
         );
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            child: Text("${widget.itemData['title'].substring(0, 1)}"),
-          ),
-          Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppTextSubtitle1Widget.defaultStyle(
-                  "${widget.itemData['title']}"),
-              Row(
-                children: [
-                  Expanded(
-                      child: AppTextBodyText2Widget.defaultStyle(
-                          "${widget.itemData['subtitle']}"))
-                ],
-              ),
-              SvgPicture.network(
-                "${widget.itemData['link']['version']}",
-              ),
-            ],
-          )),
-        ],
+      child: ListTile(
+        isThreeLine: true,
+        leading: CircleAvatar(
+          child: Text("${widget.itemData['title'].substring(0, 1)}"),
+        ),
+        title: Text("${widget.itemData['title']}"),
+        subtitle: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("${widget.itemData['subtitle']}"),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+//                      InkWell(
+//                          child: SvgPicture.network(
+//                            "${widget.itemData['link']['version']}",
+//                          ),
+//                          onTap: () {
+//                            launch("${widget.itemData['link']['pub']}");
+//                          }),
+                      InkWell(
+                          child: Icon(
+                            MaterialCommunityIcons.github,
+                          ),
+                          onTap: () {
+                            launch("${widget.itemData['link']['github']}");
+                          })
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Wrap(
+                    children: [
+                      Icon(
+                        MaterialCommunityIcons.copyright,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
+                      AppTextBodyText2Widget.defaultStyle(
+                          "${widget.itemData['author']['nickname']}"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
