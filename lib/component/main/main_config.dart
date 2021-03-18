@@ -223,6 +223,21 @@ class MainModelConfig {
         "nickname": "air",
       }
     },
+    {
+      "title": "ai_awesome_message",
+      "subtitle":
+          "A new Awesome message widget that is sames to toast;snackbar;prompt of Flutter package",
+      "routeName": "/message/AwesomeMessageMainPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/ai_awesome_message",
+        "pub": "https://pub.dev/packages/ai_awesome_message",
+        "version": "https://img.shields.io/pub/v/ai_awesome_message.svg"
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
   ];
   static const List<dynamic> pluginConfigList = [
     {
