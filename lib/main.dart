@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/main/main_page.dart';
+import 'package:flutter_app_sample/component/paint/sun_main_page.dart';
 import 'package:flutter_app_sample/component/route/second_page.dart';
 import 'package:flutter_app_sample/component/route/third_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
@@ -196,6 +197,7 @@ class MyApp extends StatelessWidget {
                   "/route/ThirdPage": (_) => ThirdPage(),
                   "/message/AwesomeMessageMainPage": (_) =>
                       AwesomeMessageMainPage(),
+                  "/paint/SunMainPage": (_) => SunMainPage(),
                 },
                 builder: EasyLoading.init(
                   //loading

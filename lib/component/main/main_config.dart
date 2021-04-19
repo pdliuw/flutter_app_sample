@@ -238,6 +238,20 @@ class MainModelConfig {
         "nickname": "air",
       }
     },
+    {
+      "title": "ai_sun",
+      "subtitle": "custom paint widget package",
+      "routeName": "/paint/SunMainPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/ai_sun",
+        "pub": "https://pub.dev/packages/ai_sun",
+        "version": "https://img.shields.io/pub/v/ai_sun.svg"
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
   ];
   static const List<dynamic> pluginConfigList = [
     {
