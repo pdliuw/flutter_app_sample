@@ -28,6 +28,7 @@ class _AnimatedBuilderState extends State<AnimatedBuilderPage>
     super.initState();
     _controller = AnimationController(
       duration: const Duration(seconds: 10),
+      vsync: this,
     )..repeat();
   }
 
