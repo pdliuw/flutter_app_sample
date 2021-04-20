@@ -23,6 +23,7 @@ import 'package:flutter_app_sample/sample/anim/HeroAnimPage.dart';
 import 'package:flutter_app_sample/sample/anim/MainAnimSortPage.dart';
 import 'package:flutter_app_sample/sample/anim/OpacityAndAnimatedOpacityPage.dart';
 import 'package:flutter_app_sample/sample/anim/TransformPage.dart';
+import 'package:flutter_app_sample/sample/anim/draw_anim_page.dart';
 import 'package:flutter_app_sample/sample/drag/DragListPage.dart';
 import 'package:flutter_app_sample/sample/ink/ink_page.dart';
 import 'package:flutter_app_sample/sample/loading/main_loading_page.dart';
@@ -165,6 +166,7 @@ class MyApp extends StatelessWidget {
                   "/AnimatedBuilderPage": (_) => AnimatedBuilderPage(),
                   "/ColorTweenPage": (_) => ColorTweenPage(),
                   "/AnappablePage": (_) => AnappablePage(),
+                  "/DrawAnimPage": (_) => DrawAnimPage(),
                   "/CardMainPage": (_) => CardMainPage(),
                   "/CardInfoPage": (_) => CardInfoPage(),
                   "/DragListPage": (_) => DragListPage(),
