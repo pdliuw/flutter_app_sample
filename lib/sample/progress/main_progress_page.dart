@@ -155,7 +155,7 @@ class _MyHomePageState extends State<ExampleHomePage>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController();
+    _controller = AnimationController(vsync: this);
     _colorTween = _controller.drive(ColorTween(
       begin: Colors.grey,
       end: Colors.green,
