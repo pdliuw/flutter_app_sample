@@ -24,7 +24,7 @@ class _SunMainPageState extends State<SunMainPage> {
       ),
       body: Column(
         children: [
-          AppTextHeadline6Widget.defaultStyle("拖动滑轮右侧按钮预览微笑大小变动"),
+          AppTextHeadline6Widget.defaultStyle("拖动滑轮右侧按钮预览自绘制组件的尺寸变动"),
           Row(
             children: [
               Expanded(

@@ -1,0 +1,2 @@
+storePassword=123456
+keyPassword=123456
