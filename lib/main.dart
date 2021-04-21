@@ -3,12 +3,15 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
+import 'package:flutter_app_sample/component/login/tv_login_page.dart';
 import 'package:flutter_app_sample/component/main/main_page.dart';
+import 'package:flutter_app_sample/component/main/tv_main_page.dart';
 import 'package:flutter_app_sample/component/paint/sun_main_page.dart';
 import 'package:flutter_app_sample/component/route/second_page.dart';
 import 'package:flutter_app_sample/component/route/third_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
+import 'package:flutter_app_sample/entrance_global_config.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
 import 'package:flutter_app_sample/sample/DrawerVariouslyPage.dart';
@@ -87,7 +90,9 @@ class MyApp extends StatelessWidget {
                 title: "flutter app sample",
                 debugShowCheckedModeBanner: false,
                 home: Scaffold(
-                  body: LoginPage(),
+                  body: EntranceGlobalConfig.isTvEntrance()
+                      ? TvLoginPage()
+                      : LoginPage(),
                 ),
                 themeMode: value.themeMode,
                 theme: ThemeData.light().copyWith(
@@ -149,7 +154,9 @@ class MyApp extends StatelessWidget {
                 ///全局静态路由的配置！
                 routes: <String, WidgetBuilder>{
                   "/LoginPage": (_) => LoginPage(),
+                  "/TvLoginPage": (_) => TvLoginPage(),
                   "/MainPage": (_) => MainPage(),
+                  "/TvMainPage": (_) => TvMainPage(),
                   "/TestPage": (_) => TestPage(),
                   "/ShoppingList": (_) => ShoppingListPage(),
                   "/MainSortListPage": (_) => MainSortListPage(),
