@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/main/main_config.dart';
 import 'package:flutter_app_sample/component/main/main_list_item_widget.dart';
 import 'package:flutter_app_sample/component/personal/personal_drawer_widget.dart';
-
-import '../../common/helper/tip_helper.dart';
-import '../../common/helper/tip_type.dart';
+import 'package:flutter_app_sample/tv/app_raw_key_board_listener_widget.dart';
 
 ///
 /// MainPage
@@ -18,7 +16,13 @@ class MainPage extends StatefulWidget {
 
 ///
 /// _MainState
-class _MainState extends State<MainPage> {
+class _MainState extends State<MainPage> with SingleTickerProviderStateMixin {
+  ///
+  /// FocusNode
+  List<FocusNode> _focusNodeList = [];
+  final int initialNodeListLength = 3;
+  bool isFirstIn = true;
+
   ///
   /// 底部导航标签的图标集合
   List<Widget> _bottomNavigationIcons = [
@@ -36,98 +40,12 @@ class _MainState extends State<MainPage> {
   ];
 
   ///
-  /// 底部选中的导航标签索引项
-  int _bottomNavigationSelectedIndex = 0;
+  /// TabController
+  TabController _tabController;
 
   ///
-  /// 获取底部导航标签的对应的显示视图
-  List<Widget> getBottomNavigationWidgets() {
-    List<Widget> _bottomNavigationWidgets = [
-      Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                return MainListItemWidget.defaultStyle(
-                    itemData: MainModelConfig.widgetConfigList[index]);
-              },
-              itemCount: MainModelConfig.widgetConfigList.length,
-            ),
-          )
-        ],
-      ),
-      Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: MainModelConfig.packageConfigList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return MainListItemWidget.defaultStyle(
-                    itemData: MainModelConfig.packageConfigList[index],
-                  );
-                }),
-          ),
-        ],
-      ),
-      Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: MainModelConfig.pluginConfigList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return MainListItemWidget.defaultStyle(
-                    itemData: MainModelConfig.pluginConfigList[index],
-                  );
-                }),
-          ),
-        ],
-      ),
-    ];
-
-    return _bottomNavigationWidgets;
-  }
-
-  ///
-  /// 底部导航的点击事件处理
-  _bottomNavigationTap(int index) {
-    /*
-    Render
-     */
-    setState(() {
-      /*
-      如果已经选中当前项，此时再选择此项则视为刷新当前页面
-       */
-      if (_bottomNavigationSelectedIndex == index) {
-        TipHelper.showTip(
-          context: context,
-          tipType: TipType.INFO,
-          message:
-              "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制",
-        );
-      }
-      _bottomNavigationSelectedIndex = index;
-    });
-  }
-
-  ///
-  /// 获取底部导航项集合
-  List<BottomNavigationBarItem> _getBottomNavigationBar() {
-    List<BottomNavigationBarItem> items = [];
-
-    for (int i = 0; i < getBottomNavigationWidgets().length; i++) {
-      items.add(
-        BottomNavigationBarItem(
-          icon: _bottomNavigationIcons.elementAt(i),
-          label: "${_bottomNavigationTitles.elementAt(i)}",
-        ),
-      );
-    }
-
-    return items;
-  }
+  /// Tab length
+  int _tabLength = 3;
 
   Drawer _getDrawer({bool leftDraw = true}) {
     return Drawer(
@@ -139,21 +57,127 @@ class _MainState extends State<MainPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    _tabController = TabController(length: _tabLength, vsync: this);
+
+    for (int i = 0, size = initialNodeListLength; i < size; i++) {
+      _focusNodeList.add(FocusNode());
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    for (int i = 0; i < _focusNodeList.length; i++) {
+      _focusNodeList[i].dispose();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
-      ),
-      drawer: _getDrawer(leftDraw: true),
-      body: Center(
-        child: getBottomNavigationWidgets()
-            .elementAt(_bottomNavigationSelectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _bottomNavigationSelectedIndex,
-        items: _getBottomNavigationBar(),
-        onTap: _bottomNavigationTap,
+    if (isFirstIn) {
+      FocusScope.of(context).requestFocus(_focusNodeList[0]);
+      isFirstIn = false;
+    }
+
+    return DefaultTabController(
+      length: _tabLength,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+              "${_bottomNavigationTitles.elementAt(_tabController.index)}"),
+        ),
+        drawer: _getDrawer(leftDraw: true),
+        body: Column(
+          children: [
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemBuilder: (BuildContext context, int index) {
+                            return MainListItemWidget.defaultStyle(
+                                itemData:
+                                    MainModelConfig.widgetConfigList[index]);
+                          },
+                          itemCount: MainModelConfig.widgetConfigList.length,
+                        ),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: MainModelConfig.packageConfigList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return MainListItemWidget.defaultStyle(
+                                itemData:
+                                    MainModelConfig.packageConfigList[index],
+                              );
+                            }),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: MainModelConfig.pluginConfigList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return MainListItemWidget.defaultStyle(
+                                itemData:
+                                    MainModelConfig.pluginConfigList[index],
+                              );
+                            }),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 80,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  for (int i = 0, size = _focusNodeList.length; i < size; i++)
+                    AppRawKeyboardListenerWidget.defaultStyle(
+                      focusList: _focusNodeList,
+                      focusIndex: i,
+                      child: Container(
+                          height: 100,
+                          width: 100,
+                          child: Column(
+                            children: [
+                              _bottomNavigationIcons.elementAt(i),
+                              Text("${_bottomNavigationTitles.elementAt(i)}"),
+                            ],
+                          )),
+                      onTap: () {
+                        _tabController.animateTo(i);
+                      },
+                      onTelevisionTap: () {
+                        //switch tab view
+                        _tabController.animateTo(i);
+                      },
+                      onKey: (key) {
+                        setState(() {});
+                      },
+                    )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
