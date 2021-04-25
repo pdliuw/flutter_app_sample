@@ -28,8 +28,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  air_design:
-    path: ../../personal_package/air_design
+  air_design: 2.0.0
+
   # http package
   dio: ^3.0.8
   # state manager package
@@ -79,8 +79,8 @@ dependencies:
   # vector icon. preview web:https://git-touch.github.io/flutter-vector-icons/
   flutter_vector_icons: ^1.0.0
   # custom 
-  ai_sun:
-    path: ../../personal_package/ai_sun
+  ai_sun: 1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
