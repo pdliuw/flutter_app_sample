@@ -2,6 +2,7 @@ import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/login/tv_login_page.dart';
 import 'package:flutter_app_sample/component/main/main_page.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_app_sample/component/route/second_page.dart';
 import 'package:flutter_app_sample/component/route/third_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
-import 'package:flutter_app_sample/entrance_global_config.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
 import 'package:flutter_app_sample/sample/DrawerVariouslyPage.dart';
@@ -86,138 +86,146 @@ class MyApp extends StatelessWidget {
         builder: (context, value, child) {
           return ColorFiltered(
             colorFilter: ColorFilter.mode(Colors.transparent, BlendMode.color),
-            child: Airoute.createMaterialApp(
-                title: "flutter app sample",
-                debugShowCheckedModeBanner: false,
-                home: Scaffold(
-                  body: EntranceGlobalConfig.isTvEntrance()
-                      ? TvLoginPage()
-                      : LoginPage(),
-                ),
-                themeMode: value.themeMode,
-                theme: ThemeData.light().copyWith(
-                  primaryColor: Colors
-                      .blue, //primary color,button enable color,check color
-                  primaryColorDark: Colors.blue,
-                  accentColor: Colors.blueAccent, //select color
-                  unselectedWidgetColor:
-                      Colors.grey, //unchecked color,unselected color
-                  splashColor: Colors.blueAccent[100], //splash color
-                  errorColor: Colors.red, //error color
-                  indicatorColor: Colors.orange,
-                  textTheme: Theme.of(context).textTheme.copyWith(
-                        headline1: TextStyle(),
+            child: Shortcuts(
+              shortcuts: <LogicalKeySet, Intent>{
+                LogicalKeySet(LogicalKeyboardKey.select): ActivateIntent(),
+              },
+              child: Airoute.createMaterialApp(
+                  title: "flutter app sample",
+                  debugShowCheckedModeBanner: false,
+                  home: Scaffold(
+//                    body: EntranceGlobalConfig.isTvEntrance()
+//                        ? TvLoginPage()
+//                        : LoginPage(),
+                    body: MainPage(),
+                  ),
+                  themeMode: value.themeMode,
+                  theme: ThemeData.light().copyWith(
+                    primaryColor: Colors
+                        .blue, //primary color,button enable color,check color
+                    primaryColorDark: Colors.blue,
+                    accentColor: Colors.blueAccent, //select color
+                    unselectedWidgetColor:
+                        Colors.grey, //unchecked color,unselected color
+                    splashColor: Colors.blueAccent[100], //splash color
+                    errorColor: Colors.red, //error color
+                    indicatorColor: Colors.orange,
+                    textTheme: Theme.of(context).textTheme.copyWith(
+                          headline1: TextStyle(),
+                        ),
+                    //indicator color
+                    appBarTheme: AppBarTheme.of(context).copyWith(
+                      elevation: 0.0,
+                      centerTitle: true,
+                      titleTextStyle: TextStyle(
+                        color: Colors.black,
                       ),
-                  //indicator color
-                  appBarTheme: AppBarTheme.of(context).copyWith(
-                    elevation: 0.0,
-                    centerTitle: true,
-                    titleTextStyle: TextStyle(
-                      color: Colors.black,
                     ),
                   ),
-                ),
-                darkTheme: ThemeData.dark().copyWith(
-                  primaryColor: Colors.grey[
-                      900], //primary color,button enable color,check color
-                  primaryColorDark: Colors.black,
-                  accentColor: Colors.tealAccent[200], //select color
-                  unselectedWidgetColor:
-                      Colors.grey, //unchecked color,unselected color
-                  splashColor: Colors.black26, //splash color
-                  errorColor: Colors.red, //error color
-                  indicatorColor: Colors.orange,
-                  textTheme: Theme.of(context).textTheme.copyWith(
-                        headline1: TextStyle(),
+                  darkTheme: ThemeData.dark().copyWith(
+                    primaryColor: Colors.grey[
+                        900], //primary color,button enable color,check color
+                    primaryColorDark: Colors.black,
+                    accentColor: Colors.tealAccent[200], //select color
+                    unselectedWidgetColor:
+                        Colors.grey, //unchecked color,unselected color
+                    splashColor: Colors.black26, //splash color
+                    errorColor: Colors.red, //error color
+                    indicatorColor: Colors.orange,
+                    textTheme: Theme.of(context).textTheme.copyWith(
+                          headline1: TextStyle(),
+                        ),
+                    //indicator color
+                    appBarTheme: AppBarTheme.of(context).copyWith(
+                      elevation: 0.0,
+                      centerTitle: true,
+                      titleTextStyle: TextStyle(
+                        color: Colors.black,
                       ),
-                  //indicator color
-                  appBarTheme: AppBarTheme.of(context).copyWith(
-                    elevation: 0.0,
-                    centerTitle: true,
-                    titleTextStyle: TextStyle(
-                      color: Colors.black,
                     ),
                   ),
-                ),
-                locale: const Locale('zh', 'CH'),
-                localizationsDelegates: [
-                  ChineseCupertinoLocalizations.delegate,
-                  DefaultCupertinoLocalizations.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                ],
-                supportedLocales: [
-                  const Locale('zh', 'CH'),
-                  const Locale('en', 'US'),
-                ],
+                  locale: const Locale('zh', 'CH'),
+                  localizationsDelegates: [
+                    ChineseCupertinoLocalizations.delegate,
+                    DefaultCupertinoLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                  ],
+                  supportedLocales: [
+                    const Locale('zh', 'CH'),
+                    const Locale('en', 'US'),
+                  ],
 
-                ///全局静态路由的配置！
-                routes: <String, WidgetBuilder>{
-                  "/LoginPage": (_) => LoginPage(),
-                  "/TvLoginPage": (_) => TvLoginPage(),
-                  "/MainPage": (_) => MainPage(),
-                  "/TvMainPage": (_) => TvMainPage(),
-                  "/TestPage": (_) => TestPage(),
-                  "/ShoppingList": (_) => ShoppingListPage(),
-                  "/MainSortListPage": (_) => MainSortListPage(),
-                  "/ViewPagerFragmentPage": (_) => ViewPagerFragmentPage(),
-                  "/CollapsingToolbarPage": (_) => CollapsingToolbarPage(),
-                  "/MainAnimSortPage": (_) => MainAnimSortPage(),
-                  "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
-                  "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
-                  "/OpacityAndAnimatedOpacityPage": (_) =>
-                      OpacityAndAnimatedOpacityPage(),
-                  "/FadeInImagePage": (_) => FadeInImagePage(),
-                  "/HeroAnimPage": (_) => HeroAnimPage(),
-                  "/TransformPage": (_) => TransformPage(),
-                  "/AnimatedBuilderPage": (_) => AnimatedBuilderPage(),
-                  "/ColorTweenPage": (_) => ColorTweenPage(),
-                  "/AnappablePage": (_) => AnappablePage(),
-                  "/DrawAnimPage": (_) => DrawAnimPage(),
-                  "/CardMainPage": (_) => CardMainPage(),
-                  "/CardInfoPage": (_) => CardInfoPage(),
-                  "/DragListPage": (_) => DragListPage(),
-                  "/DrawerVariouslyPage": (_) => DrawerVariouslyPage(),
-                  "/FlushBarPage": (_) => FlushBarPage(),
-                  "/ChartPage": (_) => ChartPage(),
-                  "/UserInfoPage": (_) => UserInfoPage(),
-                  "/MainPickerPage": (_) => MainPickerPage(),
-                  "/FlutterWebPage": (_) => FlutterWebPage(),
-                  "/AirLicensePage": (_) => AirLicensePage(),
-                  "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
-                  "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
-                  "/ClipMainPage": (_) => ClipMainPage(),
-                  "/InkPage": (_) => InkPage(),
-                  "/RichTextPage": (_) => RichTextPage(),
-                  "/MainProgressPage": (_) => MainProgressPage(),
-                  "/SegmentPage": (_) => SegmentPage(),
-                  "/DropDownPage": (_) => DropDownPage(),
-                  "/MainPopupPage": (_) => MainPopupPage(),
-                  "/MainWavePage": (_) => MainWavePage(),
-                  "/MainIconAnimPage": (_) => MainIconAnimPage(),
-                  "/MainOverlayPage": (_) => MainOverlayPage(),
-                  "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
-                  "/MainLoadingPage": (_) => MainLoadingPage(),
-                  "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
-                  "/SettingPage": (_) => SettingPage(),
-                  "/BarcodeMainPage": (_) => BarcodeMainPage(),
-                  "/route/LaunchPage": (_) => LaunchPage(),
-                  "/route/SecondPage": (_) => SecondPage(),
-                  "/route/ThirdPage": (_) => ThirdPage(),
-                  "/message/AwesomeMessageMainPage": (_) =>
-                      AwesomeMessageMainPage(),
-                  "/paint/SunMainPage": (_) => SunMainPage(),
-                },
-                builder: EasyLoading.init(
-                  //loading
-                  builder: (context, widget) {
-                    return MediaQuery(
-                      data:
-                          MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-                      child: widget,
-                    );
+                  ///全局静态路由的配置！
+                  routes: <String, WidgetBuilder>{
+                    "/LoginPage": (_) => LoginPage(),
+                    "/TvLoginPage": (_) => TvLoginPage(),
+                    "/MainPage": (_) => MainPage(),
+                    "/TvMainPage": (_) => TvMainPage(),
+                    "/TestPage": (_) => TestPage(),
+                    "/ShoppingList": (_) => ShoppingListPage(),
+                    "/MainSortListPage": (_) => MainSortListPage(),
+                    "/ViewPagerFragmentPage": (_) => ViewPagerFragmentPage(),
+                    "/CollapsingToolbarPage": (_) => CollapsingToolbarPage(),
+                    "/MainAnimSortPage": (_) => MainAnimSortPage(),
+                    "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
+                    "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
+                    "/OpacityAndAnimatedOpacityPage": (_) =>
+                        OpacityAndAnimatedOpacityPage(),
+                    "/FadeInImagePage": (_) => FadeInImagePage(),
+                    "/HeroAnimPage": (_) => HeroAnimPage(),
+                    "/TransformPage": (_) => TransformPage(),
+                    "/AnimatedBuilderPage": (_) => AnimatedBuilderPage(),
+                    "/ColorTweenPage": (_) => ColorTweenPage(),
+                    "/AnappablePage": (_) => AnappablePage(),
+                    "/DrawAnimPage": (_) => DrawAnimPage(),
+                    "/CardMainPage": (_) => CardMainPage(),
+                    "/CardInfoPage": (_) => CardInfoPage(),
+                    "/DragListPage": (_) => DragListPage(),
+                    "/DrawerVariouslyPage": (_) => DrawerVariouslyPage(),
+                    "/FlushBarPage": (_) => FlushBarPage(),
+                    "/ChartPage": (_) => ChartPage(),
+                    "/UserInfoPage": (_) => UserInfoPage(),
+                    "/MainPickerPage": (_) => MainPickerPage(),
+                    "/FlutterWebPage": (_) => FlutterWebPage(),
+                    "/AirLicensePage": (_) => AirLicensePage(),
+                    "/ListWheelScrollViewPage": (_) =>
+                        ListWheelScrollViewPage(),
+                    "/CurvedNavigationBarPage": (_) =>
+                        CurvedNavigationBarPage(),
+                    "/ClipMainPage": (_) => ClipMainPage(),
+                    "/InkPage": (_) => InkPage(),
+                    "/RichTextPage": (_) => RichTextPage(),
+                    "/MainProgressPage": (_) => MainProgressPage(),
+                    "/SegmentPage": (_) => SegmentPage(),
+                    "/DropDownPage": (_) => DropDownPage(),
+                    "/MainPopupPage": (_) => MainPopupPage(),
+                    "/MainWavePage": (_) => MainWavePage(),
+                    "/MainIconAnimPage": (_) => MainIconAnimPage(),
+                    "/MainOverlayPage": (_) => MainOverlayPage(),
+                    "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
+                    "/MainLoadingPage": (_) => MainLoadingPage(),
+                    "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
+                    "/SettingPage": (_) => SettingPage(),
+                    "/BarcodeMainPage": (_) => BarcodeMainPage(),
+                    "/route/LaunchPage": (_) => LaunchPage(),
+                    "/route/SecondPage": (_) => SecondPage(),
+                    "/route/ThirdPage": (_) => ThirdPage(),
+                    "/message/AwesomeMessageMainPage": (_) =>
+                        AwesomeMessageMainPage(),
+                    "/paint/SunMainPage": (_) => SunMainPage(),
                   },
-                )),
+                  builder: EasyLoading.init(
+                    //loading
+                    builder: (context, widget) {
+                      return MediaQuery(
+                        data: MediaQuery.of(context)
+                            .copyWith(textScaleFactor: 1.0),
+                        child: widget,
+                      );
+                    },
+                  )),
+            ),
           );
         },
       ),
