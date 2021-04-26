@@ -120,6 +120,14 @@ class PersonalConfig {
       "title": "滤镜",
       "subtitle": "去选择滤镜",
     },
+    {
+      "routeName": "/NetworkCheckPage",
+      "avatar": <String, dynamic>{
+        "widget": Icon(Icons.network_check_rounded),
+      },
+      "title": "网络",
+      "subtitle": "去检查网络",
+    },
   ];
 
   ///

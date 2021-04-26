@@ -80,6 +80,8 @@ dependencies:
   flutter_vector_icons: ^1.0.0
   # custom 
   ai_sun: 1.0.0
+  # network
+  connectivity: 3.0.3
 
 dev_dependencies:
   flutter_test:

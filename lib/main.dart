@@ -42,6 +42,7 @@ import 'ChineseCupertinoLocalizations.dart';
 import 'component/barcode/barcode_main_page.dart';
 import 'component/filter/select_color_filter_page.dart';
 import 'component/message/awesome_message_main_page.dart';
+import 'component/network/network_check_page.dart';
 import 'component/personal/user_info_page.dart';
 import 'component/route/launch_page.dart';
 import 'component/setting/setting_page.dart';
@@ -206,6 +207,7 @@ class MyApp extends StatelessWidget {
                     "/SimpleOverlayPage": (_) => SimpleOverlayPage(),
                     "/MainLoadingPage": (_) => MainLoadingPage(),
                     "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
+                    "/NetworkCheckPage": (_) => NetworkCheckPage(),
                     "/SettingPage": (_) => SettingPage(),
                     "/BarcodeMainPage": (_) => BarcodeMainPage(),
                     "/route/LaunchPage": (_) => LaunchPage(),
