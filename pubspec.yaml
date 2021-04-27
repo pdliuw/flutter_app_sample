@@ -82,6 +82,8 @@ dependencies:
   ai_sun: 1.0.0
   # network
   connectivity: 3.0.3
+  # video player
+  video_player: 2.1.1
 
 dev_dependencies:
   flutter_test:

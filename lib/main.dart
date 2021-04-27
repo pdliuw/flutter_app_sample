@@ -46,6 +46,7 @@ import 'component/network/network_check_page.dart';
 import 'component/personal/user_info_page.dart';
 import 'component/route/launch_page.dart';
 import 'component/setting/setting_page.dart';
+import 'component/video/video_player_page.dart';
 import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
 import 'sample/chart/chart_page.dart';
@@ -208,6 +209,7 @@ class MyApp extends StatelessWidget {
                     "/MainLoadingPage": (_) => MainLoadingPage(),
                     "/SelectColorFilterPage": (_) => SelectColorFilterPage(),
                     "/NetworkCheckPage": (_) => NetworkCheckPage(),
+                    "/VideoPlayerPage": (_) => VideoPlayerPage(),
                     "/SettingPage": (_) => SettingPage(),
                     "/BarcodeMainPage": (_) => BarcodeMainPage(),
                     "/route/LaunchPage": (_) => LaunchPage(),

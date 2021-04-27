@@ -128,6 +128,14 @@ class PersonalConfig {
       "title": "网络",
       "subtitle": "去检查网络",
     },
+    {
+      "routeName": "/VideoPlayerPage",
+      "avatar": <String, dynamic>{
+        "widget": Icon(Icons.video_call_rounded),
+      },
+      "title": "视频",
+      "subtitle": "去播放视频",
+    },
   ];
 
   ///
