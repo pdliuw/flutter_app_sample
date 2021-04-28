@@ -8,7 +8,11 @@ class MainModelConfig {
       "title": "Animation",
       "subtitle": "animation",
       "routeName": "/MainAnimSortPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -18,7 +22,11 @@ class MainModelConfig {
       "title": "Communication",
       "subtitle": "communication",
       "routeName": "/CardMainPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -28,7 +36,11 @@ class MainModelConfig {
       "title": "Drag list grid...",
       "subtitle": "drag list and grid view item",
       "routeName": "/DragListPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -38,7 +50,11 @@ class MainModelConfig {
       "title": "Tip message...",
       "subtitle": "awesome message is same to toast,snack",
       "routeName": "/FlushBarPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -48,7 +64,11 @@ class MainModelConfig {
       "title": "Chart: bar line pie...",
       "subtitle": "it is include of bar line pie chart",
       "routeName": "/ChartPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -58,7 +78,11 @@ class MainModelConfig {
       "title": "Picker",
       "subtitle": "picker time,address,list view",
       "routeName": "/MainPickerPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -68,7 +92,11 @@ class MainModelConfig {
       "title": "WebView",
       "subtitle": "web view is widget of load website",
       "routeName": "/FlutterWebPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -78,7 +106,11 @@ class MainModelConfig {
       "title": "3D Widget",
       "subtitle": "it is same to 3d wheel",
       "routeName": "/ListWheelScrollViewPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -88,7 +120,11 @@ class MainModelConfig {
       "title": "Curved Navigation Bar",
       "subtitle": "navigation bar",
       "routeName": "/CurvedNavigationBarPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -98,7 +134,11 @@ class MainModelConfig {
       "title": "Clip",
       "subtitle": "clip image,container,text,etc widget",
       "routeName": "/ClipMainPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -108,7 +148,11 @@ class MainModelConfig {
       "title": "Ink",
       "subtitle": "it is gesture detector with splash color",
       "routeName": "/InkPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -118,7 +162,11 @@ class MainModelConfig {
       "title": "RichText",
       "subtitle": "it is same to editor",
       "routeName": "/RichTextPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -128,7 +176,11 @@ class MainModelConfig {
       "title": "Progress",
       "subtitle": "multiple loading progress",
       "routeName": "/MainProgressPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -138,7 +190,11 @@ class MainModelConfig {
       "title": "Segment",
       "subtitle": "",
       "routeName": "/SegmentPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -148,7 +204,11 @@ class MainModelConfig {
       "title": "DropDown",
       "subtitle": "drop down to select",
       "routeName": "/DropDownPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -158,7 +218,11 @@ class MainModelConfig {
       "title": "Popup",
       "subtitle": "it is sample to alert",
       "routeName": "/MainPopupPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -168,7 +232,11 @@ class MainModelConfig {
       "title": "Wave",
       "subtitle": "",
       "routeName": "/MainWavePage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -178,7 +246,11 @@ class MainModelConfig {
       "title": "IconAnim",
       "subtitle": "icon with animation",
       "routeName": "/MainIconAnimPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -188,7 +260,11 @@ class MainModelConfig {
       "title": "Overlay",
       "subtitle": "",
       "routeName": "/MainOverlayPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
@@ -198,7 +274,11 @@ class MainModelConfig {
       "title": "Loading",
       "subtitle": "",
       "routeName": "/MainLoadingPage",
-      "link": <String, dynamic>{"github": "", "pub": "", "version": ""},
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
       "author": <String, dynamic>{
         "name": "pdliuw",
         "nickname": "air",
