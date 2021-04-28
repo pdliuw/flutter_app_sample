@@ -1,3 +1,4 @@
+import 'package:air_design/air_design.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -204,6 +205,10 @@ class _BumbleBeeRemoteVideo extends StatefulWidget {
 class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
   VideoPlayerController _controller;
 
+  ///
+  /// ScrollController
+  ScrollController _scrollController;
+
   Future<ClosedCaptionFile> _loadCaptions() async {
     final String fileContents = await DefaultAssetBundle.of(context)
         .loadString('assets/bumble_bee_captions.srt');
@@ -213,6 +218,7 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
   @override
   void initState() {
     super.initState();
+    _scrollController = ScrollController();
     _controller = VideoPlayerController.network(
       'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
       closedCaptionFile: _loadCaptions(),
@@ -229,34 +235,107 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
   @override
   void dispose() {
     _controller.dispose();
+    _scrollController.dispose();
     super.dispose();
+  }
+
+  ///
+  /// ScrollUp
+  /// ScrollView scroll up
+  void _scrollUp() {
+    _scrollController.position.animateTo(
+      _scrollController.position.pixels - 20,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.linear,
+    );
+  }
+
+  ///
+  /// ScrollDown
+  /// ScrollView scroll down
+  void _scrollDown() {
+    _scrollController.position.animateTo(
+      _scrollController.position.pixels + 20,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.linear,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          Container(padding: const EdgeInsets.only(top: 20.0)),
-          const Text('With remote mp4'),
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: <Widget>[
-                  VideoPlayer(_controller),
-                  ClosedCaption(text: _controller.value.caption.text),
-                  _ControlsOverlay(controller: _controller),
-                  VideoProgressIndicator(_controller, allowScrubbing: true),
-                ],
+    return Row(children: [
+      Expanded(
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: AppCardOutlinedStyleWidget.defaultStyle(
+            child: Container(
+              child: AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    VideoPlayer(
+                      _controller,
+                    ),
+                    ClosedCaption(text: _controller.value.caption.text),
+                    _ControlsOverlay(controller: _controller),
+                    VideoProgressIndicator(_controller, allowScrubbing: true),
+                  ],
+                ),
               ),
             ),
           ),
-        ],
+        ),
       ),
-    );
+      AppCardOutlinedStyleWidget.defaultStyle(
+        child: Column(
+          children: [
+            Flexible(
+              flex: 1,
+              child: AppCardOutlinedStyleWidget.defaultStyle(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.keyboard_arrow_down_outlined),
+                      onPressed: () {
+                        _scrollDown();
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.keyboard_arrow_up_outlined),
+                      onPressed: () {
+                        _scrollUp();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Flexible(
+                flex: 2,
+                child: AppCardOutlinedStyleWidget.defaultStyle(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            _controller?.play();
+                          },
+                          child: Text("play")),
+                      ElevatedButton(
+                          onPressed: () {
+                            _controller?.pause();
+                          },
+                          child: Text("pause")),
+                    ],
+                  ),
+                )),
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        ),
+      ),
+    ]);
   }
 }
 
