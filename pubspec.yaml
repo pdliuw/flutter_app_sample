@@ -31,15 +31,15 @@ dependencies:
   air_design: 2.0.0
 
   # http package
-  dio: ^3.0.8
+  dio: 4.0.0
   # state manager package
-  provider: ^5.0.0
+  provider: 5.0.0
   # Route package.
-  airoute: ^1.0.0
+  airoute: 1.0.0
   # Barcode package.
   ai_barcode: 2.1.0
   # url launch
-  url_launcher: ^6.0.2
+  url_launcher: 6.0.2
 
   # preferences
   shared_preferences: ^2.0.4
@@ -47,43 +47,45 @@ dependencies:
   # video
 #  video_player: ^0.10.5+2
   # snappable animation
-  snappable: ^1.0.1
+  snappable: 1.0.1
   # tip
-  ai_awesome_message: ^2.0.0
+  ai_awesome_message: 2.0.0
   # drawing
   drawing_animation: ^0.1.3
   # chart
   fl_chart: ^0.12.0
   # webView
-  webview_flutter: ^2.0.2
+  webview_flutter: 2.0.2
   # slidable
-  flutter_slidable: ^0.5.7
+  flutter_slidable: 0.5.7
   # navigation bar
-  curved_navigation_bar: ^0.3.2
+  curved_navigation_bar: 0.3.2
   # bottom navigation bar
-  convex_bottom_bar: ^2.2.1
+  convex_bottom_bar: 2.2.1
   # popup menu
-  popup_menu: ^1.0.5
+  popup_menu: 1.0.5
   # multiple style progress
-  ai_progress: ^1.0.0
+  ai_progress: 1.0.0
   # loading
-  loading: ^1.0.2
+  loading: 1.0.2
   # loading
-  flutter_easyloading: ^2.2.2
+  flutter_easyloading: 2.2.2
   # load status, loading:bool
-  ai_load_status: ^1.0.1
+  ai_load_status: 1.0.1
   # load svg
   flutter_svg: ^0.19.3
   # Flutter Permission.
-  permission_handler: ^5.1.0+2
+  permission_handler: 5.1.0+2
   # vector icon. preview web:https://git-touch.github.io/flutter-vector-icons/
-  flutter_vector_icons: ^1.0.0
+  flutter_vector_icons: 1.0.0
   # custom 
   ai_sun: 1.0.0
   # network
   connectivity: 3.0.3
   # video player
   video_player: 2.1.1
+  # image picker
+  image_picker: 0.7.4
 
 dev_dependencies:
   flutter_test:
