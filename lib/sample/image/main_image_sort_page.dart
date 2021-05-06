@@ -20,9 +20,7 @@ class _MainImageSortState extends State<MainImageSortPage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-
-          ],
+          children: <Widget>[],
         ),
       ),
     );

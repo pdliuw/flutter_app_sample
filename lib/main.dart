@@ -3,6 +3,7 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_sample/component/image/image_picker_page.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/login/tv_login_page.dart';
 import 'package:flutter_app_sample/component/main/main_page.dart';
@@ -218,6 +219,7 @@ class MyApp extends StatelessWidget {
                     "/message/AwesomeMessageMainPage": (_) =>
                         AwesomeMessageMainPage(),
                     "/paint/SunMainPage": (_) => SunMainPage(),
+                    "/image/ImagePickerPage": (_) => ImagePickerPage(),
                   },
                   builder: EasyLoading.init(
                     //loading

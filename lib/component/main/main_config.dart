@@ -347,6 +347,20 @@ class MainModelConfig {
         "name": "pdliuw",
         "nickname": "air",
       }
+    },
+    {
+      "title": "图片选择",
+      "subtitle": "选择本地图片并预览(支持：Android、iOS、web)",
+      "routeName": "/image/ImagePickerPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/ai_barcode",
+        "pub": "https://pub.dev/packages/ai_barcode",
+        "version": "https://img.shields.io/pub/v/ai_barcode.svg"
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
     }
   ];
 }
