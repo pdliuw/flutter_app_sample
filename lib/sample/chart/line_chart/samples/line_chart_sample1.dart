@@ -25,6 +25,7 @@ class LineChartSample1State extends State<LineChartSample1> {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
+            colors: [Color(0xff827daa), Color(0xff75729e)],
           ),
         ),
         child: Stack(

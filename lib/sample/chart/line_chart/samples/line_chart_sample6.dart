@@ -61,7 +61,10 @@ class LineChartSample6 extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           gradient: LinearGradient(
-              begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xff827daa), Color(0xff75729e)],
+          ),
         ),
         child: Padding(
           padding: EdgeInsets.only(right: 22.0, bottom: 20),
