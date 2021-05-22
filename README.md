@@ -22,8 +22,8 @@ Flutter app sample supports : " Android 、iOS 、Web 、MacOS"
 |[中文文档](https://github.com/pdliuw/flutter_app_sample/blob/master/README_CH.md)|[English document](https://github.com/pdliuw/flutter_app_sample/blob/master/README.md)|[HomePage](https://pdliuw.github.io/)|[SolutionToTheProblem document](https://github.com/pdliuw/flutter_app_sample/blob/master/README_Solution_To_The_Problem.md)
 |:-|:-|:-|:-|
 
-|[Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)|[android (apk)](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/apk/flutter_app_sample.apk?raw=true)|[web (website)](https://flutter-app-sample.github.io)|[macOS (dmg)](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/macos/flutter-app-sample.dmg?raw=true)
-|:-|:-|:-|:-|
+|[Click，go to the full sample](https://github.com/pdliuw/flutter_app_sample)|[android (apk)](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/apk/flutter_app_sample.apk?raw=true)|[web (website)](https://flutter-app-sample.github.io)|[macOS (dmg)](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/macos/flutter-app-sample.dmg?raw=true)|[windows (exe)](https://github.com/pdliuw/Flutter_Resource/blob/master/resource/flutter/windows/flutter_app_sample.zip?raw=true)|
+|:-|:-|:-|:-|:-|
 
 ----
 
