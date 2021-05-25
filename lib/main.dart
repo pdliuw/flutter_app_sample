@@ -3,6 +3,7 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_sample/component/builder/stream_builder_main_page.dart';
 import 'package:flutter_app_sample/component/image/image_picker_page.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/login/tv_login_page.dart';
@@ -41,6 +42,7 @@ import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
 import 'component/barcode/barcode_main_page.dart';
+import 'component/builder/stream_builder_async_request_page.dart';
 import 'component/filter/select_color_filter_page.dart';
 import 'component/message/awesome_message_main_page.dart';
 import 'component/network/network_check_page.dart';
@@ -220,6 +222,9 @@ class MyApp extends StatelessWidget {
                         AwesomeMessageMainPage(),
                     "/paint/SunMainPage": (_) => SunMainPage(),
                     "/image/ImagePickerPage": (_) => ImagePickerPage(),
+                    "/StreamBuilderMainPage": (_) => StreamBuilderMainPage(),
+                    "/StreamBuilderMainPage/StreamBuilderAsyncRequestPage":
+                        (_) => StreamBuilderAsyncRequestPage(),
                   },
                   builder: EasyLoading.init(
                     //loading

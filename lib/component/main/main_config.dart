@@ -5,6 +5,20 @@ class MainModelConfig {
   /// widget list
   static List<dynamic> widgetConfigList = [
     {
+      "title": "StreamBuilder",
+      "subtitle": "stream builder,",
+      "routeName": "/StreamBuilderMainPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
+    {
       "title": "Animation",
       "subtitle": "animation",
       "routeName": "/MainAnimSortPage",
