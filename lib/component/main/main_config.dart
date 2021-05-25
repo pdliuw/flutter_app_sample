@@ -19,6 +19,20 @@ class MainModelConfig {
       }
     },
     {
+      "title": "FutureBuilder",
+      "subtitle": "future builder,",
+      "routeName": "/FutureBuilderMainPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
+    {
       "title": "Animation",
       "subtitle": "animation",
       "routeName": "/MainAnimSortPage",

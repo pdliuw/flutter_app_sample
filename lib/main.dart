@@ -3,6 +3,8 @@ import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_sample/component/builder/future_builder_async_request_page.dart';
+import 'package:flutter_app_sample/component/builder/future_builder_main_page.dart';
 import 'package:flutter_app_sample/component/builder/stream_builder_main_page.dart';
 import 'package:flutter_app_sample/component/image/image_picker_page.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
@@ -225,6 +227,9 @@ class MyApp extends StatelessWidget {
                     "/StreamBuilderMainPage": (_) => StreamBuilderMainPage(),
                     "/StreamBuilderMainPage/StreamBuilderAsyncRequestPage":
                         (_) => StreamBuilderAsyncRequestPage(),
+                    "/FutureBuilderMainPage": (_) => FutureBuilderMainPage(),
+                    "/FutureBuilderMainPage/FutureBuilderAsyncRequestPage":
+                        (_) => FutureBuilderAsyncRequestPage(),
                   },
                   builder: EasyLoading.init(
                     //loading
