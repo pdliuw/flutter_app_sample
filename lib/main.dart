@@ -15,6 +15,7 @@ import 'package:flutter_app_sample/component/paint/sun_main_page.dart';
 import 'package:flutter_app_sample/component/route/second_page.dart';
 import 'package:flutter_app_sample/component/route/third_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
+import 'package:flutter_app_sample/component/state/inherited_widget_main_page.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
@@ -230,6 +231,8 @@ class MyApp extends StatelessWidget {
                     "/FutureBuilderMainPage": (_) => FutureBuilderMainPage(),
                     "/FutureBuilderMainPage/FutureBuilderAsyncRequestPage":
                         (_) => FutureBuilderAsyncRequestPage(),
+                    "/InheritedWidgetMainPage": (_) =>
+                        InheritedWidgetMainPage(),
                   },
                   builder: EasyLoading.init(
                     //loading

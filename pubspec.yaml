@@ -11,7 +11,7 @@ description: flutter app sample about the whole model of project.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 3.0.0+3000
+version: 3.1.0+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -37,7 +37,7 @@ dependencies:
   # Route package.
   airoute: 1.0.0
   # Barcode package.
-  ai_barcode: 2.1.0
+  ai_barcode: 3.0.1
   # url launch
   url_launcher: 6.0.2
 
@@ -51,9 +51,9 @@ dependencies:
   # tip
   ai_awesome_message: 2.0.0
   # drawing
-  drawing_animation: ^0.1.3
+  drawing_animation: ^0.1.5
   # chart
-  fl_chart: ^0.12.0
+  fl_chart: ^0.36.1
   # webView
   webview_flutter: 2.0.2
   # slidable
@@ -73,7 +73,7 @@ dependencies:
   # load status, loading:bool
   ai_load_status: 1.0.1
   # load svg
-  flutter_svg: ^0.19.3
+  flutter_svg: ^0.22.0
   # Flutter Permission.
   permission_handler: 5.1.0+2
   # vector icon. preview web:https://git-touch.github.io/flutter-vector-icons/
@@ -86,6 +86,12 @@ dependencies:
   video_player: 2.1.1
   # image picker
   image_picker: 0.7.4
+
+dependency_overrides:
+  xml: ^5.0.0
+  path_parsing: ^0.2.1
+  universal_html: ^2.0.7
+  image: ^3.0.2
 
 dev_dependencies:
   flutter_test:

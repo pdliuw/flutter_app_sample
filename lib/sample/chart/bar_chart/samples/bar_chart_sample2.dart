@@ -1,4 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class BarChartSample2 extends StatefulWidget {
@@ -106,8 +107,8 @@ class BarChartSample2State extends State<BarChartSample2> {
                                 response.spot.touchedBarGroupIndex;
 
                             setState(() {
-                              if (response.touchInput is FlLongPressEnd ||
-                                  response.touchInput is FlPanEnd) {
+                              if (response.touchInput is PointerExitEvent ||
+                                  response.touchInput is PointerUpEvent) {
                                 touchedGroupIndex = -1;
                                 showingBarGroups = List.of(rawBarGroups);
                               } else {

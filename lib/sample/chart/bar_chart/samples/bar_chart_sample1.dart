@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class BarChartSample1 extends StatefulWidget {
@@ -186,8 +187,8 @@ class BarChartSample1State extends State<BarChartSample1> {
         touchCallback: (barTouchResponse) {
           setState(() {
             if (barTouchResponse.spot != null &&
-                barTouchResponse.touchInput is! FlPanEnd &&
-                barTouchResponse.touchInput is! FlLongPressEnd) {
+                barTouchResponse.touchInput is PointerUpEvent &&
+                barTouchResponse.touchInput is PointerExitEvent) {
               touchedIndex = barTouchResponse.spot.touchedBarGroupIndex;
             } else {
               touchedIndex = -1;

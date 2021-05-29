@@ -36,7 +36,6 @@ class LineChartSample5 extends StatelessWidget {
         LineChartData(
           showingTooltipIndicators: showIndexes.map((index) {
             return ShowingTooltipIndicators(
-              index,
               [
                 LineBarSpot(tooltipsOnBar, lineBarsData.indexOf(tooltipsOnBar),
                     tooltipsOnBar.spots[index]),

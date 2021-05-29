@@ -5,8 +5,22 @@ class MainModelConfig {
   /// widget list
   static List<dynamic> widgetConfigList = [
     {
+      "title": "InheritedWidget & InheritedModel",
+      "subtitle": "InheritedWidget & InheritedModel",
+      "routeName": "/InheritedWidgetMainPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
+    {
       "title": "StreamBuilder",
-      "subtitle": "stream builder,",
+      "subtitle": "stream builder",
       "routeName": "/StreamBuilderMainPage",
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
@@ -20,7 +34,7 @@ class MainModelConfig {
     },
     {
       "title": "FutureBuilder",
-      "subtitle": "future builder,",
+      "subtitle": "future builder",
       "routeName": "/FutureBuilderMainPage",
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
