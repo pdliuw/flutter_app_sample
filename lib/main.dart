@@ -16,6 +16,7 @@ import 'package:flutter_app_sample/component/route/second_page.dart';
 import 'package:flutter_app_sample/component/route/third_page.dart';
 import 'package:flutter_app_sample/component/shop/ShoppingList.dart';
 import 'package:flutter_app_sample/component/state/inherited_widget_main_page.dart';
+import 'package:flutter_app_sample/component/tab/tab_main_page.dart';
 import 'package:flutter_app_sample/component/test/TestPage.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
 import 'package:flutter_app_sample/sample/CollapsingToolbarPage.dart';
@@ -52,6 +53,7 @@ import 'component/network/network_check_page.dart';
 import 'component/personal/user_info_page.dart';
 import 'component/route/launch_page.dart';
 import 'component/setting/setting_page.dart';
+import 'component/tab/navigation_rail_page.dart';
 import 'component/video/video_player_page.dart';
 import 'sample/anim/icon/main_icon_anim_page.dart';
 import 'sample/anim/snappable_page.dart';
@@ -233,6 +235,9 @@ class MyApp extends StatelessWidget {
                         (_) => FutureBuilderAsyncRequestPage(),
                     "/InheritedWidgetMainPage": (_) =>
                         InheritedWidgetMainPage(),
+                    "/TabMainPage": (_) => TabMainPage(),
+                    "/TabMainPage/NavigationRailPage": (_) =>
+                        NavigationRailPage(),
                   },
                   builder: EasyLoading.init(
                     //loading

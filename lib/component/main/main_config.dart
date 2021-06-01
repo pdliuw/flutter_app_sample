@@ -5,6 +5,20 @@ class MainModelConfig {
   /// widget list
   static List<dynamic> widgetConfigList = [
     {
+      "title": "Tab & Navigation",
+      "subtitle": "Tab & Navigation",
+      "routeName": "/TabMainPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
+    {
       "title": "InheritedWidget & InheritedModel",
       "subtitle": "InheritedWidget & InheritedModel",
       "routeName": "/InheritedWidgetMainPage",
