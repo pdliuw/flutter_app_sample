@@ -68,7 +68,7 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
             },
             labelType: _extended
                 ? NavigationRailLabelType.none
-                : NavigationRailLabelType.selected,
+                : NavigationRailLabelType.all,
             extended: _extended,
           ),
           const VerticalDivider(thickness: 1, width: 1),
@@ -76,7 +76,9 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _list[_selectedIndex]['selectedIcon'],
+                Container(
+                  child: _list[_selectedIndex]['selectedIcon'],
+                ),
                 Text("selectedIndex:$_selectedIndex"),
               ],
             ),
