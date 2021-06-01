@@ -17,6 +17,10 @@ class _TabMainPageState extends State<TabMainPage> {
       "name": "NavigationRail widget",
       "routeName": "/TabMainPage/NavigationRailPage",
     },
+    {
+      "name": "Navigation Drawer widget",
+      "routeName": "/TabMainPage/NavigationDrawerPage",
+    },
   ];
   @override
   Widget build(BuildContext context) {
