@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app_sample/component/builder/future_builder_async_request_page.dart';
 import 'package:flutter_app_sample/component/builder/future_builder_main_page.dart';
 import 'package:flutter_app_sample/component/builder/stream_builder_main_page.dart';
+import 'package:flutter_app_sample/component/fit/fitted_box_page.dart';
 import 'package:flutter_app_sample/component/image/image_picker_page.dart';
 import 'package:flutter_app_sample/component/login/login_page.dart';
 import 'package:flutter_app_sample/component/login/tv_login_page.dart';
@@ -112,14 +113,17 @@ class MyApp extends StatelessWidget {
                   ),
                   themeMode: value.themeMode,
                   theme: ThemeData.light().copyWith(
-                    primaryColor: Colors
-                        .blue, //primary color,button enable color,check color
+                    primaryColor: Colors.blue,
+                    //primary color,button enable color,check color
                     primaryColorDark: Colors.blue,
-                    accentColor: Colors.blueAccent, //select color
-                    unselectedWidgetColor:
-                        Colors.grey, //unchecked color,unselected color
-                    splashColor: Colors.blueAccent[100], //splash color
-                    errorColor: Colors.red, //error color
+                    accentColor: Colors.blueAccent,
+                    //select color
+                    unselectedWidgetColor: Colors.grey,
+                    //unchecked color,unselected color
+                    splashColor: Colors.blueAccent[100],
+                    //splash color
+                    errorColor: Colors.red,
+                    //error color
                     indicatorColor: Colors.orange,
                     textTheme: Theme.of(context).textTheme.copyWith(
                           headline1: TextStyle(),
@@ -134,14 +138,17 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                   darkTheme: ThemeData.dark().copyWith(
-                    primaryColor: Colors.grey[
-                        900], //primary color,button enable color,check color
+                    primaryColor: Colors.grey[900],
+                    //primary color,button enable color,check color
                     primaryColorDark: Colors.black,
-                    accentColor: Colors.tealAccent[200], //select color
-                    unselectedWidgetColor:
-                        Colors.grey, //unchecked color,unselected color
-                    splashColor: Colors.black26, //splash color
-                    errorColor: Colors.red, //error color
+                    accentColor: Colors.tealAccent[200],
+                    //select color
+                    unselectedWidgetColor: Colors.grey,
+                    //unchecked color,unselected color
+                    splashColor: Colors.black26,
+                    //splash color
+                    errorColor: Colors.red,
+                    //error color
                     indicatorColor: Colors.orange,
                     textTheme: Theme.of(context).textTheme.copyWith(
                           headline1: TextStyle(),
@@ -241,6 +248,7 @@ class MyApp extends StatelessWidget {
                         NavigationRailPage(),
                     "/TabMainPage/NavigationDrawerPage": (_) =>
                         NavigationDrawerPage(),
+                    "/FittedBoxPage": (_) => FittedBoxPage()
                   },
                   builder: EasyLoading.init(
                     //loading

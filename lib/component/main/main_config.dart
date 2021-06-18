@@ -5,6 +5,20 @@ class MainModelConfig {
   /// widget list
   static List<dynamic> widgetConfigList = [
     {
+      "title": "FittedBox",
+      "subtitle": "FittedBox",
+      "routeName": "/FittedBoxPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/flutter_app_sample",
+        "pub": "",
+        "version": ""
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
+    {
       "title": "Tab & Navigation",
       "subtitle": "Tab & Navigation",
       "routeName": "/TabMainPage",
