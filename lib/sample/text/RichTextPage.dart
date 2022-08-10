@@ -36,6 +36,7 @@ class _RichTextState extends State<RichTextPage> {
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
+                      colors: [],
                     ),
                   ),
                   child: Text.rich(
@@ -43,8 +44,7 @@ class _RichTextState extends State<RichTextPage> {
                       text: "Hello richText",
                       style: _getTextStyleDefaulted(),
                       children: <InlineSpan>[
-                        TextSpan(
-                            text: "bold text", style: _getTextStyleDefaulted()),
+                        TextSpan(text: "bold text", style: _getTextStyleDefaulted()),
                         WidgetSpan(child: Icon(Icons.print)),
                       ],
                     ),

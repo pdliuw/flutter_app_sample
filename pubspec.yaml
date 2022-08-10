@@ -14,7 +14,7 @@ description: flutter app sample about the whole model of project.
 version: 3.1.1+2
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.17.1 <3.0.0"
 
 dependencies:
   flutter:
@@ -28,70 +28,76 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  air_design: 2.0.0
+  air_design: 3.0.0
 
   # http package
   dio: 4.0.0
   # state manager package
-  provider: 5.0.0
+  provider: 6.0.3
   # Route package.
-  airoute: 1.0.0
+  airoute: 3.0.0
   # Barcode package.
-  ai_barcode: 3.0.1
+  ai_barcode: 3.2.4
   # url launch
-  url_launcher: 6.0.2
+  url_launcher: 6.1.5
 
   # preferences
-  shared_preferences: ^2.0.4
+  shared_preferences: 2.0.15
 
   # video
 #  video_player: ^0.10.5+2
   # snappable animation
-  snappable: 1.0.1
+#  snappable: 1.0.1
   # tip
-  ai_awesome_message: 2.0.0
+  ai_awesome_message: 3.0.0
   # drawing
-  drawing_animation: ^0.1.5
+  drawing_animation:
+    git:
+      url: https://github.com/air-design-flutter/drawing_animation.git
+      ref: 93077925f1091f6dce8dd60ea6c68cce761a4ff7
+
   # chart
-  fl_chart: ^0.36.1
+  fl_chart: ^0.55.1
   # webView
-  webview_flutter: 2.0.2
+  webview_flutter: 3.0.4
   # slidable
-  flutter_slidable: 0.5.7
+  flutter_slidable: 2.0.0
   # navigation bar
-  curved_navigation_bar: 0.3.2
+  curved_navigation_bar: 1.0.3
   # bottom navigation bar
-  convex_bottom_bar: 2.2.1
+  convex_bottom_bar: 3.0.0
   # popup menu
-  popup_menu: 1.0.5
+#  popup_menu: 1.0.5
   # multiple style progress
-  ai_progress: 1.0.0
+  ai_progress: 2.0.0
   # loading
-  loading: 1.0.2
+#  loading: 1.0.2
   # loading
-  flutter_easyloading: 2.2.2
+  flutter_easyloading: 3.0.5
   # load status, loading:bool
   ai_load_status: 1.0.1
   # load svg
-  flutter_svg: ^0.22.0
+  flutter_svg: 1.1.3
   # Flutter Permission.
-  permission_handler: 5.1.0+2
+  permission_handler: 10.0.0
   # vector icon. preview web:https://git-touch.github.io/flutter-vector-icons/
   flutter_vector_icons: 1.0.0
   # custom 
-  ai_sun: 1.0.0
+#  ai_sun: 1.0.0
   # network
-  connectivity: 3.0.3
+  connectivity_plus: 2.3.6
   # video player
-  video_player: 2.1.1
+  video_player: 2.4.6
   # image picker
-  image_picker: 0.7.4
+  image_picker: 0.8.5+3
 
 dependency_overrides:
-  xml: ^5.0.0
-  path_parsing: ^0.2.1
-  universal_html: ^2.0.7
-  image: ^3.0.2
+  xml: 5.1.2
+  path_drawing: 1.0.1
+  path_parsing: 0.2.1
+#  universal_html: 2.0.7
+#  image: 2.1.4
+
 
 dev_dependencies:
   flutter_test:

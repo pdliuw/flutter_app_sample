@@ -43,9 +43,9 @@ class _SegmentState extends State<SegmentPage> {
           ),
           CupertinoSlidingSegmentedControl<int>(
             children: _segmentChildren,
-            onValueChanged: (int newValue) {
+            onValueChanged: (int? newValue) {
               setState(() {
-                _currentValue = newValue;
+                _currentValue = newValue!;
               });
             },
             padding: EdgeInsets.all(15),

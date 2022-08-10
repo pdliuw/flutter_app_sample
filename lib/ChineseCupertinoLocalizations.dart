@@ -10,7 +10,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   final widgetsDelegate = GlobalWidgetsLocalizations.delegate;
   final local = const Locale('zh');
 
-  MaterialLocalizations ml;
+  late MaterialLocalizations ml;
 
   Future init() async {
     ml = await materialDelegate.load(local);
@@ -33,8 +33,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   DatePickerDateOrder get datePickerDateOrder => DatePickerDateOrder.ymd;
 
   @override
-  DatePickerDateTimeOrder get datePickerDateTimeOrder =>
-      DatePickerDateTimeOrder.date_time_dayPeriod;
+  DatePickerDateTimeOrder get datePickerDateTimeOrder => DatePickerDateTimeOrder.date_time_dayPeriod;
 
   @override
   String datePickerDayOfMonth(int dayIndex) {
@@ -115,8 +114,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
     return "秒";
   }
 
-  static const LocalizationsDelegate<CupertinoLocalizations> delegate =
-      _ChineseDelegate();
+  static const LocalizationsDelegate<CupertinoLocalizations> delegate = _ChineseDelegate();
 
   static Future<CupertinoLocalizations> load(Locale locale) async {
     var localizaltions = ChineseCupertinoLocalizations();
@@ -131,7 +129,7 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   String get modalBarrierDismissLabel => "取消";
 
   @override
-  String tabSemanticsLabel({int tabIndex, int tabCount}) {
+  String tabSemanticsLabel({required int tabIndex, required int tabCount}) {
     return "$tabIndex/$tabCount";
   }
 

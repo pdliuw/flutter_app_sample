@@ -73,8 +73,8 @@ class FlushBarToolPage extends StatefulWidget {
 ///
 /// _FlushBarToolState
 class _FlushBarToolState extends State<FlushBarToolPage> {
-  String _tipTitle;
-  String _tipMessage;
+  String? _tipTitle;
+  String? _tipMessage;
   bool _tipIconPulse = true;
   bool _tipIconShow = true;
   bool _tipIndicatorShow = true;
@@ -85,24 +85,9 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
 
   List<bool> _toggleSelected = [true, false, false, false];
   List<String> _toggleLabels = ["info", "warn", "error", "complete"];
-  List<Color> _tipStyleColors = [
-    Colors.blue[100],
-    Colors.orange[100],
-    Colors.red[100],
-    Colors.green[200]
-  ];
-  List<Color> _tipIndicatorColors = [
-    Colors.blue[300],
-    Colors.orange[300],
-    Colors.red[300],
-    Colors.blue[300]
-  ];
-  List<Color> _tipIconColors = [
-    Colors.blue[500],
-    Colors.orange[500],
-    Colors.red[500],
-    Colors.blue[500]
-  ];
+  List<Color?> _tipStyleColors = [Colors.blue[100], Colors.orange[100], Colors.red[100], Colors.green[200]];
+  List<Color?> _tipIndicatorColors = [Colors.blue[300], Colors.orange[300], Colors.red[300], Colors.blue[300]];
+  List<Color?> _tipIconColors = [Colors.blue[500], Colors.orange[500], Colors.red[500], Colors.blue[500]];
 
   List<IconData> _tipIconDatas = [
     Icons.info_outline,
@@ -110,17 +95,14 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
     Icons.cancel,
     Icons.check_circle,
   ];
-  Color _tipStyleBackgroundColor = Colors.blue[100];
-  Color _tipStyleBorderColor = Colors.blue[100];
-  Color _tipIndicatorColor = Colors.blue[300];
-  Color _tipIconColor = Colors.blue[500];
+  Color? _tipStyleBackgroundColor = Colors.blue[100];
+  Color? _tipStyleBorderColor = Colors.blue[100];
+  Color? _tipIndicatorColor = Colors.blue[300];
+  Color? _tipIconColor = Colors.blue[500];
   IconData _tipIconData = Icons.info_outline;
 
   List<bool> _tipStyleSelected = [true, false];
-  List<AwesomeMessageStyle> _tipStyleValues = [
-    AwesomeMessageStyle.GROUNDED,
-    AwesomeMessageStyle.FLOATING
-  ];
+  List<AwesomeMessageStyle> _tipStyleValues = [AwesomeMessageStyle.GROUNDED, AwesomeMessageStyle.FLOATING];
   AwesomeMessageStyle _tipStyleValue = AwesomeMessageStyle.GROUNDED;
 
   Widget _getAwesomeMessage() {
@@ -146,17 +128,14 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
               color: _tipIconColor,
             )
           : null,
-      duration: Duration(
-          seconds: (_tipSecondDuration <= 0 || _tipSecondDuration >= 11)
-              ? 1
-              : _tipSecondDuration),
+      duration: Duration(seconds: (_tipSecondDuration <= 0 || _tipSecondDuration >= 11) ? 1 : _tipSecondDuration),
       borderRadius: _tipBorderRadius,
       margin: EdgeInsets.all(_tipMargin),
       awesomeMessagePosition: AwesomeMessagePosition.TOP,
       shouldIconPulse: _tipIconPulse,
       showProgressIndicator: _tipShowProgress,
       awesomeMessageStyle: _tipStyleValue,
-      backgroundColor: _tipStyleBackgroundColor,
+      backgroundColor: _tipStyleBackgroundColor!,
       borderColor: _tipStyleBorderColor,
       progressIndicatorBackgroundColor: _tipIndicatorColor,
       leftBarIndicatorColor: _tipIndicatorShow ? _tipIndicatorColor : null,
@@ -223,13 +202,9 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
                               ToggleButtons(
                                 isSelected: _tipStyleSelected,
                                 onPressed: (int index) {
-                                  for (int i = 0,
-                                          size = _tipStyleSelected.length;
-                                      i < size;
-                                      i++) {
+                                  for (int i = 0, size = _tipStyleSelected.length; i < size; i++) {
                                     if (i == index) {
-                                      _tipStyleSelected[i] =
-                                          !_tipStyleSelected[index];
+                                      _tipStyleSelected[i] = !_tipStyleSelected[index];
                                       _tipStyleValue = _tipStyleValues[index];
                                     } else {
                                       _tipStyleSelected[i] = false;
@@ -419,8 +394,7 @@ class _FlushBarToolState extends State<FlushBarToolPage> {
           Widget awesomeMessageWidget = _getAwesomeMessage();
           if (awesomeMessageWidget is AwesomeMessage) {
             Airoute.push(
-              route: AwesomeMessageRoute(
-                  theme: null, awesomeMessage: awesomeMessageWidget),
+              route: AwesomeMessageRoute(theme: null, awesomeMessage: awesomeMessageWidget),
             );
           }
         },
@@ -540,19 +514,19 @@ class _FlushBarStyleState extends State<FlushBarStylePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.info_outline),
-            title: Text("Info"),
+            label: "Info",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.error_outline),
-            title: Text("Warn"),
+            label: "Warn",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.cancel),
-            title: Text("Error"),
+            label: "Error",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
-            title: Text("Done"),
+            label: "Done",
           ),
         ],
       ),

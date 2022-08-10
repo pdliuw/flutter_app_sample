@@ -15,13 +15,12 @@ class AnimatedBuilderPage extends StatefulWidget {
 
 ///
 /// _AnimatedBuilderState
-class _AnimatedBuilderState extends State<AnimatedBuilderPage>
-    with SingleTickerProviderStateMixin {
+class _AnimatedBuilderState extends State<AnimatedBuilderPage> with SingleTickerProviderStateMixin {
   String _titleName = "AnimatedBuilderPage";
 
   bool _selected = false;
 
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -49,22 +48,19 @@ class _AnimatedBuilderState extends State<AnimatedBuilderPage>
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(10),
-              child: Text(
-                  "使用AnimatedBuilder为widget装饰动画效果，这是相对AnimatedContainer更强大的扩展哦"),
+              child: Text("使用AnimatedBuilder为widget装饰动画效果，这是相对AnimatedContainer更强大的扩展哦"),
             ),
             Center(
               child: AnimatedBuilder(
                 animation: _controller,
-                child:
-                    Container(width: 200.0, height: 200.0, color: Colors.green),
-                builder: (BuildContext context, Widget child) {
+                child: Container(width: 200.0, height: 200.0, color: Colors.green),
+                builder: (BuildContext context, Widget? child) {
                   return Transform.rotate(
                     angle: _controller.value * 2.0 * math.pi,
                     child: Container(
                       width: 200.0,
                       height: 200.0,
-                      color: ColorTween(begin: Colors.red, end: Colors.blue)
-                          .transform(_controller.value),
+                      color: ColorTween(begin: Colors.red, end: Colors.blue).transform(_controller.value),
                     ),
                   );
                 },
@@ -95,11 +91,9 @@ class _AnimatedBuilderState extends State<AnimatedBuilderPage>
               animation: _controller,
               child: Text(
                 "AnimatedBuilder-Color",
-                style: TextStyle(
-                    color: ColorTween(begin: Colors.red, end: Colors.blue)
-                        .transform(_controller.value)),
+                style: TextStyle(color: ColorTween(begin: Colors.red, end: Colors.blue).transform(_controller.value)),
               ),
-              builder: (BuildContext context, Widget widget) {
+              builder: (BuildContext context, Widget? widget) {
                 ///
                 /// 此函数参数widget是AnimatedBuilder的child
                 /// return 返回的widget会替代AnimatedBuilder的child
@@ -109,14 +103,11 @@ class _AnimatedBuilderState extends State<AnimatedBuilderPage>
                     Container(
                       width: 200,
                       height: 200,
-                      color: ColorTween(begin: Colors.red, end: Colors.blue)
-                          .transform(_controller.value),
+                      color: ColorTween(begin: Colors.red, end: Colors.blue).transform(_controller.value),
                     ),
                     Text(
                       "AnimatedBuilder-Color , value = ${(_controller.value * 10).toInt() / 10}",
-                      style: TextStyle(
-                          color: ColorTween(begin: Colors.red, end: Colors.blue)
-                              .transform(_controller.value)),
+                      style: TextStyle(color: ColorTween(begin: Colors.red, end: Colors.blue).transform(_controller.value)),
                     )
                   ],
                 );

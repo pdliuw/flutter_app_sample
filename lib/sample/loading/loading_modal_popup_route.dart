@@ -7,25 +7,25 @@ class LoadingModalPopupRoute<T> extends PopupRoute<T> {
   LoadingModalPopupRoute({
     this.barrierColor,
     this.barrierLabel,
-    this.builder,
-    bool semanticsDismissible,
-    ImageFilter filter,
-    RouteSettings settings,
+    required this.builder,
+    bool? semanticsDismissible,
+    ImageFilter? filter,
+    RouteSettings? settings,
   }) : super(
           filter: filter,
           settings: settings,
         ) {
-    _semanticsDismissible = semanticsDismissible;
+    _semanticsDismissible = semanticsDismissible ?? false;
   }
 
   final WidgetBuilder builder;
-  bool _semanticsDismissible;
+  late bool _semanticsDismissible;
 
   @override
-  final String barrierLabel;
+  final String? barrierLabel;
 
   @override
-  final Color barrierColor;
+  final Color? barrierColor;
 
   @override
   bool get barrierDismissible => true;
@@ -36,9 +36,9 @@ class LoadingModalPopupRoute<T> extends PopupRoute<T> {
   @override
   Duration get transitionDuration => Duration(milliseconds: 300);
 
-  Animation<double> _animation;
+  late Animation<double> _animation;
 
-  Tween<Offset> _offsetTween;
+  late Tween<Offset> _offsetTween;
 
   @override
   Animation<double> createAnimation() {
@@ -59,8 +59,7 @@ class LoadingModalPopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return CupertinoUserInterfaceLevel(
       data: CupertinoUserInterfaceLevelData.elevated,
       child: Builder(builder: builder),
@@ -68,8 +67,7 @@ class LoadingModalPopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     return Align(
       alignment: Alignment.center,
       child: FractionalTranslation(

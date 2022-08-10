@@ -27,7 +27,7 @@ class _SettingPageState extends State<SettingPage> {
           AppCardOutlinedStyleWidget.defaultStyle(
             onTap: () {
               setState(() {
-                TipHelper.showTip(context: null, message: "努力开发中...");
+                TipHelper.showTip(context: context, message: "努力开发中...");
               });
             },
             child: ListTile(
@@ -70,8 +70,7 @@ class _SettingPageState extends State<SettingPage> {
                         ),
                         CupertinoDialogAction(
                           onPressed: () {
-                            Airoute.pushNamedAndRemoveUntil(
-                                newRouteName: "/LoginPage");
+                            Airoute.pushNamedAndRemoveUntil(newRouteName: "/LoginPage");
                           },
                           child: Text("确定"),
                         ),

@@ -90,9 +90,7 @@ class _SimpleOverlayState extends State<SimpleOverlayPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
 //          Airoute.push(route: SimpleOverlayRoute());
-          Airoute.push(
-              route: LoadingOverlayRoute(
-                  progressValue: (_segmentValue * 10 / 100).toDouble()));
+          Airoute.push(route: LoadingOverlayRoute(progressValue: (_segmentValue * 10 / 100).toDouble()));
         },
         child: Icon(Icons.slideshow),
       ),
@@ -180,13 +178,12 @@ class SimpleOverlayRoute extends OverlayRoute {
 }
 
 class SimpleOverlay extends Overlay {
-  SimpleOverlay({Key key, List<OverlayEntry> initialEntries})
-      : super(key: key, initialEntries: initialEntries);
+  SimpleOverlay({Key? key, required List<OverlayEntry> initialEntries}) : super(key: key, initialEntries: initialEntries);
 }
 
 class LoadingOverlayRoute extends OverlayRoute {
-  double _progressValue;
-  LoadingOverlayRoute({double progressValue}) {
+  late double _progressValue;
+  LoadingOverlayRoute({required double progressValue}) {
     _progressValue = progressValue;
   }
   @override
@@ -214,7 +211,9 @@ class LoadingOverlayRoute extends OverlayRoute {
   }
 }
 
-class _SimpleOverlayEntry extends OverlayEntry {}
+class _SimpleOverlayEntry extends OverlayEntry {
+  _SimpleOverlayEntry({required super.builder});
+}
 //class SimpleOverlay extends PageRoute {
 //  @override
 //  Color get barrierColor => Colors.white;

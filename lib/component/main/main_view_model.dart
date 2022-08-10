@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// MainViewModel
 class MainViewModel extends ChangeNotifier {
-  static MainViewModel _instance;
+  static MainViewModel? _instance;
 
   MainViewModel._();
 
@@ -10,9 +10,10 @@ class MainViewModel extends ChangeNotifier {
     if (_instance == null) {
       _instance = MainViewModel._();
     }
-    return _instance;
+    return _instance!;
   }
-  void notify(){
+
+  void notify() {
     notifyListeners();
   }
 

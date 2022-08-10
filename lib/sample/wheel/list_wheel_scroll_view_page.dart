@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../common/helper/tip_helper.dart';
+import 'package:flutter/material.dart';
 
 ///
 /// ListWheelScrollViewPage
@@ -20,7 +18,7 @@ class _ListWheelScrollViewState extends State<ListWheelScrollViewPage> {
 
   double _sliderValue = slideMaxValue - slideMinValue;
   double _offAxisFraction = 0;
-  List<Color> _colors = [
+  List<Color?> _colors = [
     Colors.red[200],
     Colors.lightBlueAccent[200],
     Colors.red[100],

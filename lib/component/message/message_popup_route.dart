@@ -17,10 +17,10 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   MessagePopupRoute({
     this.barrierColor = const Color(0x33000000),
     this.barrierLabel,
-    this.builder,
-    bool semanticsDismissible,
-    ImageFilter filter,
-    RouteSettings settings,
+    required this.builder,
+    bool? semanticsDismissible,
+    ImageFilter? filter,
+    RouteSettings? settings,
   }) : super(
           filter: filter,
           settings: settings,
@@ -29,10 +29,10 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   }
 
   final WidgetBuilder builder;
-  bool _semanticsDismissible;
+  bool? _semanticsDismissible;
 
   @override
-  final String barrierLabel;
+  final String? barrierLabel;
 
   @override
   final Color barrierColor;
@@ -46,9 +46,9 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   @override
   Duration get transitionDuration => _kModalPopupTransitionDuration;
 
-  Animation<double> _animation;
+  late Animation<double> _animation;
 
-  Tween<Offset> _offsetTween;
+  late Tween<Offset> _offsetTween;
 
   @override
   Animation<double> createAnimation() {
@@ -69,8 +69,7 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return Container(
       margin: EdgeInsets.only(
         left: 10,
@@ -100,8 +99,7 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     return Align(
       alignment: Alignment.topCenter,
       child: FractionalTranslation(

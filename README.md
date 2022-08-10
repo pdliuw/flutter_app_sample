@@ -14,6 +14,11 @@ top: true
 
 ![totem](https://github.com/pdliuw/pdliuw.github.io/blob/master/images/totem_four_logo.jpg?raw=true)
 
+Develop environment:
+
+| Name | Version |
+|-------|--------|
+flutter| v3.0.0 |
 
 
 Flutter app sample supports : " Android 、iOS 、Web 、MacOS"

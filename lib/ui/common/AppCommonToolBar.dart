@@ -3,28 +3,27 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class AppCommonToolBar extends AppBar {
   AppCommonToolBar({
-    Key key,
-    Widget leading,
+    Key? key,
+    Widget? leading,
     bool automaticallyImplyLeading = true,
-    Widget title,
-    List<Widget> actions,
-    Widget flexibleSpace,
-    PreferredSizeWidget bottom,
-    double elevation,
-    ShapeBorder shape,
-    Color backgroundColor,
-    Brightness brightness,
-    IconThemeData iconTheme,
-    IconThemeData actionsIconTheme,
-    TextTheme textTheme,
+    Widget? title,
+    List<Widget>? actions,
+    Widget? flexibleSpace,
+    PreferredSizeWidget? bottom,
+    double? elevation,
+    ShapeBorder? shape,
+    Color? backgroundColor,
+    Brightness? brightness,
+    IconThemeData? iconTheme,
+    IconThemeData? actionsIconTheme,
+    TextTheme? textTheme,
     bool primary = true,
-    bool centerTitle,
+    bool? centerTitle,
     double titleSpacing = NavigationToolbar.kMiddleSpacing,
     double toolbarOpacity = 1.0,
     double bottomOpacity = 1.0,
   }) {
-
-    if(leading == null){
+    if (leading == null) {
       leading = GestureDetector(
         onTap: () {},
         child: Tooltip(
@@ -58,5 +57,4 @@ class AppCommonToolBar extends AppBar {
       bottomOpacity: bottomOpacity,
     );
   }
-
 }

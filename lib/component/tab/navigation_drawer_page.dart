@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 ///
 /// NavigationDrawerPage
 class NavigationDrawerPage extends StatefulWidget {
-  const NavigationDrawerPage({Key key}) : super(key: key);
+  const NavigationDrawerPage({Key? key}) : super(key: key);
 
   @override
   _NavigationDrawerPageState createState() => _NavigationDrawerPageState();

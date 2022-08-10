@@ -12,22 +12,20 @@ class AppRawKeyboardListenerWidget extends StatefulWidget {
   final Widget child;
   final VoidCallback onTelevisionTap;
   final VoidCallback onTap;
-  final ValueChanged<RawKeyEvent> onKey;
+  final ValueChanged<RawKeyEvent>? onKey;
   AppRawKeyboardListenerWidget.defaultStyle({
-    @required this.focusList,
-    @required this.focusIndex,
-    @required this.child,
-    @required this.onTelevisionTap,
-    @required this.onTap,
+    required this.focusList,
+    required this.focusIndex,
+    required this.child,
+    required this.onTelevisionTap,
+    required this.onTap,
     this.onKey,
   }) {}
   @override
-  _AppRawKeyboardListenerWidgetState createState() =>
-      _AppRawKeyboardListenerWidgetState();
+  _AppRawKeyboardListenerWidgetState createState() => _AppRawKeyboardListenerWidgetState();
 }
 
-class _AppRawKeyboardListenerWidgetState
-    extends State<AppRawKeyboardListenerWidget> {
+class _AppRawKeyboardListenerWidgetState extends State<AppRawKeyboardListenerWidget> {
   @override
   Widget build(BuildContext context) {
     return RawKeyboardListener(
@@ -43,7 +41,7 @@ class _AppRawKeyboardListenerWidgetState
         }
         if (event is RawKeyDownEvent && event.data is RawKeyEventDataAndroid) {
           RawKeyDownEvent rawKeyDownEvent = event;
-          RawKeyEventDataAndroid rawKeyEventDataAndroid = rawKeyDownEvent.data;
+          RawKeyEventDataAndroid rawKeyEventDataAndroid = rawKeyDownEvent.data as RawKeyEventDataAndroid;
           print("tv launcher sample ${rawKeyEventDataAndroid.keyCode}");
           switch (rawKeyEventDataAndroid.keyCode) {
             case KEY_CENTER:
@@ -54,15 +52,13 @@ class _AppRawKeyboardListenerWidgetState
             case KEY_UP:
               if (widget.focusIndex == 0) {
               } else {
-                FocusScope.of(context)
-                    .requestFocus(widget.focusList[widget.focusIndex - 1]);
+                FocusScope.of(context).requestFocus(widget.focusList[widget.focusIndex - 1]);
               }
               break;
             case KEY_DOWN:
               if (widget.focusIndex == (widget.focusList.length - 1)) {
               } else {
-                FocusScope.of(context)
-                    .requestFocus(widget.focusList[widget.focusIndex + 1]);
+                FocusScope.of(context).requestFocus(widget.focusList[widget.focusIndex + 1]);
               }
               break;
             default:
@@ -70,7 +66,7 @@ class _AppRawKeyboardListenerWidgetState
           }
           //callback
           if (widget.onKey != null) {
-            widget.onKey(event);
+            widget.onKey!(event);
           }
         }
       },

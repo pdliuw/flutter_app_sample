@@ -95,9 +95,7 @@ class _SelectColorFilterPageState extends State<SelectColorFilterPage> {
               children: [
                 ColorFiltered(
                   colorFilter: ColorFilter.mode(
-                    _colorFilterList
-                        .where((element) => element['checked'])
-                        .first['value'],
+                    _colorFilterList.where((element) => element['checked']).first['value'],
                     BlendMode.color,
                   ),
                   child: Image.asset(
@@ -108,7 +106,7 @@ class _SelectColorFilterPageState extends State<SelectColorFilterPage> {
               ],
             ),
           ),
-          AppTextHeadline6Widget.defaultStyle("滤镜效果预览"),
+          AppTextHeadline6Widget.defaultStyle(data: "滤镜效果预览"),
           GridView.count(
             crossAxisCount: 5,
             shrinkWrap: true,
@@ -117,9 +115,7 @@ class _SelectColorFilterPageState extends State<SelectColorFilterPage> {
                 AppCardOutlinedStyleWidget.defaultStyle(
                   onTap: () {
                     setState(() {
-                      for (int loopIndex = 0;
-                          loopIndex < _colorFilterList.length;
-                          loopIndex++) {
+                      for (int loopIndex = 0; loopIndex < _colorFilterList.length; loopIndex++) {
                         if (i == loopIndex) {
                           _colorFilterList[loopIndex]['checked'] = true;
                         } else {
@@ -136,7 +132,8 @@ class _SelectColorFilterPageState extends State<SelectColorFilterPage> {
                       child: Wrap(
                         children: [
                           AppTextBodyText2Widget.defaultStyle(
-                              "${_colorFilterList[i]['name']}"),
+                            data: "${_colorFilterList[i]['name']}",
+                          ),
                           Checkbox(
                             value: _colorFilterList[i]['checked'],
                             onChanged: null,

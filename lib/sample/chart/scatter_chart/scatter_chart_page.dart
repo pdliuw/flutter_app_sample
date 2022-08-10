@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'samples/scatter_chart_sample1.dart';
-import 'samples/scatter_chart_sample2.dart';
 
 class ScatterChartPage extends StatelessWidget {
   final Color barColor = Colors.white;
@@ -37,7 +36,7 @@ class ScatterChartPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 18.0, right: 18.0, bottom: 18.0),
-            child: ScatterChartSample2(),
+            // child: ScatterChartSample2(),
           )
         ],
       ),

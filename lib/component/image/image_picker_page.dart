@@ -17,7 +17,7 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
   /// ImagePicker
   final ImagePicker _picker = ImagePicker();
 
-  PickedFile _pickedFile;
+  PickedFile? _pickedFile;
 
   ///
   /// pickGallery
@@ -83,11 +83,9 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
     if (kIsWeb) {
       // Why network?
       // See https://pub.dev/packages/image_picker#getting-ready-for-the-web-platform
-      return Image.network(_pickedFile.path);
+      return Image.network(_pickedFile!.path);
     } else {
-      return Semantics(
-          child: Image.file(File(_pickedFile.path)),
-          label: 'image_picker_example_picked_image');
+      return Semantics(child: Image.file(File(_pickedFile!.path)), label: 'image_picker_example_picked_image');
     }
   }
 }

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class LogUtil {
   static final StringBuffer stringBuffer = new StringBuffer();
 
@@ -7,7 +5,7 @@ class LogUtil {
     print("${object}");
   }
 
-  static void logWithTag({String tag, Object message}) {
+  static void logWithTag({String? tag, Object? message}) {
     print("${createLine()}");
 
     String all = "TAG:$tag, $message";

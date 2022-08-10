@@ -32,7 +32,10 @@ class _ViewPagerState extends State<ViewPagerFragmentPage> {
           children: choices.map((Choice choice) {
             return Padding(
               padding: const EdgeInsets.all(16.0),
-              child: ChoiceCard(choice: choice),
+              child: ChoiceCard(
+                choice: choice,
+                key: GlobalObjectKey("value"),
+              ),
             );
           }).toList(),
         ),
@@ -47,7 +50,7 @@ class _ViewPagerState extends State<ViewPagerFragmentPage> {
 }
 
 class Choice {
-  const Choice({this.title, this.icon});
+  const Choice({required this.title, required this.icon});
 
   final String title;
   final IconData icon;
@@ -63,13 +66,13 @@ const List<Choice> choices = const <Choice>[
 ];
 
 class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
+  const ChoiceCard({required Key key, required this.choice}) : super(key: key);
 
   final Choice choice;
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = Theme.of(context).textTheme.displayMedium!;
     return Card(
       color: Colors.white,
       child: Center(

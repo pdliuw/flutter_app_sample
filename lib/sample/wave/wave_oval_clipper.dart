@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 ///
 /// 椭圆效果的
 class WaveOvalClipper extends CustomClipper<Path> {
-  int _count;
-  bool _isReverse;
+  late int _count;
+  late bool _isReverse;
 
   WaveOvalClipper({
-    int waveCount,
+    required int waveCount,
     bool isReverse = false,
   }) {
     _count = waveCount;
@@ -66,8 +66,7 @@ class WaveOvalClipper extends CustomClipper<Path> {
           sweepAngle = 45;
         }
       }
-      Rect rect =
-          Rect.fromLTRB(left, top, left + pieceOfWidth, top + pieceOfHeight);
+      Rect rect = Rect.fromLTRB(left, top, left + pieceOfWidth, top + pieceOfHeight);
       path.addOval(rect);
     }
 

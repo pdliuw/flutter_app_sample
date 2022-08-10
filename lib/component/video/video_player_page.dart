@@ -83,13 +83,10 @@ class _ButterFlyAssetVideoInList extends StatelessWidget {
                 leading: Icon(Icons.cake),
                 title: Text("Video video"),
               ),
-              Stack(
-                  alignment: FractionalOffset.bottomRight +
-                      const FractionalOffset(-0.1, -0.1),
-                  children: <Widget>[
-                    _ButterFlyAssetVideo(),
-                    Image.asset('assets/flutter-mark-square-64.png'),
-                  ]),
+              Stack(alignment: FractionalOffset.bottomRight + const FractionalOffset(-0.1, -0.1), children: <Widget>[
+                _ButterFlyAssetVideo(),
+                Image.asset('assets/flutter-mark-square-64.png'),
+              ]),
             ],
           ),
         ])),
@@ -105,7 +102,7 @@ class _ButterFlyAssetVideoInList extends StatelessWidget {
 
 /// A filler card to show the video in a list of scrolling contents.
 class _ExampleCard extends StatelessWidget {
-  const _ExampleCard({Key key, @required this.title}) : super(key: key);
+  const _ExampleCard({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -147,7 +144,7 @@ class _ButterFlyAssetVideo extends StatefulWidget {
 }
 
 class _ButterFlyAssetVideoState extends State<_ButterFlyAssetVideo> {
-  VideoPlayerController _controller;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
@@ -203,15 +200,14 @@ class _BumbleBeeRemoteVideo extends StatefulWidget {
 }
 
 class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
-  VideoPlayerController _controller;
+  late VideoPlayerController _controller;
 
   ///
   /// ScrollController
-  ScrollController _scrollController;
+  late ScrollController _scrollController;
 
   Future<ClosedCaptionFile> _loadCaptions() async {
-    final String fileContents = await DefaultAssetBundle.of(context)
-        .loadString('assets/bumble_bee_captions.srt');
+    final String fileContents = await DefaultAssetBundle.of(context).loadString('assets/bumble_bee_captions.srt');
     return SubRipCaptionFile(fileContents);
   }
 
@@ -320,12 +316,12 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
                     children: [
                       ElevatedButton(
                           onPressed: () {
-                            _controller?.play();
+                            _controller.play();
                           },
                           child: Text("play")),
                       ElevatedButton(
                           onPressed: () {
-                            _controller?.pause();
+                            _controller.pause();
                           },
                           child: Text("pause")),
                     ],
@@ -340,8 +336,7 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
 }
 
 class _ControlsOverlay extends StatelessWidget {
-  const _ControlsOverlay({Key key, @required this.controller})
-      : super(key: key);
+  const _ControlsOverlay({Key? key, required this.controller}) : super(key: key);
 
   static const _examplePlaybackRates = [
     0.25,
@@ -421,15 +416,14 @@ class _PlayerVideoAndPopPage extends StatefulWidget {
 }
 
 class _PlayerVideoAndPopPageState extends State<_PlayerVideoAndPopPage> {
-  VideoPlayerController _videoPlayerController;
+  late VideoPlayerController _videoPlayerController;
   bool startedPlaying = false;
 
   @override
   void initState() {
     super.initState();
 
-    _videoPlayerController =
-        VideoPlayerController.asset('assets/Butterfly-209.mp4');
+    _videoPlayerController = VideoPlayerController.asset('assets/Butterfly-209.mp4');
     _videoPlayerController.addListener(() {
       if (startedPlaying && !_videoPlayerController.value.isPlaying) {
         Navigator.pop(context);

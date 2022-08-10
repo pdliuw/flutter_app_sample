@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loading/indicator/ball_pulse_indicator.dart';
-import 'package:loading/loading.dart';
+// import 'package:loading/indicator/ball_pulse_indicator.dart';
+// import 'package:loading/loading.dart';
 
 /// MainLoadingPage
 class MainLoadingPage extends StatefulWidget {
@@ -16,28 +16,31 @@ class _MainLoadingState extends State<MainLoadingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              child: Center(
-                child: Loading(
-                    indicator: BallPulseIndicator(),
-                    size: 100.0,
-                    color: Colors.pink),
-              ),
-            ),
-            Container(
-              child: Center(
-                child: Loading(
-                    indicator: BallPulseIndicator(),
-                    size: 100.0,
-                    color: Colors.pink),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
+    // return Scaffold(
+    //   appBar: AppBar(),
+    //   body: SingleChildScrollView(
+    //     child: Column(
+    //       children: [
+    //         Container(
+    //           child: Center(
+    //             child: Loading(
+    //                 indicator: BallPulseIndicator(),
+    //                 size: 100.0,
+    //                 color: Colors.pink),
+    //           ),
+    //         ),
+    //         Container(
+    //           child: Center(
+    //             child: Loading(
+    //                 indicator: BallPulseIndicator(),
+    //                 size: 100.0,
+    //                 color: Colors.pink),
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }

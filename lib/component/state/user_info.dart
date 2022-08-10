@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-
 class UserInfo {
   String name;
   int age;
 
-  UserInfo({@required this.name, @required this.age});
+  UserInfo({required this.name, required this.age});
 
   @override
   bool operator ==(Object other) {

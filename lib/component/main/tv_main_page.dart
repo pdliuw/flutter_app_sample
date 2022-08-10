@@ -41,7 +41,7 @@ class _MainState extends State<TvMainPage> with SingleTickerProviderStateMixin {
 
   ///
   /// TabController
-  TabController _tabController;
+  late TabController _tabController;
 
   ///
   /// Tab length
@@ -86,8 +86,7 @@ class _MainState extends State<TvMainPage> with SingleTickerProviderStateMixin {
       length: _tabLength,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-              "${_bottomNavigationTitles.elementAt(_tabController.index)}"),
+          title: Text("${_bottomNavigationTitles.elementAt(_tabController.index)}"),
         ),
         drawer: _getDrawer(leftDraw: true),
         body: Column(
@@ -102,9 +101,7 @@ class _MainState extends State<TvMainPage> with SingleTickerProviderStateMixin {
                         child: ListView.builder(
                           physics: BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) {
-                            return MainListItemWidget.defaultStyle(
-                                itemData:
-                                    MainModelConfig.widgetConfigList[index]);
+                            return MainListItemWidget.defaultStyle(itemData: MainModelConfig.widgetConfigList[index]);
                           },
                           itemCount: MainModelConfig.widgetConfigList.length,
                         ),
@@ -119,8 +116,7 @@ class _MainState extends State<TvMainPage> with SingleTickerProviderStateMixin {
                             itemCount: MainModelConfig.packageConfigList.length,
                             itemBuilder: (BuildContext context, int index) {
                               return MainListItemWidget.defaultStyle(
-                                itemData:
-                                    MainModelConfig.packageConfigList[index],
+                                itemData: MainModelConfig.packageConfigList[index],
                               );
                             }),
                       ),
@@ -134,8 +130,7 @@ class _MainState extends State<TvMainPage> with SingleTickerProviderStateMixin {
                             itemCount: MainModelConfig.pluginConfigList.length,
                             itemBuilder: (BuildContext context, int index) {
                               return MainListItemWidget.defaultStyle(
-                                itemData:
-                                    MainModelConfig.pluginConfigList[index],
+                                itemData: MainModelConfig.pluginConfigList[index],
                               );
                             }),
                       ),

@@ -22,8 +22,7 @@ class _ExampleState extends State<MainProgressPage> {
 
 ///
 /// _MainProgressState
-class _MainProgressState extends State<MainProgressPage>
-    with SingleTickerProviderStateMixin {
+class _MainProgressState extends State<MainProgressPage> with SingleTickerProviderStateMixin {
   static const double MAX = 100.0;
   static const double MIN = 1.0;
   static int _divisions = 99;
@@ -31,17 +30,17 @@ class _MainProgressState extends State<MainProgressPage>
   double _progressValue = 1;
   double _slideValue = MAX;
 
-  AnimationController _controller;
-  Animation<Color> _colorTween;
+  late AnimationController _controller;
+  late Animation<Color> _colorTween;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController();
-    _colorTween = _controller.drive(ColorTween(
-      begin: Colors.grey,
-      end: Colors.green,
-    ));
+    _controller = AnimationController(vsync: this);
+    // _colorTween = _controller.drive(Animated(
+    //   begin: Colors.grey,
+    //   end: Colors.green,
+    // ));
     _controller.value = _progressValue;
   }
 
@@ -130,7 +129,7 @@ class _MainProgressState extends State<MainProgressPage>
 }
 
 class ExampleHomePage extends StatefulWidget {
-  ExampleHomePage._({Key key, this.title}) : super(key: key);
+  ExampleHomePage._({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -138,8 +137,7 @@ class ExampleHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<ExampleHomePage>
-    with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<ExampleHomePage> with SingleTickerProviderStateMixin {
   int _counter = 0;
 
   static const double MAX = 10.0;
@@ -149,17 +147,17 @@ class _MyHomePageState extends State<ExampleHomePage>
   double _progressValue = 1;
   double _slideValue = MAX;
 
-  AnimationController _controller;
-  Animation<Color> _colorTween;
+  late AnimationController _controller;
+  late Animation<Color> _colorTween;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this);
-    _colorTween = _controller.drive(ColorTween(
-      begin: Colors.grey,
-      end: Colors.green,
-    ));
+    // _colorTween = _controller.drive(ColorTween(
+    //   begin: Colors.grey,
+    //   end: Colors.green,
+    // ));
     _controller.value = _progressValue;
   }
 
@@ -256,9 +254,9 @@ class _MyHomePageState extends State<ExampleHomePage>
                       child: AirDashboardStateProgressIndicator(
                         size: Size(150, 150),
                         value: _segmentValue / 10 * 100, //1~100
-                        valueColor:
-                            ColorTween(begin: Colors.grey, end: Colors.blue)
-                                .transform(_segmentValue / 10),
+                        // valueColor:
+                        //     ColorTween(begin: Colors.grey, end: Colors.blue)
+                        //         .transform(_segmentValue / 10),
                         pathStrokeWidth: 10,
                         valueStrokeWidth: 10,
                         gapDegree: 60,
@@ -286,9 +284,9 @@ class _MyHomePageState extends State<ExampleHomePage>
                         size: Size(150, 150),
                         value: _segmentValue / 10 * 100, //1~100
                         pathColor: Colors.white,
-                        valueColor:
-                            ColorTween(begin: Colors.grey, end: Colors.blue)
-                                .transform(_segmentValue / 10),
+                        // valueColor:
+                        //     ColorTween(begin: Colors.grey, end: Colors.blue)
+                        //         .transform(_segmentValue / 10),
                         pathStrokeWidth: 10.0,
                         valueStrokeWidth: 10.0,
                         useCenter: false,
@@ -311,9 +309,9 @@ class _MyHomePageState extends State<ExampleHomePage>
                         size: Size(150, 150),
                         value: _segmentValue / 10 * 100, //1~100
                         pathColor: Colors.white,
-                        valueColor:
-                            ColorTween(begin: Colors.grey, end: Colors.blue)
-                                .transform(_segmentValue / 10),
+                        // valueColor:
+                        //     ColorTween(begin: Colors.grey, end: Colors.blue)
+                        //         .transform(_segmentValue / 10),
                         pathStrokeWidth: 10.0,
                         valueStrokeWidth: 10.0,
                         useCenter: true,
@@ -341,9 +339,9 @@ class _MyHomePageState extends State<ExampleHomePage>
                       child: AirLinearStateProgressIndicator(
                         size: Size(150, 150),
                         value: _segmentValue / 10 * 100, //1~100
-                        valueColor:
-                            ColorTween(begin: Colors.grey, end: Colors.blue)
-                                .transform(_segmentValue / 10),
+                        // valueColor:
+                        //     ColorTween(begin: Colors.grey, end: Colors.blue)
+                        //         .transform(_segmentValue / 10),
                         pathStrokeWidth: 10.0,
                         valueStrokeWidth: 10.0,
                         roundCap: true,
@@ -363,9 +361,9 @@ class _MyHomePageState extends State<ExampleHomePage>
                         size: Size(150, 150),
                         stepCount: _segmentChildren.length,
                         stepValue: _segmentValue,
-                        valueColor:
-                            ColorTween(begin: Colors.grey, end: Colors.blue)
-                                .transform(_segmentValue / 10),
+                        // valueColor:
+                        //     ColorTween(begin: Colors.grey, end: Colors.blue)
+                        //         .transform(_segmentValue / 10),
                         pathStrokeWidth: 10.0,
                         valueStrokeWidth: 10.0,
                       ),
@@ -389,9 +387,9 @@ class _MyHomePageState extends State<ExampleHomePage>
                         size: Size(150, 150),
                         stepCount: _segmentChildren.length,
                         stepValue: _segmentValue,
-                        valueColor:
-                            ColorTween(begin: Colors.grey, end: Colors.blue)
-                                .transform(_segmentValue / 10),
+                        // valueColor:
+                        //     ColorTween(begin: Colors.grey, end: Colors.blue)
+                        //         .transform(_segmentValue / 10),
                         pathStrokeWidth: 30.0,
                         valueStrokeWidth: 30.0,
                       ),

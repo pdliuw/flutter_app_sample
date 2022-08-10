@@ -10,23 +10,20 @@ class WeatherPage extends StatefulWidget {
 class _WeatherState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Container();
   }
 }
-class WeatherPaint extends CustomPainter{
+
+class WeatherPaint extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-
     Paint paint = Paint();
-
 
     canvas.drawCircle(Offset(100, 100), 100, paint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    return null;
+    return true;
   }
-
 }

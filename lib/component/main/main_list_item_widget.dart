@@ -9,8 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 class MainListItemWidget extends StatefulWidget {
   dynamic itemData;
   MainListItemWidget.defaultStyle({
-    Key key,
-    @required this.itemData,
+    Key? key,
+    required this.itemData,
   }) : super(key: key) {}
   @override
   _MainListItemWidgetState createState() => _MainListItemWidgetState();
@@ -71,8 +71,7 @@ class _MainListItemWidgetState extends State<MainListItemWidget> {
                         MaterialCommunityIcons.copyright,
                         color: Theme.of(context).primaryColorDark,
                       ),
-                      AppTextBodyText2Widget.defaultStyle(
-                          "${widget.itemData['author']['nickname']}"),
+                      AppTextBodyText2Widget.defaultStyle(data: "${widget.itemData['author']['nickname']}"),
                     ],
                   ),
                 ),

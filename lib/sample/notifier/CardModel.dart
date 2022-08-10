@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CardModel extends ChangeNotifier {
-  String _name;
-  int _age;
+  late String _name;
+  late int _age;
 
-  static CardModel singletonInstance;
+  static CardModel? singletonInstance;
 
   CardModel._instance();
 
@@ -12,10 +12,11 @@ class CardModel extends ChangeNotifier {
     if (singletonInstance == null) {
       singletonInstance = CardModel._instance();
     }
-    return singletonInstance;
+    return singletonInstance!;
   }
 
   int get age => _age;
+
   set age(int age) {
     this._age = age;
   }

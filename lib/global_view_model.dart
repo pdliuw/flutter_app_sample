@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 ///
 /// GlobalViewModel
 class GlobalViewModel extends ChangeNotifier {
-  static GlobalViewModel _globalViewModel;
+  static GlobalViewModel? _globalViewModel;
 
   ThemeMode _themeMode = ThemeMode.system;
 
@@ -15,7 +15,7 @@ class GlobalViewModel extends ChangeNotifier {
     if (_globalViewModel == null) {
       _globalViewModel = GlobalViewModel._();
     }
-    return _globalViewModel;
+    return _globalViewModel!;
   }
 
   ///
@@ -48,8 +48,7 @@ class GlobalViewModel extends ChangeNotifier {
   /// Toggle theme mode
   /// ToggleTheme(one of 'DarkTheme or LightTheme')
   ThemeMode toggleThemeMode() {
-    _themeMode =
-        _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    _themeMode = _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     //notify listeners adapter
     notifyListeners();
     return _themeMode;
@@ -58,6 +57,8 @@ class GlobalViewModel extends ChangeNotifier {
   ThemeMode get themeMode => _themeMode;
 
   bool get isDarkTheme => _themeMode == ThemeMode.dark;
+
   bool get isLightTheme => _themeMode == ThemeMode.light;
+
   bool get isSystemTheme => _themeMode == ThemeMode.system;
 }

@@ -65,8 +65,7 @@ class _UserInfoState extends State<UserInfoPage> {
                               context: context,
                               changed: (DateTime dateTime) {
                                 setState(() {
-                                  _birthday =
-                                      "${dateTime.year}-${dateTime.month}-${dateTime.day}";
+                                  _birthday = "${dateTime.year}-${dateTime.month}-${dateTime.day}";
                                 });
                               });
                         },
@@ -115,7 +114,7 @@ class _UserInfoState extends State<UserInfoPage> {
   }
 
   _showBirthday({
-    Function(String birthday) onChange,
+    required Function(String birthday) onChange,
   }) {
     showCupertinoModalPopup(
         context: context,
@@ -140,8 +139,8 @@ class _UserInfoState extends State<UserInfoPage> {
   }
 
   void _showCupertinoDatePicker({
-    @required BuildContext context,
-    @required Function(DateTime dateTime) changed,
+    required BuildContext context,
+    required Function(DateTime dateTime) changed,
   }) {
     DateTime nowTime = DateTime.now();
     DateTime cacheDateTime = nowTime;
@@ -191,7 +190,7 @@ class _UserInfoState extends State<UserInfoPage> {
   }
 
   _launchPhone({
-    String phone,
+    required String phone,
   }) async {
     await launch('tel:$phone');
   }

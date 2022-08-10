@@ -6,9 +6,9 @@ class InheritedWidgetChild extends InheritedWidget {
   final String name;
 
   InheritedWidgetChild({
-    Key key,
-    @required this.name,
-    @required Widget child,
+    Key? key,
+    required this.name,
+    required Widget child,
   }) : super(key: key, child: child) {}
 
   @override

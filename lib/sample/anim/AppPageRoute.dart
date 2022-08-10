@@ -2,25 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppPageRoute<T> extends PageRoute<T> {
   @override
-  // TODO: implement barrierColor
-  Color get barrierColor => null;
+  Color get barrierColor => Colors.white;
 
   @override
-  // TODO: implement barrierLabel
-  String get barrierLabel => null;
+  String get barrierLabel => "null";
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    // TODO: implement buildPage
-    return null;
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+    return Container();
   }
 
   @override
-  // TODO: implement maintainState
-  bool get maintainState => null;
+  bool get maintainState => false;
 
   @override
-  // TODO: implement transitionDuration
-  Duration get transitionDuration => null;
+  Duration get transitionDuration => Duration();
 }

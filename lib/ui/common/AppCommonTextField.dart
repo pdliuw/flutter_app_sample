@@ -6,7 +6,7 @@ class AppCommonTextField extends StatefulWidget {
   TextField textField;
 
   AppCommonTextField({
-    @required this.textField,
+    required this.textField,
   });
 
   @override
@@ -16,16 +16,15 @@ class AppCommonTextField extends StatefulWidget {
 }
 
 class _AppCommonTextField extends State<AppCommonTextField> {
-  TextField textField;
+  final TextField textField;
 
-  _AppCommonTextField(TextField textField) {
-    this.textField = textField;
-  }
-  Widget counter(
+  _AppCommonTextField(this.textField) {}
+
+  Widget? counter(
     BuildContext context, {
-    int currentLength,
-    int maxLength,
-    bool isFocused,
+    required int currentLength,
+    required int? maxLength,
+    required bool isFocused,
   }) {
     return Text(
       "${currentLength}/${maxLength}",
@@ -38,19 +37,19 @@ class _AppCommonTextField extends State<AppCommonTextField> {
       textAlign: textField.textAlign,
       maxLength: textField.maxLength,
       decoration: InputDecoration(
-          labelText: textField.decoration.labelText,
+          labelText: textField.decoration!.labelText,
           labelStyle: TextStyle(
             color: AppStyle.textFieldLabelColor,
           ),
-          hintText: textField.decoration.hintText,
+          hintText: textField.decoration!.hintText,
           hintStyle: TextStyle(
             color: AppStyle.textFieldHintColor,
           ),
-          errorText: textField.decoration.errorText,
+          errorText: textField.decoration!.errorText,
           errorStyle: TextStyle(
             color: AppStyle.textFieldErrorColor,
           ),
-          helperText: textField.decoration.helperText,
+          helperText: textField.decoration!.helperText,
           helperStyle: TextStyle(
             color: AppStyle.textFieldHelperColor,
           )),
@@ -58,13 +57,13 @@ class _AppCommonTextField extends State<AppCommonTextField> {
       onChanged: (String text) {
         if (textField.onChanged != null) {
           setState(() {
-            textField.onChanged(text);
+            textField.onChanged!(text);
           });
         }
       },
       onTap: () {
         if (textField.onTap != null) {
-          textField.onTap();
+          textField.onTap!();
         }
       },
     );

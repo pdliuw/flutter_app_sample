@@ -16,8 +16,8 @@ class CreatorPage extends StatefulWidget {
 class _CreatorState extends State<CreatorPage> {
   String _qrCodeOfInput = "请输入二维码信息";
 
-  CreatorController _creatorController;
-  TextEditingController _textEditingController;
+  late CreatorController _creatorController;
+  late TextEditingController _textEditingController;
 
   @override
   void initState() {
@@ -30,8 +30,7 @@ class _CreatorState extends State<CreatorPage> {
   @override
   void dispose() {
     super.dispose();
-    _creatorController = null;
-    _textEditingController = null;
+    _textEditingController.dispose();
   }
 
   @override

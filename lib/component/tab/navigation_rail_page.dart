@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 ///
 /// NavigationRailPage
 class NavigationRailPage extends StatefulWidget {
-  const NavigationRailPage({Key key}) : super(key: key);
+  const NavigationRailPage({Key? key}) : super(key: key);
 
   @override
   _NavigationRailPageState createState() => _NavigationRailPageState();
@@ -51,24 +51,14 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
                     icon: Icon(Icons.menu)),
               ],
             ),
-            destinations: [
-              for (int railIndex = 0, railSize = _list.length;
-                  railIndex < railSize;
-                  railIndex++)
-                NavigationRailDestination(
-                    icon: _list[railIndex]['icon'],
-                    selectedIcon: _list[railIndex]['selectedIcon'],
-                    label: _list[railIndex]['label'])
-            ],
+            destinations: [for (int railIndex = 0, railSize = _list.length; railIndex < railSize; railIndex++) NavigationRailDestination(icon: _list[railIndex]['icon'], selectedIcon: _list[railIndex]['selectedIcon'], label: _list[railIndex]['label'])],
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int selectedIndex) {
               setState(() {
                 _selectedIndex = selectedIndex;
               });
             },
-            labelType: _extended
-                ? NavigationRailLabelType.none
-                : NavigationRailLabelType.all,
+            labelType: _extended ? NavigationRailLabelType.none : NavigationRailLabelType.all,
             extended: _extended,
           ),
           const VerticalDivider(thickness: 1, width: 1),

@@ -35,7 +35,7 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                     value: _sliverAppBarPinnedChecked,
                     checkColor: Colors.white,
                     activeColor: Colors.blue,
-                    onChanged: (bool checked) {
+                    onChanged: (bool? checked) {
                       /*
                       checked:
                       false|true|null
@@ -57,7 +57,7 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                       }
 
                       setState(() {
-                        _sliverAppBarPinnedChecked = checked;
+                        _sliverAppBarPinnedChecked = checked ?? false;
                         if (checked != null) {
                           _sliverAppBarPinned = checked;
                         }
@@ -86,8 +86,8 @@ class _CollapsingToolbarState extends State<CollapsingToolbarPage> {
                 titlePadding: EdgeInsets.all(10),
                 collapseMode: CollapseMode.parallax,
               ),
-              pinned:
-                  _sliverAppBarPinned, //固定(如果为true,则缩小时会显示最小值；如果为false，则缩小时完全隐藏)
+              pinned: _sliverAppBarPinned,
+              //固定(如果为true,则缩小时会显示最小值；如果为false，则缩小时完全隐藏)
               bottom: TabBar(
                 isScrollable: false,
                 labelColor: Colors.white,
@@ -144,12 +144,12 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   double get minExtent => _tabBar.preferredSize.height;
+
   @override
   double get maxExtent => _tabBar.preferredSize.height;
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return new Container(
       child: _tabBar,
     );

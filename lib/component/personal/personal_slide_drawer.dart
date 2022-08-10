@@ -8,10 +8,10 @@ import 'package:flutter_app_sample/global_view_model.dart';
 
 /// PersonalSlideDrawer
 class PersonalSlideDrawer extends StatefulWidget {
-  bool _leftDraw;
+  late bool _leftDraw;
 
   PersonalSlideDrawer({
-    @required bool leftDraw = true,
+    bool leftDraw = true,
   }) {
     _leftDraw = leftDraw;
   }
@@ -23,8 +23,8 @@ class PersonalSlideDrawer extends StatefulWidget {
 }
 
 class _PersonalSlideState extends State<PersonalSlideDrawer> {
-  bool leftDraw;
-  bool _drawerOpenedRight;
+  late bool leftDraw;
+  late bool _drawerOpenedRight;
   _PersonalSlideState(bool isLeftDraw) {
     leftDraw = isLeftDraw;
   }
@@ -175,8 +175,7 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                       ignoring: (!leftDraw && _drawerOpenedRight),
                       child: (!leftDraw && _drawerOpenedRight)
                           ? ColorFiltered(
-                              colorFilter: ColorFilter.mode(
-                                  Colors.grey, BlendMode.srcIn),
+                              colorFilter: ColorFilter.mode(Colors.grey, BlendMode.srcIn),
                               child: ListTile(
                                 onTap: () {
 //                                  _setState(!_drawerOpenedRight);
@@ -243,8 +242,7 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                         value: GlobalViewModel.getInstance().isLightTheme,
                         onChanged: (bool value) {
                           setState(() {
-                            GlobalViewModel.getInstance()
-                                .toggleLightThemeMode();
+                            GlobalViewModel.getInstance().toggleLightThemeMode();
                           });
                         },
                       ),
@@ -262,8 +260,7 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                         value: GlobalViewModel.getInstance().isSystemTheme,
                         onChanged: (bool value) {
                           setState(() {
-                            GlobalViewModel.getInstance()
-                                .toggleSystemThemeMode();
+                            GlobalViewModel.getInstance().toggleSystemThemeMode();
                           });
                         },
                       ),
@@ -280,8 +277,7 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                     ListTile(
                         onTap: () {
                           setState(() {
-                            TipHelper.showTip(
-                                context: null, message: "努力开发中...");
+                            TipHelper.showTip(context: context, message: "努力开发中...");
                           });
                         },
                         title: Text("常亮"),
@@ -320,8 +316,7 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                                   ),
                                   CupertinoDialogAction(
                                     onPressed: () {
-                                      Airoute.pushNamedAndRemoveUntil(
-                                          newRouteName: "/LoginPage");
+                                      Airoute.pushNamedAndRemoveUntil(newRouteName: "/LoginPage");
                                     },
                                     child: Text("确定"),
                                   ),

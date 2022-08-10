@@ -1,15 +1,15 @@
-import 'package:flutter_app_sample/component/BaseView.dart';
-import 'package:flutter_app_sample/component/BasePresenter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/BasePresenter.dart';
+import 'package:flutter_app_sample/component/BaseView.dart';
 
 /// LoginPresenter
 class LoginPresenter extends BasePresenter {
-  ILoginView _loginView;
-  LoginRepository _loginSource;
+  late ILoginView _loginView;
+  late LoginRepository _loginSource;
 
   LoginPresenter({
-    @required LoginRepository loginSource,
-    @required ILoginView loginView,
+    required LoginRepository loginSource,
+    required ILoginView loginView,
   }) {
     this._loginSource = loginSource;
     this._loginView = loginView;

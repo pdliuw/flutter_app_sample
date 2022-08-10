@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'samples/line_chart_sample3.dart';
-import 'samples/line_chart_sample4.dart';
-import 'samples/line_chart_sample5.dart';
-import 'samples/line_chart_sample7.dart';
-import 'samples/line_chart_sample8.dart';
-
 class LineChartPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,15 +12,12 @@ class LineChartPage2 extends StatelessWidget {
             children: <Widget>[
               Text(
                 'LineChart',
-                style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black),
               ),
-              LineChartSample3(),
-              LineChartSample4(),
-              LineChartSample7(),
-              LineChartSample5(),
+              // LineChartSample3(),
+              // LineChartSample4(),
+              // LineChartSample7(),
+              // LineChartSample5(),
               const SizedBox(
                 height: 22,
               ),
@@ -37,7 +28,7 @@ class LineChartPage2 extends StatelessWidget {
                   fontSize: 14,
                 ),
               ),
-              LineChartSample8(),
+              // LineChartSample8(),
             ],
           ),
         ),

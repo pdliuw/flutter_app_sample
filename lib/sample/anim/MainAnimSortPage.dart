@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:airoute/airoute.dart';
+import 'package:flutter/material.dart';
 
 ///
 /// MainAnimSortPage
@@ -60,11 +60,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
   Widget getStepper() {
     return Stepper(
       type: StepperType.vertical,
-      controlsBuilder: (
-        BuildContext context, {
-        VoidCallback onStepContinue,
-        VoidCallback onStepCancel,
-      }) {
+      controlsBuilder: (context, detail) {
         return Row(
           children: <Widget>[
             Expanded(
@@ -74,12 +70,9 @@ class _MainAnimState extends State<MainAnimSortPage> {
                 child: RaisedButton.icon(
                   color: Colors.blue,
                   textColor: Colors.white,
-                  onPressed: (_currentStep == (_list.length - 1))
-                      ? null
-                      : onStepContinue,
+                  onPressed: (_currentStep == (_list.length - 1)) ? null : detail.onStepContinue,
                   icon: Icon(Icons.arrow_drop_down),
-                  label: Text(
-                      "${(_currentStep == (_list.length - 1)) ? 'Last' : 'Next'}"),
+                  label: Text("${(_currentStep == (_list.length - 1)) ? 'Last' : 'Next'}"),
                 ),
               ),
             ),
@@ -88,7 +81,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
               child: Padding(
                 padding: EdgeInsets.all(10),
                 child: RaisedButton.icon(
-                  onPressed: (_currentStep == 0) ? null : onStepCancel,
+                  onPressed: (_currentStep == 0) ? null : detail.onStepCancel,
                   icon: Icon(Icons.arrow_drop_up),
                   label: Text("${(_currentStep == 0) ? 'First' : 'Previous'}"),
                 ),
@@ -128,7 +121,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
   }
 
   List<Step> getSteps() {
-    List<Step> steps = List<Step>();
+    List<Step> steps = [];
 
     for (int i = 0, size = _list.length; i < size; i++) {
       StepState _stepState = StepState.indexed;
@@ -164,9 +157,7 @@ class _MainAnimState extends State<MainAnimSortPage> {
               );
             },
             child: Card(
-              shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.green, width: 1),
-                  borderRadius: BorderRadius.circular(5)),
+              shape: RoundedRectangleBorder(side: BorderSide(color: Colors.green, width: 1), borderRadius: BorderRadius.circular(5)),
               elevation: 5,
               margin: EdgeInsets.all(5),
               child: Padding(

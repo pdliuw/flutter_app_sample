@@ -61,9 +61,9 @@ class _ClipMainState extends State<ClipMainPage> {
                 title: const Text('Random'),
                 value: Clipper.random,
                 groupValue: _clipper,
-                onChanged: (Clipper value) {
+                onChanged: (Clipper? value) {
                   setState(() {
-                    _clipper = value;
+                    _clipper = value!;
                   });
                 },
               ),
@@ -71,9 +71,9 @@ class _ClipMainState extends State<ClipMainPage> {
                 title: const Text('Wave'),
                 value: Clipper.wave,
                 groupValue: _clipper,
-                onChanged: (Clipper value) {
+                onChanged: (Clipper? value) {
                   setState(() {
-                    _clipper = value;
+                    _clipper = value!;
                   });
                 },
               ),
@@ -81,9 +81,9 @@ class _ClipMainState extends State<ClipMainPage> {
                 title: const Text('Star'),
                 value: Clipper.star,
                 groupValue: _clipper,
-                onChanged: (Clipper value) {
+                onChanged: (Clipper? value) {
                   setState(() {
-                    _clipper = value;
+                    _clipper = value!;
                   });
                 },
               ),
@@ -91,9 +91,9 @@ class _ClipMainState extends State<ClipMainPage> {
                 title: const Text('Dash'),
                 value: Clipper.dash,
                 groupValue: _clipper,
-                onChanged: (Clipper value) {
+                onChanged: (Clipper? value) {
                   setState(() {
-                    _clipper = value;
+                    _clipper = value!;
                   });
                 },
               ),
@@ -104,7 +104,7 @@ class _ClipMainState extends State<ClipMainPage> {
     );
   }
 
-  CustomClipper _getClipper() {
+  CustomClipper<Path> _getClipper() {
     switch (_clipper) {
       case Clipper.wave:
         return WaveClipper();
@@ -204,8 +204,7 @@ class RandomClipper extends CustomClipper<Path> {
     path.addPolygon(
         List.generate(
           POLY_POINTS,
-          (index) => Offset(
-              rand.nextDouble() * size.width, rand.nextDouble() * size.height),
+          (index) => Offset(rand.nextDouble() * size.width, rand.nextDouble() * size.height),
         ),
         true);
 
@@ -221,8 +220,7 @@ class WaveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
     path.lineTo(0, size.height * .8);
-    path.quadraticBezierTo(
-        size.width / 3, size.height, size.width, size.height * .6);
+    path.quadraticBezierTo(size.width / 3, size.height, size.width, size.height * .6);
     path.lineTo(size.width, 0);
     path.close();
 

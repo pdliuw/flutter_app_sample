@@ -1,5 +1,4 @@
-
-class User{
-  int status;
-  String message;
+class User {
+  int status = 0;
+  String message = "";
 }

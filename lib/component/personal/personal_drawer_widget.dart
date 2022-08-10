@@ -46,15 +46,10 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
               spacing: 10,
               runSpacing: 10,
               children: <Widget>[
-                for (int labelIndex = 0,
-                        labelSize = PersonalConfig.personalLabelConfig.length;
-                    labelIndex < labelSize;
-                    labelIndex++)
+                for (int labelIndex = 0, labelSize = PersonalConfig.personalLabelConfig.length; labelIndex < labelSize; labelIndex++)
                   Chip(
-                    avatar: PersonalConfig.personalLabelConfig[labelIndex]
-                        ['avatar']['widget'],
-                    label: PersonalConfig.personalLabelConfig[labelIndex]
-                        ['label']['widget'],
+                    avatar: PersonalConfig.personalLabelConfig[labelIndex]['avatar']['widget'],
+                    label: PersonalConfig.personalLabelConfig[labelIndex]['label']['widget'],
                   ),
               ],
             ),
@@ -63,22 +58,14 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
         ExpansionTile(
           title: Text("小工具"),
           children: <Widget>[
-            for (int toolIndex = 0,
-                    toolSize = PersonalConfig.personalToolConfig.length;
-                toolIndex < toolSize;
-                toolIndex++)
+            for (int toolIndex = 0, toolSize = PersonalConfig.personalToolConfig.length; toolIndex < toolSize; toolIndex++)
               ListTile(
                 onTap: () {
-                  Airoute.pushNamed(
-                      routeName:
-                          "${PersonalConfig.personalToolConfig[toolIndex]['routeName']}");
+                  Airoute.pushNamed(routeName: "${PersonalConfig.personalToolConfig[toolIndex]['routeName']}");
                 },
-                leading: PersonalConfig.personalToolConfig[toolIndex]['avatar']
-                    ['widget'],
-                title: AppTextSubtitle1Widget.defaultStyle(
-                    "${PersonalConfig.personalToolConfig[toolIndex]['title']}"),
-                subtitle: AppTextBodyText2Widget.defaultStyle(
-                    "${PersonalConfig.personalToolConfig[toolIndex]['subtitle']}"),
+                leading: PersonalConfig.personalToolConfig[toolIndex]['avatar']['widget'],
+                title: AppTextSubtitle1Widget.defaultStyle(data: "${PersonalConfig.personalToolConfig[toolIndex]['title']}"),
+                subtitle: AppTextBodyText2Widget.defaultStyle(data: "${PersonalConfig.personalToolConfig[toolIndex]['subtitle']}"),
                 trailing: Icon(Icons.arrow_right),
               )
           ],
@@ -155,8 +142,8 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
             Airoute.pushNamed(routeName: "/SettingPage");
           },
           leading: Icon(Icons.settings),
-          title: AppTextSubtitle1Widget.defaultStyle("设置"),
-          subtitle: AppTextBodyText2Widget.defaultStyle("去设置"),
+          title: AppTextSubtitle1Widget.defaultStyle(data: "设置"),
+          subtitle: AppTextBodyText2Widget.defaultStyle(data: "去设置"),
           trailing: Icon(Icons.arrow_right),
         ),
       ],

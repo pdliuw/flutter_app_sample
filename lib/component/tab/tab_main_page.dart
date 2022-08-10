@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///
 /// TabMainPage
 class TabMainPage extends StatefulWidget {
-  const TabMainPage({Key key}) : super(key: key);
+  const TabMainPage({Key? key}) : super(key: key);
 
   @override
   _TabMainPageState createState() => _TabMainPageState();
@@ -38,8 +38,7 @@ class _TabMainPageState extends State<TabMainPage> {
               },
               child: Padding(
                 padding: EdgeInsets.all(16),
-                child: AppTextHeadline6Widget.defaultStyle(
-                    "${list[index]['name']}"),
+                child: AppTextHeadline6Widget.defaultStyle(data: "${list[index]['name']}"),
               ),
             );
           }),

@@ -21,7 +21,7 @@ class CardInfoPage extends StatefulWidget {
 ///
 /// _CardInfoState
 class _CardInfoState extends State<CardInfoPage> {
-  CardModelBYNotifierProvider _cardModelBYNotifierProvider;
+  late CardModelBYNotifierProvider _cardModelBYNotifierProvider;
 
   callback() {
     /*
@@ -69,8 +69,7 @@ class _CardInfoState extends State<CardInfoPage> {
               builder: (context, cart, child) {
                 return RaisedButton(
                   onPressed: () {
-                    _cardModelBYNotifierProvider.age =
-                        ++_cardModelBYNotifierProvider.age;
+                    _cardModelBYNotifierProvider.age = ++_cardModelBYNotifierProvider.age;
 
                     _cardModelBYNotifierProvider.notify();
                   },

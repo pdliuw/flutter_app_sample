@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'samples/line_chart_sample1.dart';
-import 'samples/line_chart_sample2.dart';
-
 class LineChartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,14 +33,14 @@ class LineChartPage extends StatelessWidget {
               left: 28,
               right: 28,
             ),
-            child: LineChartSample1(),
+            // child: LineChartSample1(),
           ),
           const SizedBox(
             height: 22,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 28.0, right: 28),
-            child: LineChartSample2(),
+            // child: LineChartSample2(),
           ),
         ],
       ),

@@ -6,7 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import ai_barcode
-import connectivity_macos
+import connectivity_plus_macos
 import shared_preferences_macos
 import url_launcher_macos
 

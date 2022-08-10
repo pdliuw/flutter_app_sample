@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'samples/bar_chart_sample2.dart';
-
 class BarChartPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,7 +8,8 @@ class BarChartPage2 extends StatelessWidget {
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(28.0),
-          child: BarChartSample2(),
+          // child: BarChartSample2(),
+          child: Container(),
         ),
       ),
     );

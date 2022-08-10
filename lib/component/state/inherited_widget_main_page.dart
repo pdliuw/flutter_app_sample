@@ -5,11 +5,10 @@ import 'package:flutter_app_sample/component/state/user_inherited_widget.dart';
 ///
 /// InheritedWidgetMainPage
 class InheritedWidgetMainPage extends StatefulWidget {
-  const InheritedWidgetMainPage({Key key}) : super(key: key);
+  const InheritedWidgetMainPage({Key? key}) : super(key: key);
 
   @override
-  _InheritedWidgetMainPageState createState() =>
-      _InheritedWidgetMainPageState();
+  _InheritedWidgetMainPageState createState() => _InheritedWidgetMainPageState();
 }
 
 class _InheritedWidgetMainPageState extends State<InheritedWidgetMainPage> {
@@ -34,7 +33,7 @@ class _InheritedWidgetMainPageState extends State<InheritedWidgetMainPage> {
 class A extends StatelessWidget {
   final Widget child;
 
-  const A({Key key, this.child}) : super(key: key);
+  const A({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

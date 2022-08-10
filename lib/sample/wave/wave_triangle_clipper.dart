@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 ///
 /// 三角形效果的
 class WaveTriangleClipper extends CustomClipper<Path> {
-  int _count;
-  bool _isReverse;
+  late int _count;
+  late bool _isReverse;
 
   WaveTriangleClipper({
-    int waveCount,
+    required int waveCount,
     bool isReverse = false,
   }) {
     _count = waveCount;

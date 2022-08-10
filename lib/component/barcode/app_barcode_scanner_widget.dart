@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/component_config.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-String _label;
-Function(String result) _resultCallback;
+late String _label;
+late Function(String result) _resultCallback;
 
 ///
 /// AppBarcodeScannerWidget
@@ -12,10 +12,10 @@ class AppBarcodeScannerWidget extends StatefulWidget {
   ///
   ///
   AppBarcodeScannerWidget.defaultStyle({
-    Function(String result) resultCallback,
+    required Function(String result) resultCallback,
     String label = '',
   }) {
-    _resultCallback = resultCallback ?? (String result) {};
+    _resultCallback = resultCallback;
     _label = label;
   }
 
@@ -62,8 +62,7 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
     if (ComponentConfig.BAR_CODE_REQUEST_PERMISSION) {
       TargetPlatform platform = Theme.of(context).platform;
 
-      if (platform == TargetPlatform.android ||
-          platform == TargetPlatform.iOS) {
+      if (platform == TargetPlatform.android || platform == TargetPlatform.iOS) {
         _requestMobilePermission();
       } else {
         setState(() {
@@ -88,7 +87,7 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
                       },
                     )
               : Center(
-                  child: OutlineButton(
+                  child: OutlinedButton(
                     onPressed: () {
                       _requestMobilePermission();
                     },
@@ -97,7 +96,7 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
                 ),
         ),
         _useCameraScan
-            ? OutlineButton(
+            ? OutlinedButton(
                 onPressed: () {
                   setState(() {
                     _useCameraScan = false;
@@ -107,7 +106,7 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
               )
             : Row(
                 children: [
-                  OutlineButton(
+                  OutlinedButton(
                     onPressed: () {
                       setState(() {
                         _useCameraScan = true;
@@ -115,7 +114,7 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
                     },
                     child: Text("扫描$_label"),
                   ),
-                  OutlineButton(
+                  OutlinedButton(
                     onPressed: () {
                       _resultCallback(_inputValue);
                     },
@@ -129,10 +128,10 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
 }
 
 class _BarcodeInputWidget extends StatefulWidget {
-  ValueChanged<String> _changed;
+  late ValueChanged<String> _changed;
 
   _BarcodeInputWidget.defaultStyle({
-    ValueChanged<String> changed,
+    required ValueChanged<String> changed,
   }) {
     _changed = changed;
   }
@@ -153,8 +152,7 @@ class _BarcodeInputState extends State<_BarcodeInputWidget> {
       final text = _controller.text.toLowerCase();
       _controller.value = _controller.value.copyWith(
         text: text,
-        selection:
-            TextSelection(baseOffset: text.length, extentOffset: text.length),
+        selection: TextSelection(baseOffset: text.length, extentOffset: text.length),
         composing: TextRange.empty,
       );
     });
@@ -196,7 +194,7 @@ class _BarcodeScannerWidget extends StatefulWidget {
 }
 
 class _AppBarcodeScannerWidgetState extends State<_BarcodeScannerWidget> {
-  ScannerController _scannerController;
+  late ScannerController _scannerController;
 
   @override
   void initState() {

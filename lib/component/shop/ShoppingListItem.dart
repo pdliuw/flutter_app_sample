@@ -7,9 +7,9 @@ typedef void CartChangedCallback(Product product, bool inCart);
 
 class ShoppingListItem extends StatefulWidget {
   ShoppingListItem({
-    Product product,
-    this.inCart,
-    this.onCartChanged,
+    required Product product,
+    required this.inCart,
+    required this.onCartChanged,
   }) : product = product;
 
   final Product product;
@@ -32,9 +32,9 @@ class _ShoppingListItem extends State<ShoppingListItem> {
   final CartChangedCallback onCartChanged;
 
   _ShoppingListItem({
-    Product product,
-    this.inCart,
-    this.onCartChanged,
+    required Product product,
+    required this.inCart,
+    required this.onCartChanged,
   }) : product = product;
 
   @override
@@ -91,7 +91,7 @@ class _ShoppingListItem extends State<ShoppingListItem> {
   }
 
   TextStyle _getTextStyle(BuildContext context) {
-    if (!inCart) return null;
+    if (!inCart) return TextStyle();
 
     return TextStyle(
       color: Colors.black54,

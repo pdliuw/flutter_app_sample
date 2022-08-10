@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 ///
 /// 圆弧效果的
 class WaveArcClipper extends CustomClipper<Path> {
-  int _count;
-  bool _isReverse;
+  late int _count;
+  late bool _isReverse;
 
   WaveArcClipper({
-    int waveCount,
+    required int waveCount,
     bool isReverse = false,
   }) {
     _count = waveCount;
@@ -38,8 +38,8 @@ class WaveArcClipper extends CustomClipper<Path> {
       double right;
       double bottom;
 
-      double startAngle;
-      double sweepAngle;
+      late double startAngle;
+      late double sweepAngle;
 
       if (_isReverse) {
         if (i % 2 == 1) {
@@ -66,8 +66,7 @@ class WaveArcClipper extends CustomClipper<Path> {
           sweepAngle = 45;
         }
       }
-      Rect rect =
-          Rect.fromLTRB(left, top, left + pieceOfWidth, top + pieceOfHeight);
+      Rect rect = Rect.fromLTRB(left, top, left + pieceOfWidth, top + pieceOfHeight);
       path.arcTo(rect, startAngle, sweepAngle, false);
     }
 

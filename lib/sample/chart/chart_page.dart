@@ -21,7 +21,7 @@ class ChartPage extends StatefulWidget {
 ///
 /// _ChartState
 class _ChartState extends State<ChartPage> {
-  PageController _pageController;
+  late PageController _pageController;
 
   int _currentIndex = 0;
 

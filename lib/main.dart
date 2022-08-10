@@ -88,12 +88,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ErrorWidget.builder = (detail) {
-      return AppTextHeadline6Widget.defaultStyle(detail.toString());
+      return AppTextHeadline6Widget.defaultStyle(data: detail.toString());
     };
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GlobalViewModel.getInstance())
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => GlobalViewModel.getInstance())],
       child: Consumer<GlobalViewModel>(
         builder: (context, value, child) {
           return ColorFiltered(
@@ -188,8 +186,7 @@ class MyApp extends StatelessWidget {
                     "/MainAnimSortPage": (_) => MainAnimSortPage(),
                     "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
                     "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
-                    "/OpacityAndAnimatedOpacityPage": (_) =>
-                        OpacityAndAnimatedOpacityPage(),
+                    "/OpacityAndAnimatedOpacityPage": (_) => OpacityAndAnimatedOpacityPage(),
                     "/FadeInImagePage": (_) => FadeInImagePage(),
                     "/HeroAnimPage": (_) => HeroAnimPage(),
                     "/TransformPage": (_) => TransformPage(),
@@ -207,10 +204,8 @@ class MyApp extends StatelessWidget {
                     "/MainPickerPage": (_) => MainPickerPage(),
                     "/FlutterWebPage": (_) => FlutterWebPage(),
                     "/AirLicensePage": (_) => AirLicensePage(),
-                    "/ListWheelScrollViewPage": (_) =>
-                        ListWheelScrollViewPage(),
-                    "/CurvedNavigationBarPage": (_) =>
-                        CurvedNavigationBarPage(),
+                    "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
+                    "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
                     "/ClipMainPage": (_) => ClipMainPage(),
                     "/InkPage": (_) => InkPage(),
                     "/RichTextPage": (_) => RichTextPage(),
@@ -231,32 +226,25 @@ class MyApp extends StatelessWidget {
                     "/route/LaunchPage": (_) => LaunchPage(),
                     "/route/SecondPage": (_) => SecondPage(),
                     "/route/ThirdPage": (_) => ThirdPage(),
-                    "/message/AwesomeMessageMainPage": (_) =>
-                        AwesomeMessageMainPage(),
+                    "/message/AwesomeMessageMainPage": (_) => AwesomeMessageMainPage(),
                     "/paint/SunMainPage": (_) => SunMainPage(),
                     "/image/ImagePickerPage": (_) => ImagePickerPage(),
                     "/StreamBuilderMainPage": (_) => StreamBuilderMainPage(),
-                    "/StreamBuilderMainPage/StreamBuilderAsyncRequestPage":
-                        (_) => StreamBuilderAsyncRequestPage(),
+                    "/StreamBuilderMainPage/StreamBuilderAsyncRequestPage": (_) => StreamBuilderAsyncRequestPage(),
                     "/FutureBuilderMainPage": (_) => FutureBuilderMainPage(),
-                    "/FutureBuilderMainPage/FutureBuilderAsyncRequestPage":
-                        (_) => FutureBuilderAsyncRequestPage(),
-                    "/InheritedWidgetMainPage": (_) =>
-                        InheritedWidgetMainPage(),
+                    "/FutureBuilderMainPage/FutureBuilderAsyncRequestPage": (_) => FutureBuilderAsyncRequestPage(),
+                    "/InheritedWidgetMainPage": (_) => InheritedWidgetMainPage(),
                     "/TabMainPage": (_) => TabMainPage(),
-                    "/TabMainPage/NavigationRailPage": (_) =>
-                        NavigationRailPage(),
-                    "/TabMainPage/NavigationDrawerPage": (_) =>
-                        NavigationDrawerPage(),
+                    "/TabMainPage/NavigationRailPage": (_) => NavigationRailPage(),
+                    "/TabMainPage/NavigationDrawerPage": (_) => NavigationDrawerPage(),
                     "/FittedBoxPage": (_) => FittedBoxPage()
                   },
                   builder: EasyLoading.init(
                     //loading
-                    builder: (context, widget) {
+                    builder: (context, Widget? widget) {
                       return MediaQuery(
-                        data: MediaQuery.of(context)
-                            .copyWith(textScaleFactor: 1.0),
-                        child: widget,
+                        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                        child: widget!,
                       );
                     },
                   )),

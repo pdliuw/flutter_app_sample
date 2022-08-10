@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///
 /// StreamBuilderMainPage
 class StreamBuilderMainPage extends StatefulWidget {
-  const StreamBuilderMainPage({Key key}) : super(key: key);
+  const StreamBuilderMainPage({Key? key}) : super(key: key);
 
   @override
   _StreamBuilderMainPageState createState() => _StreamBuilderMainPageState();

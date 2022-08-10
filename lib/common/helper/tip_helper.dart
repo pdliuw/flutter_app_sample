@@ -14,8 +14,8 @@ class TipHelper {
   /// [message]
   /// [tipType]
   static showTip({
-    @required BuildContext context,
-    String title,
+    required BuildContext context,
+    String? title,
     String message = '',
     tip_type.TipType tipType = tip_type.TipType.INFO,
   }) {
@@ -37,7 +37,7 @@ class TipHelper {
         settings: RouteSettings(name: "/ai_awesome_message"),
         awesomeMessage: awesome_message.AwesomeHelper.createAwesome(
           title: "${title ?? "提示"}",
-          message: "${message ?? "提示"}",
+          message: "${message}",
           tipType: awesomeTipType,
         ),
       ),

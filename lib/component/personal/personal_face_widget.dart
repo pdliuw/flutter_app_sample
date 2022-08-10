@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 ///
 /// PersonalFaceWidget
 class PersonalFaceWidget extends StatefulWidget {
-  PersonalFaceWidget.defaultStyle({Key key}) : super(key: key);
+  PersonalFaceWidget.defaultStyle({Key? key}) : super(key: key);
   @override
   _PersonalFaceWidgetState createState() => _PersonalFaceWidgetState();
 }

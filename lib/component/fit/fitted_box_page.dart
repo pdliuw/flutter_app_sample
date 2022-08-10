@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 ///
 /// FittedBox
 class FittedBoxPage extends StatefulWidget {
-  const FittedBoxPage({Key key}) : super(key: key);
+  const FittedBoxPage({Key? key}) : super(key: key);
 
   @override
   _FittedBoxPageState createState() => _FittedBoxPageState();
 }
 
-class _FittedBoxPageState extends State<FittedBoxPage>
-    with SingleTickerProviderStateMixin {
+class _FittedBoxPageState extends State<FittedBoxPage> with SingleTickerProviderStateMixin {
   final List<String> _list = [
     "A",
     "B",
@@ -40,7 +39,7 @@ class _FittedBoxPageState extends State<FittedBoxPage>
     "Z",
   ];
 
-  AnimationController _animationController;
+  late AnimationController _animationController;
 
   @override
   void initState() {
