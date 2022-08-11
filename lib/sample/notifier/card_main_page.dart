@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/sample/notifier/CardModel.dart';
 import 'package:airoute/airoute.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/sample/notifier/card_model.dart';
 
 ///
 /// CardMainPage
@@ -51,8 +51,7 @@ class _CarMainState extends State<CardMainPage> {
           ),
           RaisedButton(
             textColor: Colors.white,
-            color:
-                ColorTween(begin: Colors.red, end: Colors.blue).transform(0.5),
+            color: ColorTween(begin: Colors.red, end: Colors.blue).transform(0.5),
             onPressed: () {
               Airoute.pushNamedWithAnimation(
                 routeName: "/CardInfoPage",

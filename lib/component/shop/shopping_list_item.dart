@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/component/shop/Product.dart';
+import 'package:flutter_app_sample/component/shop/product.dart';
 
 ///ShoppingListItem
 ///支持：Scroll Item remove item!

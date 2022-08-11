@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/component/test/TestPage.dart';
+import 'package:flutter_app_sample/component/test/test_page.dart';
 
 class AppRoute {
   static var routes = MaterialApp(home: Text(""), routes: {

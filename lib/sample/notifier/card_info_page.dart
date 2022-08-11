@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/sample/notifier/CardModel.dart';
-import 'package:flutter_app_sample/sample/notifier/CardModelByNotifierProvider.dart';
+import 'package:flutter_app_sample/sample/notifier/card_model.dart';
+import 'package:flutter_app_sample/sample/notifier/card_model_by_notifier_provider.dart';
 import 'package:provider/provider.dart';
 
 ///

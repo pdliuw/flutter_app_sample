@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/common/util/StringUtil.dart';
+import 'package:flutter_app_sample/common/util/string_util.dart';
 
 ///登陆页面
 ///

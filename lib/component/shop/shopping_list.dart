@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/component/shop/Product.dart';
-import 'package:flutter_app_sample/component/shop/ShoppingListItem.dart';
+import 'package:flutter_app_sample/component/shop/product.dart';
+import 'package:flutter_app_sample/component/shop/shopping_list_item.dart';
 
 ///商品列表
 class ShoppingListPage extends StatefulWidget {

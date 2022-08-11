@@ -1,4 +1,4 @@
-import 'package:flutter_app_sample/common/config/EnvironmentConfig.dart';
+import 'package:flutter_app_sample/common/config/environment_config.dart';
 
 ///Api config class!
 ///
@@ -18,6 +18,7 @@ class ApiConfig {
       return RELEASE_URL;
     }
   }
+
   ///URL path!
   static const String GET_VERIFICATION_CODE_URL = "/api/app/v1/LoginCtrl/getVerificationCode";
   static const String LOGIN_URL = "/api/app/v1/LoginCtrl/login";

@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'CollapsingToolbarPage.dart';
-import 'package:airoute/airoute.dart';
 
 ///
-/// MainSortListPage
-class MainSortListPage extends StatefulWidget {
+/// 各种各样的侧滑
+class DrawerVariouslyPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MainSortState();
+    return _DrawerState();
   }
 }
 
 ///
-/// _MainSortState
-class _MainSortState extends State<MainSortListPage> {
-  String titleName = "主页";
+/// _DrawerState
+class _DrawerState extends State<DrawerVariouslyPage> {
+  String titleName = "DrawerVariously";
 
   List<String> _bottomSheetTitles = [
     "列表项",
@@ -27,22 +25,12 @@ class _MainSortState extends State<MainSortListPage> {
     "列表项",
     "列表项",
   ];
-  var _showModalBottomSheet;
 
   Widget createWidget() {
     return Scaffold(
       appBar: AppBar(
         title: Text("演示主页"),
         centerTitle: true,
-        leading: GestureDetector(
-          onTap: () {
-            Airoute.pop();
-          },
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-        ),
       ),
       endDrawer: Drawer(
         child: SingleChildScrollView(
@@ -86,39 +74,6 @@ class _MainSortState extends State<MainSortListPage> {
       ),
       body: ListView(
         children: <Widget>[
-          RaisedButton(
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: () {
-              Airoute.pushNamedWithAnimation(
-                routeName: "ViewPagerFragmentPage",
-                routePageAnimation: AirouteTransition.Slide,
-              );
-            },
-            child: Text("Toolbar+ViewPager+Fragment"),
-          ),
-          RaisedButton(
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: () {
-              Airoute.pushNamedWithAnimation(
-                routeName: "CollapsingToolbarPage",
-                routePageAnimation: AirouteTransition.Slide,
-              );
-            },
-            child: Text("Collapsing+Toolbar+Fragment"),
-          ),
-          RaisedButton(
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: () {
-              Airoute.pushNamedWithAnimation(
-                routeName: "/MainAnimSortPage",
-                routePageAnimation: AirouteTransition.Slide,
-              );
-            },
-            child: Text("Animation"),
-          ),
           RaisedButton(
             color: Colors.blue,
             textColor: Colors.white,
@@ -191,28 +146,6 @@ class _MainSortState extends State<MainSortListPage> {
               );
             },
             child: Text("Bottom Sheet"),
-          ),
-          RaisedButton(
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: () {
-              Airoute.pushNamedWithAnimation(
-                routeName: "/CardMainPage",
-                routePageAnimation: AirouteTransition.Slide,
-              );
-            },
-            child: Text("组件间通信"),
-          ),
-          RaisedButton(
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: () {
-              Airoute.pushNamedWithAnimation(
-                routeName: "/DragListPage",
-                routePageAnimation: AirouteTransition.Slide,
-              );
-            },
-            child: Text("Drag拖拽"),
           ),
         ],
       ),

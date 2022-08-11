@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sample/ui/style/AppStyle.dart';
+import 'package:flutter_app_sample/ui/style/app_style.dart';
 
 ///@Air 此类在外部更新状态时无法即使的更新，待修正！
 class AppCommonTextField extends StatefulWidget {
