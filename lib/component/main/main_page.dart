@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/main/main_config.dart';
 import 'package:flutter_app_sample/component/main/main_list_item_widget.dart';
 import 'package:flutter_app_sample/component/personal/personal_drawer_widget.dart';
+import 'package:flutter_app_sample/component/search/search_entry_widget.dart';
 
 import '../../common/helper/tip_helper.dart';
 import '../../common/helper/tip_type.dart';
@@ -39,6 +40,54 @@ class _MainState extends State<MainPage> {
   /// 底部选中的导航标签索引项
   int _bottomNavigationSelectedIndex = 0;
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
+        actions: [
+          SearchEntryWidget(),
+        ],
+      ),
+      drawer: Builder(
+        builder: (context) {
+          return Drawer(
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: PersonalDrawerWidget(),
+            ),
+          );
+        },
+      ),
+      body: Center(
+        child: getBottomNavigationWidgets().elementAt(_bottomNavigationSelectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _bottomNavigationSelectedIndex,
+        items: <BottomNavigationBarItem>[
+          for (int i = 0; i < getBottomNavigationWidgets().length; i++)
+            BottomNavigationBarItem(
+              icon: _bottomNavigationIcons.elementAt(i),
+              label: "${_bottomNavigationTitles.elementAt(i)}",
+            ),
+        ],
+        onTap: (int index) {
+          setState(() {
+            //如果已经选中当前项，此时再选择此项则视为刷新当前页面
+            if (_bottomNavigationSelectedIndex == index) {
+              TipHelper.showTip(
+                context: context,
+                tipType: TipType.INFO,
+                message: "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制",
+              );
+            }
+            _bottomNavigationSelectedIndex = index;
+          });
+        },
+      ),
+    );
+  }
+
   ///
   /// 获取底部导航标签的对应的显示视图
   List<Widget> getBottomNavigationWidgets() {
@@ -49,8 +98,7 @@ class _MainState extends State<MainPage> {
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
-                return MainListItemWidget.defaultStyle(
-                    itemData: MainModelConfig.widgetConfigList[index]);
+                return MainListItemWidget.defaultStyle(itemData: MainModelConfig.widgetConfigList[index]);
               },
               itemCount: MainModelConfig.widgetConfigList.length,
             ),
@@ -88,73 +136,5 @@ class _MainState extends State<MainPage> {
     ];
 
     return _bottomNavigationWidgets;
-  }
-
-  ///
-  /// 底部导航的点击事件处理
-  _bottomNavigationTap(int index) {
-    /*
-    Render
-     */
-    setState(() {
-      /*
-      如果已经选中当前项，此时再选择此项则视为刷新当前页面
-       */
-      if (_bottomNavigationSelectedIndex == index) {
-        TipHelper.showTip(
-          context: context,
-          tipType: TipType.INFO,
-          message:
-              "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制",
-        );
-      }
-      _bottomNavigationSelectedIndex = index;
-    });
-  }
-
-  ///
-  /// 获取底部导航项集合
-  List<BottomNavigationBarItem> _getBottomNavigationBar() {
-    List<BottomNavigationBarItem> items = [];
-
-    for (int i = 0; i < getBottomNavigationWidgets().length; i++) {
-      items.add(
-        BottomNavigationBarItem(
-          icon: _bottomNavigationIcons.elementAt(i),
-          label: "${_bottomNavigationTitles.elementAt(i)}",
-        ),
-      );
-    }
-
-    return items;
-  }
-
-  Drawer _getDrawer({bool leftDraw = true}) {
-    return Drawer(
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: PersonalDrawerWidget(),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
-      ),
-      drawer: _getDrawer(leftDraw: true),
-      body: Center(
-        child: getBottomNavigationWidgets()
-            .elementAt(_bottomNavigationSelectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _bottomNavigationSelectedIndex,
-        items: _getBottomNavigationBar(),
-        onTap: _bottomNavigationTap,
-      ),
-    );
   }
 }

@@ -1,5 +1,3 @@
-
-
 class StringUtil {
   static String get getEmpty => emptyString;
   static String emptyString = "";

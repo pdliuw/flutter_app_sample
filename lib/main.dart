@@ -53,6 +53,7 @@ import 'component/message/awesome_message_main_page.dart';
 import 'component/network/network_check_page.dart';
 import 'component/personal/user_info_page.dart';
 import 'component/route/launch_page.dart';
+import 'component/search/search_page.dart';
 import 'component/setting/setting_page.dart';
 import 'component/tab/navigation_drawer_page.dart';
 import 'component/tab/navigation_rail_page.dart';
@@ -237,7 +238,8 @@ class MyApp extends StatelessWidget {
                     "/TabMainPage": (_) => TabMainPage(),
                     "/TabMainPage/NavigationRailPage": (_) => NavigationRailPage(),
                     "/TabMainPage/NavigationDrawerPage": (_) => NavigationDrawerPage(),
-                    "/FittedBoxPage": (_) => FittedBoxPage()
+                    "/FittedBoxPage": (_) => FittedBoxPage(),
+                    "/SearchPage": (_) => SearchPage(),
                   },
                   builder: EasyLoading.init(
                     //loading
