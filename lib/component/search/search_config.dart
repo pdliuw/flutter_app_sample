@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/search/content/slider_page.dart';
 
-import 'widget/image_page.dart';
-import 'widget/text_page.dart';
+import 'content/image_page.dart';
+import 'content/text_page.dart';
 
 /// SearchConfig
 class SearchConfig {
@@ -17,6 +18,11 @@ class SearchConfig {
       searchName: ["Image"],
       searchDescription: "searchDescription",
       searchWidget: ImagePage(),
+    ),
+    SearchModel.newInstance(
+      searchName: ["Slider"],
+      searchDescription: "searchDescription",
+      searchWidget: SliderPage(),
     ),
   ];
 }
