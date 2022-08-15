@@ -11,7 +11,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -25,7 +25,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -39,7 +39,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -53,7 +53,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -67,7 +67,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -81,7 +81,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -95,7 +95,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -109,7 +109,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -123,7 +123,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -137,7 +137,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -151,7 +151,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -165,7 +165,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -179,7 +179,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -193,7 +193,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -207,7 +207,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -221,7 +221,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -235,21 +235,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
-      },
-      "author": <String, dynamic>{
-        "name": "pdliuw",
-        "nickname": "air",
-      }
-    },
-    {
-      "title": "Progress",
-      "subtitle": "multiple loading progress",
-      "routeName": "/MainProgressPage",
-      "link": <String, dynamic>{
-        "github": "https://github.com/pdliuw/flutter_app_sample",
-        "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -263,7 +249,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -277,7 +263,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -291,7 +277,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -305,7 +291,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -319,7 +305,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -333,7 +319,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -347,7 +333,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/flutter_app_sample",
         "pub": "",
-        "version": ""
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -366,7 +352,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/airoute",
         "pub": "https://pub.dev/packages/airoute",
-        "version": "https://img.shields.io/pub/v/airoute.svg"
+        "version": "https://img.shields.io/pub/v/airoute.svg",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -375,13 +361,26 @@ class MainModelConfig {
     },
     {
       "title": "ai_awesome_message",
-      "subtitle":
-          "A new Awesome message widget that is sames to toast;snackbar;prompt of Flutter package",
+      "subtitle": "A new Awesome message widget that is sames to toast;snackbar;prompt of Flutter package",
       "routeName": "/message/AwesomeMessageMainPage",
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/ai_awesome_message",
         "pub": "https://pub.dev/packages/ai_awesome_message",
-        "version": "https://img.shields.io/pub/v/ai_awesome_message.svg"
+        "version": "https://img.shields.io/pub/v/ai_awesome_message.svg",
+      },
+      "author": <String, dynamic>{
+        "name": "pdliuw",
+        "nickname": "air",
+      }
+    },
+    {
+      "title": "ai_progress",
+      "subtitle": "multiple loading progress",
+      "routeName": "/MainProgressPage",
+      "link": <String, dynamic>{
+        "github": "https://github.com/pdliuw/ai_progress",
+        "pub": "",
+        "version": "",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -395,7 +394,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/ai_sun",
         "pub": "https://pub.dev/packages/ai_sun",
-        "version": "https://img.shields.io/pub/v/ai_sun.svg"
+        "version": "https://img.shields.io/pub/v/ai_sun.svg",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -411,7 +410,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/ai_barcode",
         "pub": "https://pub.dev/packages/ai_barcode",
-        "version": "https://img.shields.io/pub/v/ai_barcode.svg"
+        "version": "https://img.shields.io/pub/v/ai_barcode.svg",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",
@@ -425,7 +424,7 @@ class MainModelConfig {
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/ai_barcode",
         "pub": "https://pub.dev/packages/ai_barcode",
-        "version": "https://img.shields.io/pub/v/ai_barcode.svg"
+        "version": "https://img.shields.io/pub/v/ai_barcode.svg",
       },
       "author": <String, dynamic>{
         "name": "pdliuw",

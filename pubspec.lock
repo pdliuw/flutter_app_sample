@@ -43,6 +43,13 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "2.0.0"
+  ai_sun:
+    dependency: "direct main"
+    description:
+      name: ai_sun
+      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
+    source: hosted
+    version: "3.1.0"
   air_design:
     dependency: "direct main"
     description:

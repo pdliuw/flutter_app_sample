@@ -45,9 +45,9 @@ dependencies:
   shared_preferences: 2.0.15
 
   # video
-#  video_player: ^0.10.5+2
+  #  video_player: ^0.10.5+2
   # snappable animation
-#  snappable: 1.0.1
+  #  snappable: 1.0.1
   # tip
   ai_awesome_message: 3.0.0
   # drawing
@@ -67,11 +67,11 @@ dependencies:
   # bottom navigation bar
   convex_bottom_bar: 3.0.0
   # popup menu
-#  popup_menu: 1.0.5
+  #  popup_menu: 1.0.5
   # multiple style progress
   ai_progress: 2.0.0
   # loading
-#  loading: 1.0.2
+  #  loading: 1.0.2
   # loading
   flutter_easyloading: 3.0.5
   # load status, loading:bool
@@ -82,8 +82,8 @@ dependencies:
   permission_handler: 10.0.0
   # vector icon. preview web:https://git-touch.github.io/flutter-vector-icons/
   flutter_vector_icons: 1.0.0
-  # custom 
-#  ai_sun: 1.0.0
+  # custom
+  ai_sun: ^3.1.0
   # network
   connectivity_plus: 2.3.6
   # video player
