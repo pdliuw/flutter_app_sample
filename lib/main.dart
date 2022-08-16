@@ -48,6 +48,7 @@ import 'package:provider/provider.dart';
 import 'ChineseCupertinoLocalizations.dart';
 import 'component/barcode/barcode_main_page.dart';
 import 'component/builder/stream_builder_async_request_page.dart';
+import 'component/dartpad/dartpad_page.dart';
 import 'component/filter/select_color_filter_page.dart';
 import 'component/message/awesome_message_main_page.dart';
 import 'component/network/network_check_page.dart';
@@ -105,9 +106,6 @@ class MyApp extends StatelessWidget {
                   title: "flutter app sample",
                   debugShowCheckedModeBanner: false,
                   home: Scaffold(
-//                    body: EntranceGlobalConfig.isTvEntrance()
-//                        ? TvLoginPage()
-//                        : LoginPage(),
                     body: MainPage(),
                   ),
                   themeMode: value.themeMode,
@@ -240,6 +238,7 @@ class MyApp extends StatelessWidget {
                     "/TabMainPage/NavigationDrawerPage": (_) => NavigationDrawerPage(),
                     "/FittedBoxPage": (_) => FittedBoxPage(),
                     "/SearchPage": (_) => SearchPage(),
+                    "/DartpadPage": (_) => DartpadPage(),
                   },
                   builder: EasyLoading.init(
                     //loading

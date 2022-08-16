@@ -90,7 +90,6 @@ class _FittedBoxPageState extends State<FittedBoxPage> with SingleTickerProvider
                   child: Container(
                     width: double.infinity,
                     height: 200,
-                    color: Theme.of(context).iconTheme.color,
                     child: FittedBox(
                       child: Text("$value"),
                     ),

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:airoute/airoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sample/component/main/main_config.dart';
 import 'package:flutter_app_sample/component/main/main_list_item_widget.dart';
@@ -46,6 +46,20 @@ class _MainState extends State<MainPage> {
       appBar: AppBar(
         title: Text("${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
         actions: [
+          TextButton.icon(
+            onPressed: () {
+              Airoute.pushNamed(routeName: "/DartpadPage");
+            },
+            label: Text(
+              "DartPad",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            icon: Image.asset(
+              "assets/dart-192.png",
+              width: 24,
+              height: 24,
+            ),
+          ),
           SearchEntryWidget(),
         ],
       ),

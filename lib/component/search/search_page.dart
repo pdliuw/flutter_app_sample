@@ -19,6 +19,12 @@ class _SearchState extends State<SearchPage> {
   final ValueNotifier<List<SearchModel>> _valueNotifier = ValueNotifier([]);
 
   @override
+  void initState() {
+    _valueNotifier.value = SearchConfig.searchList;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -28,9 +34,13 @@ class _SearchState extends State<SearchPage> {
           children: <Widget>[
             CupertinoSearchTextField(
               onChanged: (search) {
-                _valueNotifier.value = SearchConfig.searchList.where((element) {
-                  return element.searchName.contains(search);
-                }).toList();
+                if (search.isNotEmpty) {
+                  _valueNotifier.value = SearchConfig.searchList.where((element) {
+                    return element.searchName.contains(search);
+                  }).toList();
+                } else {
+                  _valueNotifier.value = SearchConfig.searchList;
+                }
               },
             ),
             Expanded(
