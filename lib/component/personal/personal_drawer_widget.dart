@@ -2,6 +2,7 @@ import 'package:air_design/air_design.dart';
 import 'package:airoute/airoute.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/app/export_app_component_file.dart';
 import 'package:flutter_app_sample/component/personal/personal_config.dart';
 import 'package:flutter_app_sample/component/personal/personal_face_widget.dart';
 import 'package:flutter_app_sample/global_view_model.dart';
@@ -46,10 +47,15 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
               spacing: 10,
               runSpacing: 10,
               children: <Widget>[
-                for (int labelIndex = 0, labelSize = PersonalConfig.personalLabelConfig.length; labelIndex < labelSize; labelIndex++)
+                for (int labelIndex = 0,
+                        labelSize = PersonalConfig.personalLabelConfig.length;
+                    labelIndex < labelSize;
+                    labelIndex++)
                   Chip(
-                    avatar: PersonalConfig.personalLabelConfig[labelIndex]['avatar']['widget'],
-                    label: PersonalConfig.personalLabelConfig[labelIndex]['label']['widget'],
+                    avatar: PersonalConfig.personalLabelConfig[labelIndex]
+                        ['avatar']['widget'],
+                    label: PersonalConfig.personalLabelConfig[labelIndex]
+                        ['label']['widget'],
                   ),
               ],
             ),
@@ -58,14 +64,24 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
         ExpansionTile(
           title: Text("小工具"),
           children: <Widget>[
-            for (int toolIndex = 0, toolSize = PersonalConfig.personalToolConfig.length; toolIndex < toolSize; toolIndex++)
+            for (int toolIndex = 0,
+                    toolSize = PersonalConfig.personalToolConfig.length;
+                toolIndex < toolSize;
+                toolIndex++)
               ListTile(
                 onTap: () {
-                  Airoute.pushNamed(routeName: "${PersonalConfig.personalToolConfig[toolIndex]['routeName']}");
+                  Airoute.pushNamed(
+                      routeName:
+                          "${PersonalConfig.personalToolConfig[toolIndex]['routeName']}");
                 },
-                leading: PersonalConfig.personalToolConfig[toolIndex]['avatar']['widget'],
-                title: AppTextSubtitle1Widget.defaultStyle(data: "${PersonalConfig.personalToolConfig[toolIndex]['title']}"),
-                subtitle: AppTextBodyText2Widget.defaultStyle(data: "${PersonalConfig.personalToolConfig[toolIndex]['subtitle']}"),
+                leading: PersonalConfig.personalToolConfig[toolIndex]['avatar']
+                    ['widget'],
+                title: AppTextSubtitle1Widget.defaultStyle(
+                    data:
+                        "${PersonalConfig.personalToolConfig[toolIndex]['title']}"),
+                subtitle: AppTextBodyText2Widget.defaultStyle(
+                    data:
+                        "${PersonalConfig.personalToolConfig[toolIndex]['subtitle']}"),
                 trailing: Icon(Icons.arrow_right),
               )
           ],
@@ -76,58 +92,58 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
             Wrap(
               children: <Widget>[
                 ListTile(
-                  selected: GlobalViewModel.getInstance().isLightTheme,
+                  selected: GlobalViewModel.instance.isLightTheme,
                   onTap: () {
                     setState(() {
-                      GlobalViewModel.getInstance().toggleLightThemeMode();
+                      GlobalViewModel.instance.toggleLightThemeMode();
                     });
                   },
                   leading: Icon(Icons.wb_sunny),
                   title: Text("浅色"),
                   subtitle: Text("浅色模式"),
                   trailing: Switch(
-                    value: GlobalViewModel.getInstance().isLightTheme,
+                    value: GlobalViewModel.instance.isLightTheme,
                     onChanged: (bool value) {
                       setState(() {
-                        GlobalViewModel.getInstance().toggleLightThemeMode();
+                        GlobalViewModel.instance.toggleLightThemeMode();
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  selected: GlobalViewModel.getInstance().isDarkTheme,
+                  selected: GlobalViewModel.instance.isDarkTheme,
                   onTap: () {
                     setState(() {
-                      GlobalViewModel.getInstance().toggleDarkThemeMode();
+                      GlobalViewModel.instance.toggleDarkThemeMode();
                     });
                   },
                   leading: Icon(Icons.nightlight_round),
                   title: Text("深色"),
                   subtitle: Text("深色模式"),
                   trailing: Switch(
-                    value: GlobalViewModel.getInstance().isDarkTheme,
+                    value: GlobalViewModel.instance.isDarkTheme,
                     onChanged: (bool value) {
                       setState(() {
-                        GlobalViewModel.getInstance().toggleDarkThemeMode();
+                        GlobalViewModel.instance.toggleDarkThemeMode();
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  selected: GlobalViewModel.getInstance().isSystemTheme,
+                  selected: GlobalViewModel.instance.isSystemTheme,
                   onTap: () {
                     setState(() {
-                      GlobalViewModel.getInstance().toggleSystemThemeMode();
+                      GlobalViewModel.instance.toggleSystemThemeMode();
                     });
                   },
                   leading: Icon(Icons.brightness_auto),
                   title: Text("系统"),
                   subtitle: Text("跟随系统"),
                   trailing: Switch(
-                    value: GlobalViewModel.getInstance().isSystemTheme,
+                    value: GlobalViewModel.instance.isSystemTheme,
                     onChanged: (bool value) {
                       setState(() {
-                        GlobalViewModel.getInstance().toggleSystemThemeMode();
+                        GlobalViewModel.instance.toggleSystemThemeMode();
                       });
                     },
                   ),
@@ -137,6 +153,20 @@ class _PersonalDrawerWidgetState extends State<PersonalDrawerWidget> {
           ],
         ),
         Divider(),
+        ValueListenableBuilder<bool>(
+            valueListenable: AppGlobalModel.instance.clockNotifier,
+            builder: (context, show, child) {
+              return SwitchListTile(
+                value: show,
+                title: AppTextSubtitle1Widget.defaultStyle(data: "时钟"),
+                subtitle: AppTextBodyText2Widget.defaultStyle(
+                  data: "时钟已${show ? '开启' : '关闭'}",
+                ),
+                onChanged: (checked) {
+                  AppGlobalModel.instance.clockNotifier.value = checked;
+                },
+              );
+            }),
         ListTile(
           onTap: () {
             Airoute.pushNamed(routeName: "/SettingPage");

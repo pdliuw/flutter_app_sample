@@ -71,7 +71,8 @@ class _MainListItemWidgetState extends State<MainListItemWidget> {
                         MaterialCommunityIcons.copyright,
                         color: Theme.of(context).primaryColorDark,
                       ),
-                      AppTextBodyText2Widget.defaultStyle(data: "${widget.itemData['author']['nickname']}"),
+                      AppTextBodyText2Widget.defaultStyle(
+                          data: "${widget.itemData['author']['nickname']}"),
                     ],
                   ),
                 ),

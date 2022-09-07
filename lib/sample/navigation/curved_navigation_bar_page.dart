@@ -103,7 +103,9 @@ class _CurvedNavigationBarState extends State<CurvedNavigationBarPage> {
               RaisedButton(
                 child: Text('Go To Page of index 1'),
                 onPressed: () {
-                  final CurvedNavigationBarState navBarState = _bottomNavigationKey.currentState as CurvedNavigationBarState;
+                  final CurvedNavigationBarState navBarState =
+                      _bottomNavigationKey.currentState
+                          as CurvedNavigationBarState;
                   navBarState.setPage(1);
                 },
               )

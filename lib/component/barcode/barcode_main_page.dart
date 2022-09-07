@@ -27,7 +27,8 @@ class _BarcodeMainPageState extends State<BarcodeMainPage> {
             child: AppCardOutlinedStyleWidget.defaultStyle(
               onTap: () {
                 //跳转页面=扫描二维码
-                Airoute.push(route: MaterialPageRoute<Object>(builder: (context) {
+                Airoute.push(
+                    route: MaterialPageRoute<Object>(builder: (context) {
                   return SelectScannerStylePage();
                 }));
               },
@@ -44,7 +45,8 @@ class _BarcodeMainPageState extends State<BarcodeMainPage> {
             child: AppCardOutlinedStyleWidget.defaultStyle(
               onTap: () {
                 //跳转页面=生成二维码
-                Airoute.push(route: MaterialPageRoute<Object>(builder: (context) {
+                Airoute.push(
+                    route: MaterialPageRoute<Object>(builder: (context) {
                   return CreatorPage();
                 }));
               },

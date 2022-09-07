@@ -20,6 +20,7 @@ class ApiConfig {
   }
 
   ///URL path!
-  static const String GET_VERIFICATION_CODE_URL = "/api/app/v1/LoginCtrl/getVerificationCode";
+  static const String GET_VERIFICATION_CODE_URL =
+      "/api/app/v1/LoginCtrl/getVerificationCode";
   static const String LOGIN_URL = "/api/app/v1/LoginCtrl/login";
 }

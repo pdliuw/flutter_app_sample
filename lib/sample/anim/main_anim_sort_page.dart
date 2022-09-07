@@ -70,9 +70,12 @@ class _MainAnimState extends State<MainAnimSortPage> {
                 child: RaisedButton.icon(
                   color: Colors.blue,
                   textColor: Colors.white,
-                  onPressed: (_currentStep == (_list.length - 1)) ? null : detail.onStepContinue,
+                  onPressed: (_currentStep == (_list.length - 1))
+                      ? null
+                      : detail.onStepContinue,
                   icon: Icon(Icons.arrow_drop_down),
-                  label: Text("${(_currentStep == (_list.length - 1)) ? 'Last' : 'Next'}"),
+                  label: Text(
+                      "${(_currentStep == (_list.length - 1)) ? 'Last' : 'Next'}"),
                 ),
               ),
             ),
@@ -157,7 +160,9 @@ class _MainAnimState extends State<MainAnimSortPage> {
               );
             },
             child: Card(
-              shape: RoundedRectangleBorder(side: BorderSide(color: Colors.green, width: 1), borderRadius: BorderRadius.circular(5)),
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.green, width: 1),
+                  borderRadius: BorderRadius.circular(5)),
               elevation: 5,
               margin: EdgeInsets.all(5),
               child: Padding(

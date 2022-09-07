@@ -1,5 +1,3 @@
 ///
 ///
-abstract class BaseSource{
-
-}
+abstract class BaseSource {}

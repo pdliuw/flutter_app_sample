@@ -35,8 +35,9 @@ class _SearchState extends State<SearchPage> {
             CupertinoSearchTextField(
               onChanged: (search) {
                 if (search.isNotEmpty) {
-                  _valueNotifier.value = SearchConfig.searchList.where((element) {
-                    return element.searchName.contains(search);
+                  _valueNotifier.value =
+                      SearchConfig.searchList.where((element) {
+                    return element.searchName.toString().contains(search);
                   }).toList();
                 } else {
                   _valueNotifier.value = SearchConfig.searchList;
@@ -53,7 +54,8 @@ class _SearchState extends State<SearchPage> {
                       return ListTile(
                         title: Text("${searchItem.searchName}"),
                         onTap: () {
-                          Airoute.push(route: MaterialPageRoute(builder: (context) {
+                          Airoute.push(
+                              route: MaterialPageRoute(builder: (context) {
                             return searchItem.searchWidget;
                           }));
                         },

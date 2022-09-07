@@ -15,7 +15,7 @@ class CardModelBYNotifierProvider extends ChangeNotifier {
     this._name = name;
   }
 
-  notify(){
+  notify() {
     notifyListeners();
   }
 }

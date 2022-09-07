@@ -53,7 +53,8 @@ class _LoginState extends State<TvLoginPage> {
   }
 
   String _getPhoneErrorInfo() {
-    if (StringUtil.isEmpty(phoneStr) || phoneStr.length == PHONE_MAX_LENGTH_DEFAULT) {
+    if (StringUtil.isEmpty(phoneStr) ||
+        phoneStr.length == PHONE_MAX_LENGTH_DEFAULT) {
       return StringUtil.getEmpty;
     } else {
       return "请输入11位帐号";
@@ -61,7 +62,8 @@ class _LoginState extends State<TvLoginPage> {
   }
 
   String _getPasswordErrorInfo() {
-    if (StringUtil.isEmpty(passwordStr) || passwordStr.length == VERIFICATION_MAX_LENGTH_DEFAULT) {
+    if (StringUtil.isEmpty(passwordStr) ||
+        passwordStr.length == VERIFICATION_MAX_LENGTH_DEFAULT) {
       return StringUtil.getEmpty;
     } else {
       return "请输入16位密码";
@@ -201,7 +203,13 @@ class _LoginState extends State<TvLoginPage> {
                           fillColor: Theme.of(context).primaryColor,
                           child: Text(
                             "登陆",
-                            style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Theme.of(context).primaryIconTheme.color),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .primaryIconTheme
+                                        .color),
                           ),
                         ),
                       ),

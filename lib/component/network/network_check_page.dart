@@ -22,7 +22,8 @@ class _NetworkCheckPageState extends State<NetworkCheckPage> {
   void initState() {
     super.initState();
     initConnectivity();
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
   }
 
   @override

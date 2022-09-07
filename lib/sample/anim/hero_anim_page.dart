@@ -27,7 +27,9 @@ class _HeroAnimState extends State<HeroAnimPage> {
             /*
             为Hero动画加"透明动画的页面切换"
             */
-            Navigator.push(context, PageRouteBuilder(pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+            Navigator.push(context, PageRouteBuilder(pageBuilder:
+                (BuildContext context, Animation<double> animation,
+                    Animation<double> secondaryAnimation) {
               return FadeTransition(
                 opacity: animation,
                 child: CollapsingToolbarPage(),

@@ -9,7 +9,8 @@ class FittedBoxPage extends StatefulWidget {
   _FittedBoxPageState createState() => _FittedBoxPageState();
 }
 
-class _FittedBoxPageState extends State<FittedBoxPage> with SingleTickerProviderStateMixin {
+class _FittedBoxPageState extends State<FittedBoxPage>
+    with SingleTickerProviderStateMixin {
   final List<String> _list = [
     "A",
     "B",

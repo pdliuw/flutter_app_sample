@@ -9,7 +9,8 @@ class MainIconAnimPage extends StatefulWidget {
   }
 }
 
-class _MainIconAnimState extends State<MainIconAnimPage> with SingleTickerProviderStateMixin {
+class _MainIconAnimState extends State<MainIconAnimPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   @override
   void initState() {
@@ -37,20 +38,48 @@ class _MainIconAnimState extends State<MainIconAnimPage> with SingleTickerProvid
           Column(
             children: <Widget>[
               Spacer(),
-              AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.play_pause, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.pause_play, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.add_event, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.arrow_menu, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.close_menu, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.ellipsis_search, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.event_add, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.home_menu, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.list_view, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.menu_close, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.menu_home, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: _animationController),
-              AnimatedIcon(icon: AnimatedIcons.view_list, progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.menu_arrow,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.play_pause,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.pause_play,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.add_event,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.arrow_menu,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.close_menu,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.ellipsis_search,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.event_add,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.home_menu,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.list_view,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.menu_close,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.menu_home,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.menu_arrow,
+                  progress: _animationController),
+              AnimatedIcon(
+                  icon: AnimatedIcons.view_list,
+                  progress: _animationController),
               Spacer(),
             ],
           ),
@@ -60,13 +89,15 @@ class _MainIconAnimState extends State<MainIconAnimPage> with SingleTickerProvid
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (_animationController.isAnimating || _animationController.isCompleted) {
+          if (_animationController.isAnimating ||
+              _animationController.isCompleted) {
             _animationController.reverse();
           } else {
             _animationController.forward();
           }
         },
-        child: AnimatedIcon(icon: AnimatedIcons.play_pause, progress: _animationController),
+        child: AnimatedIcon(
+            icon: AnimatedIcons.play_pause, progress: _animationController),
       ),
     );
   }

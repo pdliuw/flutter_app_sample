@@ -204,7 +204,8 @@ class RandomClipper extends CustomClipper<Path> {
     path.addPolygon(
         List.generate(
           POLY_POINTS,
-          (index) => Offset(rand.nextDouble() * size.width, rand.nextDouble() * size.height),
+          (index) => Offset(
+              rand.nextDouble() * size.width, rand.nextDouble() * size.height),
         ),
         true);
 
@@ -220,7 +221,8 @@ class WaveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
     path.lineTo(0, size.height * .8);
-    path.quadraticBezierTo(size.width / 3, size.height, size.width, size.height * .6);
+    path.quadraticBezierTo(
+        size.width / 3, size.height, size.width, size.height * .6);
     path.lineTo(size.width, 0);
     path.close();
 

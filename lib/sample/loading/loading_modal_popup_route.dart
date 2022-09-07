@@ -59,7 +59,8 @@ class LoadingModalPopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
     return CupertinoUserInterfaceLevel(
       data: CupertinoUserInterfaceLevelData.elevated,
       child: Builder(builder: builder),
@@ -67,7 +68,8 @@ class LoadingModalPopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     return Align(
       alignment: Alignment.center,
       child: FractionalTranslation(

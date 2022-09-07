@@ -240,11 +240,13 @@ class _GridViewDragState extends State<GridViewDragWidget> {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: _personNames.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemBuilder: (BuildContext context, int index) {
         return LongPressDraggable<Person>(
           data: _personNames[index],
-          child: DragTarget(builder: (BuildContext context, List<int?> candidateData, List<dynamic> rejectedData) {
+          child: DragTarget(builder: (BuildContext context,
+              List<int?> candidateData, List<dynamic> rejectedData) {
             return Card(
               margin: EdgeInsets.all(10),
               elevation: 2,
@@ -252,7 +254,8 @@ class _GridViewDragState extends State<GridViewDragWidget> {
               key: Key("${_personNames.elementAt(index).name}"),
               child: GridTileBar(
                 leading: CircleAvatar(
-                  child: Text("${_personNames.elementAt(index).name.substring(0, 1)}"),
+                  child: Text(
+                      "${_personNames.elementAt(index).name.substring(0, 1)}"),
                 ),
                 title: Text(
                   "${_personNames.elementAt(index).name}",
@@ -277,7 +280,8 @@ class _GridViewDragState extends State<GridViewDragWidget> {
               key: Key("${_personNames.elementAt(index).name}"),
               child: GridTileBar(
                 leading: CircleAvatar(
-                  child: Text("${_personNames.elementAt(index).name.substring(0, 1)}"),
+                  child: Text(
+                      "${_personNames.elementAt(index).name.substring(0, 1)}"),
                 ),
                 title: Text(
                   "${_personNames.elementAt(index).name}",

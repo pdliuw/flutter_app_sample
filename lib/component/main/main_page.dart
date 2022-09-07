@@ -1,5 +1,7 @@
 import 'package:airoute/airoute.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sample/component/dartpad/dartpad_page.dart';
 import 'package:flutter_app_sample/component/main/main_config.dart';
 import 'package:flutter_app_sample/component/main/main_list_item_widget.dart';
 import 'package:flutter_app_sample/component/personal/personal_drawer_widget.dart';
@@ -44,22 +46,26 @@ class _MainState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
+        title: Text(
+            "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}"),
         actions: [
-          TextButton.icon(
-            onPressed: () {
-              Airoute.pushNamed(routeName: "/DartpadPage");
-            },
-            label: Text(
-              "DartPad",
-              style: TextStyle(color: Colors.white, fontSize: 18),
+          if (kIsWeb)
+            TextButton.icon(
+              onPressed: () {
+                Airoute.push(route: MaterialPageRoute(builder: (context) {
+                  return DartpadPage();
+                }));
+              },
+              label: Text(
+                "DartPad",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              icon: Image.asset(
+                "assets/dart-192.png",
+                width: 24,
+                height: 24,
+              ),
             ),
-            icon: Image.asset(
-              "assets/dart-192.png",
-              width: 24,
-              height: 24,
-            ),
-          ),
           SearchEntryWidget(),
         ],
       ),
@@ -74,7 +80,8 @@ class _MainState extends State<MainPage> {
         },
       ),
       body: Center(
-        child: getBottomNavigationWidgets().elementAt(_bottomNavigationSelectedIndex),
+        child: getBottomNavigationWidgets()
+            .elementAt(_bottomNavigationSelectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _bottomNavigationSelectedIndex,
@@ -92,7 +99,8 @@ class _MainState extends State<MainPage> {
               TipHelper.showTip(
                 context: context,
                 tipType: TipType.INFO,
-                message: "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制",
+                message:
+                    "${_bottomNavigationTitles.elementAt(_bottomNavigationSelectedIndex)}触发刷新机制",
               );
             }
             _bottomNavigationSelectedIndex = index;
@@ -112,7 +120,8 @@ class _MainState extends State<MainPage> {
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
-                return MainListItemWidget.defaultStyle(itemData: MainModelConfig.widgetConfigList[index]);
+                return MainListItemWidget.defaultStyle(
+                    itemData: MainModelConfig.widgetConfigList[index]);
               },
               itemCount: MainModelConfig.widgetConfigList.length,
             ),

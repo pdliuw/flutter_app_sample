@@ -95,7 +95,9 @@ class _SelectColorFilterPageState extends State<SelectColorFilterPage> {
               children: [
                 ColorFiltered(
                   colorFilter: ColorFilter.mode(
-                    _colorFilterList.where((element) => element['checked']).first['value'],
+                    _colorFilterList
+                        .where((element) => element['checked'])
+                        .first['value'],
                     BlendMode.color,
                   ),
                   child: Image.asset(
@@ -115,7 +117,9 @@ class _SelectColorFilterPageState extends State<SelectColorFilterPage> {
                 AppCardOutlinedStyleWidget.defaultStyle(
                   onTap: () {
                     setState(() {
-                      for (int loopIndex = 0; loopIndex < _colorFilterList.length; loopIndex++) {
+                      for (int loopIndex = 0;
+                          loopIndex < _colorFilterList.length;
+                          loopIndex++) {
                         if (i == loopIndex) {
                           _colorFilterList[loopIndex]['checked'] = true;
                         } else {

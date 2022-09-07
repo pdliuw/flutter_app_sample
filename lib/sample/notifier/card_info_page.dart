@@ -69,7 +69,8 @@ class _CardInfoState extends State<CardInfoPage> {
               builder: (context, cart, child) {
                 return RaisedButton(
                   onPressed: () {
-                    _cardModelBYNotifierProvider.age = ++_cardModelBYNotifierProvider.age;
+                    _cardModelBYNotifierProvider.age =
+                        ++_cardModelBYNotifierProvider.age;
 
                     _cardModelBYNotifierProvider.notify();
                   },

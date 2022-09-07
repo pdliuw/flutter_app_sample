@@ -112,7 +112,10 @@ class _DrawCircleState extends State<DrawCirclePage> {
         Expanded(
             child: AnimatedDrawing.paths(
           [
-            (Path()..addOval(Rect.fromCircle(center: Offset.zero, radius: 75.0))).transform(Matrix4.rotationX(-pi).storage), //A circle which is slightly rotated
+            (Path()
+                  ..addOval(Rect.fromCircle(center: Offset.zero, radius: 75.0)))
+                .transform(Matrix4.rotationX(-pi)
+                    .storage), //A circle which is slightly rotated
           ],
           paints: [
             Paint()..style = PaintingStyle.stroke,
@@ -154,24 +157,94 @@ class DrawMultiPage extends StatefulWidget {
   }
 }
 
-class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin {
+class _DrawMultiState extends State<DrawMultiPage>
+    with TickerProviderStateMixin {
   //name(0)  LineAnimation(1), animationCurve(2), duration(3), backgroundColor(4), isRepeat(5), PathOrder(6), web (7), title (8)
   List<List> assets = [
     //0
-    ['head1', LineAnimation.oneByOne, Curves.linear, 5, Colors.blue[400], false, PathOrders.original, "https://www.flickr.com/photos/britishlibrary/11004937825", "Welcome!"],
+    [
+      'head1',
+      LineAnimation.oneByOne,
+      Curves.linear,
+      5,
+      Colors.blue[400],
+      false,
+      PathOrders.original,
+      "https://www.flickr.com/photos/britishlibrary/11004937825",
+      "Welcome!"
+    ],
     //1
-    ['egypt1', LineAnimation.oneByOne, Curves.linear, 5, Color.fromRGBO(224, 121, 42, 1.0), false, PathOrders.original, "https://www.flickr.com/photos/britishlibrary/11009096375", "LineAnimation"],
+    [
+      'egypt1',
+      LineAnimation.oneByOne,
+      Curves.linear,
+      5,
+      Color.fromRGBO(224, 121, 42, 1.0),
+      false,
+      PathOrders.original,
+      "https://www.flickr.com/photos/britishlibrary/11009096375",
+      "LineAnimation"
+    ],
     //2
-    ['child6', LineAnimation.oneByOne, Curves.linear, 3, Colors.white, false, PathOrders.leftToRight, "https://www.flickr.com/photos/britishlibrary/11168330443/", "Animation order I - byPosition"],
+    [
+      'child6',
+      LineAnimation.oneByOne,
+      Curves.linear,
+      3,
+      Colors.white,
+      false,
+      PathOrders.leftToRight,
+      "https://www.flickr.com/photos/britishlibrary/11168330443/",
+      "Animation order I - byPosition"
+    ],
     //3
-    ['child8', LineAnimation.oneByOne, Curves.linear, 5, Colors.white, false, PathOrders.leftToRight, "https://www.flickr.com/photos/britishlibrary/11290437266", "Animation order II - byLength"],
+    [
+      'child8',
+      LineAnimation.oneByOne,
+      Curves.linear,
+      5,
+      Colors.white,
+      false,
+      PathOrders.leftToRight,
+      "https://www.flickr.com/photos/britishlibrary/11290437266",
+      "Animation order II - byLength"
+    ],
     //4
-    ['dino2', LineAnimation.oneByOne, Curves.linear, 5, Colors.black, false, PathOrders.original, "https://www.flickr.com/photos/britishlibrary/11300302103", 'Curve I'],
+    [
+      'dino2',
+      LineAnimation.oneByOne,
+      Curves.linear,
+      5,
+      Colors.black,
+      false,
+      PathOrders.original,
+      "https://www.flickr.com/photos/britishlibrary/11300302103",
+      'Curve I'
+    ],
     //5
-    ['child7', LineAnimation.oneByOne, Curves.linear, 5, Colors.black, false, PathOrders.original, "https://www.flickr.com/photos/britishlibrary/11290437266", "Colors and more!"],
+    [
+      'child7',
+      LineAnimation.oneByOne,
+      Curves.linear,
+      5,
+      Colors.black,
+      false,
+      PathOrders.original,
+      "https://www.flickr.com/photos/britishlibrary/11290437266",
+      "Colors and more!"
+    ],
   ];
 
-  List<Curve> curves = [Curves.bounceIn, Curves.bounceInOut, Curves.bounceOut, Curves.decelerate, Curves.elasticIn, Curves.elasticInOut, Curves.elasticOut, Curves.linear];
+  List<Curve> curves = [
+    Curves.bounceIn,
+    Curves.bounceInOut,
+    Curves.bounceOut,
+    Curves.decelerate,
+    Curves.elasticIn,
+    Curves.elasticInOut,
+    Curves.elasticOut,
+    Curves.linear
+  ];
 
   List<List> paintOrderFunctions = [
     ["No sort", PathOrders.original],
@@ -181,7 +254,10 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
     ["BottomToTop", PathOrders.bottomToTop],
     ["IncreasingLength", PathOrders.increasingLength],
     ["DecreasingLength", PathOrders.decreasingLength],
-    ["LeftToRight x TopToBottom", PathOrders.leftToRight.combine(PathOrders.topToBottom)],
+    [
+      "LeftToRight x TopToBottom",
+      PathOrders.leftToRight.combine(PathOrders.topToBottom)
+    ],
   ];
 
   bool isRunning = false; //all drawings are paused in the beginning
@@ -208,7 +284,8 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
   }
 
   Widget createPage(int i, BuildContext context) {
-    bool isLandscape = (MediaQuery.of(context).orientation == Orientation.portrait);
+    bool isLandscape =
+        (MediaQuery.of(context).orientation == Orientation.portrait);
     if (this.previousScreen != i) {
       this.isRunning = false;
       this.showStartButton = true;
@@ -221,7 +298,14 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
       ),
       Column(children: <Widget>[
         (isLandscape) ? Expanded(flex: 3, child: Container()) : Container(),
-        (isLandscape) ? Expanded(flex: 6, child: Center(child: Padding(padding: EdgeInsets.all(24.0), child: createInstructions(i)))) : Container(),
+        (isLandscape)
+            ? Expanded(
+                flex: 6,
+                child: Center(
+                    child: Padding(
+                        padding: EdgeInsets.all(24.0),
+                        child: createInstructions(i))))
+            : Container(),
         Flexible(
             flex: 12,
             child: Container(
@@ -243,7 +327,9 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
                             Text(
                               "Start animation",
                               style: TextStyle(
-                                color: (assets[i][4] == Colors.black) ? Colors.white : Colors.black,
+                                color: (assets[i][4] == Colors.black)
+                                    ? Colors.white
+                                    : Colors.black,
                               ),
                             ),
                             FlatButton.icon(
@@ -254,12 +340,16 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
                               },
                               icon: Icon(
                                 Icons.touch_app,
-                                color: (assets[i][4] == Colors.black) ? Colors.white : Colors.black,
+                                color: (assets[i][4] == Colors.black)
+                                    ? Colors.white
+                                    : Colors.black,
                               ),
                               label: Text(
                                 "drawing",
                                 style: TextStyle(
-                                  color: (assets[i][4] == Colors.black) ? Colors.white : Colors.black,
+                                  color: (assets[i][4] == Colors.black)
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                               ),
                             ),
@@ -301,7 +391,9 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
                       child: IconButton(
                         icon: Icon(
                           Icons.info_outline,
-                          color: (assets[i][4] == Colors.black) ? Colors.white : Colors.black,
+                          color: (assets[i][4] == Colors.black)
+                              ? Colors.white
+                              : Colors.black,
                         ),
                         onPressed: () {
                           setState(() {
@@ -345,8 +437,20 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
   List<Widget> createCardOptions(int i) {
     List<Widget> options = <Widget>[
       Row(children: <Widget>[
-        (this.cardExpanded) ? Expanded(flex: 1, child: Text("Asset: ", style: TextStyle(fontWeight: FontWeight.bold))) : Text("${assets[i][8]}", style: TextStyle(fontWeight: FontWeight.bold)),
-        (this.cardExpanded) ? Expanded(flex: 1, child: Align(alignment: Alignment.centerLeft, child: Text("${assets[i][0]}"))) : Container(),
+        (this.cardExpanded)
+            ? Expanded(
+                flex: 1,
+                child: Text("Asset: ",
+                    style: TextStyle(fontWeight: FontWeight.bold)))
+            : Text("${assets[i][8]}",
+                style: TextStyle(fontWeight: FontWeight.bold)),
+        (this.cardExpanded)
+            ? Expanded(
+                flex: 1,
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text("${assets[i][0]}")))
+            : Container(),
         Expanded(
             flex: 1,
             child: Align(
@@ -370,14 +474,18 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
           Expanded(
               flex: 3,
               child: Row(children: <Widget>[
-                Expanded(child: Text("LineAnimation:", style: TextStyle(fontWeight: FontWeight.bold))),
+                Expanded(
+                    child: Text("LineAnimation:",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
                 Expanded(
                   child: ChoiceChip(
                     label: Text('allAtOnce'),
                     selected: assets[i][1] == LineAnimation.allAtOnce,
                     onSelected: (bool selected) {
                       setState(() {
-                        assets[i][1] = selected ? LineAnimation.allAtOnce : LineAnimation.oneByOne;
+                        assets[i][1] = selected
+                            ? LineAnimation.allAtOnce
+                            : LineAnimation.oneByOne;
                       });
                     },
                   ),
@@ -388,7 +496,9 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
                   selected: assets[i][1] == LineAnimation.oneByOne,
                   onSelected: (bool selected) {
                     setState(() {
-                      assets[i][1] = selected ? LineAnimation.oneByOne : LineAnimation.allAtOnce;
+                      assets[i][1] = selected
+                          ? LineAnimation.oneByOne
+                          : LineAnimation.allAtOnce;
                     });
                   },
                 )),
@@ -399,7 +509,9 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
           Expanded(
               flex: 3,
               child: Row(children: <Widget>[
-                Expanded(child: Text("Repeat:", style: TextStyle(fontWeight: FontWeight.bold))),
+                Expanded(
+                    child: Text("Repeat:",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
                 Expanded(
                     child: ChoiceChip(
                   label: Text('Once'),
@@ -423,7 +535,10 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
               ])),
         ]),
         Row(children: <Widget>[
-          Expanded(flex: 1, child: Text("AnimationCurve: ", style: TextStyle(fontWeight: FontWeight.bold))),
+          Expanded(
+              flex: 1,
+              child: Text("AnimationCurve: ",
+                  style: TextStyle(fontWeight: FontWeight.bold))),
           Expanded(
               flex: 1,
               child: DropdownButton<Curve>(
@@ -437,7 +552,10 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
                   return new DropdownMenuItem<Curve>(
                     value: curve,
                     child: new Text(
-                      curve.runtimeType.toString().substring(1).replaceAll(new RegExp(r'Curve'), ''),
+                      curve.runtimeType
+                          .toString()
+                          .substring(1)
+                          .replaceAll(new RegExp(r'Curve'), ''),
                       overflow: TextOverflow.ellipsis,
                       style: new TextStyle(color: Colors.black),
                     ),
@@ -446,7 +564,10 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
               )),
         ]),
         Row(children: <Widget>[
-          Expanded(flex: 1, child: Text("PathOrder: ", style: TextStyle(fontWeight: FontWeight.bold))),
+          Expanded(
+              flex: 1,
+              child: Text("PathOrder: ",
+                  style: TextStyle(fontWeight: FontWeight.bold))),
           Expanded(
               flex: 1,
               child: DropdownButton<PathOrder>(
@@ -465,7 +586,10 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
               )),
         ]),
         Row(children: <Widget>[
-          Expanded(flex: 1, child: Text("Duration: ", style: TextStyle(fontWeight: FontWeight.bold))),
+          Expanded(
+              flex: 1,
+              child: Text("Duration: ",
+                  style: TextStyle(fontWeight: FontWeight.bold))),
           Expanded(
             flex: 1,
             child: Slider(
@@ -490,18 +614,26 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
       case 0:
         return wrap([
           Expanded(
-            child: Text("This is a simple application showcasing the capabilities of the `drawing_animation` package."),
+            child: Text(
+                "This is a simple application showcasing the capabilities of the `drawing_animation` package."),
           ),
-          (this.showSwipe && i == 0 && !this.isRunning) ? getSwipeWidget() : Container(),
+          (this.showSwipe && i == 0 && !this.isRunning)
+              ? getSwipeWidget()
+              : Container(),
         ]);
       case 1:
         return wrap([
-          Text("Path elements are either drawn one after the other or all at once."),
-          Row(children: <Widget>[createChoiceChip(i, 1, "oneByOne", LineAnimation.oneByOne), createChoiceChip(i, 1, "allAtOnce", LineAnimation.allAtOnce)])
+          Text(
+              "Path elements are either drawn one after the other or all at once."),
+          Row(children: <Widget>[
+            createChoiceChip(i, 1, "oneByOne", LineAnimation.oneByOne),
+            createChoiceChip(i, 1, "allAtOnce", LineAnimation.allAtOnce)
+          ])
         ]);
       case 2:
         return wrap([
-          Text("The animation order defines which path segment is drawn first on the canvas."),
+          Text(
+              "The animation order defines which path segment is drawn first on the canvas."),
           Row(children: <Widget>[
             createChoiceChip(i, 6, "toRight", PathOrders.leftToRight),
             createChoiceChip(i, 6, "toLeft", PathOrders.rightToLeft),
@@ -511,7 +643,8 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
         ]);
       case 3:
         return wrap([
-          Text("A different animation order is e.g. obtained via the size of each element: "),
+          Text(
+              "A different animation order is e.g. obtained via the size of each element: "),
           Row(children: <Widget>[
             createChoiceChip(i, 6, "toRight", PathOrders.leftToRight),
             createChoiceChip(i, 6, "descreasing", PathOrders.decreasingLength),
@@ -520,7 +653,8 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
         ]);
       case 4:
         return wrap([
-          Text("Curves in Flutter are used to manipulate the change of an animation over time."),
+          Text(
+              "Curves in Flutter are used to manipulate the change of an animation over time."),
           Row(children: <Widget>[
             createChoiceChip(i, 2, "linear", Curves.linear),
             createChoiceChip(i, 2, "bounceInOut", Curves.bounceInOut),
@@ -535,11 +669,13 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
     return Expanded(
         child: Container(
             padding: new EdgeInsets.all(1.0),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Icon(Icons.arrow_back_ios),
-              Icon(Icons.arrow_back_ios),
-              Text("Swipe left!"),
-            ])));
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.arrow_back_ios),
+                  Icon(Icons.arrow_back_ios),
+                  Text("Swipe left!"),
+                ])));
   }
 
   Widget createChoiceChip(int i, int j, String text, Object object) {
@@ -566,11 +702,13 @@ class _DrawMultiState extends State<DrawMultiPage> with TickerProviderStateMixin
     ));
   }
 
-  Widget createChoiceChipMulti(int i, List<int> jj, String text, List<Object> objects) {
+  Widget createChoiceChipMulti(
+      int i, List<int> jj, String text, List<Object> objects) {
     return Expanded(
         child: ChoiceChip(
       label: Text(text),
-      selected: assets[i][jj.first] == objects.first, //boolean depends on first object
+      selected: assets[i][jj.first] ==
+          objects.first, //boolean depends on first object
       onSelected: (bool selected) {
         if (selected) {
           setState(() {

@@ -65,7 +65,8 @@ class _UserInfoState extends State<UserInfoPage> {
                               context: context,
                               changed: (DateTime dateTime) {
                                 setState(() {
-                                  _birthday = "${dateTime.year}-${dateTime.month}-${dateTime.day}";
+                                  _birthday =
+                                      "${dateTime.year}-${dateTime.month}-${dateTime.day}";
                                 });
                               });
                         },

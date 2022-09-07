@@ -33,7 +33,8 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   DatePickerDateOrder get datePickerDateOrder => DatePickerDateOrder.ymd;
 
   @override
-  DatePickerDateTimeOrder get datePickerDateTimeOrder => DatePickerDateTimeOrder.date_time_dayPeriod;
+  DatePickerDateTimeOrder get datePickerDateTimeOrder =>
+      DatePickerDateTimeOrder.date_time_dayPeriod;
 
   @override
   String datePickerDayOfMonth(int dayIndex) {
@@ -114,7 +115,8 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
     return "秒";
   }
 
-  static const LocalizationsDelegate<CupertinoLocalizations> delegate = _ChineseDelegate();
+  static const LocalizationsDelegate<CupertinoLocalizations> delegate =
+      _ChineseDelegate();
 
   static Future<CupertinoLocalizations> load(Locale locale) async {
     var localizaltions = ChineseCupertinoLocalizations();

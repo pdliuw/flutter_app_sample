@@ -69,7 +69,8 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
     return Container(
       margin: EdgeInsets.only(
         left: 10,
@@ -99,7 +100,8 @@ class MessagePopupRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     return Align(
       alignment: Alignment.topCenter,
       child: FractionalTranslation(

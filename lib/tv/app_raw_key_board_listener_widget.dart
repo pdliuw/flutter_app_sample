@@ -22,10 +22,12 @@ class AppRawKeyboardListenerWidget extends StatefulWidget {
     this.onKey,
   }) {}
   @override
-  _AppRawKeyboardListenerWidgetState createState() => _AppRawKeyboardListenerWidgetState();
+  _AppRawKeyboardListenerWidgetState createState() =>
+      _AppRawKeyboardListenerWidgetState();
 }
 
-class _AppRawKeyboardListenerWidgetState extends State<AppRawKeyboardListenerWidget> {
+class _AppRawKeyboardListenerWidgetState
+    extends State<AppRawKeyboardListenerWidget> {
   @override
   Widget build(BuildContext context) {
     return RawKeyboardListener(
@@ -41,7 +43,8 @@ class _AppRawKeyboardListenerWidgetState extends State<AppRawKeyboardListenerWid
         }
         if (event is RawKeyDownEvent && event.data is RawKeyEventDataAndroid) {
           RawKeyDownEvent rawKeyDownEvent = event;
-          RawKeyEventDataAndroid rawKeyEventDataAndroid = rawKeyDownEvent.data as RawKeyEventDataAndroid;
+          RawKeyEventDataAndroid rawKeyEventDataAndroid =
+              rawKeyDownEvent.data as RawKeyEventDataAndroid;
           print("tv launcher sample ${rawKeyEventDataAndroid.keyCode}");
           switch (rawKeyEventDataAndroid.keyCode) {
             case KEY_CENTER:
@@ -52,13 +55,15 @@ class _AppRawKeyboardListenerWidgetState extends State<AppRawKeyboardListenerWid
             case KEY_UP:
               if (widget.focusIndex == 0) {
               } else {
-                FocusScope.of(context).requestFocus(widget.focusList[widget.focusIndex - 1]);
+                FocusScope.of(context)
+                    .requestFocus(widget.focusList[widget.focusIndex - 1]);
               }
               break;
             case KEY_DOWN:
               if (widget.focusIndex == (widget.focusList.length - 1)) {
               } else {
-                FocusScope.of(context).requestFocus(widget.focusList[widget.focusIndex + 1]);
+                FocusScope.of(context)
+                    .requestFocus(widget.focusList[widget.focusIndex + 1]);
               }
               break;
             default:

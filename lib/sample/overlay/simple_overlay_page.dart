@@ -90,7 +90,9 @@ class _SimpleOverlayState extends State<SimpleOverlayPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
 //          Airoute.push(route: SimpleOverlayRoute());
-          Airoute.push(route: LoadingOverlayRoute(progressValue: (_segmentValue * 10 / 100).toDouble()));
+          Airoute.push(
+              route: LoadingOverlayRoute(
+                  progressValue: (_segmentValue * 10 / 100).toDouble()));
         },
         child: Icon(Icons.slideshow),
       ),
@@ -178,7 +180,8 @@ class SimpleOverlayRoute extends OverlayRoute {
 }
 
 class SimpleOverlay extends Overlay {
-  SimpleOverlay({Key? key, required List<OverlayEntry> initialEntries}) : super(key: key, initialEntries: initialEntries);
+  SimpleOverlay({Key? key, required List<OverlayEntry> initialEntries})
+      : super(key: key, initialEntries: initialEntries);
 }
 
 class LoadingOverlayRoute extends OverlayRoute {

@@ -7,10 +7,12 @@ class StreamBuilderAsyncRequestPage extends StatefulWidget {
   const StreamBuilderAsyncRequestPage({Key? key}) : super(key: key);
 
   @override
-  _StreamBuilderAsyncRequestPageState createState() => _StreamBuilderAsyncRequestPageState();
+  _StreamBuilderAsyncRequestPageState createState() =>
+      _StreamBuilderAsyncRequestPageState();
 }
 
-class _StreamBuilderAsyncRequestPageState extends State<StreamBuilderAsyncRequestPage> {
+class _StreamBuilderAsyncRequestPageState
+    extends State<StreamBuilderAsyncRequestPage> {
   final Stream<String> _bids = (_getNetworkData)();
 
   @override
@@ -53,7 +55,9 @@ class _StreamBuilderAsyncRequestPageState extends State<StreamBuilderAsyncReques
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            if (snapshot.connectionState != ConnectionState.done) CircularProgressIndicator(),
+                            if (snapshot.connectionState !=
+                                ConnectionState.done)
+                              CircularProgressIndicator(),
                             Text("${snapshot.connectionState}"),
                             Text("${snapshot.data}"),
                           ],

@@ -72,7 +72,9 @@ class _MyHomePageState extends State<ExampleHomePage> {
                               min: min,
                               max: max,
                               value: sliderValue,
-                              valueColor: ColorTween(begin: Colors.grey, end: Colors.yellow).transform(progressValue)!,
+                              valueColor: ColorTween(
+                                      begin: Colors.grey, end: Colors.yellow)
+                                  .transform(progressValue)!,
                               pathStrokeWidth: 10,
                               valueStrokeWidth: 10,
                               gapDegree: 60,
@@ -122,7 +124,9 @@ class _MyHomePageState extends State<ExampleHomePage> {
                                   max: max,
                                   value: sliderValue,
                                   pathColor: Colors.white,
-                                  valueColor: ColorTween(begin: Colors.grey, end: Colors.red).transform(colorProgress)!,
+                                  valueColor: ColorTween(
+                                          begin: Colors.grey, end: Colors.red)
+                                      .transform(colorProgress)!,
                                   pathStrokeWidth: 10.0,
                                   valueStrokeWidth: 10.0,
                                   useCenter: false,
@@ -147,7 +151,9 @@ class _MyHomePageState extends State<ExampleHomePage> {
                                   max: max,
                                   value: sliderValue,
                                   pathColor: Colors.white,
-                                  valueColor: ColorTween(begin: Colors.grey, end: Colors.blue).transform(colorProgress)!,
+                                  valueColor: ColorTween(
+                                          begin: Colors.grey, end: Colors.blue)
+                                      .transform(colorProgress)!,
                                   pathStrokeWidth: 10.0,
                                   valueStrokeWidth: 10.0,
                                   useCenter: true,
@@ -174,7 +180,9 @@ class _MyHomePageState extends State<ExampleHomePage> {
                               min: min,
                               max: max,
                               value: sliderValue,
-                              valueColor: ColorTween(begin: Colors.grey, end: Colors.purple).transform(colorProgress)!,
+                              valueColor: ColorTween(
+                                      begin: Colors.grey, end: Colors.purple)
+                                  .transform(colorProgress)!,
                               pathStrokeWidth: 10.0,
                               valueStrokeWidth: 10.0,
                               roundCap: true,
@@ -212,7 +220,10 @@ class _MyHomePageState extends State<ExampleHomePage> {
                                         size: Size(150, 150),
                                         stepCount: max,
                                         stepValue: sliderValue,
-                                        valueColor: ColorTween(begin: Colors.grey, end: Colors.red).transform(sliderValue / max)!,
+                                        valueColor: ColorTween(
+                                                begin: Colors.grey,
+                                                end: Colors.red)
+                                            .transform(sliderValue / max)!,
                                         pathStrokeWidth: 10.0,
                                         valueStrokeWidth: 10.0,
                                       ),

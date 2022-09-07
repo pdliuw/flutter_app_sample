@@ -29,6 +29,13 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "3.0.1"
+  ai_clock:
+    dependency: "direct main"
+    description:
+      name: ai_clock
+      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
+    source: hosted
+    version: "1.0.0"
   ai_load_status:
     dependency: "direct main"
     description:

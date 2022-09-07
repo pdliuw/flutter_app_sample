@@ -85,7 +85,9 @@ class _ImagePickerPageState extends State<ImagePickerPage> {
       // See https://pub.dev/packages/image_picker#getting-ready-for-the-web-platform
       return Image.network(_pickedFile!.path);
     } else {
-      return Semantics(child: Image.file(File(_pickedFile!.path)), label: 'image_picker_example_picked_image');
+      return Semantics(
+          child: Image.file(File(_pickedFile!.path)),
+          label: 'image_picker_example_picked_image');
     }
   }
 }

@@ -175,7 +175,8 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                       ignoring: (!leftDraw && _drawerOpenedRight),
                       child: (!leftDraw && _drawerOpenedRight)
                           ? ColorFiltered(
-                              colorFilter: ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                              colorFilter: ColorFilter.mode(
+                                  Colors.grey, BlendMode.srcIn),
                               child: ListTile(
                                 onTap: () {
 //                                  _setState(!_drawerOpenedRight);
@@ -214,17 +215,17 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                     ListTile(
                       onTap: () {
                         setState(() {
-                          GlobalViewModel.getInstance().toggleDarkThemeMode();
+                          GlobalViewModel.instance.toggleDarkThemeMode();
                         });
                       },
                       leading: Text("Dark"),
                       title: Text("Dark"),
                       subtitle: Text("暗色模式"),
                       trailing: Switch(
-                        value: GlobalViewModel.getInstance().isDarkTheme,
+                        value: GlobalViewModel.instance.isDarkTheme,
                         onChanged: (bool value) {
                           setState(() {
-                            GlobalViewModel.getInstance().toggleDarkThemeMode();
+                            GlobalViewModel.instance.toggleDarkThemeMode();
                           });
                         },
                       ),
@@ -232,17 +233,17 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                     ListTile(
                       onTap: () {
                         setState(() {
-                          GlobalViewModel.getInstance().toggleLightThemeMode();
+                          GlobalViewModel.instance.toggleLightThemeMode();
                         });
                       },
                       leading: Text("Light"),
                       title: Text("Light"),
                       subtitle: Text("浅色模式"),
                       trailing: Switch(
-                        value: GlobalViewModel.getInstance().isLightTheme,
+                        value: GlobalViewModel.instance.isLightTheme,
                         onChanged: (bool value) {
                           setState(() {
-                            GlobalViewModel.getInstance().toggleLightThemeMode();
+                            GlobalViewModel.instance.toggleLightThemeMode();
                           });
                         },
                       ),
@@ -250,17 +251,17 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                     ListTile(
                       onTap: () {
                         setState(() {
-                          GlobalViewModel.getInstance().toggleSystemThemeMode();
+                          GlobalViewModel.instance.toggleSystemThemeMode();
                         });
                       },
                       leading: Text("System"),
                       title: Text("System"),
                       subtitle: Text("跟随系统"),
                       trailing: Switch(
-                        value: GlobalViewModel.getInstance().isSystemTheme,
+                        value: GlobalViewModel.instance.isSystemTheme,
                         onChanged: (bool value) {
                           setState(() {
-                            GlobalViewModel.getInstance().toggleSystemThemeMode();
+                            GlobalViewModel.instance.toggleSystemThemeMode();
                           });
                         },
                       ),
@@ -277,7 +278,8 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                     ListTile(
                         onTap: () {
                           setState(() {
-                            TipHelper.showTip(context: context, message: "努力开发中...");
+                            TipHelper.showTip(
+                                context: context, message: "努力开发中...");
                           });
                         },
                         title: Text("常亮"),
@@ -316,7 +318,8 @@ class _PersonalSlideState extends State<PersonalSlideDrawer> {
                                   ),
                                   CupertinoDialogAction(
                                     onPressed: () {
-                                      Airoute.pushNamedAndRemoveUntil(newRouteName: "/LoginPage");
+                                      Airoute.pushNamedAndRemoveUntil(
+                                          newRouteName: "/LoginPage");
                                     },
                                     child: Text("确定"),
                                   ),

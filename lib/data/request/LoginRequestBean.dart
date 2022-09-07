@@ -1,4 +1,1 @@
-
-class LoginRequestBean{
-
-}
+class LoginRequestBean {}

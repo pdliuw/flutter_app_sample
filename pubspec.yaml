@@ -91,6 +91,8 @@ dependencies:
   # image picker
   image_picker: 0.8.5+3
 
+  ai_clock: ^1.0.0
+
 dependency_overrides:
   xml: 5.1.2
   path_drawing: 1.0.1

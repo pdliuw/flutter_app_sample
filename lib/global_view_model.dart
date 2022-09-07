@@ -11,7 +11,7 @@ class GlobalViewModel extends ChangeNotifier {
 
   ///
   /// Instance
-  static GlobalViewModel getInstance() {
+  static GlobalViewModel get instance {
     if (_globalViewModel == null) {
       _globalViewModel = GlobalViewModel._();
     }
@@ -48,7 +48,8 @@ class GlobalViewModel extends ChangeNotifier {
   /// Toggle theme mode
   /// ToggleTheme(one of 'DarkTheme or LightTheme')
   ThemeMode toggleThemeMode() {
-    _themeMode = _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    _themeMode =
+        _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     //notify listeners adapter
     notifyListeners();
     return _themeMode;

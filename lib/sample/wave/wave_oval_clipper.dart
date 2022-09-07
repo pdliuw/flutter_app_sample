@@ -66,7 +66,8 @@ class WaveOvalClipper extends CustomClipper<Path> {
           sweepAngle = 45;
         }
       }
-      Rect rect = Rect.fromLTRB(left, top, left + pieceOfWidth, top + pieceOfHeight);
+      Rect rect =
+          Rect.fromLTRB(left, top, left + pieceOfWidth, top + pieceOfHeight);
       path.addOval(rect);
     }
 

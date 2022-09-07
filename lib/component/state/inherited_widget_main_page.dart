@@ -8,7 +8,8 @@ class InheritedWidgetMainPage extends StatefulWidget {
   const InheritedWidgetMainPage({Key? key}) : super(key: key);
 
   @override
-  _InheritedWidgetMainPageState createState() => _InheritedWidgetMainPageState();
+  _InheritedWidgetMainPageState createState() =>
+      _InheritedWidgetMainPageState();
 }
 
 class _InheritedWidgetMainPageState extends State<InheritedWidgetMainPage> {

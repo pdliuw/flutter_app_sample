@@ -7,10 +7,12 @@ class FutureBuilderAsyncRequestPage extends StatefulWidget {
   const FutureBuilderAsyncRequestPage({Key? key}) : super(key: key);
 
   @override
-  _FutureBuilderAsyncRequestPageState createState() => _FutureBuilderAsyncRequestPageState();
+  _FutureBuilderAsyncRequestPageState createState() =>
+      _FutureBuilderAsyncRequestPageState();
 }
 
-class _FutureBuilderAsyncRequestPageState extends State<FutureBuilderAsyncRequestPage> {
+class _FutureBuilderAsyncRequestPageState
+    extends State<FutureBuilderAsyncRequestPage> {
   final Future<String> _calculation = Future<String>.delayed(
     const Duration(seconds: 10),
     () => 'Data Loaded',
@@ -58,7 +60,9 @@ class _FutureBuilderAsyncRequestPageState extends State<FutureBuilderAsyncReques
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            if (snapshot.connectionState != ConnectionState.done) CircularProgressIndicator(),
+                            if (snapshot.connectionState !=
+                                ConnectionState.done)
+                              CircularProgressIndicator(),
                             Text("${snapshot.connectionState}"),
                             Text("${snapshot.data}"),
                           ],

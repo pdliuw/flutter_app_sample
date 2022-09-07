@@ -62,7 +62,8 @@ class _BarcodePermissionWidgetState extends State<_BarcodePermissionWidget> {
     if (ComponentConfig.BAR_CODE_REQUEST_PERMISSION) {
       TargetPlatform platform = Theme.of(context).platform;
 
-      if (platform == TargetPlatform.android || platform == TargetPlatform.iOS) {
+      if (platform == TargetPlatform.android ||
+          platform == TargetPlatform.iOS) {
         _requestMobilePermission();
       } else {
         setState(() {
@@ -152,7 +153,8 @@ class _BarcodeInputState extends State<_BarcodeInputWidget> {
       final text = _controller.text.toLowerCase();
       _controller.value = _controller.value.copyWith(
         text: text,
-        selection: TextSelection(baseOffset: text.length, extentOffset: text.length),
+        selection:
+            TextSelection(baseOffset: text.length, extentOffset: text.length),
         composing: TextRange.empty,
       );
     });

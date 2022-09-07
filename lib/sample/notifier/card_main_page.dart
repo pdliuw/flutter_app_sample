@@ -51,7 +51,8 @@ class _CarMainState extends State<CardMainPage> {
           ),
           RaisedButton(
             textColor: Colors.white,
-            color: ColorTween(begin: Colors.red, end: Colors.blue).transform(0.5),
+            color:
+                ColorTween(begin: Colors.red, end: Colors.blue).transform(0.5),
             onPressed: () {
               Airoute.pushNamedWithAnimation(
                 routeName: "/CardInfoPage",

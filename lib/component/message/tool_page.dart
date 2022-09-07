@@ -27,9 +27,24 @@ class _AiAwesomeMessageToolState extends State<AiAwesomeMessageToolPage> {
 
   List<bool> _toggleSelected = [true, false, false, false];
   List<String> _toggleLabels = ["info", "warn", "error", "complete"];
-  List<Color?> _tipStyleColors = [Colors.blue[100], Colors.orange[100], Colors.red[100], Colors.green[200]];
-  List<Color?> _tipIndicatorColors = [Colors.blue[300], Colors.orange[300], Colors.red[300], Colors.blue[300]];
-  List<Color?> _tipIconColors = [Colors.blue[500], Colors.orange[500], Colors.red[500], Colors.blue[500]];
+  List<Color?> _tipStyleColors = [
+    Colors.blue[100],
+    Colors.orange[100],
+    Colors.red[100],
+    Colors.green[200]
+  ];
+  List<Color?> _tipIndicatorColors = [
+    Colors.blue[300],
+    Colors.orange[300],
+    Colors.red[300],
+    Colors.blue[300]
+  ];
+  List<Color?> _tipIconColors = [
+    Colors.blue[500],
+    Colors.orange[500],
+    Colors.red[500],
+    Colors.blue[500]
+  ];
 
   List<IconData> _tipIconDatas = [
     Icons.info_outline,
@@ -44,7 +59,10 @@ class _AiAwesomeMessageToolState extends State<AiAwesomeMessageToolPage> {
   IconData _tipIconData = Icons.info_outline;
 
   List<bool> _tipStyleSelected = [true, false];
-  List<AwesomeMessageStyle> _tipStyleValues = [AwesomeMessageStyle.GROUNDED, AwesomeMessageStyle.FLOATING];
+  List<AwesomeMessageStyle> _tipStyleValues = [
+    AwesomeMessageStyle.GROUNDED,
+    AwesomeMessageStyle.FLOATING
+  ];
   AwesomeMessageStyle _tipStyleValue = AwesomeMessageStyle.GROUNDED;
 
   TextEditingController? _editingControllerTitle;
@@ -73,7 +91,10 @@ class _AiAwesomeMessageToolState extends State<AiAwesomeMessageToolPage> {
               color: _tipIconColor,
             )
           : null,
-      duration: Duration(seconds: (_tipSecondDuration <= 0 || _tipSecondDuration >= 11) ? 1 : _tipSecondDuration),
+      duration: Duration(
+          seconds: (_tipSecondDuration <= 0 || _tipSecondDuration >= 11)
+              ? 1
+              : _tipSecondDuration),
       borderRadius: _tipBorderRadius,
       margin: EdgeInsets.all(_tipMargin),
       awesomeMessagePosition: AwesomeMessagePosition.TOP,
@@ -144,7 +165,9 @@ class _AiAwesomeMessageToolState extends State<AiAwesomeMessageToolPage> {
                     ToggleButtons(
                       isSelected: _tipStyleSelected,
                       onPressed: (int index) {
-                        for (int i = 0, size = _tipStyleSelected.length; i < size; i++) {
+                        for (int i = 0, size = _tipStyleSelected.length;
+                            i < size;
+                            i++) {
                           if (i == index) {
                             _tipStyleSelected[i] = !_tipStyleSelected[index];
                             _tipStyleValue = _tipStyleValues[index];
@@ -328,7 +351,8 @@ class _AiAwesomeMessageToolState extends State<AiAwesomeMessageToolPage> {
           Widget awesomeMessage = _getAwesomeMessage();
           if (awesomeMessage is AwesomeMessage) {
             Airoute.push(
-              route: AwesomeMessageRoute(theme: null, awesomeMessage: awesomeMessage),
+              route: AwesomeMessageRoute(
+                  theme: null, awesomeMessage: awesomeMessage),
             );
           }
         },

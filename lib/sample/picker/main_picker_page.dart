@@ -75,7 +75,8 @@ class _MainPickerState extends State<MainPickerPage> {
                               context: context,
                               changed: (DateTime time) {
                                 setState(() {
-                                  _date = "${time.year}-${time.month}-${time.day}";
+                                  _date =
+                                      "${time.year}-${time.month}-${time.day}";
                                 });
                               });
                         },
@@ -93,9 +94,11 @@ class _MainPickerState extends State<MainPickerPage> {
                         onPressed: () {
                           _showCupertinoDateAndTimePicker(
                               context: context,
-                              changed: (year, month, day, hour, minute, second) {
+                              changed:
+                                  (year, month, day, hour, minute, second) {
                                 setState(() {
-                                  _dateAndTime = "${year}-${month}-${day} ${hour}:${minute}:${second}";
+                                  _dateAndTime =
+                                      "${year}-${month}-${day} ${hour}:${minute}:${second}";
                                 });
                               });
                         },
@@ -315,7 +318,9 @@ class _MainPickerState extends State<MainPickerPage> {
                         width: 100,
                         margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: ColorTween(begin: Colors.grey, end: Colors.white).transform(0.5),
+                          color:
+                              ColorTween(begin: Colors.grey, end: Colors.white)
+                                  .transform(0.5),
                           borderRadius: BorderRadiusDirectional.only(
                             topStart: Radius.circular(20),
                             topEnd: Radius.circular(20),
@@ -379,7 +384,9 @@ class _MainPickerState extends State<MainPickerPage> {
 
   void _showCupertinoDateAndTimePicker({
     required BuildContext context,
-    required Function(int year, int month, int day, int hours, int minute, int second) changed,
+    required Function(
+            int year, int month, int day, int hours, int minute, int second)
+        changed,
   }) {
     DateTime nowTime = DateTime.now();
     DateTime cacheDateTime = nowTime;

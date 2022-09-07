@@ -361,7 +361,8 @@ class MainModelConfig {
     },
     {
       "title": "ai_awesome_message",
-      "subtitle": "A new Awesome message widget that is sames to toast;snackbar;prompt of Flutter package",
+      "subtitle":
+          "A new Awesome message widget that is sames to toast;snackbar;prompt of Flutter package",
       "routeName": "/message/AwesomeMessageMainPage",
       "link": <String, dynamic>{
         "github": "https://github.com/pdliuw/ai_awesome_message",

@@ -79,7 +79,8 @@ class _DropState extends State<DropDownPage> {
                     );
                   }).toList();
                 },
-                items: _dropDownItems.map<DropdownMenuItem<String>>((String value) {
+                items: _dropDownItems
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -102,7 +103,8 @@ class _DropState extends State<DropDownPage> {
                     // ...other items handled here
                   }
                 },
-                itemBuilder: (BuildContext context) => <PopupMenuEntry<Commands>>[
+                itemBuilder: (BuildContext context) =>
+                    <PopupMenuEntry<Commands>>[
                   CheckedPopupMenuItem<Commands>(
                     checked: _heroAndScholar,
                     value: Commands.heroAndScholar,

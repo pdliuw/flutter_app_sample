@@ -60,8 +60,12 @@ class _AnimOfSwitchState extends State<AnimOfSwitchPage> {
             if (_tabSelectedIndex == 0) {
               Airoute.pushNamedWithAnimation(
                 routeName: "/CollapsingToolbarPage",
-                duration: Duration(seconds: _durationAnimation.start.truncate()),
-                routePageAnimation: (BuildContext? context, Animation<double>? animation, Animation<double>? secondaryAnimation, Widget? page) {
+                duration:
+                    Duration(seconds: _durationAnimation.start.truncate()),
+                routePageAnimation: (BuildContext? context,
+                    Animation<double>? animation,
+                    Animation<double>? secondaryAnimation,
+                    Widget? page) {
                   return _getTransition(
                     animation: animation!,
                     page: page!,
@@ -71,7 +75,8 @@ class _AnimOfSwitchState extends State<AnimOfSwitchPage> {
             } else {
               Airoute.pushNamedWithAnimation(
                 routeName: "/CollapsingToolbarPage",
-                duration: Duration(seconds: _durationAnimation.start.truncate()),
+                duration:
+                    Duration(seconds: _durationAnimation.start.truncate()),
                 routePageAnimation: AirouteTransition.Fade,
               );
             }
@@ -153,10 +158,13 @@ class _AnimOfSwitchState extends State<AnimOfSwitchPage> {
                         _durationAnimation = RangeValues(values.start, end);
                       });
                     },
-                    values: RangeValues(_durationAnimation.start, _durationAnimation.end),
+                    values: RangeValues(
+                        _durationAnimation.start, _durationAnimation.end),
                     min: _durationAnimationLimit.start,
                     max: _durationAnimationLimit.end,
-                    labels: RangeLabels("${_durationAnimation.start.truncate()}", "${_durationAnimation.end.truncate()}"),
+                    labels: RangeLabels(
+                        "${_durationAnimation.start.truncate()}",
+                        "${_durationAnimation.end.truncate()}"),
                     divisions: _durationAnimationDivisions,
                   ),
                 ),

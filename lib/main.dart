@@ -46,9 +46,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'ChineseCupertinoLocalizations.dart';
+import 'app/export_app_component_file.dart';
 import 'component/barcode/barcode_main_page.dart';
 import 'component/builder/stream_builder_async_request_page.dart';
-import 'component/dartpad/dartpad_page.dart';
 import 'component/filter/select_color_filter_page.dart';
 import 'component/message/awesome_message_main_page.dart';
 import 'component/network/network_check_page.dart';
@@ -93,7 +93,9 @@ class MyApp extends StatelessWidget {
       return AppTextHeadline6Widget.defaultStyle(data: detail.toString());
     };
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => GlobalViewModel.getInstance())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => GlobalViewModel.instance)
+      ],
       child: Consumer<GlobalViewModel>(
         builder: (context, value, child) {
           return ColorFiltered(
@@ -185,7 +187,8 @@ class MyApp extends StatelessWidget {
                     "/MainAnimSortPage": (_) => MainAnimSortPage(),
                     "/AnimOfSwitchPage": (_) => AnimOfSwitchPage(),
                     "/AnimatedContainerPage": (_) => AnimatedContainerPage(),
-                    "/OpacityAndAnimatedOpacityPage": (_) => OpacityAndAnimatedOpacityPage(),
+                    "/OpacityAndAnimatedOpacityPage": (_) =>
+                        OpacityAndAnimatedOpacityPage(),
                     "/FadeInImagePage": (_) => FadeInImagePage(),
                     "/HeroAnimPage": (_) => HeroAnimPage(),
                     "/TransformPage": (_) => TransformPage(),
@@ -203,8 +206,10 @@ class MyApp extends StatelessWidget {
                     "/MainPickerPage": (_) => MainPickerPage(),
                     "/FlutterWebPage": (_) => FlutterWebPage(),
                     "/AirLicensePage": (_) => AirLicensePage(),
-                    "/ListWheelScrollViewPage": (_) => ListWheelScrollViewPage(),
-                    "/CurvedNavigationBarPage": (_) => CurvedNavigationBarPage(),
+                    "/ListWheelScrollViewPage": (_) =>
+                        ListWheelScrollViewPage(),
+                    "/CurvedNavigationBarPage": (_) =>
+                        CurvedNavigationBarPage(),
                     "/ClipMainPage": (_) => ClipMainPage(),
                     "/InkPage": (_) => InkPage(),
                     "/RichTextPage": (_) => RichTextPage(),
@@ -225,28 +230,30 @@ class MyApp extends StatelessWidget {
                     "/route/LaunchPage": (_) => LaunchPage(),
                     "/route/SecondPage": (_) => SecondPage(),
                     "/route/ThirdPage": (_) => ThirdPage(),
-                    "/message/AwesomeMessageMainPage": (_) => AwesomeMessageMainPage(),
+                    "/message/AwesomeMessageMainPage": (_) =>
+                        AwesomeMessageMainPage(),
                     "/paint/SunMainPage": (_) => SunMainPage(),
                     "/image/ImagePickerPage": (_) => ImagePickerPage(),
                     "/StreamBuilderMainPage": (_) => StreamBuilderMainPage(),
-                    "/StreamBuilderMainPage/StreamBuilderAsyncRequestPage": (_) => StreamBuilderAsyncRequestPage(),
+                    "/StreamBuilderMainPage/StreamBuilderAsyncRequestPage":
+                        (_) => StreamBuilderAsyncRequestPage(),
                     "/FutureBuilderMainPage": (_) => FutureBuilderMainPage(),
-                    "/FutureBuilderMainPage/FutureBuilderAsyncRequestPage": (_) => FutureBuilderAsyncRequestPage(),
-                    "/InheritedWidgetMainPage": (_) => InheritedWidgetMainPage(),
+                    "/FutureBuilderMainPage/FutureBuilderAsyncRequestPage":
+                        (_) => FutureBuilderAsyncRequestPage(),
+                    "/InheritedWidgetMainPage": (_) =>
+                        InheritedWidgetMainPage(),
                     "/TabMainPage": (_) => TabMainPage(),
-                    "/TabMainPage/NavigationRailPage": (_) => NavigationRailPage(),
-                    "/TabMainPage/NavigationDrawerPage": (_) => NavigationDrawerPage(),
+                    "/TabMainPage/NavigationRailPage": (_) =>
+                        NavigationRailPage(),
+                    "/TabMainPage/NavigationDrawerPage": (_) =>
+                        NavigationDrawerPage(),
                     "/FittedBoxPage": (_) => FittedBoxPage(),
                     "/SearchPage": (_) => SearchPage(),
-                    "/DartpadPage": (_) => DartpadPage(),
                   },
                   builder: EasyLoading.init(
                     //loading
-                    builder: (context, Widget? widget) {
-                      return MediaQuery(
-                        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-                        child: widget!,
-                      );
+                    builder: (context, Widget? app) {
+                      return AppWrapWidget(app: app ?? Container());
                     },
                   )),
             ),
